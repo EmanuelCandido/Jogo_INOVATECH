@@ -1,0 +1,410 @@
+[
+  {
+    "name": "access-ramp.glb",
+    "bytes": 34924,
+    "vertices": 978,
+    "triangles": 584,
+    "primitives": 4,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "access-step.glb",
+    "bytes": 8684,
+    "vertices": 168,
+    "triangles": 156,
+    "primitives": 3,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "access-temporary.glb",
+    "bytes": 22404,
+    "vertices": 546,
+    "triangles": 384,
+    "primitives": 5,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "bench.glb",
+    "bytes": 26328,
+    "vertices": 768,
+    "triangles": 444,
+    "primitives": 2,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "bridge.glb",
+    "bytes": 56120,
+    "vertices": 1560,
+    "triangles": 1248,
+    "primitives": 5,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "car-blue.glb",
+    "bytes": 52636,
+    "vertices": 1460,
+    "triangles": 986,
+    "primitives": 6,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "car-coral.glb",
+    "bytes": 51720,
+    "vertices": 1460,
+    "triangles": 986,
+    "primitives": 5,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "car-gold.glb",
+    "bytes": 52636,
+    "vertices": 1460,
+    "triangles": 986,
+    "primitives": 6,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "car-white.glb",
+    "bytes": 51724,
+    "vertices": 1460,
+    "triangles": 986,
+    "primitives": 5,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "cargo-ship.glb",
+    "bytes": 178720,
+    "vertices": 5098,
+    "triangles": 4584,
+    "primitives": 9,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "city-bus.glb",
+    "bytes": 107900,
+    "vertices": 3077,
+    "triangles": 2192,
+    "primitives": 9,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "civic.glb",
+    "bytes": 163640,
+    "vertices": 4917,
+    "triangles": 4006,
+    "primitives": 8,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "container-blue.glb",
+    "bytes": 53312,
+    "vertices": 1594,
+    "triangles": 940,
+    "primitives": 3,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "container-red.glb",
+    "bytes": 53308,
+    "vertices": 1594,
+    "triangles": 940,
+    "primitives": 3,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "corner-cafe.glb",
+    "bytes": 92160,
+    "vertices": 2614,
+    "triangles": 1812,
+    "primitives": 10,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "court.glb",
+    "bytes": 167748,
+    "vertices": 5208,
+    "triangles": 2916,
+    "primitives": 5,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "delivery-truck.glb",
+    "bytes": 57940,
+    "vertices": 1584,
+    "triangles": 1128,
+    "primitives": 7,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "factory.glb",
+    "bytes": 233996,
+    "vertices": 6926,
+    "triangles": 4898,
+    "primitives": 12,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "fountain.glb",
+    "bytes": 76656,
+    "vertices": 2153,
+    "triangles": 2060,
+    "primitives": 4,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "fuel-station.glb",
+    "bytes": 141148,
+    "vertices": 4063,
+    "triangles": 3460,
+    "primitives": 10,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "greenhouse.glb",
+    "bytes": 472084,
+    "vertices": 13410,
+    "triangles": 15132,
+    "primitives": 8,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "harbor-crane.glb",
+    "bytes": 141364,
+    "vertices": 4224,
+    "triangles": 2932,
+    "primitives": 6,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "hospital.glb",
+    "bytes": 407716,
+    "vertices": 12978,
+    "triangles": 10028,
+    "primitives": 11,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "house-coral.glb",
+    "bytes": 194028,
+    "vertices": 5400,
+    "triangles": 5750,
+    "primitives": 14,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "house-cream.glb",
+    "bytes": 193844,
+    "vertices": 5400,
+    "triangles": 5750,
+    "primitives": 13,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "lamp.glb",
+    "bytes": 12040,
+    "vertices": 300,
+    "triangles": 176,
+    "primitives": 3,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "lighthouse.glb",
+    "bytes": 115700,
+    "vertices": 3408,
+    "triangles": 2078,
+    "primitives": 8,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "office-glass.glb",
+    "bytes": 136004,
+    "vertices": 4082,
+    "triangles": 2608,
+    "primitives": 7,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "pine.glb",
+    "bytes": 35924,
+    "vertices": 880,
+    "triangles": 1512,
+    "primitives": 2,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "playground.glb",
+    "bytes": 61252,
+    "vertices": 1712,
+    "triangles": 1052,
+    "primitives": 7,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "port-warehouse.glb",
+    "bytes": 105032,
+    "vertices": 2952,
+    "triangles": 2304,
+    "primitives": 9,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "rock.glb",
+    "bytes": 4000,
+    "vertices": 120,
+    "triangles": 40,
+    "primitives": 2,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "salvador.glb",
+    "bytes": 148160,
+    "vertices": 3846,
+    "triangles": 5596,
+    "primitives": 7,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "school.glb",
+    "bytes": 292752,
+    "vertices": 8960,
+    "triangles": 5460,
+    "primitives": 10,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "shrub.glb",
+    "bytes": 44412,
+    "vertices": 1095,
+    "triangles": 1760,
+    "primitives": 3,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "townhouse-coral.glb",
+    "bytes": 399980,
+    "vertices": 11862,
+    "triangles": 9380,
+    "primitives": 12,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "townhouse-cream.glb",
+    "bytes": 355344,
+    "vertices": 10422,
+    "triangles": 8660,
+    "primitives": 12,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "townhouse-pink.glb",
+    "bytes": 320144,
+    "vertices": 9318,
+    "triangles": 8108,
+    "primitives": 11,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "townhouse-sage.glb",
+    "bytes": 399976,
+    "vertices": 11862,
+    "triangles": 9380,
+    "primitives": 12,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "traffic.glb",
+    "bytes": 31056,
+    "vertices": 876,
+    "triangles": 656,
+    "primitives": 5,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "train-carriage.glb",
+    "bytes": 107332,
+    "vertices": 3012,
+    "triangles": 2248,
+    "primitives": 10,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "tree-birch.glb",
+    "bytes": 28692,
+    "vertices": 828,
+    "triangles": 656,
+    "primitives": 4,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "tree-fir.glb",
+    "bytes": 12480,
+    "vertices": 312,
+    "triangles": 268,
+    "primitives": 2,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "tree-maple.glb",
+    "bytes": 26636,
+    "vertices": 699,
+    "triangles": 624,
+    "primitives": 3,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "tree-oak.glb",
+    "bytes": 26640,
+    "vertices": 699,
+    "triangles": 624,
+    "primitives": 3,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "tree-thicket.glb",
+    "bytes": 19920,
+    "vertices": 522,
+    "triangles": 564,
+    "primitives": 4,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "tree.glb",
+    "bytes": 35916,
+    "vertices": 880,
+    "triangles": 1512,
+    "primitives": 2,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "turbine.glb",
+    "bytes": 21632,
+    "vertices": 558,
+    "triangles": 804,
+    "primitives": 1,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "waste-bin.glb",
+    "bytes": 18912,
+    "vertices": 432,
+    "triangles": 380,
+    "primitives": 5,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "waste-partial.glb",
+    "bytes": 36628,
+    "vertices": 924,
+    "triangles": 1432,
+    "primitives": 2,
+    "bakedOcclusion": true
+  },
+  {
+    "name": "waste-pile.glb",
+    "bytes": 111616,
+    "vertices": 2892,
+    "triangles": 4428,
+    "primitives": 4,
+    "bakedOcclusion": true
+  }
+]

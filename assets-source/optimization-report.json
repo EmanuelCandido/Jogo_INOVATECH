@@ -1,0 +1,404 @@
+[
+  {
+    "name": "access-ramp.glb",
+    "before": 57828,
+    "after": 42588,
+    "meshes": 5
+  },
+  {
+    "name": "access-step.glb",
+    "before": 17760,
+    "after": 13376,
+    "meshes": 4
+  },
+  {
+    "name": "access-temporary.glb",
+    "before": 40692,
+    "after": 31056,
+    "meshes": 7
+  },
+  {
+    "name": "assistance-kiosk.glb",
+    "before": 41580,
+    "after": 29408,
+    "meshes": 8
+  },
+  {
+    "name": "beach-set.glb",
+    "before": 68848,
+    "after": 50388,
+    "meshes": 5
+  },
+  {
+    "name": "bench.glb",
+    "before": 63268,
+    "after": 46152,
+    "meshes": 3
+  },
+  {
+    "name": "bridge.glb",
+    "before": 123340,
+    "after": 91440,
+    "meshes": 6
+  },
+  {
+    "name": "bus-shelter.glb",
+    "before": 50716,
+    "after": 36932,
+    "meshes": 7
+  },
+  {
+    "name": "car-blue.glb",
+    "before": 94820,
+    "after": 69172,
+    "meshes": 9
+  },
+  {
+    "name": "car-coral.glb",
+    "before": 93932,
+    "after": 69140,
+    "meshes": 8
+  },
+  {
+    "name": "car-gold.glb",
+    "before": 94820,
+    "after": 69172,
+    "meshes": 9
+  },
+  {
+    "name": "car-white.glb",
+    "before": 93660,
+    "after": 68260,
+    "meshes": 8
+  },
+  {
+    "name": "cargo-ship.glb",
+    "before": 306612,
+    "after": 220564,
+    "meshes": 11
+  },
+  {
+    "name": "city-bus.glb",
+    "before": 178492,
+    "after": 127604,
+    "meshes": 10
+  },
+  {
+    "name": "civic.glb",
+    "before": 273552,
+    "after": 196044,
+    "meshes": 8
+  },
+  {
+    "name": "container-blue.glb",
+    "before": 108472,
+    "after": 79200,
+    "meshes": 4
+  },
+  {
+    "name": "container-red.glb",
+    "before": 108468,
+    "after": 79200,
+    "meshes": 4
+  },
+  {
+    "name": "corner-cafe.glb",
+    "before": 198652,
+    "after": 129584,
+    "meshes": 10
+  },
+  {
+    "name": "court.glb",
+    "before": 674196,
+    "after": 434064,
+    "meshes": 6
+  },
+  {
+    "name": "delivery-truck.glb",
+    "before": 118960,
+    "after": 86476,
+    "meshes": 9
+  },
+  {
+    "name": "factory.glb",
+    "before": 486180,
+    "after": 332932,
+    "meshes": 13
+  },
+  {
+    "name": "football-field.glb",
+    "before": 704632,
+    "after": 471040,
+    "meshes": 7
+  },
+  {
+    "name": "fountain.glb",
+    "before": 143572,
+    "after": 106856,
+    "meshes": 6
+  },
+  {
+    "name": "fuel-station.glb",
+    "before": 230132,
+    "after": 147436,
+    "meshes": 10
+  },
+  {
+    "name": "greenhouse.glb",
+    "before": 674844,
+    "after": 499588,
+    "meshes": 10
+  },
+  {
+    "name": "harbor-crane.glb",
+    "before": 282564,
+    "after": 193552,
+    "meshes": 6
+  },
+  {
+    "name": "heat-pump.glb",
+    "before": 64148,
+    "after": 41492,
+    "meshes": 4
+  },
+  {
+    "name": "hospital.glb",
+    "before": 618076,
+    "after": 429656,
+    "meshes": 12
+  },
+  {
+    "name": "house-coral.glb",
+    "before": 335948,
+    "after": 244264,
+    "meshes": 19
+  },
+  {
+    "name": "house-cream.glb",
+    "before": 335564,
+    "after": 244076,
+    "meshes": 18
+  },
+  {
+    "name": "information-sign.glb",
+    "before": 22740,
+    "after": 16540,
+    "meshes": 4
+  },
+  {
+    "name": "lamp.glb",
+    "before": 24936,
+    "after": 17452,
+    "meshes": 5
+  },
+  {
+    "name": "lighthouse.glb",
+    "before": 201060,
+    "after": 146516,
+    "meshes": 11
+  },
+  {
+    "name": "office-glass.glb",
+    "before": 204276,
+    "after": 145232,
+    "meshes": 8
+  },
+  {
+    "name": "pergola.glb",
+    "before": 162140,
+    "after": 121092,
+    "meshes": 9
+  },
+  {
+    "name": "pier.glb",
+    "before": 691596,
+    "after": 451864,
+    "meshes": 8
+  },
+  {
+    "name": "pine.glb",
+    "before": 56304,
+    "after": 47204,
+    "meshes": 2
+  },
+  {
+    "name": "playground.glb",
+    "before": 127380,
+    "after": 86912,
+    "meshes": 7
+  },
+  {
+    "name": "port-warehouse.glb",
+    "before": 177700,
+    "after": 125564,
+    "meshes": 10
+  },
+  {
+    "name": "rabbit.glb",
+    "before": 46456,
+    "after": 34700,
+    "meshes": 5
+  },
+  {
+    "name": "river-outfall.glb",
+    "before": 88772,
+    "after": 59956,
+    "meshes": 4
+  },
+  {
+    "name": "rock.glb",
+    "before": 10320,
+    "after": 7720,
+    "meshes": 2
+  },
+  {
+    "name": "sailboat.glb",
+    "before": 40732,
+    "after": 30548,
+    "meshes": 6
+  },
+  {
+    "name": "salvador.glb",
+    "before": 214708,
+    "after": 161756,
+    "meshes": 10
+  },
+  {
+    "name": "school.glb",
+    "before": 448420,
+    "after": 326132,
+    "meshes": 11
+  },
+  {
+    "name": "shrub.glb",
+    "before": 73204,
+    "after": 55400,
+    "meshes": 5
+  },
+  {
+    "name": "thermometer.glb",
+    "before": 44512,
+    "after": 30056,
+    "meshes": 5
+  },
+  {
+    "name": "townhouse-coral.glb",
+    "before": 632588,
+    "after": 461696,
+    "meshes": 16
+  },
+  {
+    "name": "townhouse-cream.glb",
+    "before": 570672,
+    "after": 417060,
+    "meshes": 16
+  },
+  {
+    "name": "townhouse-pink.glb",
+    "before": 521972,
+    "after": 381860,
+    "meshes": 15
+  },
+  {
+    "name": "townhouse-sage.glb",
+    "before": 632580,
+    "after": 461684,
+    "meshes": 16
+  },
+  {
+    "name": "traffic.glb",
+    "before": 58128,
+    "after": 40652,
+    "meshes": 7
+  },
+  {
+    "name": "train-carriage.glb",
+    "before": 176048,
+    "after": 129104,
+    "meshes": 11
+  },
+  {
+    "name": "tree-birch.glb",
+    "before": 59052,
+    "after": 43724,
+    "meshes": 4
+  },
+  {
+    "name": "tree-fir.glb",
+    "before": 32212,
+    "after": 23704,
+    "meshes": 2
+  },
+  {
+    "name": "tree-maple.glb",
+    "before": 50468,
+    "after": 36988,
+    "meshes": 3
+  },
+  {
+    "name": "tree-oak.glb",
+    "before": 53816,
+    "after": 40036,
+    "meshes": 4
+  },
+  {
+    "name": "tree-stump.glb",
+    "before": 112752,
+    "after": 71616,
+    "meshes": 3
+  },
+  {
+    "name": "tree-thicket.glb",
+    "before": 36704,
+    "after": 25592,
+    "meshes": 4
+  },
+  {
+    "name": "tree.glb",
+    "before": 48496,
+    "after": 41552,
+    "meshes": 2
+  },
+  {
+    "name": "turbine.glb",
+    "before": 53888,
+    "after": 40156,
+    "meshes": 3
+  },
+  {
+    "name": "waste-bin.glb",
+    "before": 54464,
+    "after": 37928,
+    "meshes": 6
+  },
+  {
+    "name": "waste-partial.glb",
+    "before": 77744,
+    "after": 58448,
+    "meshes": 6
+  },
+  {
+    "name": "waste-pile.glb",
+    "before": 184968,
+    "after": 136944,
+    "meshes": 7
+  },
+  {
+    "name": "water-treatment.glb",
+    "before": 195976,
+    "after": 129524,
+    "meshes": 7
+  },
+  {
+    "name": "wheelchair-user.glb",
+    "before": 224272,
+    "after": 144380,
+    "meshes": 10
+  },
+  {
+    "name": "wildlife-shelter.glb",
+    "before": 94780,
+    "after": 68300,
+    "meshes": 8
+  }
+]
