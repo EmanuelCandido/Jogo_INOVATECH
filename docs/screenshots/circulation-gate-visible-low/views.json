@@ -1,0 +1,23 @@
+[
+  {
+    "name": "07-bridge",
+    "u": -22,
+    "v": -1,
+    "zoom": 30,
+    "y": 0
+  },
+  {
+    "name": "04-industrial-yard",
+    "u": 107,
+    "v": 84,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "04-gate-priority",
+    "u": 89,
+    "v": 80,
+    "zoom": 65,
+    "y": 0
+  }
+]

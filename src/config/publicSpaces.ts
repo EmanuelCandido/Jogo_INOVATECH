@@ -38,6 +38,10 @@ export const pierAccess:Placement[]=[
  {asset:'prop.pier',position:[60,0,-3],scale:[1,1,1]},
 ];
 export const publicSpaceReservations=[
+ // Station, lift exits and the whole elevated alignment reserve their ground
+ // envelope before forest, flowerbeds and furniture are generated.
+ {x:-15,z:-36,w:7.5,d:6.4},
+ {x:-31.5,z:-35.5,w:27,d:3.6},
  ...seatSites.map(s=>({x:s.x,z:s.z,w:1.65,d:1.65})),
  ...[...sportsAccess,...pierAccess.filter(p=>p.scale)].map(p=>({x:p.position[0],z:p.position[2],w:p.scale![0],d:p.scale![2]})),
 ];

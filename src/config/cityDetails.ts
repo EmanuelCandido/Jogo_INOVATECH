@@ -6,6 +6,7 @@ import {cityLots,forest,place,lotPaving} from './districts';
 import {infrastructure,roadPlacements} from './infrastructure';
 import {inSituationClearing} from './situationSites';
 import {terrainHeight} from './terrain';
+import {layoutFor,attachmentWorld} from '../assets/modelLayout';
 
 export interface CityDecoration {id:string;kind:string;tier:1|2;details:LandscapeDetail[];assets:Placement[];footprint?:{x:number;z:number;radius:number}}
 export const cityDecorations:CityDecoration[]=[];
@@ -98,26 +99,15 @@ for(const [i,p] of infrastructure.entries()){
  }
 }
 
-// Roof heights follow the Blender source's recessed slab, not the tallest vent.
-const floorCount:Record<string,number>={'building.sage':5,'building.terracotta':5,'building.cream':4,'building.pink':4};
+// Essential panels and gardens are in the GLBs. This compact roof tree uses
+// a reserved socket transformed with the complete lot, including its rotation.
 for(const [i,l] of cityLots.entries()){
- const b=l.building,floors=floorCount[b.asset];if(!floors&&b.asset!=='building.office')continue;
- const [x,,z]=b.position,[sx,sy,sz]=b.scale!,roof=b.asset==='building.office'?5.61:.4825+floors*.77,y=b.position[1]+roof*sy;
- group('jardim na cobertura',1);
- planter(x+.64*sx,y,z+.68*sz,.7*sx);
- group('painéis solares',2);
- for(const dx of [-.3,.27]){
-  part('box',[x+dx*sx,y+.135,z+.11*sz],[.49*sx,.045,.48*sz],'#367c9d',[-.16,0,0]);
-  for(const dz of [-.12,.12])part('box',[x+dx*sx,y+.165,z+.11*sz+dz*sz],[.49*sx,.008,.012],'#aed6da',[-.16,0,0]);
-  part('box',[x+dx*sx,y+.17,z+.11*sz],[.014,.01,.48*sz],'#aed6da',[-.16,0,0]);
-  for(const side of [-1,1])part('box',[x+(dx+side*.18)*sx,y+.063,z+.11*sz],[.028,.12,.38*sz],'#a9b5ad');
- }
- if(i%2===0){
-  group('terraço superior',2);
-  for(let j=0;j<6;j++)part('box',[x+.5*sx,y+.018,z+(.24+j*.08)*sz],[.81*sx,.03,.069*sz],'#bc9a71');
-  part('box',[x+.53*sx,y+.2,z+.4*sz],[.47*sx,.07,.21*sz],'#d3b487');
-  for(const side of [-1,1])part('box',[x+(.53+side*.16)*sx,y+.1,z+.4*sz],[.05,.18,.16*sz],'#6c8473');
- }
+ const b=l.building,layout=layoutFor(b.asset);
+ if(!layout?.roofDetail||!['building.sage','building.cream','building.terracotta','building.pink','building.office'].includes(b.asset))continue;
+ group('árvore no terraço',i%2?1:2);
+ const position=attachmentWorld(b,layout.roofDetail);
+ part('cylinder',[position[0],position[1]+.085,position[2]],[.19,.17,.19],'#f4f6ee');
+ current.assets.push(place('tree.rooftop',[position[0],position[1]+.17,position[2]],[.32,.32,.32],b.rotation));
 }
 
 for(const [x,z] of [[-15,4],[-25,-19.4],[35,3.9]])for(let i=0;i<5;i++){

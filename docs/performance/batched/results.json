@@ -1,0 +1,244 @@
+{
+  "stage": "batched",
+  "date": "2026-09-07T01:47:36.247Z",
+  "device": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "gpuTimer": false,
+    "multiDraw": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "dpr": 1
+  },
+  "seconds": 3,
+  "runs": 1,
+  "measurements": [
+    {
+      "name": "overview",
+      "run": 0,
+      "calls": 882,
+      "triangles": 5280716,
+      "geometries": 1222,
+      "textures": 164,
+      "programs": 106,
+      "meshes": 1084,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 1,
+        "meanMs": 2367.60000000149,
+        "p50": 2367.60000000149,
+        "p95": 2367.60000000149,
+        "p99": 2367.60000000149,
+        "onePercentLow": 0.42236864335165175
+      },
+      "cpu": {
+        "frames": 2,
+        "meanMs": 16.299999999813735,
+        "p50": 12.300000000745058,
+        "p95": 20.299999998882413,
+        "p99": 20.299999998882413,
+        "onePercentLow": 49.26108374655436
+      },
+      "gpu": null
+    },
+    {
+      "name": "centre",
+      "run": 0,
+      "calls": 201,
+      "triangles": 342558,
+      "geometries": 1222,
+      "textures": 164,
+      "programs": 106,
+      "meshes": 1084,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 5,
+        "meanMs": 572.5199999999255,
+        "p50": 571.1999999992549,
+        "p95": 600.8000000007451,
+        "p99": 600.8000000007451,
+        "onePercentLow": 1.6644474034599865
+      },
+      "cpu": {
+        "frames": 6,
+        "meanMs": 4.866666667163372,
+        "p50": 4.699999999254942,
+        "p95": 6.100000001490116,
+        "p99": 6.100000001490116,
+        "onePercentLow": 163.93442618946207
+      },
+      "gpu": null
+    },
+    {
+      "name": "forest",
+      "run": 0,
+      "calls": 140,
+      "triangles": 799476,
+      "geometries": 1222,
+      "textures": 164,
+      "programs": 106,
+      "meshes": 1084,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 2,
+        "meanMs": 1092.6500000003725,
+        "p50": 1064,
+        "p95": 1121.300000000745,
+        "p99": 1121.300000000745,
+        "onePercentLow": 0.8918219923297382
+      },
+      "cpu": {
+        "frames": 3,
+        "meanMs": 3.6333333340783915,
+        "p50": 3.100000001490116,
+        "p95": 5,
+        "p99": 5,
+        "onePercentLow": 200
+      },
+      "gpu": null
+    },
+    {
+      "name": "port",
+      "run": 0,
+      "calls": 251,
+      "triangles": 636748,
+      "geometries": 1222,
+      "textures": 164,
+      "programs": 106,
+      "meshes": 1084,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 2,
+        "meanMs": 1438.3499999996275,
+        "p50": 614.5,
+        "p95": 2262.199999999255,
+        "p99": 2262.199999999255,
+        "onePercentLow": 0.4420475643180662
+      },
+      "cpu": {
+        "frames": 3,
+        "meanMs": 5.599999999627471,
+        "p50": 4.300000000745058,
+        "p95": 8.299999998882413,
+        "p99": 8.299999998882413,
+        "onePercentLow": 120.48192772706615
+      },
+      "gpu": null
+    },
+    {
+      "name": "beach",
+      "run": 0,
+      "calls": 249,
+      "triangles": 4325776,
+      "geometries": 1222,
+      "textures": 164,
+      "programs": 106,
+      "meshes": 1084,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 10,
+        "meanMs": 296.9199999999255,
+        "p50": 136.90000000037253,
+        "p95": 1717,
+        "p99": 1717,
+        "onePercentLow": 0.5824111822947
+      },
+      "cpu": {
+        "frames": 11,
+        "meanMs": 5.31818181835115,
+        "p50": 4.5,
+        "p95": 9.900000000372529,
+        "p99": 9.900000000372529,
+        "onePercentLow": 101.01010100630008
+      },
+      "gpu": null
+    },
+    {
+      "name": "situation",
+      "run": 0,
+      "calls": 232,
+      "triangles": 318588,
+      "geometries": 1222,
+      "textures": 164,
+      "programs": 106,
+      "meshes": 1084,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 8,
+        "meanMs": 366.55000000004657,
+        "p50": 365.40000000037253,
+        "p95": 392.19999999925494,
+        "p99": 392.19999999925494,
+        "onePercentLow": 2.54971953085645
+      },
+      "cpu": {
+        "frames": 9,
+        "meanMs": 5.544444444278876,
+        "p50": 5.800000000745058,
+        "p95": 6.199999999254942,
+        "p99": 6.199999999254942,
+        "onePercentLow": 161.29032260002754
+      },
+      "gpu": null
+    }
+  ],
+  "errors": []
+}

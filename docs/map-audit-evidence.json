@@ -1,0 +1,1249 @@
+{
+  "pedestrianNetwork": {
+    "connected": 70,
+    "unreachable": []
+  },
+  "routeProfiles": [
+    {
+      "id": "avenida-central",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 30
+    },
+    {
+      "id": "avenida-estacao",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "bairro-central",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 68
+    },
+    {
+      "id": "rua-do-hospital",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 37
+    },
+    {
+      "id": "ligacao-hospital",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "margem-central",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "bairro-norte",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "bairro-escola",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "avenida-botanica",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "rua-escola-sul",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 63
+    },
+    {
+      "id": "reciclagem",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "anel-escola",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 28
+    },
+    {
+      "id": "acesso-futuro",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 84
+    },
+    {
+      "id": "comunidade",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 23
+    },
+    {
+      "id": "acesso-industrial",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "ponte-industrial",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 77
+    },
+    {
+      "id": "patio-industrial",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "acesso-carga",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "acesso-docas",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "acesso-viaduto",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 75
+    },
+    {
+      "id": "acesso-praia",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 0
+    },
+    {
+      "id": "linha-central",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 101
+    },
+    {
+      "id": "ferrovia-oeste",
+      "maxGrade": 0,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 254
+    },
+    {
+      "id": "viaduto-leste",
+      "maxGrade": 0.08,
+      "maxGroundAboveRoad": 0,
+      "elevatedSamples": 98
+    }
+  ],
+  "entryPaths": [
+    {
+      "id": "observatorio",
+      "distance": 41.881,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "centro-do-futuro",
+      "distance": 28.851,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "campus-circular",
+      "distance": 13.145,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-energia",
+      "distance": 57.683,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-jardins",
+      "distance": 30.559,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "laboratorio-circular",
+      "distance": 49.483,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "laboratorio-energia",
+      "distance": 26.622,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-central",
+      "distance": 6.67,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "hospital",
+      "distance": 3.789,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "escola",
+      "distance": 3.005,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "reciclagem",
+      "distance": 2.824,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estufa-botanica",
+      "distance": 17.776,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-solar",
+      "distance": 12.662,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "comunidade-a-recuperar",
+      "distance": 8.41,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "comunidade-vizinha",
+      "distance": 3.756,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "posto-da-orla",
+      "distance": 6.812,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "cafe-da-praia",
+      "distance": 11.604,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "industria-0",
+      "distance": 7.143,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "industria-1",
+      "distance": 9.091,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "industria-2",
+      "distance": 5.581,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "industria-3",
+      "distance": 5.414,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-0",
+      "distance": 19.203,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-1",
+      "distance": 8.637,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-2",
+      "distance": 3.324,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-3",
+      "distance": 3.857,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-4",
+      "distance": 3.138,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-5",
+      "distance": 3.976,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-6",
+      "distance": 2.816,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-7",
+      "distance": 5.485,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-8",
+      "distance": 31.334,
+      "grade": 0,
+      "water": true,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-9",
+      "distance": 21.338,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "torre-10",
+      "distance": 7.077,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-0",
+      "distance": 14.248,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-1",
+      "distance": 12.725,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-2",
+      "distance": 2.812,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-3",
+      "distance": 2.967,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-4",
+      "distance": 9.189,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-5",
+      "distance": 13.704,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-6",
+      "distance": 5.947,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-7",
+      "distance": 4.433,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-8",
+      "distance": 6.601,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-9",
+      "distance": 6.291,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-10",
+      "distance": 5.237,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-11",
+      "distance": 2.849,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-12",
+      "distance": 3.083,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-13",
+      "distance": 11.871,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-14",
+      "distance": 25.162,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-15",
+      "distance": 15.418,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-16",
+      "distance": 12.035,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-17",
+      "distance": 5.72,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-18",
+      "distance": 32.984,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-19",
+      "distance": 32.612,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-20",
+      "distance": 22.156,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-21",
+      "distance": 14.645,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-22",
+      "distance": 3.235,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-23",
+      "distance": 21.961,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-24",
+      "distance": 68.54,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-25",
+      "distance": 36.618,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-26",
+      "distance": 40.182,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "casa-27",
+      "distance": 4.261,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "quadra-escolar",
+      "distance": 8.524,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "playground-escolar",
+      "distance": 13.856,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-0-escada",
+      "distance": 6.862,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-0-elevador",
+      "distance": 8.706,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-1-escada",
+      "distance": 7.575,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-1-elevador",
+      "distance": 3.785,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-2-escada",
+      "distance": 58.466,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "estacao-2-elevador",
+      "distance": 48.498,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "praca-estacao-escada",
+      "distance": 23.858,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    },
+    {
+      "id": "praca-estacao-elevador",
+      "distance": 14.586,
+      "grade": 0,
+      "water": false,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    }
+  ],
+  "furnitureInCycle": [],
+  "groundStops": [],
+  "junctionHeightGaps": [],
+  "platforms": [
+    {
+      "name": "Estação Central",
+      "length": 22,
+      "height": 5.56,
+      "accessHeight": 0,
+      "accessType": "stairs-and-lift"
+    },
+    {
+      "name": "Distrito Industrial",
+      "length": 22,
+      "height": 5.56,
+      "accessHeight": 0,
+      "accessType": "stairs-and-lift"
+    },
+    {
+      "name": "Campus do Futuro",
+      "length": 22,
+      "height": 5.56,
+      "accessHeight": 0,
+      "accessType": "stairs-and-lift"
+    }
+  ],
+  "counts": {
+    "buildings": 60,
+    "trees": 5686,
+    "assets": 168,
+    "details": 2760,
+    "visitorParts": 1729
+  },
+  "cycleCrossings": [
+    {
+      "road": "rua-escola-sul",
+      "side": -1,
+      "area": 8.291931521424473,
+      "minHeight": 2.647420026322636,
+      "maxHeight": 2.8000000000000003,
+      "points": [
+        [
+          -13.718009530962535,
+          -17.41649158863706
+        ],
+        [
+          -13.321492,
+          -17.871224
+        ],
+        [
+          -12.769922,
+          -18.5165
+        ],
+        [
+          -12.247926,
+          -19.145986
+        ],
+        [
+          -11.761396,
+          -19.7577
+        ],
+        [
+          -11.316117,
+          -20.348938
+        ],
+        [
+          -10.917599,
+          -20.916172
+        ],
+        [
+          -10.615670192089551,
+          -21.385257366208453
+        ],
+        [
+          -9.322803,
+          -21.033824
+        ],
+        [
+          -8.966472974405,
+          -20.935447753066455
+        ],
+        [
+          -9.162635,
+          -20.594986
+        ],
+        [
+          -9.549097,
+          -19.994379
+        ],
+        [
+          -9.98227,
+          -19.377675
+        ],
+        [
+          -10.456869,
+          -18.747399
+        ],
+        [
+          -10.967301,
+          -18.105554
+        ],
+        [
+          -11.507816,
+          -17.453678
+        ],
+        [
+          -11.954837892265697,
+          -16.930682948641444
+        ],
+        [
+          -13.176409,
+          -17.264523
+        ],
+        [
+          -13.718009530962535,
+          -17.41649158863706
+        ]
+      ]
+    },
+    {
+      "road": "acesso-futuro",
+      "side": -1,
+      "area": 7.594905596665058,
+      "minHeight": 2.7999999999999994,
+      "maxHeight": 2.8000000000000003,
+      "points": [
+        [
+          -54.33343988442371,
+          42.23923062745739
+        ],
+        [
+          -54.309168,
+          42.14285
+        ],
+        [
+          -54.058663,
+          41.311354
+        ],
+        [
+          -53.784511,
+          40.511133
+        ],
+        [
+          -53.494629,
+          39.739783
+        ],
+        [
+          -53.196129,
+          38.995235
+        ],
+        [
+          -52.895521,
+          38.275923
+        ],
+        [
+          -52.743784805186586,
+          37.92039859595558
+        ],
+        [
+          -52.007988,
+          38.075872
+        ],
+        [
+          -51.274247,
+          38.23503
+        ],
+        [
+          -51.100508638996196,
+          38.27353527515297
+        ],
+        [
+          -51.375507,
+          38.91784
+        ],
+        [
+          -51.669104,
+          39.620292
+        ],
+        [
+          -51.956483,
+          40.336947
+        ],
+        [
+          -52.231566,
+          41.068683
+        ],
+        [
+          -52.487941,
+          41.816657
+        ],
+        [
+          -52.7174049927485,
+          42.57778584869493
+        ],
+        [
+          -52.960595,
+          42.525033
+        ],
+        [
+          -53.67079,
+          42.374964
+        ],
+        [
+          -54.33343988442371,
+          42.23923062745739
+        ]
+      ]
+    },
+    {
+      "road": "rua-escola-sul",
+      "side": 1,
+      "area": 8.067376678748897,
+      "minHeight": 2.5787110282433408,
+      "maxHeight": 2.8,
+      "points": [
+        [
+          -0.2644150875144462,
+          -13.081711544218704
+        ],
+        [
+          -0.071838,
+          -13.291986
+        ],
+        [
+          0.555929,
+          -13.984137
+        ],
+        [
+          1.17866,
+          -14.684007
+        ],
+        [
+          1.790817,
+          -15.392327
+        ],
+        [
+          2.38688,
+          -16.110167
+        ],
+        [
+          2.9294574041384305,
+          -16.7986034304381
+        ],
+        [
+          3.413751,
+          -16.599021
+        ],
+        [
+          4.5003950717907735,
+          -16.146394473817935
+        ],
+        [
+          4.273396,
+          -15.838555
+        ],
+        [
+          3.669683,
+          -15.072422
+        ],
+        [
+          3.049817,
+          -14.325828
+        ],
+        [
+          2.419258,
+          -13.596157
+        ],
+        [
+          1.783404,
+          -12.881501
+        ],
+        [
+          1.3608962777675773,
+          -12.415647496195703
+        ],
+        [
+          0.172679,
+          -12.905344
+        ],
+        [
+          -0.2644150875144462,
+          -13.081711544218704
+        ]
+      ]
+    },
+    {
+      "road": "acesso-futuro",
+      "side": 1,
+      "area": 9.970602601833775,
+      "minHeight": 2.8,
+      "maxHeight": 2.8,
+      "points": [
+        [
+          -40.742183,
+          45.373176
+        ],
+        [
+          -40.674356,
+          44.848684
+        ],
+        [
+          -40.566154,
+          44.291857
+        ],
+        [
+          -40.420851,
+          43.714916
+        ],
+        [
+          -40.241306,
+          43.118973
+        ],
+        [
+          -40.031097,
+          42.505402
+        ],
+        [
+          -39.794393,
+          41.875559
+        ],
+        [
+          -39.535823,
+          41.23061
+        ],
+        [
+          -39.46595660336296,
+          41.06342957600766
+        ],
+        [
+          -38.75101,
+          41.261514
+        ],
+        [
+          -37.86440698406181,
+          41.5102072999518
+        ],
+        [
+          -38.00893,
+          41.85599
+        ],
+        [
+          -38.256449,
+          42.473243
+        ],
+        [
+          -38.478427,
+          43.063718
+        ],
+        [
+          -38.670932,
+          43.625356
+        ],
+        [
+          -38.830832,
+          44.155756
+        ],
+        [
+          -38.956041,
+          44.652463
+        ],
+        [
+          -39.009765091165626,
+          44.928574101729424
+        ],
+        [
+          -38.427982,
+          45.273606
+        ],
+        [
+          -37.25452,
+          45.852991
+        ],
+        [
+          -35.825189,
+          46.478703
+        ],
+        [
+          -34.218804,
+          47.130639
+        ],
+        [
+          -33.271832687124,
+          47.49991476120281
+        ],
+        [
+          -34.082262,
+          47.285665
+        ],
+        [
+          -35.09625,
+          47.010695
+        ],
+        [
+          -36.096361,
+          46.734248
+        ],
+        [
+          -37.083337,
+          46.45787
+        ],
+        [
+          -38.057923,
+          46.183092
+        ],
+        [
+          -39.020866,
+          45.911429
+        ],
+        [
+          -39.68020110625305,
+          45.72648128024653
+        ],
+        [
+          -39.972912,
+          45.644374
+        ],
+        [
+          -40.145558992918815,
+          45.59653858802182
+        ],
+        [
+          -40.659484088224204,
+          45.45414503546561
+        ],
+        [
+          -40.57407856508661,
+          45.36344689447528
+        ],
+        [
+          -40.742183,
+          45.373176
+        ]
+      ]
+    }
+  ],
+  "viaductJoin": {
+    "viaduct": 0,
+    "road": 0
+  },
+  "trainLength": 19.22,
+  "supportConflicts": [],
+  "supportCount": 70,
+  "situationLotConflicts": [
+    {
+      "id": "accessibility_01",
+      "state": "initial",
+      "asset": "access.step",
+      "lot": "estacao-central",
+      "expectedContact": true
+    },
+    {
+      "id": "accessibility_01",
+      "state": "temporary",
+      "asset": "access.temporary",
+      "lot": "estacao-central",
+      "expectedContact": true
+    },
+    {
+      "id": "accessibility_01",
+      "state": "solved",
+      "asset": "access.ramp",
+      "lot": "estacao-central",
+      "expectedContact": true
+    }
+  ]
+}

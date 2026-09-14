@@ -1,0 +1,58 @@
+[
+  {
+    "name": "05-hospital",
+    "u": 30,
+    "v": 3,
+    "zoom": 29,
+    "y": 0
+  },
+  {
+    "name": "08-10-campus-crossing",
+    "u": -41,
+    "v": 42,
+    "zoom": 31,
+    "y": 1
+  },
+  {
+    "name": "04-gate-priority",
+    "u": 89,
+    "v": 80,
+    "zoom": 65,
+    "y": 0
+  },
+  {
+    "name": "02-viaduct-junction",
+    "u": 97,
+    "v": -12,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "03-dump-relocated",
+    "u": 99,
+    "v": 42,
+    "zoom": 29,
+    "y": 0
+  },
+  {
+    "name": "junction-station-bend",
+    "u": -14,
+    "v": 20,
+    "zoom": 70,
+    "y": 0
+  },
+  {
+    "name": "junction-school-bend",
+    "u": -62,
+    "v": -22,
+    "zoom": 65,
+    "y": 0
+  },
+  {
+    "name": "junction-school-north",
+    "u": -77,
+    "v": 4,
+    "zoom": 65,
+    "y": 0
+  }
+]

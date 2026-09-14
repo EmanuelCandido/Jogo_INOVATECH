@@ -1,0 +1,30 @@
+[
+  {
+    "name": "05-hospital",
+    "u": 30,
+    "v": 3,
+    "zoom": 29,
+    "y": 0
+  },
+  {
+    "name": "08-10-campus-crossing",
+    "u": -41,
+    "v": 42,
+    "zoom": 31,
+    "y": 1
+  },
+  {
+    "name": "04-industrial-yard",
+    "u": 107,
+    "v": 84,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "structure-bearing-junction",
+    "u": 12,
+    "v": -13,
+    "zoom": 75,
+    "y": 1
+  }
+]

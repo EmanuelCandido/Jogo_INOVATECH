@@ -1,12 +1,16 @@
 # EcoQuest — Vila Esperança
 
-**Versão atual: cidade costeira inspirada na referência.** O mapa reúne 77 edifícios, bairros residenciais compactos, escola com esportes, parque, ferrovia, porto e farol. O terreno continua para o interior, com mata densa e mar apenas na costa. A cena usa 51 modelos GLB, incluindo cinco novas árvores para agrupamentos, e permite arrasto, zoom e centralização. Veja a [composição e validação](docs/MAPA-REFERENCIA.md) e a [revisão de acabamento dos modelos](docs/REVISAO-MODELOS.md). Os relatórios anteriores registram as etapas históricas e a arquitetura narrativa.
+O HUD segue as referências **Eco City!**: abertura com **JOGAR**, diálogos do **Impactus**, painéis azul-violeta, alternativas sobre uma base clara e custos com moedas douradas. A interface se adapta ao desktop e ao celular, mantendo o progresso e a economia da partida. Veja as [capturas e validações do HUD](docs/HUD.md).
+
+**Versão atual: cidade futurista costeira.** Arquitetura curva, vidro azul, coberturas verdes, casas solares e trem elevado se integram aos bairros, parque e porto. O catálogo reúne 77 modelos GLB, com 32 modelos futuristas que receberam acabamento individual e 44 variantes leves. O mapa mantém mata no interior, mar na costa, arrasto e zoom. Veja a [galeria antes/depois e por modelo](docs/CIDADE-FUTURISTA.html) e o [relatório da implementação](docs/CIDADE-FUTURISTA.md). Os relatórios anteriores registram as etapas históricas.
 
 Para experimentar: `npm ci` e `npm run dev`. Para testar: `npm test` e `npm run test:e2e -- --workers=1` (a suíte de navegador compila e serve a versão de produção automaticamente). Para reexportar os modelos: `npm run assets:build` com Blender disponível conforme o relatório.
 
 Os terrenos incluem quintais mobiliados, hortas, esplanadas de café e jardins com vegetação em grupos irregulares. As [capturas com zoom](docs/MAPA-REFERENCIA.md) permitem conferir os acabamentos e a relação desses espaços com as calçadas.
 
 O menu oferece **Automático, Muito baixa, Baixa, Média, Alta e Ultra**, com resolução, sombras, animações e medição de desempenho. Alta e Ultra incluem uma camada extra de detalhes urbanos. Veja os [perfis e a compatibilidade gráfica](docs/GRAFICOS.md).
+
+A renderização usa seleção individual de instâncias, agrupamento da floresta e materiais compartilhados para preservar a densidade com menos trabalho por quadro. Veja a [implementação e validação de desempenho](docs/DESEMPENHO-IMPLEMENTADO.md). O benchmark de produção pode ser executado com `npm run benchmark -- after`.
 
 Jogo narrativo educativo 3D para navegador. Um robô companheiro observa a cidade com o jogador: oito falas iniciais, um tutorial gratuito e dez situações em cinco temas. Cada decisão modifica seu lugar no mapa. Veja a [auditoria da narrativa, situações, custos e poses](docs/NARRATIVA-SITUACOES.md). A visão geral permite mover e ampliar o mapa, sem física ou combate.
 
@@ -128,7 +132,7 @@ Os cinco temas já estão cadastrados. Para uma categoria adicional, estenda `Ca
 - Se gastar todos os recursos, pode voltar ao mapa e inspecionar outros desafios; sem recursos para nenhuma opção, é necessário recomeçar. Recuperação narrativa de orçamento é uma próxima funcionalidade, não uma concessão automática escondida.
 - Save é local ao navegador/origem. Mudança de porta/domínio não compartilha o progresso. Falhas de storage mostram aviso.
 - Conteúdo de capítulos ainda é um capítulo inicial. O estado possui capítulo para futura expansão; adicionar capítulos requer definir sua sequência e política de recompensa.
-- O pacote Three/WebGL continua sendo o maior download, embora carregado separadamente da UI. Texturas comprimidas, LOD e BVH devem ser introduzidos quando assets reais e medições justificarem.
+- O pacote Three/WebGL continua sendo o maior download, embora carregado separadamente da UI. Muito baixa e Baixa já usam variantes leves de 44 modelos; os demais perfis usam o acabamento completo. Novas otimizações devem ser orientadas por medições em dispositivos físicos.
 - Testes em Chromium e emulação mobile não equivalem a testes físicos de Android/iOS. Metas de 30/60 FPS não foram certificadas em aparelhos reais. Validar Safari, dispositivos de entrada, acessibilidade com leitores de tela e hardware intermediário antes de distribuição escolar.
 
 Antes de uma distribuição escolar, revisar conteúdo com educadores e medir o desempenho em aparelhos reais.

@@ -1,0 +1,153 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/loop.spec.ts",
+      "--project=desktop",
+      "--grep",
+      "narrativa, tutorial, decisões na cidade, descoberta e conclusão",
+      "--reporter=line,json",
+      "--output=docs/validation/circulation-browser-missions-retry"
+    ],
+    "configFile": "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\playwright.config.ts",
+    "rootDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/docs/validation/circulation-browser-missions-retry",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/docs/validation/circulation-browser-missions-retry",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/docs/validation/circulation-browser-missions-retry",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "small",
+        "name": "small",
+        "testDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "loop.spec.ts",
+      "file": "loop.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "narrativa, tutorial, decisões na cidade, descoberta e conclusão",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 95624,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:28:15.229Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6383f60f67017b31e9d8-d428f57265c19528b6bd",
+          "file": "loop.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-10T13:28:14.120Z",
+    "duration": 97096.151,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

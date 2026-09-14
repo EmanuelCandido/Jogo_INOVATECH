@@ -8,7 +8,8 @@ import { landOutlines,riverCenter,onLand } from "../src/config/terrain";
 import { environment,overview } from "../src/config/world";
 import { OrthographicCamera,Plane,Raycaster,Vector2,Vector3 } from "three";
 import { assetRegistry } from "../src/assets/registry";
-import { clampTarget,clampZoom } from "../src/game/mapNavigation";
+import { clampTarget,clampZoom,mapBaseZoom,valleyLimits } from "../src/game/mapNavigation";
+import {compositionPoint} from '../src/config/referenceMap';
 import {gardenBeds,gardenWalks,gardenSites,landscapeAssets,landscapeDetails} from '../src/config/landscape';
 
 describe("implantação da cidade",()=>{
@@ -115,7 +116,7 @@ describe("limites da exploração",()=>{
     for(const [w,h] of [[1440,900],[412,839],[360,640],[360,1000]]){
       const camera=new OrthographicCamera(-w/2,w/2,h/2,-h/2,.1,500);
       camera.position.set(...overview.position);camera.lookAt(new Vector3(...overview.target));
-      camera.zoom=overview.zoom*mapFit(w,h);
+      camera.zoom=mapBaseZoom(w,h);
       camera.updateProjectionMatrix();camera.updateMatrixWorld();
       const ray=new Raycaster();
       for(const x of [-1,1])for(const y of [-1,1]){
@@ -129,6 +130,7 @@ describe("limites da exploração",()=>{
   });
   it("limita zoom e arrastos extremos para manter a cidade alcançável",()=>{
     expect(clampZoom(.01)).toBe(1);expect(clampZoom(999)).toBe(3.5);expect(clampZoom(2)).toBe(2);
-    expect(clampTarget(-999,999)).toEqual([-35,38]);expect(clampTarget(999,-999)).toEqual([60,-48]);expect(clampTarget(2,-3)).toEqual([2,-3]);
+    for(const [x,z]of [[-999,999],[999,-999]]){const [u,v]=compositionPoint(...clampTarget(x,z));expect(u).toBeGreaterThanOrEqual(valleyLimits.minU-.001);expect(u).toBeLessThanOrEqual(valleyLimits.maxU+.001);expect(v).toBeGreaterThanOrEqual(valleyLimits.minV-.001);expect(v).toBeLessThanOrEqual(valleyLimits.maxV+.001);}
+    const p=clampTarget(2,-3);expect(p[0]).toBeCloseTo(2);expect(p[1]).toBeCloseTo(-3);
   });
 });

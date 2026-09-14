@@ -26,7 +26,8 @@ def mat(key):
  bs=next((n for n in nodes if n.type=='BSDF_PRINCIPLED'),None) or nodes.new('ShaderNodeBsdfPrincipled')
  output=next((n for n in nodes if n.type=='OUTPUT_MATERIAL'),None) or nodes.new('ShaderNodeOutputMaterial')
  m.node_tree.links.new(bs.outputs['BSDF'],output.inputs['Surface'])
- bs.inputs['Base Color'].default_value=(*c,1);bs.inputs['Roughness'].default_value=.78
+ bs.inputs['Base Color'].default_value=(*c,1);bs.inputs['Roughness'].default_value=globals().get('MATERIAL_ROUGHNESS',{}).get(key,.78)
+ bs.inputs['Metallic'].default_value=globals().get('MATERIAL_METALLIC',{}).get(key,0)
  return m
 def finish(o,name,color):
  o.name=name;o.data.materials.append(mat(color));return o
@@ -48,7 +49,7 @@ def ico(name,loc,scale,color,sub=1):
  bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=sub,radius=1,location=loc);o=bpy.context.object;o.scale=scale;return finish(o,name,color)
 def reset():
  bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-def export(name):
+def export(name,low=False):
  # Join by material: few draw calls per model, still reusable/instantiable by mesh.
  for color in PALETTE:
   meshes=[o for o in bpy.context.scene.objects if o.type=='MESH' and o.data.materials and o.data.materials[0].name=='eco.'+color]
@@ -60,7 +61,7 @@ def export(name):
  from bake_occlusion import bake
  bpy.context.view_layer.update()
  bake([o for o in bpy.context.scene.objects if o.type=='MESH'])
- bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'assets-source'/f'{name}.blend'))
+ if not low:bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'assets-source'/f'{name}.blend'))
  bpy.ops.export_scene.gltf(filepath=str(OUT/f'{name}.glb'),export_format='GLB',export_yup=True,export_animations=False,export_vertex_color='NAME',export_vertex_color_name='miniatureAO')
 sys.path.insert(0,str(Path(__file__).parent))
 from miniature_style import models as reference_models
@@ -78,11 +79,60 @@ from public_spaces import models as public_models
 asset_models.update(public_models(globals()))
 from situation_kit import models as situation_models
 asset_models.update(situation_models(globals()))
+from future_city import models as future_models
+asset_models=future_models(globals(),asset_models)
+from reference_landmarks import models as reference_landmarks
+asset_models.update(reference_landmarks(globals()))
+from industrial_waste import models as industrial_waste_models
+asset_models.update(industrial_waste_models(globals()))
+from industrial_access import models as industrial_access_models
+asset_models.update(industrial_access_models(globals()))
+from road_structures import models as road_structure_models
+asset_models.update(road_structure_models(globals()))
+from station_circulation import models as station_circulation_models
+asset_models.update(station_circulation_models(globals()))
+from foliage_finish import wrap as finish_foliage
+asset_models=finish_foliage(globals(),asset_models)
 if '--expansion-only' in sys.argv:
- asset_models=new_models
+ asset_models={k:v for k,v in asset_models.items() if k in new_models}
 if '--only' in sys.argv:
  selected=sys.argv[sys.argv.index('--only')+1].split(',')
  asset_models={k:v for k,v in asset_models.items() if k in selected}
 for name,fn in asset_models.items():
- reset();fn();export(name)
+ LOW_DETAIL=False
+ reset();fn()
+ from mathutils import Vector
+ bpy.context.view_layer.update()
+ corners=[o.matrix_world@Vector(v) for o in bpy.context.scene.objects if o.type=='MESH' for v in o.bound_box]
+ # Bounds and sockets use the same Y-up coordinates as the exported GLBs.
+ points=[(v.x,v.z,-v.y) for v in corners]
+ MODEL_ATTACHMENTS.setdefault(name,{'front':[0,0,1]})['bounds']={
+  'min':[min(v[i] for v in points) for i in range(3)],
+  'max':[max(v[i] for v in points) for i in range(3)]}
+ export(name)
+ if name in FUTURE_LOD_MODELS:
+  high_metadata=MODEL_ATTACHMENTS[name].copy()
+  # Rebuild without tiny fittings and with fewer rounded-corner segments.
+  # Essential architecture and the same attachment sockets remain in place.
+  reset();LOW_DETAIL=True;fn()
+  # Keep the silhouette/functional envelope, simplify only sufficiently large
+  # material batches. Mesh attributes are rebaked after simplification.
+  for o in list(bpy.context.scene.objects):
+   if o.type=='MESH' and len(o.data.polygons)>120:
+    bpy.context.view_layer.objects.active=o
+    mod=o.modifiers.new('economy geometry','DECIMATE');mod.ratio=.55
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+  export(name+'-low',True)
+  MODEL_ATTACHMENTS[name]=high_metadata
+import json
+metadata_file=ROOT/'assets-source'/'model-attachments.json'
+existing=json.loads(metadata_file.read_text()) if metadata_file.exists() else {}
+existing.update(MODEL_ATTACHMENTS)
+metadata_file.write_text(json.dumps(existing,indent=2))
+lod_file=ROOT/'assets-source'/'model-lods.json'
+lod_file.write_text(json.dumps(sorted(n for n in FUTURE_LOD_MODELS if (OUT/(n+'-low.glb')).exists()),indent=2))
+polish_file=ROOT/'assets-source'/'future-polish-notes.json'
+polish_notes=json.loads(polish_file.read_text()) if polish_file.exists() else {}
+polish_notes.update(FUTURE_POLISH_NOTES)
+polish_file.write_text(json.dumps(polish_notes,indent=2,ensure_ascii=False),encoding='utf-8')
 print('ECOQUEST: modular assets exported to',OUT)

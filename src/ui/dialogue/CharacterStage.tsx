@@ -16,7 +16,6 @@ export function CharacterStage({characterId,pose}:{characterId:string;pose:Chara
   return()=>clearTimeout(timer);
  },[character]);
  return <div className="character-stage robot-stage" aria-label={'Personagem: '+character.name} data-pose={displayed.pose}>
-  {!failed?<img src={displayed.src} alt="Robô companheiro da jornada" width="768" height="768" decoding="sync" onError={()=>setFailed(true)}/>:<div className="character-fallback">Companheiro</div>}
-  <div className="character-signature"><span>OBSERVANDO COM VOCÊ</span><b>{character.name}</b></div>
+  {!failed?<img src={displayed.src} alt="Robô companheiro da jornada" width="768" height="768" decoding="sync" onError={()=>setFailed(true)}/>:<div className="character-fallback">{character.name}</div>}
  </div>;
 }

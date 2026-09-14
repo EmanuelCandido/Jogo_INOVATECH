@@ -4,7 +4,7 @@ import { categories, problems } from "../../content/problems";
 import {story} from '../../content/story';
 export function QuestPanel({ sceneReady }: { sceneReady: boolean }) {
   const { progress: s, select, revisit } = useGame();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const available = problems.filter(
     (p) => !["HIDDEN", "LOCKED"].includes(s.problemStates[p.id]),
   );

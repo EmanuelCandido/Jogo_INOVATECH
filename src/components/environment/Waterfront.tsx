@@ -2,12 +2,11 @@ import {Box} from '../Asset';
 import {AssetBatch} from '../city/AssetBatch';
 import {WaterMaterial} from './WaterMaterial';
 import type {Placement} from '../../game/types';
+import {beachFurniture} from '../../config/beach';
 const scenery:Placement[]=[
  {asset:'prop.sailboat',position:[67,-.60,2],rotation:[0,-.5,0]},
  {asset:'prop.sailboat',position:[69,-.60,-10],rotation:[0,.7,0]},
- {asset:'prop.beach',position:[55,-.30,1],rotation:[0,-.3,0]},
- {asset:'prop.beach',position:[57,-.30,-5],rotation:[0,.4,0]},
- {asset:'prop.beach',position:[52.5,-.30,5],rotation:[0,.15,0]},
+ ...beachFurniture,
 ];
 const rise=(z:number)=>.12+Math.sin((z+1.5)/3*Math.PI)*.28;
 const bridge:Placement[]=[];
@@ -28,7 +27,7 @@ export function Waterfront(){return <group>
  <AssetBatch placements={scenery}/>
  <group position={[13.5,0,4.7]}>
   <mesh rotation={[-Math.PI/2,0,0]} position={[0,.025,0]} scale={[2.75,2.25,1]} receiveShadow><circleGeometry args={[1,56]}/><meshStandardMaterial color='#ded4b7'/></mesh>
-  <mesh rotation={[-Math.PI/2,0,0]} position={[0,.04,0]} scale={[2.6,2.1,1]}><circleGeometry args={[1,56]}/><WaterMaterial color='#22b9f0'/></mesh>
+  <mesh rotation={[-Math.PI/2,0,0]} position={[0,.04,0]} scale={[2.6,2.1,1]}><circleGeometry args={[1,56]}/><WaterMaterial color='#22b9f0' pond/></mesh>
   <AssetBatch placements={bridge}/>
   <Box at={[-1.65,.04,-1.95]} size={[1.02,.08,.7]} material='sidewalk.default'/>
   <Box at={[-1.65,.04,1.95]} size={[1.02,.08,.7]} material='sidewalk.default'/>

@@ -8,6 +8,7 @@ import {AssetBatch} from '../city/AssetBatch';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {keepDetail} from '../../config/graphics';
 import {inSituationClearing} from '../../config/situationSites';
+import {optimizeInstances} from '../../game/instanceVisibility';
 
 function GardenGround(){
  const {undergrowth}=useResolvedGraphics();
@@ -42,7 +43,8 @@ function DetailBatch({shape,items}:{shape:LandscapeShape;items:LandscapeDetail[]
    const g=new BufferGeometry();g.setAttribute('position',new Float32BufferAttribute(positions,3));g.setIndex(indices);g.computeVertexNormals();return g;
   }
   if(shape==='box')return smoothGeometry?new RoundedBoxGeometry(1,1,1,1,.035):new BoxGeometry();
-  if(shape==='leaf'||shape==='smoke')return new SphereGeometry(1,smoothGeometry?12:6,smoothGeometry?8:4);
+  if(shape==='smoke')return new SphereGeometry(1,smoothGeometry?24:12,smoothGeometry?16:8);
+  if(shape==='leaf')return new SphereGeometry(1,smoothGeometry?12:6,smoothGeometry?8:4);
   if(shape==='cylinder')return new CylinderGeometry(1,1,1,10);
   if(shape==='ring')return new TorusGeometry(1,.12,6,smoothGeometry?20:12);
   const cone=new ConeGeometry(1,1,12,1,true).toNonIndexed();
@@ -59,13 +61,15 @@ function DetailBatch({shape,items}:{shape:LandscapeShape;items:LandscapeDetail[]
    object.position.set(...p.position);object.rotation.set(...p.rotation??[0,0,0]);object.scale.set(...p.scale);object.updateMatrix();
    ref.current!.setMatrixAt(i,object.matrix);ref.current!.setColorAt(i,new Color(p.color));
   });
-  ref.current!.instanceMatrix.needsUpdate=true;ref.current!.instanceColor!.needsUpdate=true;ref.current!.computeBoundingSphere();
+  ref.current!.instanceMatrix.needsUpdate=true;ref.current!.instanceColor!.needsUpdate=true;
+  const dispose=optimizeInstances(ref.current!,items.length);
   gl.shadowMap.needsUpdate=true;invalidate();
+  return dispose;
  // R3F reconstructs the InstancedMesh when its geometry constructor argument
  // changes. The new object needs both transforms and colours, even for the same items.
  },[items,geometry,gl,invalidate]);
  return <instancedMesh name={`details-${shape}`} ref={ref} args={[geometry,undefined,items.length]} castShadow={shape!=='smoke'&&shape!=='patch'&&tier!=='MINIMUM'&&tier!=='LOW'} receiveShadow>
-  <meshStandardMaterial roughness={.92} vertexColors={shape==='canopy'} side={shape==='canopy'?2:0} transparent={shape==='smoke'} opacity={shape==='smoke'?.3:1} depthWrite={shape!=='smoke'}/>
+  <meshStandardMaterial roughness={.92} vertexColors={shape==='canopy'} side={shape==='canopy'?2:0} transparent={shape==='smoke'} opacity={shape==='smoke'?.16:1} depthWrite={shape!=='smoke'}/>
  </instancedMesh>;
 }
 export function DetailInstances({details}:{details:LandscapeDetail[]}){

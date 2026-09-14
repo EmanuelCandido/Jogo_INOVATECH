@@ -6,6 +6,7 @@ import {AssetBatch} from '../city/AssetBatch';
 import type {Placement} from '../../game/types';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {keepDetail} from '../../config/graphics';
+import {surfaceShader} from '../../assets/surfaceFinish';
 function inJunction(x:number,z:number,padding=.05){return straightRoadPlacements.some(r=>Math.abs(x-r.position[0])<r.scale![0]/2+padding&&Math.abs(z-r.position[2])<r.scale![2]/2+padding);}
 function strip(offset:number,width:number,height:number,cut=false){
  const vertices:number[]=[],indices:number[]=[];
@@ -51,5 +52,5 @@ export function CoastalAvenue(){
  const visibleProps=useMemo(()=>props.filter((p,i)=>!p.asset.startsWith('prop.car.')||keepDetail(i,traffic)),[traffic]);
  const meshes=useMemo(()=>[strip(0,2,.046),strip(1.24,.48,.094,true),strip(-1.24,.48,.094,true)],[]);
  useEffect(()=>()=>meshes.forEach(g=>g.dispose()),[meshes]);
- return <group>{meshes.map((g,i)=><mesh key={i} geometry={g} receiveShadow><meshStandardMaterial color={i?'#e5ddca':'#555866'} side={2}/></mesh>)}<AssetBatch placements={visibleProps}/></group>;
+ return <group>{meshes.map((g,i)=><mesh key={i} geometry={g} receiveShadow><meshStandardMaterial color={i?'#e5ddca':'#555866'} roughness={.94} side={2} onBeforeCompile={surfaceShader(i?'paving':'asphalt')} customProgramCacheKey={()=>`coastal-surface-v2-${i?'paving':'asphalt'}`}/></mesh>)}<AssetBatch placements={visibleProps}/></group>;
 }

@@ -9,12 +9,17 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "benchmark": "node scripts/benchmark.mjs",
+    "test:rendering": "node scripts/verify-rendering.mjs",
     "assets:optimize": "node scripts/optimize-assets.mjs",
-    "assets:build": "powershell -ExecutionPolicy Bypass -File scripts/build-assets.ps1"
+    "assets:build": "powershell -ExecutionPolicy Bypass -File scripts/build-assets.ps1",
+    "prebuild": "node scripts/generate-reference-layout.mjs",
+    "predev": "node scripts/generate-reference-layout.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.0",
     "@react-three/fiber": "^9.3.0",
+    "polygon-clipping": "0.15.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "three": "^0.180.0",

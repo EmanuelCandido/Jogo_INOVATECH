@@ -9,5 +9,5 @@ export const useMap = create<{
 }>((set) => ({
   command: null, zoom: 1, ready: false,
   send: type => set(s => ({command:{type,sequence:(s.command?.sequence??0)+1}})),
-  report: (zoom,ready) => set({zoom,ready}),
+  report: (zoom,ready) => set(s=>s.zoom===zoom&&s.ready===ready?s:{zoom,ready}),
 }));

@@ -1,23 +1,30 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { assetRegistry } from '../src/assets/registry';
+import {modelUrl} from '../src/assets/modelLayout';
+import {finishFoliage} from '../src/assets/foliageMaterial';
+import {finishHardSurfaces} from '../src/assets/surfaceFinish';
 
 const group = new URLSearchParams(location.search).get('group') ?? 'props';
 const reverse=new URLSearchParams(location.search).get('view')==='rear';
+const economical=new URLSearchParams(location.search).get('quality')==='low';
 document.body.dataset.group = group;
 const renderer = new THREE.WebGLRenderer({antialias:true, preserveDrawingBuffer:true});
-renderer.setSize(480,360);
+renderer.setSize(['polish','port'].includes(group)?960:480,['polish','port'].includes(group)?720:360);
 renderer.setPixelRatio(1);
 renderer.shadowMap.enabled=true;
 renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
 const loader=new GLTFLoader();
 const expansion=['building.warehouse','prop.truck','building.office','building.fuel','building.cafe','prop.crane','prop.container.red','prop.container.blue','prop.ship','prop.lighthouse','prop.train','prop.bus','prop.playground'];
-const models=Object.entries(assetRegistry).filter(([id,a])=>a.kind==='glb' && (group==='woodland' ? id.startsWith('tree.') : group==='expansion' ? expansion.includes(id) : group==='buildings' ? id.startsWith('building.') : !id.startsWith('building.')));
-for(const [id,asset] of models){
+const referenceIds=['building.observatory','building.ecodome','building.centralStation','building.recycling','building.ruined','building.industrial','building.house.cottage','building.solarSchool','building.fishMarket','prop.stationCanopy','prop.dam','prop.archedBridge','prop.excavator','prop.pylon','prop.solarRack'];
+const models=Object.entries(assetRegistry).filter(([id,a])=>a.kind==='glb' && (group==='access' ? ['prop.liftLanding','prop.liftShaft'].includes(id) : group==='recycling' ? id==='building.recycling' : group==='reference' ? referenceIds.includes(id) : group==='port' ? ['prop.ship','prop.container.red','prop.container.blue','prop.crane','building.factory','building.warehouse'].includes(id) : group==='polish' ? id.startsWith('prop.car.')||id==='building.station' : group==='woodland' ? id.startsWith('tree.') : group==='expansion' ? expansion.includes(id) : group==='buildings' ? id.startsWith('building.') : !id.startsWith('building.')));
+for(const [id,asset] of models.filter(([id])=>group!=='sports'||id==='prop.football')){
   if(asset.kind!=='glb')continue;
   const scene=new THREE.Scene();scene.background=new THREE.Color('#f3f4eb');
-  const {scene:model}=await loader.loadAsync(asset.url);
+  const {scene:model}=await loader.loadAsync(modelUrl(asset,economical?'LOW':'HIGH'));
+  finishFoliage(model,economical);
+  finishHardSurfaces(model);
   model.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true;}});
   scene.add(model);
   const bounds=new THREE.Box3().setFromObject(model),center=bounds.getCenter(new THREE.Vector3()),size=bounds.getSize(new THREE.Vector3());
@@ -38,4 +45,3 @@ for(const [id,asset] of models){
   floor.geometry.dispose();(floor.material as THREE.Material).dispose();sun.shadow.map?.dispose();
 }
 renderer.dispose();document.body.dataset.ready='true';
-

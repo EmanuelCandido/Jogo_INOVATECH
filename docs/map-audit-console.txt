@@ -1,0 +1,51 @@
+{
+  "counts": {
+    "buildings": 60,
+    "trees": 5686,
+    "assets": 168,
+    "details": 2760,
+    "visitorParts": 1729
+  },
+  "paths": {
+    "connected": 70,
+    "unreachable": []
+  },
+  "pathConflicts": [
+    {
+      "id": "torre-8",
+      "distance": 31.334,
+      "grade": 0,
+      "water": true,
+      "obstacles": [],
+      "lift": false,
+      "omitted": false
+    }
+  ],
+  "furnitureConflicts": [],
+  "supportCount": 70,
+  "supportConflicts": [],
+  "junctionHeightGaps": [],
+  "situationLotConflicts": [
+    {
+      "id": "accessibility_01",
+      "state": "initial",
+      "asset": "access.step",
+      "lot": "estacao-central",
+      "expectedContact": true
+    },
+    {
+      "id": "accessibility_01",
+      "state": "temporary",
+      "asset": "access.temporary",
+      "lot": "estacao-central",
+      "expectedContact": true
+    },
+    {
+      "id": "accessibility_01",
+      "state": "solved",
+      "asset": "access.ramp",
+      "lot": "estacao-central",
+      "expectedContact": true
+    }
+  ]
+}

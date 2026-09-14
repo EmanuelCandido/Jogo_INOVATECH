@@ -1,6 +1,6 @@
 import {describe,expect,it} from 'vitest';
 import {decodeSave,initialProgress} from '../src/game/save';
-import {graphicsPixelRatio,graphicsPresets,graphicsTiers,keepDetail,lowerGraphics,recommendGraphics,resolveGraphics} from '../src/config/graphics';
+import {graphicsPixelRatio,graphicsPresets,graphicsTiers,keepDetail,recommendGraphics,resolveGraphics} from '../src/config/graphics';
 import {cityDecorations} from '../src/config/cityDetails';
 import {cityLots,forest,lotPaving} from '../src/config/districts';
 import {roadPlacements} from '../src/config/infrastructure';
@@ -29,12 +29,11 @@ describe('qualidade gráfica e compatibilidade',()=>{
   expect(resolveGraphics(settings,'MINIMUM')).toMatchObject({tier:'ULTRA',shadows:false,animate:false,cityDetail:2});
   expect(resolveGraphics({...settings,quality:'AUTO'},'LOW').tier).toBe('LOW');
  });
- it('começa conservador em dispositivos limitados e só reduz o automático após medição lenta',()=>{
+ it('recomenda um perfil inicial para cada classe de dispositivo',()=>{
   expect(recommendGraphics({cores:16,memory:8})).toBe('HIGH');
   expect(recommendGraphics({cores:8,memory:8,coarse:true})).toBe('MEDIUM');
   expect(recommendGraphics({cores:4,memory:4})).toBe('LOW');
   expect(recommendGraphics({software:true,cores:16,memory:8})).toBe('MINIMUM');
-  expect(lowerGraphics('HIGH',55)).toBe('MEDIUM');expect(lowerGraphics('HIGH',17)).toBe('HIGH');expect(lowerGraphics('MINIMUM',400)).toBe('MINIMUM');
  });
  it('limita pixels em 4K e celulares de alta densidade, permitindo resolução abaixo da nativa',()=>{
   for(const [width,height,dpr] of [[3840,2160,2],[412,915,3],[16000,9000,2]])for(const tier of graphicsTiers){
@@ -60,7 +59,8 @@ describe('conteúdo de Alta e Ultra',()=>{
  it('acrescenta conjuntos completos e uma camada Ultra maior que Alta',()=>{
   const high=cityDecorations.filter(g=>g.tier===1),ultra=cityDecorations.filter(g=>g.tier===2);
   expect(high.length).toBeGreaterThan(30);expect(ultra.length).toBeGreaterThan(high.length);
-  expect(new Set(cityDecorations.map(g=>g.kind)).size).toBeGreaterThanOrEqual(8);
+  // Solar panels and roof gardens now belong to the base GLBs, in all tiers.
+  expect([...new Set(cityDecorations.map(g=>g.kind))]).toEqual(expect.arrayContaining(['moradores','bicicletário','jardineira','árvore no terraço','carros estacionados','equipamento portuário','paletes e carga']));
   for(const group of cityDecorations){
    for(const p of [...group.details,...group.assets]){
     expect(p.position.every(Number.isFinite)).toBe(true);expect(p.scale!.every(v=>Number.isFinite(v)&&v>0)).toBe(true);

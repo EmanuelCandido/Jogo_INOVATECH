@@ -1,0 +1,110 @@
+{
+  "failures": [],
+  "surfaces": [
+    {
+      "index": 0,
+      "color": "ffffff",
+      "vertices": 515934
+    },
+    {
+      "index": 1,
+      "color": "168eaf",
+      "vertices": 6
+    },
+    {
+      "index": 2,
+      "color": "27b6d0",
+      "vertices": 660
+    },
+    {
+      "index": 3,
+      "color": "477b7b",
+      "vertices": 360
+    },
+    {
+      "index": 4,
+      "color": "168eaf",
+      "vertices": 21
+    },
+    {
+      "index": 5,
+      "color": "70cddc",
+      "vertices": 36
+    },
+    {
+      "index": 6,
+      "color": "f0dba5",
+      "vertices": 202
+    },
+    {
+      "index": 7,
+      "color": "727e78",
+      "vertices": 12
+    },
+    {
+      "index": 8,
+      "color": "a68d6c",
+      "vertices": 12
+    },
+    {
+      "index": 9,
+      "color": "555866",
+      "vertices": 6
+    },
+    {
+      "index": 10,
+      "color": "a2a599",
+      "vertices": 48
+    },
+    {
+      "index": 11,
+      "color": "ebc55b",
+      "vertices": 48
+    },
+    {
+      "index": 12,
+      "color": "e5ddca",
+      "vertices": 2616
+    },
+    {
+      "index": 13,
+      "color": "e5ddca",
+      "vertices": 196008
+    },
+    {
+      "index": 14,
+      "color": "555866",
+      "vertices": 263634
+    },
+    {
+      "index": 15,
+      "color": "e5ddca",
+      "vertices": 2094
+    },
+    {
+      "index": 16,
+      "color": "d78065",
+      "vertices": 2616
+    },
+    {
+      "index": 17,
+      "color": "fff2d7",
+      "vertices": 7392
+    },
+    {
+      "index": 18,
+      "color": "d6d7be",
+      "vertices": 11484
+    },
+    {
+      "index": 19,
+      "color": "e5ddca",
+      "vertices": 2118
+    },
+    {
+      "index": 20,
+      "color": "65808a",
+      "vertices": 4236
+    }
+  ]
+}

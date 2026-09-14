@@ -2,17 +2,11 @@ import {useEffect,useMemo} from 'react';
 import {ExtrudeGeometry,Path,Shape,ShapeGeometry} from 'three';
 import {AssetBatch} from '../city/AssetBatch';
 import {box} from '../../config/infrastructure';
-import {railCurve} from '../../config/railway';
+import {tunnelPosition} from '../../config/railway';
+import {RailTransit} from './RailTransit';
 import type {Placement} from '../../game/types';
 import {inPublicSpace} from '../../config/publicSpaces';
 const details:Placement[]=[];
-const length=railCurve.getLength();
-for(let d=0;d<length;d+=.32){
- const t=d/length,p=railCurve.getPointAt(t),v=railCurve.getTangentAt(t),angle=Math.atan2(v.x,v.z);
- details.push({...box('ground.asphalt',[p.x,.035,p.z],[1.15,.07,.35]),rotation:[0,angle,0]});
- details.push({...box('ground.wood',[p.x,.10,p.z],[1.02,.065,.12]),rotation:[0,angle,0]});
- for(const side of [-1,1])details.push({...box('road.crossing',[p.x+v.z*.33*side,.15,p.z-v.x*.33*side],[.045,.05,.35]),rotation:[0,angle,0]});
-}
 details.push({asset:'prop.football',position:[-15,0,-23]});
 // Each fence section terminates on an actual post. The space between sections is
 // a truck-width gate; no rail is allowed to project from an unaligned loop sample.
@@ -43,7 +37,7 @@ function Tunnel(){
   return {arch:new ExtrudeGeometry(arch,{depth:.75,bevelEnabled:true,bevelSize:.06,bevelThickness:.04,bevelSegments:1,steps:1}),opening:new ShapeGeometry(opening)};
  },[]);
  useEffect(()=>()=>{geometry.arch.dispose();geometry.opening.dispose();},[geometry]);
- return <group name='railway-portal' position={[-34.5,.03,-15.9]} rotation={[0,-.23,0]}>
+ return <group name='railway-portal' position={tunnelPosition} rotation={[0,Math.PI/2,0]}>
   <mesh geometry={geometry.arch} castShadow receiveShadow><meshStandardMaterial color='#a9a599'/></mesh>
   <mesh geometry={geometry.opening} position={[0,0,.755]}><meshBasicMaterial color='#27372f'/></mesh>
   {Array.from({length:13},(_,i)=>{const a=(i+.5)*Math.PI/13;return <mesh key={i} position={[Math.cos(a)*1.26,1.4+Math.sin(a)*1.26,.82]} rotation={[0,0,a-Math.PI/2]} castShadow><boxGeometry args={[.28,.35,.12]}/><meshStandardMaterial color={i%2?'#c7bfa7':'#b4ae9c'}/></mesh>;})}
@@ -55,7 +49,7 @@ function Tunnel(){
  </group>;
 }
 export function CivicScenery(){return <group>
- <AssetBatch placements={details}/><Tunnel/>
+ <AssetBatch placements={details}/><Tunnel/><RailTransit/>
  {[[6.4,11.5],[13,11.8],[17.7,9.5],[1.9,21.8],[-7.7,-1.8]].filter(([x,z])=>!inPublicSpace(x,z,.55)).map(([x,z])=><group key={`${x}-${z}`} position={[x,.03,z]}>
   <mesh rotation={[-Math.PI/2,0,0]}><circleGeometry args={[.55,20]}/><meshStandardMaterial color='#ad9470'/></mesh>
   {[0,1,2,3,4,5,6].map(i=><mesh key={i} position={[Math.cos(i)*.32,.14,Math.sin(i)*.32]}><sphereGeometry args={[.12,6,4]}/><meshStandardMaterial color={i%2?'#f9c257':'#ed94b3'}/></mesh>)}

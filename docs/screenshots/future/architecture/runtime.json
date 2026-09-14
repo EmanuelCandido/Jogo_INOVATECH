@@ -1,0 +1,9 @@
+{
+  "profiles": [
+    "HIGH",
+    "MINIMUM"
+  ],
+  "animationAdvances": true,
+  "reducedMotionFreezes": true,
+  "errors": []
+}

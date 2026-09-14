@@ -1,7 +1,7 @@
 import {describe,it,expect} from 'vitest';
 import {NodeIO} from '@gltf-transform/core';
 import {Box3,Euler,Matrix4,Triangle,Vector3} from 'three';
-import {terrainHeight} from '../src/config/terrain';
+import {terrainHeight,mountainBounds,riverCenter,riverHalfWidth} from '../src/config/terrain';
 import {roadPlacements} from '../src/config/infrastructure';
 import {seatSites,benchFacing,sportsAccess} from '../src/config/publicSpaces';
 import {situationVisuals} from '../src/config/situationVisuals';
@@ -23,6 +23,27 @@ async function trianglesInPassage(file:string,passage:Box3){
  return hits;
 }
 describe('acabamento e acessos reais dos modelos',()=>{
+ it('mantém livres a passagem ferroviária e os acessos aos elevadores',async()=>{
+  for(const suffix of ['','-low']){
+   const file='solar-station'+suffix;
+   expect(await trianglesInPassage(file,new Box3(new Vector3(-3.5,4.24,-.66),new Vector3(3.5,5.49,.66)))).toEqual([]);
+   for(const side of [-1,1]){
+    const z=side*2.405;
+    expect(await trianglesInPassage(file,new Box3(new Vector3(2.31,.20,z-.075),new Vector3(2.89,1.15,z+.075)))).toEqual([]);
+   }
+  }
+ });
+ it('forma um maciço contínuo com cristas, rio aberto e acesso livre ao túnel',()=>{
+  expect(terrainHeight(-70,-29)).toBeGreaterThan(23);
+  for(const [x,z] of [[-80,-30],[-60,-30],[-53,-35]])expect(terrainHeight(x,z)).toBeGreaterThan(8);
+  expect(terrainHeight(-48.25,-35)).toBeGreaterThan(7.1);
+  for(let x=-47.9;x<=-39;x+=.4)for(const z of [-35.7,-35,-34.3])expect(terrainHeight(x,z)).toBeLessThanOrEqual(4.001);
+  for(let x=mountainBounds.minX;x<=mountainBounds.maxX;x+=1){
+   expect(terrainHeight(x,mountainBounds.minZ)).toBe(0);expect(terrainHeight(x,mountainBounds.maxZ)).toBe(0);
+   for(const side of [-1,0,1])expect(terrainHeight(x,riverCenter(x)+side*riverHalfWidth)).toBeLessThan(.001);
+  }
+  for(let z=mountainBounds.minZ;z<=mountainBounds.maxZ;z+=1){expect(terrainHeight(mountainBounds.minX,z)).toBe(0);expect(terrainHeight(mountainBounds.maxX,z)).toBe(0);}
+ });
  it('mantém o terreno abaixo de toda pista e dos passeios junto à montanha',()=>{
   for(const p of roadPlacements){
    if(Math.abs(p.position[0]+34)<p.scale![0]/2+8&&Math.abs(p.position[2]+18)<p.scale![2]/2+8){
@@ -47,7 +68,7 @@ describe('acabamento e acessos reais dos modelos',()=>{
    ['court',new Box3(new Vector3(-.31,.18,1.18),new Vector3(.31,1.2,1.4))],
    ['football-field',new Box3(new Vector3(-.42,.18,2.74),new Vector3(.42,1.3,3))],
    ['pier',new Box3(new Vector3(-4.4,.18,-.34),new Vector3(4.7,.78,.34))],
-  ] as const)expect(await trianglesInPassage(file,box),`${file}: peças dentro da passagem`).toEqual([]);
+  ] as const)for(const suffix of ['','-low'])expect(await trianglesInPassage(file+suffix,box),`${file+suffix}: peças dentro da passagem`).toEqual([]);
  });
  it('liga os portões às calçadas e orienta cada banco para seu espaço de uso',()=>{
   for(const [x,z,w] of [[-15,-14.8165,.7],[45,-15.394,.8],[-15,-20.13,.9]]){

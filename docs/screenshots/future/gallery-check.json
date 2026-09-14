@@ -1,0 +1,12 @@
+{
+  "models": 77,
+  "polished": 33,
+  "buildings": 18,
+  "angles": [
+    "front",
+    "rear",
+    "low"
+  ],
+  "responsive": true,
+  "errors": []
+}

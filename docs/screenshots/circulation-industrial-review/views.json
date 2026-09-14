@@ -1,0 +1,23 @@
+[
+  {
+    "name": "04-industrial-yard",
+    "u": 107,
+    "v": 84,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "02-viaduct-junction",
+    "u": 97,
+    "v": -12,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "03-dump-relocated",
+    "u": 99,
+    "v": 42,
+    "zoom": 29,
+    "y": 0
+  }
+]

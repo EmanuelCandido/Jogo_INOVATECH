@@ -1,0 +1,11 @@
+{
+  "baseURL": "http://127.0.0.1:4174",
+  "buildScripts": [
+    "/assets/index-CVKZ_CIp.js"
+  ],
+  "width": 390,
+  "height": 844,
+  "quality": "HIGH",
+  "fitSector": true,
+  "playerCamera": true
+}

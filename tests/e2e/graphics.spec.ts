@@ -42,7 +42,7 @@ test('troca qualidade em tempo real, preserva partida e restaura preferências',
  await expect(page.getByLabel('Desempenho gráfico')).toBeVisible();
  // Other preferences must not reset the drawing buffer to native resolution.
  await expect.poll(()=>canvas.evaluate(c=>(c as HTMLCanvasElement).width),{timeout:30000}).toBeLessThan(before*.7);
- await page.screenshot({path:`docs/screenshots/graphics-settings-${testInfo.project.name}.png`});
+ await page.screenshot({path:testInfo.outputPath(`graphics-settings-${testInfo.project.name}.png`)});
  await page.getByRole('button',{name:'Voltar ao jogo'}).click();
  await page.getByRole('button',{name:'Aproximar mapa'}).click();
  await expect(page.getByLabel('Zoom do mapa')).toHaveText('125%');
@@ -59,7 +59,8 @@ test('troca qualidade em tempo real, preserva partida e restaura preferências',
  // allow the same preparation budget as tier changes, then check real pixels.
  await expect.poll(()=>canvas.evaluate(c=>(c as HTMLCanvasElement).width),{timeout:30000}).toBeLessThan(before*.7);
  await quality.selectOption('AUTO');
- await expect(canvas).toHaveAttribute('data-graphics-tier','MINIMUM',{timeout:30000});
+ const software=await canvas.evaluate(c=>{const gl=(c as HTMLCanvasElement).getContext('webgl2')!,ext=gl.getExtension('WEBGL_debug_renderer_info');return ext?/swiftshader|llvmpipe|software|basic render/i.test(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)):false;});
+ await expect(canvas).toHaveAttribute('data-graphics-tier',software?'MINIMUM':/^(LOW|MEDIUM|HIGH|ULTRA|MINIMUM)$/,{timeout:30000});
  await expect.poll(()=>page.getByRole('button',{name:'Reavaliar dispositivo'}).isEnabled(),{timeout:60000}).toBe(true);
  await expect(page.getByLabel('Desempenho gráfico')).toContainText(/\d+ FPS medidos/);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

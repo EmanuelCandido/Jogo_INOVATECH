@@ -1,0 +1,8751 @@
+[
+  {
+    "id": "be432f5c-ec47-49e5-aa08-636a81afc86c",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "26033365-e510-4339-8f42-6242919f8e94",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "e6522cda-59b4-4340-8b98-8af1cff2f8c4",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "b6651719-3efb-4cdb-9d42-e39f073bb064",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "0afa6841-12dc-4119-a435-e18c47db3146",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 8,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "f5707282-59b1-49a0-96ec-f1a21f22bdcf",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 8,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "5f1b7a61-fba5-40c1-a01a-e52fe6e02970",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 8,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "bc419250-01ac-430e-862a-4fdbafc62103",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 8,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "20840218-5f0d-42a2-bf2a-659a79cdf787",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "0673876d-4565-48a1-8977-21b5ad4f49f4",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "d1a01b64-cd66-4988-b98a-878a63652065",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "2891745d-a7de-4582-81d2-4f888cdd1c62",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "845fc494-bb07-446c-bdc9-2c9e739d0990",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "8d52f4f2-f665-409c-b334-34dbc7b7243b",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "084ef37d-4c1f-4a53-9261-eed9b5a5599c",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "bc6e46c5-e555-4ec4-82bf-14184c11b040",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2f3a3eaa-4e5f-4cde-a5b0-e85cb5da4b26",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6a57597e-2d3b-4a14-81f2-1abf3ad6c814",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "857748b6-28a4-487e-9053-99fb91f90561",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "092984ce-0d38-43a4-b683-a448079c29ab",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5643238e-ea82-41df-8766-c1a499755e3b",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "401fbd6e-6db0-4c84-980c-5776c6a7b926",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cd0dcccc-e9fd-4b8b-8977-f5a561424411",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b46bc1f2-381a-4292-8ffd-087c6b1980c4",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4a154871-66cb-4e75-93e2-36bb8ac1d9fa",
+    "url": "/assets/models/eco-observatory.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "141719fa-1769-4d7b-9646-27eef1d131fe",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "899589bb-807d-49bc-9810-95bb730c95b8",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7c936a30-9768-45bd-bec4-ac4b738d541a",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a23f1f2b-3ba1-4bc6-8439-58ea9c3d7071",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "78d246e2-0804-4fa2-bddb-fc06ff482658",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1be5d5b3-6155-4cdb-a961-c751f69aacc5",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6fabd2fe-e67c-4cbc-a248-de85ea9e7339",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b5411a23-62b7-4c6e-9ab3-0a1409f15ff4",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6fa998eb-8f09-436c-a5bb-6ba8752e1d05",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "485b025f-b2f2-4a9d-8670-75db6935ca93",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2734fdbc-8d9b-4401-94ca-d6303e3deeed",
+    "url": "/assets/models/eco-dome.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1c0d9238-c709-4838-93fc-a46db8244191",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b6835a19-6742-422c-ba2f-45f0efc88691",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "25e858a2-5748-42d8-9b6a-6b2909699db4",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0ed9607d-01b8-463d-994f-a83307c5e3f6",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c2d259e8-5f68-426e-bd2f-b2e7e33874c9",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5d98d7c0-3107-4489-918d-d5754d969443",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e943b876-a421-44f8-b51d-c68c6fe72fa7",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "abd972fd-f147-47ce-aaeb-038757ff85c1",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3dc710a9-47b2-4a7b-893f-84334ae92d9b",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b8704aec-1c5e-4873-bbc6-2453e63f9ff2",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9413c9dc-e036-46fe-9966-325cb8a3cfcc",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cc93ae5b-5354-42eb-a13e-a076f9c5dc3d",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "40c463f8-997e-4ccd-af6c-9f343918de33",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "af673617-0f62-4cf7-b3d0-113992405649",
+    "url": "/assets/models/office-glass.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b7338369-7586-4d59-a7ed-40c4f09fa827",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "72ab714f-dded-4f0f-8549-d706aa26cf05",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a9d2ad63-3b00-49c8-8398-82fde7dcf312",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e166551b-040f-408c-b861-f4df7cd4a6d0",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8f183935-7955-4b42-8048-0b4513f4c5c3",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "33eb20bf-7005-49f2-8f26-d2abb02e84a0",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "297acaec-7fec-41a3-a5a1-3fe9689ab285",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1b1d97f8-8c11-4c6e-bcc9-6be338551c2d",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1ca77d2a-7790-4bc9-990d-4f203d6a1f5b",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "668454d8-ad5a-47ae-bd89-e6818a11996c",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "08e58d23-a641-4f7c-b8e1-a3cca1c88ed4",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b5d388a4-5ffc-4620-9568-32a30d989490",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d91e5bc4-d909-472e-aa54-3fd77f433f45",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3987af97-631c-4912-8075-7f179cffa452",
+    "url": "/assets/models/townhouse-cream.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9ab466ed-7a48-4869-a044-1e4b68461f1e",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "91bbef62-95ec-4d88-8b95-763688982361",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c977e8fe-b9fc-4b59-aa79-97c5f1b56087",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cb51edfa-a567-4e80-9f0b-b59ba2654530",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ffa998e4-ec30-4781-b8ba-9d9c61fa70a2",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "56386160-d911-4f4c-a2e1-e587c9f6f01d",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8b1dad44-c36d-4833-a4bb-d5c023a8dbaa",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b8877edd-728f-4560-ba3b-3066ded8dabf",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0288443c-b808-402c-b60e-d7efe9d4dd27",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "16842cbc-1d7e-4e07-9b13-9a60e9ddfc46",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "91448296-80ee-414b-b5e7-1efccf1baf6e",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d34a8bb9-2334-4e62-9542-6733f73173e2",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4b200ddc-fdc7-45f5-b13c-b0fe6fae8109",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "adec98c3-ee05-4301-bedc-20e555bf5edc",
+    "url": "/assets/models/townhouse-coral.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a7090804-615e-4399-a226-c8719e9a368a",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ef6ed769-f3ad-4470-916e-5d6e9bf011e8",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f92c3041-1d90-448b-b2a4-09c7602d2fab",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "18a2ae4c-078c-4292-9e22-be39a70292a3",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "182d4f79-6796-4d79-8ca5-f56b86a7eab5",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "33466fef-eb56-4b75-8d18-7a7ab82a178b",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e8b54a07-b77f-4cd0-93c6-68b72aa10f83",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d1fe3585-6e6d-4069-8382-aa6ea25f5fcb",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d0f45512-11d4-455c-86b3-b7d25ef9e0a2",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d748bfb2-823c-46de-b7c8-5eff0a6fa9de",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "94e66503-c754-4e96-adf5-c7d8d31196a6",
+    "url": "/assets/models/central-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "047a4980-c0dc-4b3d-a273-c9b9b633b29e",
+    "url": "/assets/models/station-platform-canopy.glb",
+    "count": 0,
+    "total": 21,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "322c98ce-a098-47d3-8bbe-39ea3cf76507",
+    "url": "/assets/models/station-platform-canopy.glb",
+    "count": 0,
+    "total": 21,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "00864ac5-3c20-481a-b8c8-4a554e7c9330",
+    "url": "/assets/models/station-platform-canopy.glb",
+    "count": 0,
+    "total": 21,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a98ccfaf-1e6a-4c80-a4e1-287b809545ea",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "68a531d1-23be-4027-8b6e-710259c632ca",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0d2ed215-c5c7-48fa-b0d6-07f32274311b",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "153e0ce1-0164-4db6-b39c-93e0733fe22a",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4c18265c-631e-4b7e-b01a-25fe6c382831",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f9b094ba-cb91-485f-a034-3c681b484222",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c0768dea-93c2-4096-aba9-d00a596b073b",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "82e93dc2-0c03-4262-a31b-9b5e4931b976",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a16c2966-f9c2-458c-9909-a3f3c80987e1",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "91be929c-5b96-42ce-9543-02cbfc433e42",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c20f672c-3fe8-47eb-a909-c0a0633d33d5",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4954887b-9160-45fc-a778-3163bf630920",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "960fbba8-b48b-4028-82c7-aa066dbef2b7",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e335fa0f-2f56-4700-8c41-84fd93135ce6",
+    "url": "/assets/models/hospital.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e50da661-adbe-47c3-8d1f-5f5740f09fea",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "877c409c-92f8-47f9-8f07-1509a8183196",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4fd56e35-8d45-42ba-a0b8-11cd290be257",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5e17407a-761b-4d99-8af6-924f9f93da71",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "70d63601-2001-4ac0-b4fd-f1057455dc94",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "20a22b62-5b80-4a06-a096-c6b22c4c84d6",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e8020054-754c-4396-9cc8-66b6d5c98e5a",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "df339a8a-b4cc-485b-b827-48c7e98b6416",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e38ad37e-8b0d-425f-9178-3e536ac8f4d1",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b53b193a-208f-4196-b046-c0346807e16f",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a1ee6822-0ec9-41f5-be41-e523829ba5b6",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c21c7152-a722-45dd-8698-48ec3da82863",
+    "url": "/assets/models/solar-school.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0488a026-4db8-45c5-9237-e9a862d2ba8a",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "99d32c0b-1dba-4773-807a-f024d181b0ac",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "705cfce7-164f-4e32-bac9-388d7a59b1c6",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b4351a40-c76c-443b-9f91-4fb148977c19",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5fb6f897-0422-4f29-ba8d-dda11de1fd79",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "892d54de-7308-46d5-870f-433042bb69a1",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "94b0e7ed-d03f-4dee-921a-ba49f8b90b84",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cdc11309-7d32-4899-8569-cc6a26b01d92",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "feab366d-db45-4adf-b51e-cf717ace45c8",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "80727891-520a-468f-ae52-bcbee7e69f79",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fd09839a-2621-4e72-89a4-0afd7a7851ff",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d1e3c3bc-ec00-4dff-9b9c-ae6b2b609a45",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "72b31910-22a5-4c74-9be1-54adf6a94aaa",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "046e01d3-e539-4f33-923b-d162fd4e9302",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "444b2b19-37a4-4098-82a6-281dd1ca8ab1",
+    "url": "/assets/models/recycling-centre.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4e51bd92-9581-4e12-9b1e-20470157f1b7",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "838fb4c2-759f-4a89-acbb-6a09dcfc8ec4",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e6b25f65-b3cd-4e32-9c80-c039e11d9ac2",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6bf2e89e-c0c3-4aaf-ba99-9157bcb56a89",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6f257c73-49ab-474b-b126-3b500895625f",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d6295238-2229-4a55-80b2-9ee86698fb21",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3fbe8374-da4e-4f05-a35d-a67188a3e61a",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e28ecf1a-fd7c-41c3-8960-3c37287594f6",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d053680b-a6c0-4c89-b687-0ea6097538d1",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "24f5f00e-069c-45d6-baf1-dc655b772e83",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8e6ace22-7ca6-4675-9069-06acad047d78",
+    "url": "/assets/models/greenhouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "993317f2-816d-4ee4-8320-ef9c2b0918fa",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f68d35ff-8b91-476a-8d0a-43674bb67e02",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cd0123e3-544a-4b82-a081-2c87cbf3df29",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "51ba8992-88e7-4a46-aac0-6b0d7c9b780d",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ac48c715-c47e-4c74-9168-b2b4bd1f4f22",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "bd2b9e44-1d98-4d03-af47-272251906f0c",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "79cb5ae2-56e9-4aae-887a-e68ed27e4854",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "dde90fba-3f1e-4ecc-93bf-dec2ac6e09d7",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "39003d7a-d3c1-4b38-8a8f-68a1df29ce7b",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "085b0ea4-778e-4f38-938b-07211b849fac",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "da9ec290-eb13-4ac3-bc02-e0cc100ab21b",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "72fda3ed-c382-4dda-b8ff-31af22234753",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cf70c33f-5c5b-4e5b-97dd-27742cc3a688",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b28f8538-62b3-48ba-b2ec-ffab2cad4ae0",
+    "url": "/assets/models/solar-station.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8377975d-5579-40ba-927e-5e1f17557ef7",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "597eb1d9-caea-4a51-a415-52a64f2a8a2f",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "821874d7-540e-42d0-9797-ed360e449892",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "578cef0f-96e1-4d98-b808-05bd33701bb1",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c1a535d9-e710-411e-9926-ea289dd36486",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "20205f29-6851-4779-a892-6840a93b3713",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8acbea25-a8e1-42ca-b712-a26a0f0de592",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7ece4cb4-9175-4ab9-8235-f549f97b4957",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "695a42ec-a422-4395-afe4-a8bf744f6857",
+    "url": "/assets/models/ruined-building.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1623dfde-e74b-4f7b-a0e2-d7271ab89b88",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ac0e3250-f41e-44dd-813c-92c116debf6c",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "42cc43ac-9ff7-4e0c-9483-827e95c782a2",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3c6f8b8e-e578-4a3e-882e-228e2e5091ba",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fe490a50-8666-4a9d-9a8e-0e523aba41c8",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "306cffc2-4d49-435b-a95d-06b533fcdb40",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6be735f9-b614-4092-b6fc-9a66e604d12f",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6dc7b04c-26a2-4aa8-9372-e292c6aa11fd",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "29522b54-513f-4efb-b506-59bc032fbd67",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fc9cbbf0-dbba-4027-83b1-3cb51e6bf3ff",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "45e66b88-d7ec-42f7-a863-458c05559a50",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f9e0dd50-b68a-407d-b9b5-43b9fa97f8d5",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "be36ad17-91aa-4343-97a5-d1ca3c473cc0",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "46b8cca9-1a01-487b-b5b7-18b56e2d1bc4",
+    "url": "/assets/models/fish-market.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "adaf774c-d333-4c3f-9a8e-169cc93e7032",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "463ee485-c64a-4df4-8db4-2f93b3c84543",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "058c30d7-cefc-4f69-9e59-0f8f4666b99d",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "77c4741e-c9a7-409e-803c-1a441bd5b3c8",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a9177224-ccbd-4089-872e-b880d900250f",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "289fb92a-4470-4b94-bd5b-6af698dbb63c",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0f0d6145-ace0-4e14-8707-48f725d9bd90",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "867f6415-d318-4f19-9cb3-9e405c956fbb",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0b30a78c-5411-4fff-800d-c36c9376da37",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8b15334b-6dc7-4a71-b0f0-5a7c03178b45",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5656f350-91bd-4c89-986c-0f56d385b68f",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "82a4b62d-86e4-4e73-9e87-a7047229394d",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d62c6537-962c-499f-a204-d9bb6c228357",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "030a3de9-7b66-46a8-9ce3-69bda2c3ca5e",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "559329f8-f370-49e7-b178-d1836d19881a",
+    "url": "/assets/models/corner-cafe.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c473b8b9-4986-4e62-b056-d50bf17fad8b",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "322dc237-bfe8-48e3-a7c9-e22021aae61e",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f62cfb09-40d5-4bba-9b51-d5341d3b2fd1",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 2,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "519b7cce-36bc-4f0c-b8c8-48d777a77dc5",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a5e6b8ca-9f32-47c9-b229-6c32ae8614b9",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5556526b-b0b2-4a0b-8827-a38dcd1d4f1e",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "32ed09d8-53e6-4cc3-a579-f3c4d9a8b968",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "82091d30-7e44-4fba-b05d-f9d4a7f21b5b",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1e16a13f-ae8f-4f10-ba77-aaa1c063ba7a",
+    "url": "/assets/models/industrial-works.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e1790411-389a-49b4-bf99-6395d5f400ed",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0aa8c457-f32b-4dbf-b268-7461f89fb5a3",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a5e47db9-008c-4312-9f01-17adf79ee79a",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f636e57d-9c63-495f-9f63-b167bdc141bb",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "33904842-ac4e-45a8-ba4e-9bfc49ff22fd",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c7064fbf-27f9-4d1b-bf13-61c04f67e811",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7e797591-9bf7-43d7-940c-200738f66071",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "37383df4-9065-435e-8624-0e85437ea94f",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "37d41de7-d5fa-4b79-839b-5576c4afcc69",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2364aa75-e0af-4a2d-b763-318a3bbf694b",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0bcc8dfd-10de-4118-9c99-98e442f23005",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1169cc73-c437-4a8f-8a00-05b5bb3a5d0c",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b6b79971-9ee8-4ac2-ae94-fc6f5e6b977d",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ddf11df3-df50-42c5-841d-a7c1595a998b",
+    "url": "/assets/models/townhouse-sage.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d932771d-5f2c-412e-8658-497e394db43f",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "565b3f1d-1823-4a03-9aa4-d532f41defc1",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1c269825-6e18-4161-be52-ab2dcc8faa17",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2e25e429-1cfa-47fc-a23d-ccebc51ed9a0",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "912aef82-da17-457d-8d05-13c3cf38ae62",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f30ab536-359f-4a7b-8f3a-7acae408efb5",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c58b4833-72df-4100-8d50-33ea2c86f0ac",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2735c2a9-e8ef-4136-bbe9-b72823bc680e",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "48043be5-fc77-4ecc-bdde-b6915e8734c6",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "36b7ba73-c83a-425d-b599-0e8e0a52030d",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "efc11804-993a-45f9-bab2-b9fd4d3638b7",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6e1447ae-5371-4b0c-a63c-1446625e4fa4",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1c85cea2-a527-4e48-b523-15f7de799fdd",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "86b4deef-395e-4b02-b876-73c6e2aa6fa8",
+    "url": "/assets/models/townhouse-pink.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "44b0d0b7-c98a-4c0a-9084-a237d8ecf958",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "22e49b25-4850-4c33-9ece-f61b2e527b3a",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "822b2eae-46d1-40fb-9151-5f918483dd30",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fa53a5f8-7283-4202-a26d-430c58863870",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "895f8ff2-f042-422e-8873-27f56748225e",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "eead4304-3f4f-4a7a-83ea-30af5130c054",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3bbf84ab-f3f9-4e85-a40a-2a387a4153a9",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5d6c4303-e78a-4194-a949-c9998bc655c9",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ca66a216-968b-4c13-994b-069171cd65b4",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ec1c8bd0-9a87-48c1-adfb-11fa97d7a36e",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "bad2176b-dde8-4808-a631-8dfaa6aac980",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3f8a0bd2-19e1-4b21-84f4-ca6fdefc8561",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f991538c-627a-4f9a-82f5-f60b0020ed1f",
+    "url": "/assets/models/solar-cottage.glb",
+    "count": 0,
+    "total": 14,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7b34f34b-dff1-437a-8dec-65e86b1e255e",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a66bb4ca-f990-43a2-832d-0b8c1ab44364",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d1d95356-6872-43c4-bf63-7b17451f817d",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a12f1885-a16e-416c-97f4-3a2c1f85ef05",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5886a285-a4cf-4a0f-85bb-525d44bf4a3f",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "230edafe-8f5f-41e0-9b94-8c8f2321c286",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "88edd8d8-9dae-46c4-b602-8baee9328879",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1752709e-fe27-4871-9925-74df5b2f186c",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6a34b7f7-2902-4efd-a7d0-38d3ad595837",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0b571e20-3e9f-4f51-9778-8babef4c9429",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c84dbae1-de3f-4200-ac3f-a13cc36f084b",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ad04ea65-c7fd-4b84-bf71-e9b5ef1920cd",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d856f356-6a7c-4b81-99e9-23bfc8e5f509",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1bc23605-1bb5-4ed7-b712-e9b3b6e1cb45",
+    "url": "/assets/models/house-terrace.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a2e636aa-7065-4265-b3e6-ef355e6ef387",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ef343b28-3957-4c6f-b10a-21d051af2643",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7d2a23dc-33e5-4940-b232-98a3984eb200",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "246fb5e1-23ca-4754-8be8-5445a4809262",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "bec9e15a-5fac-442a-b9b9-6df6cbf3fd7b",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "95a57ba8-5360-4716-904d-04b7d1943647",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4557a775-bd93-4fd6-8728-3efc1753bc44",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "81fa6494-a08a-4bdb-85ef-3e90782d2864",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1284bf29-67fe-4289-aafc-4069dd7bc42b",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d9f2018e-5ddb-4493-affa-1e9a447ba657",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6d85c8f5-cf7d-47ff-9d81-d0527448a6ea",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8faec32e-3b30-477e-99b3-0ff837b85c5b",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1bc078ff-3243-4588-a293-235bea84946a",
+    "url": "/assets/models/house-cream.glb",
+    "count": 0,
+    "total": 7,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4ec71b25-72a9-4133-97ae-7c874f3a4c9b",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "12749ba7-d54a-4ee5-85b4-db7b432fe103",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d8fb184d-4a0e-4aed-b723-028d340c6745",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e1c3be23-e315-40cc-914c-d99df6ca99a5",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c355c302-29ae-44df-9508-c8ba45dfef2f",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "89d7100a-fa0b-4cfa-86d9-5b24b7c6d726",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "75e93d7d-f96e-46fa-aa9d-fcc54a57b63e",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "05345b82-f602-41a4-bccc-e923551e4a03",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "13f74369-372b-4332-aaee-9962b1835f5b",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8eb7716a-c2b8-4048-9918-17a6fe7e63bc",
+    "url": "/assets/models/football-field.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a45d6551-c0cd-4a5f-aa7b-0f397373557b",
+    "url": "/assets/models/playground.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f806c7a3-3fc9-43de-961e-e3be12d3d53f",
+    "url": "/assets/models/playground.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c2358e75-c75f-4ac1-b8f0-c4e763dba772",
+    "url": "/assets/models/playground.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0cf97a48-e538-4993-a800-60c1a1e76fbd",
+    "url": "/assets/models/playground.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ecf8be30-1ee3-4c42-a978-8898021aa0a7",
+    "url": "/assets/models/playground.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "94ede1ab-c9ac-4d03-b8c1-738db3f80509",
+    "url": "/assets/models/playground.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e4dfcddc-1dc8-4169-a7d5-e59f76be2e65",
+    "url": "/assets/models/playground.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f151e546-e104-402f-a373-08f0e313f32e",
+    "url": "/assets/models/court.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9d88c4f0-8d3a-46af-a48f-63cf03d4a1f8",
+    "url": "/assets/models/court.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "95fc0e77-4e8b-4780-951f-71be890c8897",
+    "url": "/assets/models/court.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ba717ca4-94ac-4157-b950-3756ac49e748",
+    "url": "/assets/models/court.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ee798297-4034-402d-b719-d98d65ee3f84",
+    "url": "/assets/models/court.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "bceb6242-25da-4c8f-b768-69300e60556e",
+    "url": "/assets/models/court.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7357af26-ee23-4aa4-9fd2-d5430e4d24a7",
+    "url": "/assets/models/court.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e66023eb-fe09-4978-bfa3-99f885ae7c7f",
+    "url": "/assets/models/fountain.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7ce7c7a6-0b96-4062-a5a7-f9f8af75b68c",
+    "url": "/assets/models/fountain.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e0ccfdde-1294-4038-bb50-07cabc165998",
+    "url": "/assets/models/fountain.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "21d85130-1acd-4dba-80d2-c8796d771327",
+    "url": "/assets/models/fountain.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a8c3e7ec-3477-41f1-aeab-5011fb0febc5",
+    "url": "/assets/models/fountain.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ce38ce4d-f4e2-4a86-8142-18ddc842f0d9",
+    "url": "/assets/models/fountain.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2ced5181-1b97-4717-955b-5c1510a52788",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cc21a3e8-63d2-45d7-b953-80e5111d5721",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f56adbe0-e939-4d76-a2ca-090a96e2bc9a",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e6ea17f2-2a46-4223-a5d1-a385e6c49557",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0030a17d-5de8-43b1-8f86-5f32b70edccb",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5f88ad89-e3c8-425a-bc90-422062e02c54",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "430055b5-eaae-4e96-bc02-50c3995c76b6",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "eb997655-b30a-4dc9-b012-9962b35770c2",
+    "url": "/assets/models/river-dam.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "14fb731f-d5f3-4f3e-97a7-8d987497323d",
+    "url": "/assets/models/arched-bridge.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f68232b8-d568-4145-baf2-a4004c985a4e",
+    "url": "/assets/models/arched-bridge.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2464a58c-bbe4-47f8-9a4e-0239bc6ad0e0",
+    "url": "/assets/models/arched-bridge.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "44bc33d9-85c5-4e58-848e-c1ccbb1e2079",
+    "url": "/assets/models/arched-bridge.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1797e317-2a44-401a-865a-548ed3f5d05c",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f2470a69-e5c6-4b16-b40a-bfafd8e68024",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f4754c9b-ec65-40e3-8449-405307337377",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "850389d1-7d28-46f6-8fb1-167897b0c242",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9a7fc472-da98-41fc-953d-10b4ba444ac2",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "21241ebb-a126-4916-8c7a-31264bbf4e7b",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9cc3e6eb-d19a-4a2a-a9e3-27afeb5aff6d",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f7ed9e55-4f43-4b5e-bda1-cfe4b669611e",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e2056d39-81ac-4646-a529-d81dee34a696",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c12971aa-2f3b-4993-8eda-f908ed5d75cd",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "697b301e-540b-4659-9e40-33f6c3c09b47",
+    "url": "/assets/models/lighthouse.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0ac33240-e12a-4bd4-b319-321ec93586cc",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "56b8a9ac-a2c5-4cdb-b7e1-bc91cffdea09",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "88865fbc-c880-4eba-afb0-2945eab2522b",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3e6a465e-e41b-4dbc-be84-90bd6e3fac11",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4c0877f3-ab6e-450a-8752-ff3cbb9f5864",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1394234b-db3a-4f08-bc9b-52b0b42b46d9",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "14ce5028-4fc7-4734-86bc-15191574424c",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "62925a3a-f4bb-45f0-9d3c-daa38c8dddaf",
+    "url": "/assets/models/pier.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "281e0460-5013-4020-aa20-07a5f973e26b",
+    "url": "/assets/models/sailboat.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7f432299-06f7-4020-93ae-3ec787da1d31",
+    "url": "/assets/models/sailboat.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a042aea3-97b3-4cb6-8c6e-936398fbb55f",
+    "url": "/assets/models/sailboat.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "994306f5-22f7-49e1-b3ba-c120b64770ad",
+    "url": "/assets/models/sailboat.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a05fc1b6-cc90-45c0-a3df-e0b830ef1323",
+    "url": "/assets/models/sailboat.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9ecb8e14-be4d-434f-9413-d70b484479dc",
+    "url": "/assets/models/sailboat.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1c864eac-3d06-4e41-902b-2ea2054ccaff",
+    "url": "/assets/models/beach-set.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c2db33b4-eeb5-4aa7-891d-27a1f5e254c1",
+    "url": "/assets/models/beach-set.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "36d4ff9c-093d-4266-866b-3edc11608df2",
+    "url": "/assets/models/beach-set.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6a7e7e59-5f92-4b8d-a2fd-d5e62b021a89",
+    "url": "/assets/models/beach-set.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "56cfbc34-d320-40bb-9fd9-9a531de99925",
+    "url": "/assets/models/beach-set.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b3d24156-b11f-4157-ae39-a757793aa7d6",
+    "url": "/assets/models/turbine.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "37e11d37-a8a4-44a1-9979-6e0ee05c79ff",
+    "url": "/assets/models/turbine.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "eaf05b24-6158-45d5-84b2-e3fbf986c1f4",
+    "url": "/assets/models/turbine.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f85f71ab-09a4-4b4a-9774-b09b389e1946",
+    "url": "/assets/models/solar-rack.glb",
+    "count": 0,
+    "total": 12,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "dda1f6f9-b9e1-4c93-b605-548827260c18",
+    "url": "/assets/models/solar-rack.glb",
+    "count": 0,
+    "total": 12,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "49a44d34-e675-45ff-9b62-03a7c19c68a3",
+    "url": "/assets/models/solar-rack.glb",
+    "count": 0,
+    "total": 12,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "afd26a6a-bd66-4b2a-8340-b61897a5c94e",
+    "url": "/assets/models/solar-rack.glb",
+    "count": 0,
+    "total": 12,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "345af1d4-5cf1-4e4a-b179-c71d52fc7d61",
+    "url": "/assets/models/solar-rack.glb",
+    "count": 0,
+    "total": 12,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "15110a0c-1bce-40d1-b642-27d8d8d68898",
+    "url": "/assets/models/solar-rack.glb",
+    "count": 0,
+    "total": 12,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7e48c88e-9421-4484-b060-a0b6e2684102",
+    "url": "/assets/models/grid-pylon.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "629158d3-7002-4842-9ddf-ff385f02ca3c",
+    "url": "/assets/models/grid-pylon.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8d0e1d13-cfed-4a86-900f-831a01032d6c",
+    "url": "/assets/models/grid-pylon.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d403dba8-67cb-42b9-9b1a-0e7b3c5b3f75",
+    "url": "/assets/models/grid-pylon.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e22df22e-e301-4994-ace3-e6734efba8d5",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7ebb9a57-924c-494a-b605-cbb57e03b3a1",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "724d5d95-f455-46d2-8eac-96e31e9a6e0e",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0d0c2503-ab4e-42e2-9574-bce6d25bc06d",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ea664f1f-0b0a-47c9-b9af-a2361fecdc71",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "85282afe-058d-4b7c-8b54-43392d3edf3f",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1a6d3d40-5384-49e9-ad9a-a4342a89611d",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3b01722f-2632-4c9b-9b2a-33961f7fd5c6",
+    "url": "/assets/models/excavator.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e5a7ea20-f086-4889-9179-59dda875ab96",
+    "url": "/assets/models/tree-stump.glb",
+    "count": 0,
+    "total": 24,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d63a071a-925e-43f6-ae97-2d440b3fe503",
+    "url": "/assets/models/tree-stump.glb",
+    "count": 0,
+    "total": 24,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4c360be7-c740-4949-b00b-3b9cd3ff6226",
+    "url": "/assets/models/tree-stump.glb",
+    "count": 0,
+    "total": 24,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "171c1152-c60f-4c64-b7d3-5a0e5dbe70cb",
+    "url": "/assets/models/station-stairs.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "121856dc-7739-4241-ac5f-d45759ac315a",
+    "url": "/assets/models/station-stairs.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c6e2d1d7-78f1-4852-a303-19935d6d2b7c",
+    "url": "/assets/models/station-stairs.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "592e83fb-8785-4fd8-bc1a-00ff9709a862",
+    "url": "/assets/models/station-stairs.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8f71c3be-d392-4692-aee0-51ab1cbf185f",
+    "url": "/assets/models/station-lift-shaft.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ae76653a-e5e9-4e4d-852b-2418a00e3ed7",
+    "url": "/assets/models/station-lift-shaft.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1d0c94db-7d70-4ab0-8ae6-22e412e19e72",
+    "url": "/assets/models/station-lift-shaft.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8b3a066e-417a-4f7c-a7fc-7ab79d4df188",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6d8430a7-0208-47ec-9a1f-9fecf11772f9",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5f241e3a-d695-403a-9bc7-fb4fc2278cea",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fc0e6689-9a85-498c-91f5-ce8338b04e31",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fed73f25-fb18-4617-a3c5-96f0df5aba57",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e3caafa4-b730-449c-b996-6c469c65840e",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2827b205-83ad-4b27-8ca4-9b9cb96f23b3",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2f6bd47d-9404-4c07-9891-b0f18c780ec0",
+    "url": "/assets/models/station-lift-landing.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3feac4ec-9c05-4842-bd13-3e76bc43a458",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ed671ac2-a40d-498b-b5da-d0bf3325d7e2",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c18a0f42-3465-4cc0-afd9-629b83bb5377",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9e909a13-f482-44e1-bc9e-c3fefc23afb6",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "5de49425-099b-403d-a903-7f869174a7cc",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "26585c99-bb6e-4916-94dd-92960af74ae3",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "965b9ec3-5b5b-4861-96dd-0a5a27001a86",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "45c0bd80-8c79-44e6-8347-cf76ff276bdb",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0b0ab1ea-40c3-410e-b9d1-5c2921e57fba",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "021b1f3e-183f-47f2-9275-2d26e7cb13c3",
+    "url": "/assets/models/industrial-gate.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b052ab77-e731-4a48-9363-dae8efaeda9b",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6d1193a0-1d89-4c8c-92e1-121d704040c7",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "41a6bb91-9855-4491-9830-2be3e0aa73c6",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3496b231-26e8-43df-b6d7-d0d874b96e05",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b99df860-d04f-4bf7-ae26-22e7be31e8d4",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a335e625-8af2-4b31-a49d-fbd8ed4914e4",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8ff8c7a1-8142-41c6-b22c-7a5c951ae954",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "403b2db1-d591-4b85-a757-63f2f6e12b84",
+    "url": "/assets/models/train-carriage.glb",
+    "count": 0,
+    "total": 8,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9150be0c-ed4a-40f8-9e77-ff7294f35f05",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "31d2f09f-ee4f-41d0-adca-76576aa7ad6e",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cf06b0ed-82d5-44b3-b054-63dec23a586c",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3a3009f7-cc83-4deb-86fe-a9a8085408a8",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f6cae34b-802d-4ea7-8b60-66e0f4dea2f9",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ff8a35f7-51f7-4d78-8479-5a0121b694e1",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cebf1562-ef92-45af-be0e-1ca77af126ef",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e0f4e187-3ec8-43da-8e50-af4344ef7648",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cfef22ec-72f9-4649-aff2-24652a820fe5",
+    "url": "/assets/models/train-cab.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "231b574a-283a-46a3-92b6-88eb82e72eed",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 26,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "49dee317-d3fa-4e69-a2bd-e5756b7a2fbe",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 25,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b9918631-cccf-4939-9077-c164f9b5e10b",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 26,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0485e00e-3ed7-4607-8d0a-9076ea9e3c0e",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 26,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "17bc4b50-8674-486b-b21b-a2172b3e1ae9",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 25,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4d0c2d26-373d-4b1a-87c3-84f832c6dc40",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 24,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1de38a04-414e-4aad-9b83-2d3a43dc5dd8",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 22,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0d753b70-32bb-4676-a3e4-584fe4559c81",
+    "url": "/assets/models/delivery-truck.glb",
+    "count": 26,
+    "total": 59,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "45a86c04-c789-4d95-b94f-743197fca7b6",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "782dd389-a459-405e-b67f-c518f9043888",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c6d7aba4-b750-4f9f-8762-670e2d47450b",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8d3751d1-5428-4c7d-9055-96e3664f5c7c",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d739e7ff-c8b9-4ecf-a610-e943afdc5707",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "56464940-0229-43e0-b07a-3ab729570e57",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "dc7656b7-4561-4fbc-a81f-d87233d36d18",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "38e548ba-08aa-4277-9f9a-ec206bd5dfa4",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c78f92b4-cac6-4559-9f6b-21d157b10636",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "53da5455-e723-4cfa-8b81-e88f5a550081",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "35edf566-1e93-4e18-b382-9c564bccd1cb",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 41,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6ff63db3-781f-4ca1-9f3f-aeb680605bd1",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f1f8c80a-c123-4e78-9cd4-2fe749496b4b",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "34e213b3-7630-4310-89da-0240e57ddd73",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f394f8f8-6944-4d74-80b3-46019d00e163",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "54b4b3a2-b7e0-47ab-89c1-f827ceac46d0",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "dcfb2d25-fd48-4edf-9642-ccc74a46cf69",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "37fbd2cd-7406-4139-bf7d-65d7c51ef673",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "201da09c-a0e3-4bcd-a17a-3aa11ba116c4",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d633e451-c9d5-403b-a9d9-14f77f72c59e",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7588f98c-1e7f-472e-b8bd-45c6bc9e9328",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a844a085-310a-4dfb-99d8-1fcf30322339",
+    "url": "/assets/models/car-white.glb",
+    "count": 0,
+    "total": 36,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "45f1d9d6-a2eb-45b3-bb39-48bfdcdd6339",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "dcba1898-1034-4e90-b3d8-a8a92578bb21",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c71a5942-9964-4391-8d81-a2f3c5c3049d",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "769466f0-cfbc-4570-b73a-3945beb39fec",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9c237883-9516-49b6-8427-ede53bd084f8",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "55d3022f-4897-4a5a-a8b8-1094c252df9d",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "21d29561-8b6e-4320-9fa8-55b0e7b6b1c9",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "dd29746b-cf03-4c25-ad1d-0b8888fcc08a",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0dec5f19-06ca-4e55-98c9-a845fab155f3",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c6402003-9b56-4915-881c-33b8575588f4",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1140ab0e-280c-458e-9128-f177ea7c0ed5",
+    "url": "/assets/models/car-coral.glb",
+    "count": 1,
+    "total": 52,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "785a0dea-d24d-498b-b440-1a5e5bfc4e2d",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f926c7ba-3027-4f5b-8cf3-d91de31f206a",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c5526ec1-5c04-4409-a733-b8da21c8b5a0",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8b49658b-e696-47bf-a0bc-4aed5a714fa1",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "64d18204-f6ed-45ad-a82a-73db55acd839",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "40666ca9-b515-4599-bcba-95cf1e9a1bdb",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1f5b68cc-adea-4200-bfe2-1ca46c40fa4c",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "71c4adc8-f368-40b5-aed9-4728e0b55ee8",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8dfea498-0ded-45c0-82a9-395f64c26815",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "67e6d1f7-bca1-45b0-a61a-8225c2c06354",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "22ca05a3-ccc7-40ad-9053-8b1be546bc50",
+    "url": "/assets/models/car-blue.glb",
+    "count": 1,
+    "total": 43,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "78a14bed-0582-438f-8d3b-7de55aab9052",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cca4ef34-4bcc-4a8b-8450-81cfefb567fc",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "98153df0-1a3e-48fb-9aac-3148c492213f",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4ea600a4-ab57-4bca-a5e1-b78e7635d70a",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "117f2b0f-a929-4d46-83e8-169dedd0e63a",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1ecbaab3-a8c9-4ef1-b72e-e08de16faf72",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d39ca188-0f06-4426-9d2e-ba07d0f8a6e8",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "00157e8e-40a2-4e1e-aaa1-0f0f0e3c46d0",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9e39026f-5564-4e96-aed9-72172367b8c7",
+    "url": "/assets/models/city-bus.glb",
+    "count": 1,
+    "total": 22,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "618a0192-eb95-418a-be60-bce944f355d5",
+    "url": "/assets/models/road-deck-module.glb",
+    "count": 20,
+    "total": 914,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d97f6e6b-7522-4a61-832c-550b4054f364",
+    "url": "/assets/models/road-deck-module.glb",
+    "count": 21,
+    "total": 914,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "44e75203-2dc3-410a-bc73-e7699bbe9bd7",
+    "url": "/assets/models/road-retaining-wall.glb",
+    "count": 0,
+    "total": 402,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "02013e2e-5508-4be5-96b7-6638893a8a16",
+    "url": "/assets/models/road-retaining-wall.glb",
+    "count": 0,
+    "total": 402,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "eaa98461-ba77-490d-9391-f49672013cde",
+    "url": "/assets/models/road-retaining-wall.glb",
+    "count": 0,
+    "total": 402,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "10a49745-abdf-4af1-9f5c-b793baf29a73",
+    "url": "/assets/models/road-pier-footing.glb",
+    "count": 2,
+    "total": 69,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c373e6cf-18f5-407e-81a5-dd10b968a127",
+    "url": "/assets/models/road-pier-footing.glb",
+    "count": 2,
+    "total": 69,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "812f3594-913a-4bd0-831c-747da0f17675",
+    "url": "/assets/models/road-pier-shaft.glb",
+    "count": 3,
+    "total": 69,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "bfef2d5a-8ee9-41b4-b494-353a9812983d",
+    "url": "/assets/models/road-pier-shaft.glb",
+    "count": 3,
+    "total": 69,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "0b74acd1-a0f5-4fda-a645-900e1abbbc3e",
+    "url": "/assets/models/road-pier-cap.glb",
+    "count": 3,
+    "total": 69,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7742a05b-01f5-4cc7-9101-c3af7d5d7f67",
+    "url": "/assets/models/road-pier-cap.glb",
+    "count": 4,
+    "total": 69,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a688fff2-924d-4df5-a324-85a674aec45a",
+    "url": "/assets/models/station-guardrail.glb",
+    "count": 0,
+    "total": 161,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "e875334e-99d0-42d1-90b5-21a76a7d15a7",
+    "url": "/assets/models/lamp.glb",
+    "count": 15,
+    "total": 196,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "18255a65-cede-476c-8283-8483ac8692ae",
+    "url": "/assets/models/lamp.glb",
+    "count": 13,
+    "total": 196,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "802ac34e-82dc-43f8-b539-d157d61e680d",
+    "url": "/assets/models/lamp.glb",
+    "count": 15,
+    "total": 196,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c7ced26f-4a2c-4cd7-ae81-27d5cee04e32",
+    "url": "/assets/models/lamp.glb",
+    "count": 15,
+    "total": 196,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "d194ba84-fe0c-4cdb-af91-73aff07af352",
+    "url": "/assets/models/lamp.glb",
+    "count": 13,
+    "total": 196,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "9e8f81cb-04bb-4aef-9a93-4733e0d8b6c8",
+    "url": "/assets/models/lamp.glb",
+    "count": 14,
+    "total": 196,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "97d15303-58d0-47bf-a46f-49f05cf06264",
+    "url": "/assets/models/lamp.glb",
+    "count": 14,
+    "total": 196,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "71bccf15-8904-4555-ae7b-b882cea2cee0",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 0,
+    "total": 18,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a56ff708-3564-44b0-856d-e773d7e65bc0",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 0,
+    "total": 18,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "044a52a7-13dc-496a-8637-fdc89b9c3260",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 0,
+    "total": 18,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "58b9f812-da3e-4b80-b05b-34c32b3648d0",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 0,
+    "total": 18,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "11d36acf-5eb7-48ad-9db0-3157d5ff15fa",
+    "url": "/assets/models/bench.glb",
+    "count": 0,
+    "total": 26,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "67952c30-1616-4c0a-9983-7a4e5210bc57",
+    "url": "/assets/models/bench.glb",
+    "count": 0,
+    "total": 26,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c829106c-1f34-494a-bb6d-1f924c0a3357",
+    "url": "/assets/models/bench.glb",
+    "count": 0,
+    "total": 26,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8be01de7-a65f-41e5-ad16-c577e2de0870",
+    "url": "/assets/models/bench.glb",
+    "count": 0,
+    "total": 26,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c5dc5619-672e-4772-a67d-a8fc7c307456",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 0,
+    "total": 17,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "f0d01325-25fa-4708-8314-b35bcdaf2ae8",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 0,
+    "total": 17,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "17c5848a-8570-4cc7-bbc1-9aa01a6f7015",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 0,
+    "total": 17,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "54bc2f12-6a60-4e6f-80e8-2534a449ec9e",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 0,
+    "total": 17,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "cc73b52b-361e-4c3b-be16-d179263a1d5a",
+    "url": "/assets/models/rock.glb",
+    "count": 0,
+    "total": 172,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4596f47f-b8b6-4812-9edb-344b75b914d5",
+    "url": "/assets/models/rock.glb",
+    "count": 0,
+    "total": 172,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "75cb1961-9400-438a-8a2e-b06445997463",
+    "url": "/assets/models/tree-palm.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7c551cc2-1017-4aff-ae8d-537fac8087f6",
+    "url": "/assets/models/tree-palm.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8ce6bbae-dd51-47ff-9e5e-b609b6c7d6f7",
+    "url": "/assets/models/tree-palm.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c7953d9f-13ba-4c4b-bd76-878d4665a95c",
+    "url": "/assets/models/tree-palm.glb",
+    "count": 0,
+    "total": 6,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ad28da8b-f52e-47b0-aa4e-e9adab3c2868",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "501c8a74-372a-4593-bad0-44b65aa5ad1b",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fb982e91-24e9-450a-a096-82ef280b6337",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6779be18-3d1c-4d6e-a49c-908165040eb3",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "76e2d47f-4f19-4d99-8292-9ed4553c38e3",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "48d2fd4d-0a2e-4f93-8b17-9c6aa1f1f3cc",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a30834da-47b2-4ab7-91b6-2e0cd72ab178",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "b5f0d9f4-50dc-45eb-b3a5-049972243437",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4b4b1598-bd78-4098-bcfc-b5997d8bb561",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "8f9eea88-7785-4666-8d36-5c1578174cfb",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "1c22a909-1f06-4c9b-9aaf-98c2a9c68b17",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 388,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6be68b46-0628-41eb-bfca-95fe898cec15",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 388,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "fbe323f7-a635-42ae-a6ad-d2bcb7276e23",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 388,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "a9a2fe71-d719-4732-ad19-0786e812987b",
+    "url": "/assets/models/tree-blossom.glb",
+    "count": 4,
+    "total": 388,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "48c47d46-d9fd-4857-9c36-9f6be1861c0f",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 76,
+    "total": 1910,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2d602375-fd5e-4855-86ed-0af593140b1f",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 80,
+    "total": 1910,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6748d6a5-0d31-4b70-a9df-01f5e1b65d0b",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 79,
+    "total": 1910,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4cd19ee1-5b73-4520-a0f6-46d50f3c9aea",
+    "url": "/assets/models/tree-oak.glb",
+    "count": 79,
+    "total": 1910,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "34708ca5-79ce-4fb2-a4f4-0cf78dd57301",
+    "url": "/assets/models/tree-thicket.glb",
+    "count": 4,
+    "total": 862,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "6fddfed8-8ff5-49a2-955d-e1114b8fb1a6",
+    "url": "/assets/models/tree-thicket.glb",
+    "count": 4,
+    "total": 862,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4fa1d48b-c406-4d4e-a0c2-ac2a9a55883e",
+    "url": "/assets/models/tree-thicket.glb",
+    "count": 3,
+    "total": 862,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "97695a64-877f-4612-bbbf-c0f899686024",
+    "url": "/assets/models/tree-thicket.glb",
+    "count": 3,
+    "total": 862,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "2fdbb425-a53f-4158-8c6d-3dcaea7fe47a",
+    "url": "/assets/models/tree-maple.glb",
+    "count": 5,
+    "total": 405,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "408bdd0b-f536-4f73-a6b0-2cc82cf550c9",
+    "url": "/assets/models/tree-maple.glb",
+    "count": 7,
+    "total": 405,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "eedbf8ec-6f11-44af-b6ee-9fa8ca3acdb4",
+    "url": "/assets/models/tree-maple.glb",
+    "count": 6,
+    "total": 405,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "3e07c62a-ff43-43fb-819e-7e31e1669135",
+    "url": "/assets/models/tree-birch.glb",
+    "count": 6,
+    "total": 424,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ed8c2a5d-c8db-4070-bd8d-cd8a2313dd0d",
+    "url": "/assets/models/tree-birch.glb",
+    "count": 7,
+    "total": 424,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ba793d40-e07c-4aa0-ac46-c741de24252c",
+    "url": "/assets/models/tree-birch.glb",
+    "count": 7,
+    "total": 424,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "ad5ddf62-12ae-47c7-8791-ebfae8b8f62d",
+    "url": "/assets/models/tree-birch.glb",
+    "count": 8,
+    "total": 424,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "7b83c72a-2714-4e73-b23e-3b074f8408b0",
+    "url": "/assets/models/tree.glb",
+    "count": 4,
+    "total": 446,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "52b295ef-fc9b-4ad7-a3e1-8fbd0edd2ae7",
+    "url": "/assets/models/tree.glb",
+    "count": 4,
+    "total": 446,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "dd44e3da-b46f-4c82-81d6-7a3e701fd476",
+    "url": "/assets/models/tree-fir.glb",
+    "count": 35,
+    "total": 1251,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "486d3f39-b7be-497a-9a93-3da5eb2fc97f",
+    "url": "/assets/models/tree-fir.glb",
+    "count": 37,
+    "total": 1251,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "4a11c31c-8353-4c6d-86a7-a7afe784bdff",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 2,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "7365078c-db71-4000-9258-4aba69f30d68",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 2,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "c3ba0774-d3a0-473f-aa11-3eed97b61754",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 2,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "291b70f9-eefc-4031-b048-f98aeabc48cc",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 2,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "224322d8-0f21-4286-bc7d-faff478ddef1",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 2,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "4cf51153-bac6-4a04-999b-01143bda8bba",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 2,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "c2ea86d5-0e61-4585-b5da-f84d29a4c040",
+    "url": "/assets/models/waste-bin.glb",
+    "count": 2,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "81a349c4-411c-4a57-a19e-f7d135e9781d",
+    "url": "/assets/models/information-sign.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "d1da4e99-b3cb-4ff2-9a15-dbf28e99a70a",
+    "url": "/assets/models/information-sign.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "9c75e7a5-1adb-4624-9795-d90e64857677",
+    "url": "/assets/models/information-sign.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "5e15d4ad-ac31-4fe7-9e2e-846a3780e194",
+    "url": "/assets/models/information-sign.glb",
+    "count": 1,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      53.48820360161951,
+      0,
+      -93.29529503394959
+    ]
+  },
+  {
+    "id": "d2a199ce-9325-4e83-81e2-3ebbc01f54ee",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "b67794d2-be33-4dc3-9cce-5c1d7d29747a",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "76e4da91-5d6e-4d58-995b-ef9ac69f7d5f",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "365f609a-2050-4314-a8b7-7d1796806533",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "68ccaf9f-ba07-48e1-ab33-f70d28181e4b",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "2e515919-b3ef-4aaa-927f-dacb2ce3fa5e",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "1f1a8c7d-b367-47b9-93c5-b34bf1807ab8",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "8232caa6-28b7-4f63-bf78-77faa6f54c0b",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "30631391-784e-4dd2-999e-d3249a0dac0e",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "695576de-d35c-427f-9188-03e6e4fdc418",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "f73cd6bb-c72b-43b0-9f56-547835c07db3",
+    "url": "/assets/models/car-coral.glb",
+    "count": 0,
+    "total": 4,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "bcbb3436-7897-4822-bc8a-15cab5297963",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "3dcf4bb4-cd71-4bed-8b71-0799fc7b3294",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "d7853495-c2fa-4afe-82c2-997dfeaf9d20",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "3f9aa0c0-d8c9-4a9f-a37a-bb7ea1e69af2",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "ab0eb859-36cd-4096-9477-3df259faabe0",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "4f8a2943-5408-414f-bbfd-3ee6fa71ba60",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "811d5d9c-80e4-4137-a6c1-ea5c2f55f965",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "dce36cfc-2f5f-46ff-bb56-f915b18e3e5e",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "9a51f5e5-b70d-4af2-b4ad-55e2bbfa24d3",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "f548fe2f-3937-457e-bdfd-9fd9d200e5d0",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "15c3671e-5a64-49a4-bc12-ea1222e887c1",
+    "url": "/assets/models/car-gold.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "f1612caa-66b1-4db8-8ae3-7d45c6082060",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "fdb11df6-86a8-4237-af70-00441ab71c41",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "24bb2c45-8cd5-4890-848f-3cdaf8212d0f",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "a3811ad4-17df-40a0-8d7a-5bfa37cdfddd",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "98f56908-269d-4e7e-913c-c9a9bce7c4bb",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "4aa107e9-b4b9-4b8c-ba8a-430dbd9e7ebc",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "964df128-7ddb-4ccd-a1c1-dcb8369902ab",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "fb38e65c-a911-461e-b2b0-4707058601b6",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "5e8cb4e5-75ba-4a30-bbb9-a3612c6b227b",
+    "url": "/assets/models/city-bus.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "91ff8520-5030-40a2-ad1a-0aeb93b65d81",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "4813aa7d-a445-47c6-80ac-bdb405dd25c9",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "dbddcb54-fbec-4416-80b9-b9b33d7e6a16",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "4299f923-ef24-432e-8917-519cc30a4ff6",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "e631a2d9-2eea-4541-b087-c17356b5833a",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "1787287f-466f-4097-a21d-286ce3aceb79",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "b950589b-d611-4074-812d-0874fab28d0c",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "2d9e36ee-11aa-4c60-8e97-9b9a7ebbfe43",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "438a0662-2373-445e-bb11-9f9efe52f7b1",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "437da014-27da-46e2-b158-c66de9e09db7",
+    "url": "/assets/models/bus-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "6b413bea-de81-43cb-81f3-318150698ca5",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "59aa37df-fa39-45c9-98b4-6319ef20e24e",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "74ac1969-fa96-4991-ad53-756a3306fd55",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "e2ebbda8-1ebb-4808-8dbc-306ff412cff5",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -14.777334880929494,
+      0,
+      -19.91462743211523
+    ]
+  },
+  {
+    "id": "539de43c-ee63-41ba-9820-41d462abd530",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "927d096e-cdee-4a6f-88b9-18577ac2624e",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "183be1b3-b408-479f-8ae7-859f5ff02b66",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "0956992c-c4c1-4f0d-8e79-7c793fcaf086",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "6e17a635-2779-464f-9149-d2e195795c3f",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "0ef84806-f7d5-4304-b655-a6f65087acf5",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "e80a9f23-0891-4644-92db-05b524019df3",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "f144e634-c266-4814-9ea6-14573bb060a3",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "21f5b41d-ad20-42a0-88f6-e631e63e1a58",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "f9320622-4bb2-407e-88fe-b5da6867ff82",
+    "url": "/assets/models/wildlife-shelter.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "4a888257-3e8d-4e40-bae9-cfcd606ee7ec",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "e537ea78-1849-4b7c-a1d9-101b3ad0d021",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "f999da19-9e34-45df-8281-dec025c02894",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "158dcb14-8c4d-426e-a2b7-a0d389e0a196",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "8e605d50-f070-467e-b944-aee5259e9aad",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 2,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "bef7b822-6db5-4ffe-89b7-67fb804a1b45",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "1c9bdd26-ebd9-45a1-bb34-d128ec877481",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "6c4aebf9-6ce6-4471-ab8f-814165442316",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "52a97732-d3ea-434b-b4b9-0a80104d5ecb",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -91.86674516888323,
+      0,
+      24.505124608446117
+    ]
+  },
+  {
+    "id": "463988b6-92f9-4743-a330-b0696ca598cd",
+    "url": "/assets/models/lamp.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      51.31790669123021,
+      0,
+      -15.082189921566052
+    ]
+  },
+  {
+    "id": "3a1222cd-fab5-4cc5-a964-c94b7e0fea90",
+    "url": "/assets/models/lamp.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      51.31790669123021,
+      0,
+      -15.082189921566052
+    ]
+  },
+  {
+    "id": "80649050-454d-447e-9aec-4fea2684cdae",
+    "url": "/assets/models/lamp.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      51.31790669123021,
+      0,
+      -15.082189921566052
+    ]
+  },
+  {
+    "id": "b83f1d16-7591-47a2-8da4-b468402cb2fc",
+    "url": "/assets/models/lamp.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      51.31790669123021,
+      0,
+      -15.082189921566052
+    ]
+  },
+  {
+    "id": "abc2c676-2e5e-4f5a-85dd-ffb9454a2e38",
+    "url": "/assets/models/lamp.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      51.31790669123021,
+      0,
+      -15.082189921566052
+    ]
+  },
+  {
+    "id": "350665ea-ee9e-4f5d-8c2b-0410d4ee291b",
+    "url": "/assets/models/lamp.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      51.31790669123021,
+      0,
+      -15.082189921566052
+    ]
+  },
+  {
+    "id": "40cfa9e1-d80c-4d33-9f2c-59b1d0b0e38d",
+    "url": "/assets/models/lamp.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      51.31790669123021,
+      0,
+      -15.082189921566052
+    ]
+  },
+  {
+    "id": "ce4c4442-e12c-4a4c-8834-e30112b3af48",
+    "url": "/assets/models/tree-stump.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "351f6261-8b16-4dcf-be8f-d2d8b8740444",
+    "url": "/assets/models/tree-stump.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "32709d8b-591f-44a3-9a7d-d06e5cbfcb1f",
+    "url": "/assets/models/tree-stump.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "e37bd844-9e5e-40d4-8024-da7da9a50a59",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "550de5ba-00a7-4c03-897c-1a73319479ef",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "0fc67277-37e0-485d-b17b-86e033a907a7",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "49c054bf-604d-43fa-ac22-e52175b1a33a",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "9f1106af-d594-4a35-b6f1-93362fc2bc87",
+    "url": "/assets/models/rabbit.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "f6d4adc7-5ad3-4eb0-b83f-bc6df1385df3",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "97737ec1-9edf-4b4e-a568-13a1aa80e93f",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "abc77a0b-6e7c-475d-a791-06400c3caf2b",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "61b26e98-615e-43a2-9cd4-0857350583e1",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -34.8071669045978,
+      0,
+      -74.00987185555365
+    ]
+  },
+  {
+    "id": "98314664-3fde-4293-87a5-ec6bfeae36b8",
+    "url": "/assets/models/heat-pump.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "4b952958-39e6-4d21-85f4-4f62355df45f",
+    "url": "/assets/models/heat-pump.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "047273fa-764f-4a05-afd4-880785d71cb7",
+    "url": "/assets/models/heat-pump.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "9bb62586-df6b-45d4-8b60-5f4089b7ee7b",
+    "url": "/assets/models/heat-pump.glb",
+    "count": 0,
+    "total": 3,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "c741d879-ea39-4e94-810b-5bfe721c5074",
+    "url": "/assets/models/thermometer.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "fe6caae7-894b-46b8-b724-0e518bc903d5",
+    "url": "/assets/models/thermometer.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "817d05e0-9903-4044-b093-a5258d1de533",
+    "url": "/assets/models/thermometer.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "8fa0ca55-25f3-47da-b27b-1a4dc2665909",
+    "url": "/assets/models/thermometer.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "bb6f86f5-1878-4b4c-9c66-4d79228ce520",
+    "url": "/assets/models/thermometer.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "b87c8b9e-6fa9-43ce-9c57-2a93124af68c",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "d7668465-e0aa-4cce-8a33-43ddf02c4760",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "caa32b5d-1f29-4c84-9fa2-dc4c0bea8458",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "ef2ef6fa-93a8-44a4-8155-03420027e0e6",
+    "url": "/assets/models/information-sign.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      27.80177814321466,
+      0,
+      0.2472490151076414
+    ]
+  },
+  {
+    "id": "014e80ee-c676-4469-95b8-cc8714951ccc",
+    "url": "/assets/models/waste-partial.glb",
+    "count": 0,
+    "total": 5,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "69982dd1-2986-4f97-b261-79e13201bf30",
+    "url": "/assets/models/waste-partial.glb",
+    "count": 0,
+    "total": 5,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "c4320635-dd3f-437d-84e5-f1dd5d968871",
+    "url": "/assets/models/waste-partial.glb",
+    "count": 0,
+    "total": 5,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "0593f270-e68c-47ae-a5b1-64daf8d56da0",
+    "url": "/assets/models/waste-partial.glb",
+    "count": 0,
+    "total": 5,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "6434d1d1-6d27-4031-bec1-938a1b34ee21",
+    "url": "/assets/models/waste-partial.glb",
+    "count": 0,
+    "total": 5,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "a9bd2b98-1526-4977-8ad2-a5aa126b844f",
+    "url": "/assets/models/waste-partial.glb",
+    "count": 0,
+    "total": 5,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "b4daeaf8-d1ab-4337-ac27-59533ae23d63",
+    "url": "/assets/models/river-outfall.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "c3898200-6d69-473a-87b5-e8570e8dc0c6",
+    "url": "/assets/models/river-outfall.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "49f3afea-6d3d-41bd-be5c-6d2460070b20",
+    "url": "/assets/models/river-outfall.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "66254b5c-ad0b-4d4c-ae68-38238db5a57f",
+    "url": "/assets/models/river-outfall.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      22.22176431479564,
+      0,
+      -55.76882233668911
+    ]
+  },
+  {
+    "id": "93ebbcb2-cabf-49a2-8afb-b2add3bf01ae",
+    "url": "/assets/models/access-step.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "0ce7de62-c52b-4512-87ff-74268607effe",
+    "url": "/assets/models/access-step.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "c4bf8534-c776-45e9-bd47-c8e344525ed6",
+    "url": "/assets/models/access-step.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "6924a1f3-6c47-4443-a9ca-42a34701b131",
+    "url": "/assets/models/access-step.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "6bf6e456-57cc-4ec5-b9ca-2fb01bbae71e",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "562289b1-7d33-48a0-ba7b-db84c7bc3625",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "3b95fd3e-d179-4c35-8fa0-305d0937f78b",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "2b1d9dd6-1921-4bd7-a345-699aa16ade4f",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "2b527ea3-c6b5-4c23-acbc-109ae9756ad1",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "227ec73f-02eb-4677-9580-8c2564af962f",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "a89f695e-0114-4cbc-aa30-6a12e0f87b54",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "0417ada5-860e-4ea1-9d37-367e94210296",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "d1c6cb24-4ed6-4361-8129-3e1491f71e94",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  },
+  {
+    "id": "b403aedf-3157-4084-920d-a07bddbfc55f",
+    "url": "/assets/models/wheelchair-user.glb",
+    "count": 0,
+    "total": 1,
+    "visible": true,
+    "parentVisible": true,
+    "position": [
+      -15.949091428533237,
+      0,
+      -27.93864971008386
+    ]
+  }
+]

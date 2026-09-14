@@ -1,0 +1,301 @@
+{
+  "recordedAt": "2026-09-07T01:04:37.378Z",
+  "scope": "Inventário estático; não representa tudo o que é desenhado por quadro nem mede FPS.",
+  "catalog": {
+    "models": 77,
+    "variants": 45,
+    "bytes": 15351964,
+    "triangles": 369962
+  },
+  "forest": {
+    "instances": 3589,
+    "cellModelGroups": 572,
+    "potentialDrawCalls": 1887,
+    "models": [
+      {
+        "id": "tree.oak",
+        "count": 1405,
+        "trianglesPerModel": 964,
+        "allInstancesTriangles": 1354420,
+        "materialPrimitives": 4
+      },
+      {
+        "id": "tree.birch",
+        "count": 676,
+        "trianglesPerModel": 996,
+        "allInstancesTriangles": 673296,
+        "materialPrimitives": 4
+      },
+      {
+        "id": "tree.maple",
+        "count": 696,
+        "trianglesPerModel": 964,
+        "allInstancesTriangles": 670944,
+        "materialPrimitives": 3
+      },
+      {
+        "id": "tree.fir",
+        "count": 670,
+        "trianglesPerModel": 468,
+        "allInstancesTriangles": 313560,
+        "materialPrimitives": 2
+      },
+      {
+        "id": "tree.thicket",
+        "count": 91,
+        "trianglesPerModel": 664,
+        "allInstancesTriangles": 60424,
+        "materialPrimitives": 4
+      },
+      {
+        "id": "tree.default",
+        "count": 29,
+        "trianglesPerModel": 1612,
+        "allInstancesTriangles": 46748,
+        "materialPrimitives": 2
+      },
+      {
+        "id": "tree.blossom",
+        "count": 19,
+        "trianglesPerModel": 868,
+        "allInstancesTriangles": 16492,
+        "materialPrimitives": 4
+      },
+      {
+        "id": "tree.palm",
+        "count": 3,
+        "trianglesPerModel": 2808,
+        "allInstancesTriangles": 8424,
+        "materialPrimitives": 4
+      }
+    ]
+  },
+  "buildings": [
+    {
+      "id": "building.sage",
+      "count": 6,
+      "trianglesPerModel": 19106,
+      "allInstancesTriangles": 114636,
+      "materialPrimitives": 14
+    },
+    {
+      "id": "building.terracotta",
+      "count": 5,
+      "trianglesPerModel": 21102,
+      "allInstancesTriangles": 105510,
+      "materialPrimitives": 14
+    },
+    {
+      "id": "building.house.cream",
+      "count": 13,
+      "trianglesPerModel": 8108,
+      "allInstancesTriangles": 105404,
+      "materialPrimitives": 13
+    },
+    {
+      "id": "building.pink",
+      "count": 6,
+      "trianglesPerModel": 17442,
+      "allInstancesTriangles": 104652,
+      "materialPrimitives": 14
+    },
+    {
+      "id": "building.house.coral",
+      "count": 12,
+      "trianglesPerModel": 8606,
+      "allInstancesTriangles": 103272,
+      "materialPrimitives": 14
+    },
+    {
+      "id": "building.cream",
+      "count": 5,
+      "trianglesPerModel": 17382,
+      "allInstancesTriangles": 86910,
+      "materialPrimitives": 14
+    },
+    {
+      "id": "building.house.terrace",
+      "count": 8,
+      "trianglesPerModel": 8674,
+      "allInstancesTriangles": 69392,
+      "materialPrimitives": 14
+    },
+    {
+      "id": "building.house.solar",
+      "count": 8,
+      "trianglesPerModel": 8132,
+      "allInstancesTriangles": 65056,
+      "materialPrimitives": 12
+    },
+    {
+      "id": "building.factory",
+      "count": 3,
+      "trianglesPerModel": 7976,
+      "allInstancesTriangles": 23928,
+      "materialPrimitives": 17
+    },
+    {
+      "id": "building.warehouse",
+      "count": 3,
+      "trianglesPerModel": 5556,
+      "allInstancesTriangles": 16668,
+      "materialPrimitives": 15
+    },
+    {
+      "id": "building.greenhouse",
+      "count": 1,
+      "trianglesPerModel": 15822,
+      "allInstancesTriangles": 15822,
+      "materialPrimitives": 11
+    },
+    {
+      "id": "building.cafe",
+      "count": 2,
+      "trianglesPerModel": 5358,
+      "allInstancesTriangles": 10716,
+      "materialPrimitives": 15
+    },
+    {
+      "id": "building.civic",
+      "count": 1,
+      "trianglesPerModel": 6820,
+      "allInstancesTriangles": 6820,
+      "materialPrimitives": 10
+    },
+    {
+      "id": "building.hospital",
+      "count": 1,
+      "trianglesPerModel": 6206,
+      "allInstancesTriangles": 6206,
+      "materialPrimitives": 14
+    },
+    {
+      "id": "building.fuel",
+      "count": 1,
+      "trianglesPerModel": 5310,
+      "allInstancesTriangles": 5310,
+      "materialPrimitives": 11
+    },
+    {
+      "id": "building.school",
+      "count": 1,
+      "trianglesPerModel": 4684,
+      "allInstancesTriangles": 4684,
+      "materialPrimitives": 13
+    },
+    {
+      "id": "building.office",
+      "count": 1,
+      "trianglesPerModel": 4598,
+      "allInstancesTriangles": 4598,
+      "materialPrimitives": 14
+    }
+  ],
+  "props": [
+    {
+      "id": "prop.car.blue",
+      "count": 33,
+      "trianglesPerModel": 9078,
+      "allInstancesTriangles": 299574,
+      "materialPrimitives": 11
+    },
+    {
+      "id": "prop.car.gold",
+      "count": 32,
+      "trianglesPerModel": 9078,
+      "allInstancesTriangles": 290496,
+      "materialPrimitives": 11
+    },
+    {
+      "id": "prop.car.white",
+      "count": 32,
+      "trianglesPerModel": 8970,
+      "allInstancesTriangles": 287040,
+      "materialPrimitives": 11
+    },
+    {
+      "id": "prop.car.coral",
+      "count": 29,
+      "trianglesPerModel": 8966,
+      "allInstancesTriangles": 260014,
+      "materialPrimitives": 11
+    },
+    {
+      "id": "prop.bus",
+      "count": 29,
+      "trianglesPerModel": 2940,
+      "allInstancesTriangles": 85260,
+      "materialPrimitives": 9
+    },
+    {
+      "id": "prop.lamp",
+      "count": 140,
+      "trianglesPerModel": 394,
+      "allInstancesTriangles": 55160,
+      "materialPrimitives": 7
+    },
+    {
+      "id": "prop.ship",
+      "count": 1,
+      "trianglesPerModel": 35148,
+      "allInstancesTriangles": 35148,
+      "materialPrimitives": 12
+    },
+    {
+      "id": "prop.container.blue",
+      "count": 22,
+      "trianglesPerModel": 1530,
+      "allInstancesTriangles": 33660,
+      "materialPrimitives": 4
+    },
+    {
+      "id": "prop.container.red",
+      "count": 22,
+      "trianglesPerModel": 1530,
+      "allInstancesTriangles": 33660,
+      "materialPrimitives": 4
+    },
+    {
+      "id": "prop.court",
+      "count": 2,
+      "trianglesPerModel": 9498,
+      "allInstancesTriangles": 18996,
+      "materialPrimitives": 7
+    },
+    {
+      "id": "prop.truck",
+      "count": 6,
+      "trianglesPerModel": 2288,
+      "allInstancesTriangles": 13728,
+      "materialPrimitives": 8
+    },
+    {
+      "id": "prop.crane",
+      "count": 2,
+      "trianglesPerModel": 4038,
+      "allInstancesTriangles": 8076,
+      "materialPrimitives": 7
+    },
+    {
+      "id": "prop.bench",
+      "count": 9,
+      "trianglesPerModel": 784,
+      "allInstancesTriangles": 7056,
+      "materialPrimitives": 4
+    },
+    {
+      "id": "prop.playground",
+      "count": 2,
+      "trianglesPerModel": 1520,
+      "allInstancesTriangles": 3040,
+      "materialPrimitives": 7
+    },
+    {
+      "id": "prop.lighthouse",
+      "count": 1,
+      "trianglesPerModel": 2670,
+      "allInstancesTriangles": 2670,
+      "materialPrimitives": 11
+    }
+  ]
+}

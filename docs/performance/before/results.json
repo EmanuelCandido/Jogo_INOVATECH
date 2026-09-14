@@ -1,0 +1,700 @@
+{
+  "stage": "before",
+  "date": "2026-09-07T01:25:58.225Z",
+  "device": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "gpuTimer": false,
+    "multiDraw": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "dpr": 1
+  },
+  "seconds": 30,
+  "runs": 3,
+  "measurements": [
+    {
+      "name": "overview",
+      "run": 0,
+      "calls": 1239,
+      "triangles": 5474692,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 11,
+        "meanMs": 2670.318181818182,
+        "p50": 2622.4000000003725,
+        "p95": 3008,
+        "p99": 3008,
+        "onePercentLow": 0.3324468085106383
+      },
+      "cpu": {
+        "frames": 12,
+        "meanMs": 9.575000000186265,
+        "p50": 9.199999999254942,
+        "p95": 12.800000000745058,
+        "p99": 12.800000000745058,
+        "onePercentLow": 78.12499999545253
+      },
+      "gpu": null
+    },
+    {
+      "name": "overview",
+      "run": 1,
+      "calls": 1239,
+      "triangles": 5474692,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 11,
+        "meanMs": 2660.072727272626,
+        "p50": 2659,
+        "p95": 2708.2000000011176,
+        "p99": 2708.2000000011176,
+        "onePercentLow": 0.3692489476403468
+      },
+      "cpu": {
+        "frames": 12,
+        "meanMs": 9.75833333392317,
+        "p50": 9.300000000745058,
+        "p95": 11.700000001117587,
+        "p99": 11.700000001117587,
+        "onePercentLow": 85.47008546192134
+      },
+      "gpu": null
+    },
+    {
+      "name": "overview",
+      "run": 2,
+      "calls": 1239,
+      "triangles": 5474692,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 11,
+        "meanMs": 2640.7909090910107,
+        "p50": 2639.0999999996275,
+        "p95": 2667,
+        "p99": 2667,
+        "onePercentLow": 0.3749531308586427
+      },
+      "cpu": {
+        "frames": 12,
+        "meanMs": 9.024999999906868,
+        "p50": 8.900000000372529,
+        "p95": 10.900000000372529,
+        "p99": 10.900000000372529,
+        "onePercentLow": 91.74311926291955
+      },
+      "gpu": null
+    },
+    {
+      "name": "centre",
+      "run": 0,
+      "calls": 413,
+      "triangles": 4849156,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 19,
+        "meanMs": 1578.3157894736842,
+        "p50": 1490.0999999996275,
+        "p95": 1827.699999999255,
+        "p99": 1827.699999999255,
+        "onePercentLow": 0.5471357443784033
+      },
+      "cpu": {
+        "frames": 20,
+        "meanMs": 5.454999999701977,
+        "p50": 5.299999998882413,
+        "p95": 6.599999999627471,
+        "p99": 6.600000001490116,
+        "onePercentLow": 151.51515148094316
+      },
+      "gpu": null
+    },
+    {
+      "name": "centre",
+      "run": 1,
+      "calls": 413,
+      "triangles": 4849156,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 18,
+        "meanMs": 1666.7111111111526,
+        "p50": 1665.5999999996275,
+        "p95": 1936.300000000745,
+        "p99": 1936.300000000745,
+        "onePercentLow": 0.5164488973814053
+      },
+      "cpu": {
+        "frames": 19,
+        "meanMs": 5.799999999960787,
+        "p50": 5.5,
+        "p95": 7.699999999254942,
+        "p99": 7.699999999254942,
+        "onePercentLow": 129.8701298826962
+      },
+      "gpu": null
+    },
+    {
+      "name": "centre",
+      "run": 2,
+      "calls": 413,
+      "triangles": 4849156,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 19,
+        "meanMs": 1516.7421052631382,
+        "p50": 1486.300000000745,
+        "p95": 1639,
+        "p99": 1639,
+        "onePercentLow": 0.6101281269066504
+      },
+      "cpu": {
+        "frames": 20,
+        "meanMs": 4.349999999906868,
+        "p50": 4.300000000745058,
+        "p95": 5.199999999254942,
+        "p99": 6.900000000372529,
+        "onePercentLow": 144.92753622405945
+      },
+      "gpu": null
+    },
+    {
+      "name": "forest",
+      "run": 0,
+      "calls": 447,
+      "triangles": 4679004,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 14,
+        "meanMs": 2028.1928571429369,
+        "p50": 1915.4000000003725,
+        "p95": 2327.7000000011176,
+        "p99": 2327.7000000011176,
+        "onePercentLow": 0.42960862654101467
+      },
+      "cpu": {
+        "frames": 15,
+        "meanMs": 4.526666666691502,
+        "p50": 4.199999999254942,
+        "p95": 7.699999999254942,
+        "p99": 7.699999999254942,
+        "onePercentLow": 129.8701298826962
+      },
+      "gpu": null
+    },
+    {
+      "name": "forest",
+      "run": 1,
+      "calls": 447,
+      "triangles": 4679004,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 15,
+        "meanMs": 1908.206666666766,
+        "p50": 1913.4000000003725,
+        "p95": 1974.199999999255,
+        "p99": 1974.199999999255,
+        "onePercentLow": 0.5065342923717847
+      },
+      "cpu": {
+        "frames": 16,
+        "meanMs": 3.681250000372529,
+        "p50": 3.400000000372529,
+        "p95": 4.800000000745058,
+        "p99": 4.800000000745058,
+        "onePercentLow": 208.33333330099575
+      },
+      "gpu": null
+    },
+    {
+      "name": "forest",
+      "run": 2,
+      "calls": 447,
+      "triangles": 4679004,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 16,
+        "meanMs": 1869.4500000000698,
+        "p50": 1871,
+        "p95": 1899.800000000745,
+        "p99": 1899.800000000745,
+        "onePercentLow": 0.5263711969678955
+      },
+      "cpu": {
+        "frames": 17,
+        "meanMs": 4.141176470171879,
+        "p50": 4.200000001117587,
+        "p95": 4.699999999254942,
+        "p99": 4.699999999254942,
+        "onePercentLow": 212.7659574805368
+      },
+      "gpu": null
+    },
+    {
+      "name": "port",
+      "run": 0,
+      "calls": 439,
+      "triangles": 4751176,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 19,
+        "meanMs": 1511.0947368421446,
+        "p50": 1464.9000000003725,
+        "p95": 1750,
+        "p99": 1750,
+        "onePercentLow": 0.5714285714285714
+      },
+      "cpu": {
+        "frames": 20,
+        "meanMs": 4.690000000037253,
+        "p50": 4.599999999627471,
+        "p95": 5.399999998509884,
+        "p99": 6.599999999627471,
+        "onePercentLow": 151.5151515237036
+      },
+      "gpu": null
+    },
+    {
+      "name": "port",
+      "run": 1,
+      "calls": 439,
+      "triangles": 4751176,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 20,
+        "meanMs": 1499.5650000000373,
+        "p50": 1492.800000000745,
+        "p95": 1534.300000000745,
+        "p99": 1631.199999999255,
+        "onePercentLow": 0.6130456105937082
+      },
+      "cpu": {
+        "frames": 21,
+        "meanMs": 4.838095237900104,
+        "p50": 4.799999998882413,
+        "p95": 5.699999999254942,
+        "p99": 5.900000000372529,
+        "onePercentLow": 169.49152541302703
+      },
+      "gpu": null
+    },
+    {
+      "name": "port",
+      "run": 2,
+      "calls": 439,
+      "triangles": 4751176,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 19,
+        "meanMs": 1520.578947368421,
+        "p50": 1512.5999999996275,
+        "p95": 1612.800000000745,
+        "p99": 1612.800000000745,
+        "onePercentLow": 0.6200396825393961
+      },
+      "cpu": {
+        "frames": 20,
+        "meanMs": 4.664999999850989,
+        "p50": 4.799999998882413,
+        "p95": 5.699999999254942,
+        "p99": 5.900000000372529,
+        "onePercentLow": 169.49152541302703
+      },
+      "gpu": null
+    },
+    {
+      "name": "beach",
+      "run": 0,
+      "calls": 270,
+      "triangles": 4390076,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 30,
+        "meanMs": 999.4033333333209,
+        "p50": 976.5,
+        "p95": 1095.9000000003725,
+        "p99": 1146.1000000014901,
+        "onePercentLow": 0.8725242125457637
+      },
+      "cpu": {
+        "frames": 31,
+        "meanMs": 4.100000000108154,
+        "p50": 4.099999999627471,
+        "p95": 5.099999999627471,
+        "p99": 6.199999999254942,
+        "onePercentLow": 161.29032260002754
+      },
+      "gpu": null
+    },
+    {
+      "name": "beach",
+      "run": 1,
+      "calls": 270,
+      "triangles": 4390076,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 30,
+        "meanMs": 972.2066666667039,
+        "p50": 968.4000000003725,
+        "p95": 1015.5,
+        "p99": 1059.5999999996275,
+        "onePercentLow": 0.9437523593812303
+      },
+      "cpu": {
+        "frames": 31,
+        "meanMs": 3.967741935784298,
+        "p50": 3.900000000372529,
+        "p95": 4.600000001490116,
+        "p99": 5.5,
+        "onePercentLow": 181.8181818181818
+      },
+      "gpu": null
+    },
+    {
+      "name": "beach",
+      "run": 2,
+      "calls": 270,
+      "triangles": 4390076,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 26,
+        "meanMs": 1110.0500000000286,
+        "p50": 1095.1000000014901,
+        "p95": 1204.7999999988824,
+        "p99": 1220.5999999996275,
+        "onePercentLow": 0.8192692118632682
+      },
+      "cpu": {
+        "frames": 27,
+        "meanMs": 4.79259259260639,
+        "p50": 4.5,
+        "p95": 6.400000000372529,
+        "p99": 6.5,
+        "onePercentLow": 153.84615384615384
+      },
+      "gpu": null
+    },
+    {
+      "name": "situation",
+      "run": 0,
+      "calls": 432,
+      "triangles": 4777454,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 21,
+        "meanMs": 1369.728571428607,
+        "p50": 1377,
+        "p95": 1470.5,
+        "p99": 1540.2000000011176,
+        "onePercentLow": 0.6492663290477044
+      },
+      "cpu": {
+        "frames": 22,
+        "meanMs": 5.845454545691609,
+        "p50": 5.799999998882413,
+        "p95": 8.699999999254942,
+        "p99": 8.800000000745058,
+        "onePercentLow": 113.63636362674254
+      },
+      "gpu": null
+    },
+    {
+      "name": "situation",
+      "run": 1,
+      "calls": 432,
+      "triangles": 4777454,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 23,
+        "meanMs": 1263.1217391304672,
+        "p50": 1266.8999999985099,
+        "p95": 1352.0999999996275,
+        "p99": 1360.8999999985099,
+        "onePercentLow": 0.7348078477486185
+      },
+      "cpu": {
+        "frames": 24,
+        "meanMs": 5.087499999984478,
+        "p50": 5,
+        "p95": 6.300000000745058,
+        "p99": 7.400000000372529,
+        "onePercentLow": 135.1351351283322
+      },
+      "gpu": null
+    },
+    {
+      "name": "situation",
+      "run": 2,
+      "calls": 432,
+      "triangles": 4777454,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 101,
+      "meshes": 2844,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 24,
+        "meanMs": 1231.0291666667133,
+        "p50": 1202.699999999255,
+        "p95": 1335.9000000003725,
+        "p99": 1350.699999999255,
+        "onePercentLow": 0.7403568520030737
+      },
+      "cpu": {
+        "frames": 25,
+        "meanMs": 4.887999999895692,
+        "p50": 4.800000000745058,
+        "p95": 5.900000000372529,
+        "p99": 6.199999999254942,
+        "onePercentLow": 161.29032260002754
+      },
+      "gpu": null
+    }
+  ],
+  "errors": []
+}

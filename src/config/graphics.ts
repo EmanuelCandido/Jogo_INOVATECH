@@ -6,8 +6,8 @@ export interface GraphicsProfile {
  visitors:number; cityDetail:0|1|2; waterEffects:boolean; smoothGeometry:boolean;
 }
 export const graphicsPresets:Record<GraphicsTier,GraphicsProfile>={
- MINIMUM:{label:'Muito baixa',description:'Cidade essencial, vegetação reduzida e sem sombras. Prioriza a leveza.',pixelRatio:.8,maxPixels:800000,shadowSize:0,forestDensity:.12,undergrowth:0,flowers:0,traffic:.2,visitors:0,cityDetail:0,waterEffects:false,smoothGeometry:false},
- LOW:{label:'Baixa',description:'Jardins simplificados, menos veículos e resolução econômica.',pixelRatio:1,maxPixels:1400000,shadowSize:0,forestDensity:.27,undergrowth:.2,flowers:0,traffic:.38,visitors:.25,cityDetail:0,waterEffects:false,smoothGeometry:false},
+ MINIMUM:{label:'Muito baixa',description:'Modelos simplificados, vegetação reduzida e sem sombras. Mantém a arquitetura solar.',pixelRatio:.8,maxPixels:800000,shadowSize:0,forestDensity:.12,undergrowth:0,flowers:0,traffic:.2,visitors:0,cityDetail:0,waterEffects:false,smoothGeometry:false},
+ LOW:{label:'Baixa',description:'Modelos leves com coberturas solares, menos veículos e resolução econômica.',pixelRatio:1,maxPixels:1400000,shadowSize:0,forestDensity:.27,undergrowth:.2,flowers:0,traffic:.38,visitors:.25,cityDetail:0,waterEffects:false,smoothGeometry:false},
  MEDIUM:{label:'Média',description:'Equilíbrio entre vegetação, movimento urbano e sombras suaves.',pixelRatio:1.25,maxPixels:2600000,shadowSize:1024,forestDensity:.52,undergrowth:.5,flowers:.35,traffic:.65,visitors:.55,cityDetail:0,waterEffects:false,smoothGeometry:false},
  HIGH:{label:'Alta',description:'Cidade mais viva: bicicletas, moradores, jardins completos e água detalhada.',pixelRatio:1.75,maxPixels:4500000,shadowSize:2048,forestDensity:.8,undergrowth:.8,flowers:.75,traffic:.85,visitors:.8,cityDetail:1,waterEffects:true,smoothGeometry:true},
  ULTRA:{label:'Ultra',description:'Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.',pixelRatio:2,maxPixels:6500000,shadowSize:4096,forestDensity:1,undergrowth:1,flowers:1,traffic:1,visitors:1,cityDetail:2,waterEffects:true,smoothGeometry:true},
@@ -37,7 +37,3 @@ export function graphicsPixelRatio(width:number,height:number,deviceRatio:number
 }
 /** Stable subsets prevent reshuffling on resize or when returning from a mission. */
 export function keepDetail(seed:number,density:number){return density>=1||(density>0&&((Math.imul(seed+1,2654435761)>>>0)/4294967296)<density);}
-export function lowerGraphics(tier:GraphicsTier,frameMs:number):GraphicsTier{
- if(frameMs<=36)return tier;
- return graphicsTiers[Math.max(0,graphicsTiers.indexOf(tier)-1)];
-}

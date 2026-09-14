@@ -18,11 +18,14 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
   await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_success');
   if(i===0){await expect(page.locator('.balance')).toContainText('1.350');await page.reload();await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible();}
   await expect(page.getByRole('button',{name:'Voltar à cidade'})).toBeEnabled({timeout:30000});
-  if(info.project.name==='desktop')await page.screenshot({path:'docs/screenshots/situation-'+id+'-solved.png',animations:'disabled'});
+  if(info.project.name==='desktop')await page.screenshot({path:info.outputPath('situation-'+id+'-solved.png'),animations:'disabled'});
   await page.getByRole('button',{name:'Voltar à cidade'}).click();
   await page.getByRole('button',{name:'Centralizar mapa'}).click();
  }
- if(info.project.name==='desktop'){await expect(page.locator('.balance')).toContainText('150');await expect(page.locator('.quest-body')).toContainText('10 / 10');await expect(page.locator('.marker')).toHaveCount(0);}
+ if(info.project.name==='desktop'){
+  const journey=page.getByRole('button',{name:/NOSSA JORNADA/});if(await journey.getAttribute('aria-expanded')==='false')await journey.click();
+  await expect(page.locator('.balance')).toContainText('150');await expect(page.locator('.quest-body')).toContainText('10 / 10');await expect(page.locator('.marker')).toHaveCount(0);
+ }
  else await expect(page.locator('.marker')).toHaveCount(2);
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
  expect(saved.decisions).toHaveLength(info.project.name==='desktop'?10:2);expect(saved.tutorialCompleted).toBe(true);

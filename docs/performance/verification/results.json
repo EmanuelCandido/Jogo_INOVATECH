@@ -1,0 +1,54 @@
+{
+  "comparisons": [
+    {
+      "name": "centre",
+      "mae": 0,
+      "max": 0,
+      "channelsAbove8": 0,
+      "compactTriangles": 342558,
+      "fullTriangles": 7941200,
+      "instances": 36573
+    },
+    {
+      "name": "forest",
+      "mae": 0,
+      "max": 0,
+      "channelsAbove8": 0,
+      "compactTriangles": 799476,
+      "fullTriangles": 7198940,
+      "instances": 36573
+    },
+    {
+      "name": "edge",
+      "mae": 0,
+      "max": 0,
+      "channelsAbove8": 0,
+      "compactTriangles": 449458,
+      "fullTriangles": 7234426,
+      "instances": 36573
+    },
+    {
+      "name": "port",
+      "mae": 0,
+      "max": 0,
+      "channelsAbove8": 0,
+      "compactTriangles": 636748,
+      "fullTriangles": 7803988,
+      "instances": 36573
+    },
+    {
+      "name": "beach",
+      "mae": 0,
+      "max": 0,
+      "channelsAbove8": 0,
+      "compactTriangles": 82664,
+      "fullTriangles": 7509208,
+      "instances": 36573
+    }
+  ],
+  "staticBuffersUnchanged": true,
+  "animationMoves": true,
+  "backgroundPauses": true,
+  "motionSettingPauses": true,
+  "errors": []
+}

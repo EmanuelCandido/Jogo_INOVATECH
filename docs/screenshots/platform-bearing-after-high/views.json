@@ -1,0 +1,16 @@
+[
+  {
+    "name": "06-station",
+    "u": 8,
+    "v": 34,
+    "zoom": 30,
+    "y": 1
+  },
+  {
+    "name": "06-platform-supports",
+    "u": 1,
+    "v": 58,
+    "zoom": 60,
+    "y": 3
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "qualitySwitches": [
+    {
+      "tier": "HIGH",
+      "situationTransformsAndColorsPreserved": true
+    },
+    {
+      "tier": "LOW",
+      "situationTransformsAndColorsPreserved": true
+    },
+    {
+      "tier": "ULTRA",
+      "situationTransformsAndColorsPreserved": true
+    },
+    {
+      "tier": "MINIMUM",
+      "situationTransformsAndColorsPreserved": true
+    },
+    {
+      "tier": "HIGH",
+      "situationTransformsAndColorsPreserved": true
+    }
+  ],
+  "situationGroups": [
+    "pollution_01",
+    "pollution_02",
+    "security_01",
+    "security_02",
+    "nature_01",
+    "nature_02",
+    "health_01",
+    "health_02",
+    "accessibility_02",
+    "accessibility_01"
+  ],
+  "reviewedStates": [
+    "initial",
+    "solved",
+    "temporary"
+  ],
+  "errors": []
+}

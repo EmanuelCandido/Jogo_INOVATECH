@@ -1,10 +1,15 @@
-import { Suspense, useLayoutEffect, useMemo, useRef } from "react";
+import { Suspense, useDeferredValue,useLayoutEffect, useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { InstancedMesh, Mesh, Object3D, Matrix4 } from "three";
 import { assetRegistry } from "../../assets/registry";
 import { Asset, Surface } from "../Asset";
 import type { Placement } from "../../game/types";
+import {modelUrl} from '../../assets/modelLayout';
+import {useResolvedGraphics} from '../../stores/graphicsStore';
+import {finishFoliage} from '../../assets/foliageMaterial';
+import {optimizeInstances} from '../../game/instanceVisibility';
+import {shareModelMaterials} from '../../assets/sharedMaterials';
 function PrimitiveInstances({
   mesh,
   placements,
@@ -28,10 +33,11 @@ function PrimitiveInstances({
       ref.current!.setMatrixAt(i, matrix);
     });
     ref.current!.instanceMatrix.needsUpdate = true;
-    ref.current!.computeBoundingSphere();
+    const dispose=optimizeInstances(ref.current!,placements.length);
     // A new outcome can finish loading after the scene's last requested frame.
     gl.shadowMap.needsUpdate=true;
     invalidate();
+    return dispose;
   }, [mesh, placements,gl,invalidate]);
   return (
     <instancedMesh
@@ -51,17 +57,21 @@ function GLBBatch({
   placements: Placement[];
   castShadow: boolean;
 }) {
-  const { scene } = useGLTF(url);
+  // Keep the current model visible while the other quality variant loads.
+  const visibleUrl=useDeferredValue(url);
+  const { scene } = useGLTF(visibleUrl);
   const meshes = useMemo(() => {
+    finishFoliage(scene,visibleUrl.endsWith('-low.glb'));
+    shareModelMaterials(scene);
     scene.updateMatrixWorld(true);
     const found: Mesh[] = [];
     scene.traverse((o) => {
       if (o instanceof Mesh) found.push(o);
     });
     return found;
-  }, [scene]);
+  }, [scene,visibleUrl]);
   return (
-    <>
+    <group userData={{modelUrl:visibleUrl,instances:placements.length}}>
       {meshes.map((mesh) => (
         <PrimitiveInstances
           key={mesh.uuid}
@@ -70,7 +80,7 @@ function GLBBatch({
           castShadow={castShadow}
         />
       ))}
-    </>
+    </group>
   );
 }
 function BoxBatch({
@@ -91,7 +101,7 @@ function BoxBatch({
       ref.current!.setMatrixAt(i, object.matrix);
     });
     ref.current!.instanceMatrix.needsUpdate = true;
-    ref.current!.computeBoundingSphere();
+    return optimizeInstances(ref.current!,placements.length);
   }, [placements]);
   return (
     <instancedMesh
@@ -108,6 +118,7 @@ function BoxBatch({
   );
 }
 export function AssetBatch({ placements, castShadow=true }: { placements: Placement[]; castShadow?: boolean }) {
+  const {tier}=useResolvedGraphics();
   const groups = useMemo(
     () =>
       placements.reduce<Record<string, Placement[]>>((all, p) => {
@@ -123,7 +134,7 @@ export function AssetBatch({ placements, castShadow=true }: { placements: Placem
         return (
           <Suspense key={id} fallback={null}>
             {a.kind === "glb" ? (
-              <GLBBatch url={a.url} placements={items!} castShadow={castShadow} />
+              <GLBBatch url={modelUrl(a,tier)} placements={items!} castShadow={castShadow} />
             ) : a.kind === "box" ? (
               <BoxBatch material={a.material} placements={items!} />
             ) : (

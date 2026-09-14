@@ -67,15 +67,19 @@ def models(api):
         box('court number',(1.25,-1.304,1.01),(.55,.03,.24),'navy');label('QUADRA',(1.25,-1.326,.97),.095)
         box('centre line',(0,0,.085),(.022,2.04,.009),'white');ring('centre circle',(0,0,.085),.33,.011)
     def football():
+        # Sports turf has its own materials: roof/land grass must not obscure
+        # the white field markings when the game applies surface finishes.
+        api['PALETTE'].update({'fieldturf':'72AA60','fieldstripe':'79AF65','fieldmark':'FFFFFF'})
+        api['MODEL_ATTACHMENTS'].setdefault('football-field',{'front':[0,0,1]})['entry']=[0,0,3.02]
         box('sports apron',(0,0,.025),(7,5.9,.05),'concrete',.03)
         box('track edging',(0,0,.06),(6.86,5.75,.035),'red',.02)
-        box('football turf',(0,0,.084),(6.35,5.12,.022),'lawn',.02)
-        for i in range(6):box('mown turf band',(-2.62+i*1.05,0,.098),(.52,4.82,.007),'leaflight')
+        box('football turf',(0,0,.084),(6.35,5.12,.022),'fieldturf',.02)
+        for i in range(6):box('mown turf band',(-2.62+i*1.05,0,.098),(.52,4.82,.007),'fieldstripe')
         for side in [-1,1]:
-            box('touchline',(0,side*2.34,.11),(5.95,.025,.01),'white')
-            box('goal line',(side*2.96,0,.11),(.025,4.68,.01),'white')
-            box('penalty front',(side*2.08,0,.11),(.025,2.3,.01),'white')
-            for y in [-1.15,1.15]:box('penalty side',(side*2.53,y,.11),(.9,.025,.01),'white')
+            box('touchline',(0,side*2.34,.117),(5.97,.055,.012),'fieldmark')
+            box('goal line',(side*2.96,0,.117),(.055,4.73,.012),'fieldmark')
+            box('penalty front',(side*2.08,0,.117),(.055,2.3,.012),'fieldmark')
+            for y in [-1.15,1.15]:box('penalty side',(side*2.53,y,.117),(.93,.055,.012),'fieldmark')
             for y in [-.65,.65]:
                 beam('goal upright',(side*2.97,y,.12),(side*2.97,y,.98),.027,'white')
                 beam('goal rear brace',(side*2.97,y,.98),(side*3.28,y,.12),.022,'white')
@@ -89,8 +93,8 @@ def models(api):
         fence((-3.44,2.87),(3.44,2.87),1.35)
         fence((-3.44,-2.87),(-.55,-2.87),1.35);fence((.55,-2.87),(3.44,-2.87),1.35)
         gate((-.55,-2.87),(.55,-2.87),1.35)
-        box('centre stripe',(0,0,.11),(.025,4.68,.01),'white');ring('centre circle',(0,0,.11),.7,.013)
-        cyl('centre spot',(0,0,.11),.055,.008,'white',12)
+        box('centre stripe',(0,0,.117),(.055,4.68,.012),'fieldmark');ring('centre circle',(0,0,.117),.7,.0275,'fieldmark',segments=48)
+        cyl('centre spot',(0,0,.117),.055,.012,'fieldmark',12)
         for x in [-2.85,2.85]:
             beam('corner flagpole',(x,2.29,.11),(x,2.29,.57),.013,'white');box('corner pennant',(x+.075,2.29,.5),(.15,.015,.12),'signal')
     def pier():

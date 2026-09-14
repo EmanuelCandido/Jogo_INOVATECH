@@ -60,8 +60,9 @@ export function SettingsPanel({ close }: { close: () => void }) {
       </label>
       <label className="checkbox"><input type="checkbox" checked={s.settings.showPerformance} onChange={e=>graphics({showPerformance:e.target.checked})}/>Mostrar desempenho</label>
       {s.settings.showPerformance&&<div className="graphics-measurement">
-        <strong>{runtime.measuring?'Medindo…':runtime.fps?`${runtime.fps} FPS medidos`:'Aguardando a cena'}</strong>
+        <strong>{runtime.measuring?'Medindo…':runtime.fps!==null?`${runtime.fps} FPS medidos`:'Aguardando a cena'}</strong>
         <p>Amostra curta de renderização. A fluidez varia conforme a área do mapa.</p>
+        {!runtime.measuring&&runtime.frameMs!==null&&<p>Tempo por quadro: {runtime.frameMs.toFixed(1)} ms · 95% até {runtime.frameP95?.toFixed(1)} ms.</p>}
         <button className="text-button" disabled={runtime.measuring} onClick={()=>useGraphicsRuntime.setState(v=>({probe:v.probe+1}))}>Medir novamente</button>
       </div>}
       <p className="muted">

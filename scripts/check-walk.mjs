@@ -1,0 +1,3 @@
+import {createServer} from 'vite';
+const server=await createServer({server:{middlewareMode:true},appType:'custom'});
+try{const m=await server.ssrLoadModule('/src/config/referenceMap.ts'),l=await server.ssrLoadModule('/src/assets/modelLayout.ts');for(const id of m.pedestrianNetwork.unreachable){const lot=m.buildingLots.find(l=>l.id===id),b=l.layoutFor(lot.placement.asset),entry=m.compositionPoint(...(()=>{const w=l.attachmentWorld(lot.placement,[0,0,b.bounds.max[2]]);return [w[0],w[2]]})());console.log(id,JSON.stringify({entry,land:m.onReferenceLand(...entry),lot:lot.footprint,near:m.mapRoads.map(r=>({id:r.id,d:m.distanceToRoute(...entry,r)})).sort((a,b)=>a.d-b.d).slice(0,2)}));}}finally{await server.close();}

@@ -1,0 +1,46 @@
+/** Shared geometry predicates. Metres in the authoring plane. */
+export type Point=[number,number];
+export function convexHull(points:Point[]):Point[]{
+ const sorted=points.map(([x,y])=>[Math.round(x*1e5)/1e5,Math.round(y*1e5)/1e5] as Point).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+ const cross=(a:Point,b:Point,c:Point)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
+ const half=(input:Point[])=>{const out:Point[]=[];for(const p of input){while(out.length>1&&cross(out.at(-2)!,out.at(-1)!,p)<=0)out.pop();out.push(p);}return out.slice(0,-1);};
+ return [...half(sorted),...half([...sorted].reverse())];
+}
+export function segmentDistance(p:Point,a:Point,b:Point){
+ const x=b[0]-a[0],y=b[1]-a[1],d=x*x+y*y,t=d?Math.max(0,Math.min(1,((p[0]-a[0])*x+(p[1]-a[1])*y)/d)):0;
+ return Math.hypot(p[0]-a[0]-x*t,p[1]-a[1]-y*t);
+}
+export function contains(p:Point,poly:Point[]){let inside=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+ const a=poly[i],b=poly[j];if(segmentDistance(p,a,b)<1e-7)return true;
+ if((a[1]>p[1])!==(b[1]>p[1])&&p[0]<(b[0]-a[0])*(p[1]-a[1])/(b[1]-a[1])+a[0])inside=!inside;
+ }return inside;}
+export function segmentsCross(a:Point,b:Point,c:Point,d:Point){
+ const cross=(p:Point,q:Point,r:Point)=>(q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0]);
+ const ab=cross(a,b,c),ad=cross(a,b,d),ca=cross(c,d,a),cb=cross(c,d,b);
+ return ab*ad<0&&ca*cb<0;
+}
+export function polygonGap(a:Point[],b:Point[]){
+ if(a.some(p=>contains(p,b))||b.some(p=>contains(p,a))||a.some((p,i)=>b.some((q,j)=>segmentsCross(p,a[(i+1)%a.length],q,b[(j+1)%b.length]))))return 0;
+ return Math.min(...a.flatMap(p=>b.map((q,i)=>segmentDistance(p,q,b[(i+1)%b.length]))),...b.flatMap(p=>a.map((q,i)=>segmentDistance(p,q,a[(i+1)%a.length]))));
+}
+/** Signed clearance from a complete plot to a swept centreline. A negative
+ * value means that some part of the corridor occupies the plot. Collinear
+ * contact and intersections between samples are included. */
+export function corridorGap(poly:Point[],points:Point[],width:number){
+ let gap=Infinity;
+ for(let i=1;i<points.length;i++){
+  const a=points[i-1],b=points[i];
+  if(contains(a,poly)||contains(b,poly))return -width/2;
+  for(let j=0;j<poly.length;j++){
+   const c=poly[j],d=poly[(j+1)%poly.length];
+   if(segmentsCross(a,b,c,d))return -width/2;
+   gap=Math.min(gap,segmentDistance(a,c,d),segmentDistance(b,c,d),segmentDistance(c,a,b),segmentDistance(d,a,b));
+  }
+ }
+ return gap-width/2;
+}
+export function sampleLine(points:Point[],distance:number){
+ for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],length=Math.hypot(b[0]-a[0],b[1]-a[1]);if(distance<=length||i===points.length-1){const t=Math.max(0,Math.min(1,distance/(length||1)));return {point:[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t] as Point,tangent:[(b[0]-a[0])/(length||1),(b[1]-a[1])/(length||1)] as Point,index:i};}distance-=length;}
+ return {point:points[0],tangent:[1,0] as Point,index:0};
+}
+export const lineLength=(points:Point[])=>points.slice(1).reduce((sum,p,i)=>sum+Math.hypot(p[0]-points[i][0],p[1]-points[i][1]),0);

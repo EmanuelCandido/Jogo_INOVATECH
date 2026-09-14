@@ -1,0 +1,25 @@
+{
+  "stage": "integrated",
+  "renderer": "Chromium SwiftShader (software)",
+  "measurements": [
+    {
+      "tier": "MINIMUM",
+      "medianRenderMs": 8,
+      "p95RenderMs": 24.300000000745058,
+      "calls": 784,
+      "triangles": 622348,
+      "geometries": 552,
+      "modelBytes": 6112996
+    },
+    {
+      "tier": "HIGH",
+      "medianRenderMs": 13.300000000745058,
+      "p95RenderMs": 31.800000000745058,
+      "calls": 1327,
+      "triangles": 3181776,
+      "geometries": 987,
+      "modelBytes": 11412316
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,793 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--reporter=line,json"
+    ],
+    "configFile": "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\playwright.config.ts",
+    "rootDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "small",
+        "name": "small",
+        "testDir": "C:/Users/emano/OneDrive/Desktop/Projetos Pessoais/EcoQuest 1.1/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "dialogue.spec.ts",
+      "file": "dialogue.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "cinco poses, tutorial com tentativas, teclado e restauração",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37329,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:14:03.352Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e771733a09b51802e95e-317f13c2de743d7e8b05",
+          "file": "dialogue.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "cinco poses, tutorial com tentativas, teclado e restauração",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31822,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:18:33.473Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e771733a09b51802e95e-ea9aaf0547d396eb04f2",
+          "file": "dialogue.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "cinco poses, tutorial com tentativas, teclado e restauração",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "small",
+              "projectName": "small",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28318,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:21:37.419Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e771733a09b51802e95e-ab1edbdabd41b9ff0985",
+          "file": "dialogue.spec.ts",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "graphics.spec.ts",
+      "file": "graphics.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "troca qualidade em tempo real, preserva partida e restaura preferências",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37733,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:14:41.170Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b597a74853af235c8d55-a377b5d1ae132a6a4927",
+          "file": "graphics.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "troca qualidade em tempo real, preserva partida e restaura preferências",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 36227,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:19:05.859Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b597a74853af235c8d55-3045b01ee746d91ad971",
+          "file": "graphics.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "troca qualidade em tempo real, preserva partida e restaura preferências",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "small",
+              "projectName": "small",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31347,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:22:06.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b597a74853af235c8d55-e44bb31ceec182bbad8a",
+          "file": "graphics.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "loading.spec.ts",
+      "file": "loading.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "save restaurado aguarda modelos antes de retornar à cidade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15669,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:15:18.918Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1be41964e0574414b0cd-a7eb21d24e9fd20bc22b",
+          "file": "loading.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "save restaurado aguarda modelos antes de retornar à cidade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16640,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:19:42.103Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1be41964e0574414b0cd-5a1e6c16fe08f80a042e",
+          "file": "loading.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "save restaurado aguarda modelos antes de retornar à cidade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "small",
+              "projectName": "small",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14549,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:22:37.617Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1be41964e0574414b0cd-0a303811c4c5cabffa8a",
+          "file": "loading.spec.ts",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "loop.spec.ts",
+      "file": "loop.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "narrativa, tutorial, decisões na cidade, descoberta e conclusão",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 94302,
+                  "error": {
+                    "message": "Error: UNKNOWN: unknown error, open 'C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\docs\\screenshots\\situation-accessibility_02-solved.png'",
+                    "stack": "Error: UNKNOWN: unknown error, open 'C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\docs\\screenshots\\situation-accessibility_02-solved.png'\n    at C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\tests\\e2e\\loop.spec.ts:21:36",
+                    "location": {
+                      "file": "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\tests\\e2e\\loop.spec.ts",
+                      "column": 36,
+                      "line": 21
+                    },
+                    "snippet": "  19 |   if(i===0){await expect(page.locator('.balance')).toContainText('1.350');await page.reload();await expect(page.locator('[data-effectiveness=\"COMPLETE\"]')).toBeVisible();}\n  20 |   await expect(page.getByRole('button',{name:'Voltar à cidade'})).toBeEnabled({timeout:30000});\n> 21 |   if(info.project.name==='desktop')await page.screenshot({path:'docs/screenshots/situation-'+id+'-solved.png',animations:'disabled'});\n     |                                    ^\n  22 |   await page.getByRole('button',{name:'Voltar à cidade'}).click();\n  23 |   await page.getByRole('button',{name:'Centralizar mapa'}).click();\n  24 |  }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\tests\\e2e\\loop.spec.ts",
+                        "column": 36,
+                        "line": 21
+                      },
+                      "message": "Error: UNKNOWN: unknown error, open 'C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\docs\\screenshots\\situation-accessibility_02-solved.png'\n\n  19 |   if(i===0){await expect(page.locator('.balance')).toContainText('1.350');await page.reload();await expect(page.locator('[data-effectiveness=\"COMPLETE\"]')).toBeVisible();}\n  20 |   await expect(page.getByRole('button',{name:'Voltar à cidade'})).toBeEnabled({timeout:30000});\n> 21 |   if(info.project.name==='desktop')await page.screenshot({path:'docs/screenshots/situation-'+id+'-solved.png',animations:'disabled'});\n     |                                    ^\n  22 |   await page.getByRole('button',{name:'Voltar à cidade'}).click();\n  23 |   await page.getByRole('button',{name:'Centralizar mapa'}).click();\n  24 |  }\n    at C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\tests\\e2e\\loop.spec.ts:21:36"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:15:34.609Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\test-results\\loop-narrativa-tutorial-de-d1341-dade-descoberta-e-conclusão-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\test-results\\loop-narrativa-tutorial-de-d1341-dade-descoberta-e-conclusão-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\emano\\OneDrive\\Desktop\\Projetos Pessoais\\EcoQuest 1.1\\tests\\e2e\\loop.spec.ts",
+                    "column": 36,
+                    "line": 21
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6383f60f67017b31e9d8-d428f57265c19528b6bd",
+          "file": "loop.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "temporário, reavaliação, nenhuma melhoria e recursos insuficientes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 54578,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:17:09.966Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6383f60f67017b31e9d8-97758217a7e61b06471f",
+          "file": "loop.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "narrativa, tutorial, decisões na cidade, descoberta e conclusão",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 39478,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:19:58.767Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6383f60f67017b31e9d8-b1c0b686f16591e74043",
+          "file": "loop.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "temporário, reavaliação, nenhuma melhoria e recursos insuficientes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 39483,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:20:38.253Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6383f60f67017b31e9d8-53409f3b562085c2f26f",
+          "file": "loop.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "narrativa, tutorial, decisões na cidade, descoberta e conclusão",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "small",
+              "projectName": "small",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 35656,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:22:52.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6383f60f67017b31e9d8-8a3974be652a7a45cc39",
+          "file": "loop.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "temporário, reavaliação, nenhuma melhoria e recursos insuficientes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "small",
+              "projectName": "small",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 39189,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:23:27.845Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6383f60f67017b31e9d8-1fb973f8645e3efc5d33",
+          "file": "loop.spec.ts",
+          "line": 34,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "navigation.spec.ts",
+      "file": "navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "exploração por arrasto, zoom, limites, centralização e retorno da missão",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28152,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:18:04.680Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-a626a2dba076cacdb247",
+          "file": "navigation.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "exploração por arrasto, zoom, limites, centralização e retorno da missão",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19132,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:21:17.749Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-a89d373d86001471c236",
+          "file": "navigation.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "exploração por arrasto, zoom, limites, centralização e retorno da missão",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "small",
+              "projectName": "small",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23356,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T13:24:07.062Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5d2868f7d23420c27cca-82df707dc0c6b7819cd9",
+          "file": "navigation.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-10T13:14:01.839Z",
+    "duration": 628853.882,
+    "expected": 17,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

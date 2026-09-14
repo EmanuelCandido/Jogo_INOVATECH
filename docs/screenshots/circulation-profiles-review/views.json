@@ -1,0 +1,44 @@
+[
+  {
+    "name": "02-coast-link",
+    "u": 48,
+    "v": -23,
+    "zoom": 25,
+    "y": 0
+  },
+  {
+    "name": "05-hospital",
+    "u": 30,
+    "v": 3,
+    "zoom": 29,
+    "y": 0
+  },
+  {
+    "name": "06-station",
+    "u": 8,
+    "v": 34,
+    "zoom": 30,
+    "y": 1
+  },
+  {
+    "name": "08-10-campus-crossing",
+    "u": -41,
+    "v": 42,
+    "zoom": 31,
+    "y": 1
+  },
+  {
+    "name": "04-industrial-yard",
+    "u": 107,
+    "v": 84,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "02-viaduct-junction",
+    "u": 97,
+    "v": -12,
+    "zoom": 24,
+    "y": 0
+  }
+]

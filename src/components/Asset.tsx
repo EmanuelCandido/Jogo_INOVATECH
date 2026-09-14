@@ -1,8 +1,14 @@
-import { Suspense, useMemo } from "react";
+import {surfaceShader,type SurfaceKind} from '../assets/surfaceFinish';
+import { Suspense, useDeferredValue,useMemo,useLayoutEffect } from "react";
+import {useThree} from '@react-three/fiber';
 import { Clone, useGLTF, useTexture } from "@react-three/drei";
 import { BufferGeometry, Float32BufferAttribute } from "three";
 import { assetRegistry, materials } from "../assets/registry";
-import type { Placement, Vec3 } from "../game/types";
+import type { GraphicsTier,Placement, Vec3 } from "../game/types";
+import {modelUrl} from '../assets/modelLayout';
+import {useResolvedGraphics} from '../stores/graphicsStore';
+import {finishFoliage} from '../assets/foliageMaterial';
+import {shareModelMaterials} from '../assets/sharedMaterials';
 function TexturedMaterial({ id }: { id: string }) {
   const m = materials[id];
   const map = useTexture(m.texture!);
@@ -15,13 +21,14 @@ function TexturedMaterial({ id }: { id: string }) {
   );
 }
 export function Surface({ id }: { id: string }) {
+  const kind:SurfaceKind|undefined=id.startsWith('sidewalk')?'paving':id.startsWith('asphalt')?'asphalt':id==='wood'?'wood':id.startsWith('wall')?'paint':id.startsWith('grass')?'grass':undefined;
   const m = materials[id];
   return m.texture ? (
     <Suspense fallback={<meshStandardMaterial color={m.color} />}>
       <TexturedMaterial id={id} />
     </Suspense>
   ) : (
-    <meshStandardMaterial color={m.color} roughness={m.roughness ?? 0.9} />
+    <meshStandardMaterial color={m.color} roughness={m.roughness ?? 0.9} onBeforeCompile={kind?surfaceShader(kind):undefined} customProgramCacheKey={()=>`primitive-surface-v2-${kind??"plain"}`}/>
   );
 }
 export function Box({
@@ -43,7 +50,13 @@ export function Box({
   );
 }
 function GLB({ url }: { url: string }) {
-  const { scene } = useGLTF(url);
+  const visibleUrl=useDeferredValue(url);
+  const { scene } = useGLTF(visibleUrl);
+  const {gl,invalidate}=useThree();
+  useMemo(()=>{finishFoliage(scene,visibleUrl.endsWith('-low.glb'));shareModelMaterials(scene);},[scene,visibleUrl]);
+  // Only a model actually mounted in the city invalidates the sun's cache.
+  // Speculative downloads of future outcomes do not change the current shadow.
+  useLayoutEffect(()=>{gl.shadowMap.needsUpdate=true;invalidate();},[scene,gl,invalidate]);
   return <Clone object={scene} castShadow receiveShadow />;
 }
 function Ramp({ material }: { material: string }) {
@@ -286,13 +299,14 @@ function Procedural({ model, material }: { model: string; material: string }) {
   }
 }
 export function Asset({ asset, position, scale, rotation }: Placement) {
+  const {tier}=useResolvedGraphics();
   const definition = assetRegistry[asset];
   if (!definition) throw new Error(`Asset desconhecido: ${asset}`);
   return (
     <group position={position} scale={scale} rotation={rotation}>
       <Suspense fallback={<Box material="sidewalk.default" />}>
         {definition.kind === "glb" ? (
-          <GLB url={definition.url} />
+          <GLB url={modelUrl(definition,tier)} />
         ) : definition.kind === "box" ? (
           <Box material={definition.material} />
         ) : (
@@ -302,7 +316,7 @@ export function Asset({ asset, position, scale, rotation }: Placement) {
     </group>
   );
 }
-export function preloadAsset(id: string) {
+export function preloadAsset(id: string,tier:GraphicsTier) {
   const a = assetRegistry[id];
-  if (a?.kind === "glb") useGLTF.preload(a.url);
+  if (a?.kind === "glb") useGLTF.preload(modelUrl(a,tier));
 }

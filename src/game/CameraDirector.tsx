@@ -1,3 +1,4 @@
+import {mapBaseZoom,mapFootprint,clampTarget} from './mapNavigation';
 import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { OrthographicCamera, Vector3 } from "three";
@@ -42,7 +43,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     });
     return ()=>{cancelAnimationFrame(first);cancelAnimationFrame(second);};
   },[interactive,phase,moving,viewportKey]);
-  const baseZoom=overview.zoom*mapFit(size.width,size.height);
+  const baseZoom=mapBaseZoom(size.width,size.height);
   useMapNavigation(interactive && phase==="OVERVIEW" && !moving && readyViewport===viewportKey,baseZoom,target);
   const animation = useRef<{
     from: Vector3;
@@ -66,6 +67,13 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
           ? Math.min(size.width / 500, size.height / 270, 1)
           : shotId==='city'||intro ? mapFit(size.width,size.height) : Math.min(size.width / 1100, size.height / 760, 1.25)),
     };
+    if(shotId==='city'||intro){
+      responsive.zoom=Math.max(responsive.zoom,mapBaseZoom(size.width,size.height));
+      const [x,z]=clampTarget(responsive.target[0],responsive.target[2],mapFootprint(responsive.zoom,size.width,size.height));
+      const dx=x-responsive.target[0],dz=z-responsive.target[2];
+      responsive.target=[x,responsive.target[1],z];
+      responsive.position=[responsive.position[0]+dx,responsive.position[1],responsive.position[2]+dz];
+    }
     animation.current = {
       from: camera.position.clone(),
       fromTarget: target.current.clone(),

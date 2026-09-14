@@ -19,7 +19,7 @@ export function ChoiceList({
       className={`choice-list ${narrative ? "narrative-choices" : ""}`}
       aria-label={narrative ? "Respostas narrativas" : "Soluções disponíveis"}
     >
-      {choices.map((choice, i) => (
+      {choices.map((choice) => (
         <button
           className={`choice ${narrative ? "" : "alternative"}`}
           key={choice.id}
@@ -27,14 +27,14 @@ export function ChoiceList({
           disabled={choice.disabled}
           onClick={() => onChoose(choice.id)}
         >
-          <span className="choice-index">{String.fromCharCode(65 + i)}</span>
           <span className="choice-text">
             {choice.text}
             {choice.hint && <small>{choice.hint}</small>}
           </span>
           {choice.cost !== undefined ? (
-            <span className="choice-cost">
-              <i>✦</i> {choice.cost.toLocaleString("pt-BR")}
+            <span className="choice-cost" aria-label={`${choice.cost} moedas`}>
+              <span aria-hidden="true">{choice.cost > 0 ? '−' : ''}{choice.cost.toLocaleString("pt-BR")}</span>
+              <i className="coin" aria-hidden="true">✦</i>
             </span>
           ) : (
             <span aria-hidden="true">↗</span>

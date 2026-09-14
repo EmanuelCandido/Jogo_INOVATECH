@@ -88,34 +88,8 @@ def models(api):
                 for dy in [-.2,.2]:
                     o=cyl('gantry wheels',(x,y+dy,.14),.15,.55,'rubber',12);o.rotation_euler.y=math.pi/2
     def cargo():
-        verts=[(-1.2,-3.7,.3),(1.2,-3.7,.3),(-1.2,3.2,.3),(1.2,3.2,.3),(0,4.5,.3),(-1.05,-3.5,-.05),(1.05,-3.5,-.05),(-1.05,3,-.05),(1.05,3,-.05),(0,4.2,-.05)]
-        mesh('navy hull',verts,[(0,1,3,4,2),(0,5,6,1),(1,6,8,3),(3,8,9,4),(4,9,7,2),(2,7,5,0),(5,7,9,8,6)],'dark')
-        box('deck',(0,-.2,.34),(2.3,6.8,.12),'white',.03)
-        for y in [-1.5,0,1.5]:
-            for x in [-.73,0,.73]:
-                for z in [.65,1.23]:box('cargo boxes',(x,y,z),(.67,1.38,.54),['red','signal','blue'][int((x+1)*4+y+3)%3],.02)
-        box('bridge housing',(0,-2.9,1.12),(1.8,1.25,1.4),'white',.05)
-        box('wheelhouse',(0,-2.9,1.92),(2,1.4,.4),'white',.035)
-        for x in [-.72,-.36,0,.36,.72]:window(x,-3.615,1.94,.26,.22)
-        box('radar roof',(0,-2.9,2.17),(2.15,1.5,.09),'white')
-        beam('mast',(0,-2.8,2.18),(0,-2.8,3),.035,'metal');beam('antenna',(-.4,-2.8,2.7),(.4,-2.8,2.7),.024,'white')
-        for x in [-1.12,1.12]:
-            for y in [-3.5,-2,0,2,3.2]:beam('ship railing',(x,y,.4),(x,y,.72),.016,'white')
-            beam('ship railing',(x,-3.5,.72),(x,3.2,.72),.018,'white')
-            for y in [-3.15,-2.7]:
-                box('bridge side glazing',(x*.82,y,1.92),(.03,.34,.23),'glassdark')
-            for y in [-3.1,-2.5]:
-                o=cyl('porthole',(x*.82,y,1.05),.085,.025,'glassdark',12);o.rotation_euler.y=math.pi/2
-            box('lifeboat',(x*.97,-2.4,.85),(.23,.7,.22),'orange',.07)
-        for y in [-1.5,0,1.5]:
-            for i in range(7):
-                box('container ribs',(-1.072,y-.58+i*.19,.95),(.025,.035,1.03),'metal')
-                box('container ribs',(1.072,y-.58+i*.19,.95),(.025,.035,1.03),'metal')
-        cyl('bow winch',(0,3.4,.52),.17,.25,'metal',12)
-        for x in [-.6,.6]:beam('bow mooring bollard',(x,3.1,.4),(x,3.1,.62),.06,'metal')
-        box('funnel',(.5,-2.55,2.43),(.35,.4,.47),'red',.02)
-        box('funnel cap',(.5,-2.55,2.68),(.39,.44,.05),'dark')
-        label('ECO PORTO',(0,-3.72,.68),.18,'metal')
+        from cargo_ship import build
+        return build(api,container,label,beam)
     def lighthouse():
         cyl('stone plinth',(0,0,.1),.8,.2,'stone',24)
         bpy.ops.mesh.primitive_cone_add(vertices=24,radius1=.62,radius2=.36,depth=3.2,location=(0,0,1.8));finish(bpy.context.object,'white tapered tower','white')

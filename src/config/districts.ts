@@ -1,8 +1,11 @@
+import {harborContainers} from './harbor';
 import type {Placement,Vec3} from '../game/types';
 import {box,streets,roadPlacements,walkOffset,infrastructure} from './infrastructure';
 import {onLand,woodlandRegion,terrainHeight,riverCenter} from './terrain';
-import {railCurve,railSamples} from './railway';
+import {railSamples} from './railway';
 import {seating,inPublicSpace} from './publicSpaces';
+import {hospitalPlacement} from './landmarks';
+import {mountainRocks} from './mountainRocks';
 export const place=(asset:string,position:Vec3,scale:Vec3=[1,1,1],rotation:Vec3=[0,0,0]):Placement=>({asset,position,scale,rotation});
 export interface CityLot {building:Placement;width:number;depth:number;streetZ:number}
 export const cityLots:CityLot[]=[];
@@ -12,8 +15,7 @@ function lot(asset:string,x:number,z:number,streetZ:number,scale:number,width:nu
 // Reference anchors: school upper-left, hospital below it, civic hall between them and downtown.
 lot('building.school',-25,-14.5,-11,1.18,7.7,4.8);
 cityLots.at(-1)!.building.scale=[1.58,.93,1.18];
-lot('building.hospital',-15,8.5,14,1.2,7.7,7.3);
-cityLots.at(-1)!.building.scale=[1.48,1.2,1.2];
+cityLots.push({building:hospitalPlacement,width:7.7,depth:7.3,streetZ:14});
 lot('building.civic',-6.8,-5,2,1.1,4.4,5.4);
 // A diagonal band of varied midrises leads from the station to the coast.
 const colours=['building.sage','building.cream','building.terracotta','building.pink'];
@@ -46,7 +48,8 @@ for(const x of [23.2,26.8])homes.push([x,22.4,26]);
 for(const x of [3.2,6.8,13.2,16.8,23.2,26.8])for(const z of [29.5,34.5])homes.push([x,z,z<32?26:38]);
 for(const x of [33.3,36.7])for(const z of [18.1,22.4])if(x<36||z<20)homes.push([x,z,z<20?14:26]);
 homes.push([53.3,-25.8,-22],[52.6,-16.5,-11]);
-for(const [i,[x,z,front]] of homes.entries())lot(i%3?'building.house.cream':'building.house.coral',x,z,front,.92,2.85,3.1);
+const homeTypes=['building.house.cream','building.house.terrace','building.house.coral','building.house.solar'];
+for(const [i,[x,z,front]] of homes.entries())lot(homeTypes[(i+Math.floor(i/5))%4],x,z,front,.92,2.85,3.1);
 export const districtBuildings=cityLots.map(l=>l.building);
 export const lotPaving:Placement[]=cityLots.flatMap(({building:b,width,depth,streetZ})=>{
  const [x,,z]=b.position,sidewalk=streetZ-Math.sign(streetZ-z)*walkOffset;
@@ -62,10 +65,7 @@ export const districtProps:Placement[]=[
  place('prop.ship',[20,-.6,-59],[1.45,1.2,1.45],[0,Math.PI/2,0]),
  place('prop.lighthouse',[59,.14,-16.5],[1.15,1.15,1.15]),
  ...[[3,-33.8],[15,-33.8],[24,-33.8],[4,-44.1],[14,-44.1],[31,-40]].map(([x,z],i)=>place('prop.truck',[x,.09,z],[.8,.8,.8],[0,i%2?Math.PI/2:0,0])),
- ...[8.5,11.5,14.5].map(distance=>{const t=distance/railCurve.getLength(),p=railCurve.getPointAt(t),v=railCurve.getTangentAt(t);return place('prop.train',[p.x,.17,p.z],[.8,.8,.8],[0,Math.atan2(v.x,v.z),0]);}),
- ...[[4,-52],[14,-52],[18,-52],[28,-44],[31,-44],[34,-44]].map(([x,z],i)=>place(i%2?'prop.container.red':'prop.container.blue',[x,.1,z],[.82,.82,.82],[0,Math.PI/2,0])),
- ...[[14,-52],[18,-52],[31,-44]].map(([x,z])=>place('prop.container.blue',[x,.99,z],[.82,.82,.82],[0,Math.PI/2,0])),
- ...[[4,-54],[8,-54],[12,-54],[16,-54],[18,-45],[20,-45],[32,-46.5]].map(([x,z],i)=>place(i%2?'prop.container.red':'prop.container.blue',[x,.1,z],[.7,.7,.7],[0,Math.PI/2,0])),
+ ...harborContainers,
 ];
 for(const [j,s] of streets.entries()){
  if(s.to-s.from<7)continue;
@@ -106,7 +106,7 @@ for(let iz=0;iz<26;iz++)for(let ix=0;ix<34;ix++){
  const x=-28+ix*2.5+Math.sin(iz+ix)*.25,z=-29+iz*2.5+Math.cos(ix)*.2;
  if(!forestSpace(x,z,.72)||forest.some(p=>Math.hypot(x-p.position[0],z-p.position[2])<1.7))continue;
  if(x>51&&z<-9)continue; // Keep the lighthouse approach open.
- forest.push(place((ix+iz)%3?'tree.oak':'tree.maple',[x,.02,z],[.61,.65,.61],[0,ix,0]));
+ forest.push(place(x>42?'tree.palm':(ix+iz)%5===0?'tree.blossom':(ix+iz)%3?'tree.oak':'tree.maple',[x,.02,z],[.61,.65,.61],[0,ix,0]));
  if((ix+iz)%2)forest.push(place('tree.thicket',[x+.4,.02,z+.3],[.32,.28,.32]));
 }
 const woodland=['tree.oak','tree.maple','tree.oak','tree.fir','tree.birch'];
@@ -114,8 +114,11 @@ for(let iz=0;iz<90;iz++)for(let ix=0;ix<73;ix++){
  const x=-86+ix*1.9+(iz%2)*.8+Math.sin(iz*5+ix)*.21,z=-88+iz*1.9+Math.cos(ix*7)*.21;
  if(!woodlandRegion(x,z)||!onLand(x,z)||Math.abs(z-riverCenter(x))<2.6)continue;
  if(!forestSpace(x,z,1.2))continue;
- const size=.92+(ix+iz)%4*.075;
- forest.push(place(woodland[(ix*3+iz)%5],[x,terrainHeight(x,z),z],[size,size*(.9+(iz%3)*.1),size],[0,(ix+iz)*2.4,0]));
+ const height=terrainHeight(x,z),slope=Math.hypot(terrainHeight(x+.4,z)-terrainHeight(x-.4,z),terrainHeight(x,z+.4)-terrainHeight(x,z-.4))/.8;
+ // Rocky crests stay exposed; small conifers take over above the lower forest.
+ if(height>7&&(slope>1.18||(ix+iz)%3!==0||mountainRocks.some(r=>Math.hypot(x-r.position[0],z-r.position[2])<1.4)))continue;
+ const size=(.92+(ix+iz)%4*.075)*(height>12?.72:1);
+ forest.push(place(height>9?'tree.fir':woodland[(ix*3+iz)%5],[x,height-.03,z],[size,size*(.9+(iz%3)*.1),size],[0,(ix+iz)*2.4,0]));
 }
 // Small mixed groves occupy the back gardens without blocking their street entrances.
 for(const [x,z] of [[-36.5,-23.4],[-34.6,-24.8],[-33,-27],[-37,-26.5],[-35.2,-28.1]]){
@@ -149,7 +152,3 @@ export const regionLabels=[
  {name:'ESCOLA',position:[-25,4,-14.5] as Vec3},{name:'PARQUE DO ENCONTRO',position:[11,.5,10] as Vec3},
  {name:'PORTO',position:[16,5,-48] as Vec3},
 ];
-
-
-
-

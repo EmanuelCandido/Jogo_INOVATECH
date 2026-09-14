@@ -6,32 +6,33 @@ import { QuestPanel } from "./hud/QuestPanel";
 import { SettingsPanel } from "./menus/SettingsPanel";
 import { MapControls } from "./hud/MapControls";
 import {PerformanceReadout} from './hud/PerformanceReadout';
+import { Logo } from './Logo';
+import { TitleScreen } from './menus/TitleScreen';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
   const { progress: s, notice } = useGame();
   const [menu, setMenu] = useState(false);
+  // The title is presentation state; opening it must never reset a saved game.
+  const [showTitle, setShowTitle] = useState(() => s.phase === 'INTRO' && s.introIndex === 0);
   return (
-    <div className="interface">
+    <div className={`interface${showTitle ? ' on-title' : ''}`}>
       <header className="topbar">
-        <a className="brand" href="./" aria-label="EcoQuest início">
-          <span className="brand-icon">❧</span>
-          <span>
-            EcoQuest<small>HISTÓRIAS QUE TRANSFORMAM</small>
-          </span>
-        </a>
+        {!showTitle && <a className="brand" href="./" aria-label="Eco City início"><Logo compact /></a>}
+        {!showTitle && <>
         <div className="chapter-badge">
           <span>01</span>
           <div>
             VILA ESPERANÇA<small>O começo da mudança</small>
           </div>
         </div>
+        </>}
         <div className="header-actions">
-          <div className="balance" aria-label={s.coins + " Moedas da Cidade"}>
-            <span className="coin">✦</span>
+          {!showTitle && <div className="balance" aria-label={s.coins + " Moedas da Cidade"}>
+            <span className="coin" aria-hidden="true">✦</span>
             <div>
               <b>{s.coins.toLocaleString("pt-BR")}</b>
               <small>MOEDAS DA CIDADE</small>
             </div>
-          </div>
+          </div>}
           <button
             className="icon-button"
             onClick={() => setMenu(!menu)}
@@ -44,21 +45,14 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
       </header>
       {menu ? (
         <SettingsPanel close={() => setMenu(false)} />
+      ) : showTitle ? (
+        <TitleScreen sceneReady={sceneReady} onPlay={() => setShowTitle(false)} />
       ) : (
         <>
           <QuestPanel sceneReady={sceneReady} />
           {s.phase === "OVERVIEW" && (
             <>
               <MapControls />
-              <section className="map-title">
-                <div className="eyebrow">UM NOVO CAPÍTULO</div>
-                <h1>
-                  O futuro começa
-                  <br />
-                  com um novo olhar.
-                </h1>
-                <p>{story.chapter.subtitle}</p>
-              </section>
               <div className="map-instruction">
                 <span>♧</span>
                 <div>
@@ -73,9 +67,6 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
                       : story.tutorial.marker}
                   </p>
                 </div>
-              </div>
-              <div className="map-compass" aria-hidden="true">
-                <span>N</span>✧<small>VILA ESPERANÇA</small>
               </div>
             </>
           )}
@@ -94,10 +85,10 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
           {notice}
         </div>
       )}
-      <footer className="footer">
+      {!showTitle && <footer className="footer">
         <span>CADA ESCOLHA DEIXA UMA MARCA.</span>
         <span>{notice ? "○ Verifique o aviso" : "✓ Progresso automático"}</span>
-      </footer>
+      </footer>}
       <PerformanceReadout/>
     </div>
   );

@@ -1,0 +1,17 @@
+{
+  "qualitySwitches": [
+    {
+      "tier": "HIGH",
+      "situationTransformsAndColorsPreserved": true
+    }
+  ],
+  "situationGroups": [
+    "health_02"
+  ],
+  "reviewedStates": [
+    "initial",
+    "solved",
+    "temporary"
+  ],
+  "errors": []
+}

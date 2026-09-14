@@ -176,9 +176,9 @@ export const situations:SituationContent[]=[
     "title": "Espécies ameaçadas",
     "regionName": "Borda da Mata",
     "worldPosition": [
-      -24,
+      -25,
       0,
-      -36
+      -27
     ],
     "markerIcon": "🦋",
     "comment": "Este habitat está ficando menor. Trazer animais de volta basta se eles não tiverem onde viver?",

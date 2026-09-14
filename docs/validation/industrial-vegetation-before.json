@@ -1,0 +1,255 @@
+{
+  "trees": 5686,
+  "conflicts": [
+    {
+      "asset": "tree.oak",
+      "position": [
+        105.1331371783975,
+        68.02154726404686
+      ],
+      "factory": "industria-2",
+      "yard": 0,
+      "staff": 0.5019543507500146
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        104.04671615618258,
+        71.8195449630496
+      ],
+      "factory": "industria-2",
+      "yard": 0,
+      "staff": 0.24559381192203034
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        120.12692770392138,
+        85.69604500974513
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": -0.7
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        121.79364375383564,
+        85.5790285238762
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 0.4148392974483861
+    },
+    {
+      "asset": "tree.thicket",
+      "position": [
+        90.71210878594758,
+        89.02349589026602
+      ],
+      "factory": "industria-0",
+      "yard": 0,
+      "staff": 6.9860559433838345
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        122.1419069606575,
+        87.89336369093493
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 0.5148597608811543
+    },
+    {
+      "asset": "tree.fir",
+      "position": [
+        88.63695443065352,
+        89.58335864283131
+      ],
+      "factory": "industria-0",
+      "yard": 0,
+      "staff": 8.646167760398999
+    },
+    {
+      "asset": "tree.thicket",
+      "position": [
+        103.83606937020062,
+        89.07810835249241
+      ],
+      "factory": "industria-0",
+      "yard": 0.2735119052925228,
+      "staff": 1.5255119815864646
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        107.43778413506199,
+        89.44708925767321
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 8.429235499060031
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        121.99285607465978,
+        89.1673483483492
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 0.2331254560021876
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        88.72180114749334,
+        90.76470644446074
+      ],
+      "factory": "industria-0",
+      "yard": 0,
+      "staff": 8.470498824598952
+    },
+    {
+      "asset": "tree.fir",
+      "position": [
+        102.20035486454121,
+        91.7405756125458
+      ],
+      "factory": "industria-0",
+      "yard": 0,
+      "staff": -0.2386475506639527
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        103.75628268395062,
+        91.34417805685646
+      ],
+      "factory": "industria-0",
+      "yard": 0,
+      "staff": 0.7294148340263178
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        106.76468206632394,
+        91.12612300412715
+      ],
+      "factory": "industria-1",
+      "yard": 0.19381384468347562,
+      "staff": 9.07281391859323
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        108.9387906033543,
+        91.68872354116742
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 7.206994261054251
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        122.20758853454579,
+        91.1151400917674
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 0.5340688460403016
+    },
+    {
+      "asset": "tree.fir",
+      "position": [
+        103.50604282575637,
+        93.0442172656533
+      ],
+      "factory": "industria-0",
+      "yard": 0.030607364109741297,
+      "staff": 1.2826074404036831
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        107.7131829192161,
+        92.70828335224637
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 8.153193128785805
+    },
+    {
+      "asset": "tree.fir",
+      "position": [
+        108.97916394774778,
+        92.52980004360421
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 7.544737594698776
+    },
+    {
+      "asset": "tree.fir",
+      "position": [
+        121.7071665338936,
+        93.0845045233144
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 0.7000549476362117
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        89.16221676922851,
+        94.2774751543066
+      ],
+      "factory": "industria-0",
+      "yard": 0,
+      "staff": 7.795146211852113
+    },
+    {
+      "asset": "tree.fir",
+      "position": [
+        108.72270244935036,
+        94.65418010726557
+      ],
+      "factory": "industria-1",
+      "yard": 0.2115396750152417,
+      "staff": 7.791052234880332
+    },
+    {
+      "asset": "tree.fir",
+      "position": [
+        108.9037976823747,
+        88.96211701724675
+      ],
+      "factory": "industria-1",
+      "yard": 0,
+      "staff": 7.688620218089571
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        94.71177880530158,
+        90.10980217540013
+      ],
+      "factory": "industria-0",
+      "yard": 0,
+      "staff": 2.980629161172618
+    },
+    {
+      "asset": "tree.oak",
+      "position": [
+        120.18042219989002,
+        68.05901672784239
+      ],
+      "factory": "industria-3",
+      "yard": 0,
+      "staff": 0.3661675798050823
+    }
+  ]
+}

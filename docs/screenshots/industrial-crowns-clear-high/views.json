@@ -1,0 +1,23 @@
+[
+  {
+    "name": "04-industrial-yard",
+    "u": 107,
+    "v": 84,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "04-gate-priority",
+    "u": 89,
+    "v": 80,
+    "zoom": 65,
+    "y": 0
+  },
+  {
+    "name": "03-dump-relocated",
+    "u": 99,
+    "v": 42,
+    "zoom": 29,
+    "y": 0
+  }
+]

@@ -2,7 +2,7 @@ import {balance} from './balance';
 export const story={
  chapter:{id:'arrival',label:'Capítulo 01',title:'Observar a cidade.\nEntender cada escolha.',subtitle:'Cada lugar conta uma parte da história.',initialCoins:balance.initialCoins},
  intro:[
-  'Então… esta é a cidade.',
+  'Olá! Vamos transformar nossa cidade em um lugar melhor?',
   'À primeira vista, parece um lugar comum. Prédios, ruas, árvores, carros…',
   'Mas tem alguma coisa errada por aqui.',
   'Tem lixo acumulado, áreas difíceis de acessar, problemas de segurança, poluição e lugares que parecem estar prejudicando a saúde das pessoas e o meio ambiente.',

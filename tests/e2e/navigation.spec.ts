@@ -25,8 +25,17 @@ test("exploração por arrasto, zoom, limites, centralização e retorno da miss
     await cdp.send("Input.dispatchTouchEvent",{type:"touchMove",touchPoints:[{x:x+55,y:y-15,id:1}]});
     await cdp.send("Input.dispatchTouchEvent",{type:"touchEnd",touchPoints:[]});
     await expect.poll(async()=>Math.abs((await marker.boundingBox())!.x-before.x)).toBeGreaterThan(20);
-    await cdp.send("Input.dispatchTouchEvent",{type:"touchStart",touchPoints:[{x:x-25,y,id:1},{x:x+25,y,id:2}]});
-    await cdp.send("Input.dispatchTouchEvent",{type:"touchMove",touchPoints:[{x:x-60,y,id:1},{x:x+60,y,id:2}]});
+    // The bounded mobile framing moves markers under the former fixed pinch
+    // coordinates. Start both fingers on map pixels, not on a mission button.
+    const pinch=await page.evaluate(()=>{
+      for(const fy of [.47,.66,.73,.38])for(const fx of [.4,.55,.65]){
+        const x=innerWidth*fx,y=innerHeight*fy;
+        if([-60,-25,0,25,60].every(dx=>document.elementFromPoint(x+dx,y)?.tagName==='CANVAS'))return {x,y};
+      }
+      throw new Error('Sem área livre para testar a pinça no mapa');
+    });
+    await cdp.send("Input.dispatchTouchEvent",{type:"touchStart",touchPoints:[{x:pinch.x-25,y:pinch.y,id:1},{x:pinch.x+25,y:pinch.y,id:2}]});
+    await cdp.send("Input.dispatchTouchEvent",{type:"touchMove",touchPoints:[{x:pinch.x-60,y:pinch.y,id:1},{x:pinch.x+60,y:pinch.y,id:2}]});
     await cdp.send("Input.dispatchTouchEvent",{type:"touchEnd",touchPoints:[]});
     await expect.poll(async()=>parseInt((await output.textContent())!)).toBeGreaterThan(150);
     await cdp.detach();

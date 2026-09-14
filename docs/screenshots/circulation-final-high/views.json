@@ -1,0 +1,93 @@
+[
+  {
+    "name": "overview",
+    "u": 3,
+    "v": 20,
+    "zoom": 9.5,
+    "y": 0
+  },
+  {
+    "name": "01-school",
+    "u": -46,
+    "v": -21,
+    "zoom": 39,
+    "y": 0
+  },
+  {
+    "name": "02-coast-link",
+    "u": 48,
+    "v": -23,
+    "zoom": 25,
+    "y": 0
+  },
+  {
+    "name": "03-dump",
+    "u": 97,
+    "v": 53,
+    "zoom": 31,
+    "y": 0
+  },
+  {
+    "name": "04-factories",
+    "u": 72,
+    "v": 59,
+    "zoom": 29,
+    "y": 0
+  },
+  {
+    "name": "05-hospital",
+    "u": 30,
+    "v": 3,
+    "zoom": 29,
+    "y": 0
+  },
+  {
+    "name": "06-station",
+    "u": 8,
+    "v": 34,
+    "zoom": 30,
+    "y": 1
+  },
+  {
+    "name": "07-bridge",
+    "u": -22,
+    "v": -1,
+    "zoom": 30,
+    "y": 0
+  },
+  {
+    "name": "08-10-campus-crossing",
+    "u": -41,
+    "v": 42,
+    "zoom": 31,
+    "y": 1
+  },
+  {
+    "name": "09-11-west-rail",
+    "u": -67,
+    "v": 55,
+    "zoom": 23,
+    "y": 3
+  },
+  {
+    "name": "04-industrial-yard",
+    "u": 107,
+    "v": 84,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "02-viaduct-junction",
+    "u": 97,
+    "v": -12,
+    "zoom": 24,
+    "y": 0
+  },
+  {
+    "name": "03-dump-relocated",
+    "u": 99,
+    "v": 42,
+    "zoom": 29,
+    "y": 0
+  }
+]

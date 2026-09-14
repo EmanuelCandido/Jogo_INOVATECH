@@ -1,0 +1,9 @@
+{
+  "stage": "nature",
+  "profiles": [
+    "MINIMUM",
+    "HIGH"
+  ],
+  "renderer": "SwiftShader",
+  "errors": []
+}

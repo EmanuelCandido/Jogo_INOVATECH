@@ -1,0 +1,244 @@
+{
+  "stage": "candidate",
+  "date": "2026-09-07T01:42:09.807Z",
+  "device": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "gpuTimer": false,
+    "multiDraw": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "dpr": 1
+  },
+  "seconds": 3,
+  "runs": 1,
+  "measurements": [
+    {
+      "name": "overview",
+      "run": 0,
+      "calls": 858,
+      "triangles": 3450700,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 100,
+      "meshes": 1003,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 1,
+        "meanMs": 2113.9000000003725,
+        "p50": 2113.9000000003725,
+        "p95": 2113.9000000003725,
+        "p99": 2113.9000000003725,
+        "onePercentLow": 0.4730592743269898
+      },
+      "cpu": {
+        "frames": 2,
+        "meanMs": 5.75,
+        "p50": 4.900000000372529,
+        "p95": 6.599999999627471,
+        "p99": 6.599999999627471,
+        "onePercentLow": 151.5151515237036
+      },
+      "gpu": null
+    },
+    {
+      "name": "centre",
+      "run": 0,
+      "calls": 201,
+      "triangles": 342558,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 100,
+      "meshes": 1003,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 5,
+        "meanMs": 572.5200000002981,
+        "p50": 564,
+        "p95": 613.5,
+        "p99": 613.5,
+        "onePercentLow": 1.6299918500407498
+      },
+      "cpu": {
+        "frames": 6,
+        "meanMs": 3.8333333333333335,
+        "p50": 3.800000000745058,
+        "p95": 4.5,
+        "p99": 4.5,
+        "onePercentLow": 222.22222222222223
+      },
+      "gpu": null
+    },
+    {
+      "name": "forest",
+      "run": 0,
+      "calls": 140,
+      "triangles": 799476,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 100,
+      "meshes": 1003,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 2,
+        "meanMs": 1068.3499999996275,
+        "p50": 1038.199999999255,
+        "p95": 1098.5,
+        "p99": 1098.5,
+        "onePercentLow": 0.9103322712790168
+      },
+      "cpu": {
+        "frames": 3,
+        "meanMs": 2.2000000004967055,
+        "p50": 2.400000000372529,
+        "p95": 2.400000000372529,
+        "p99": 2.400000000372529,
+        "onePercentLow": 416.6666666019915
+      },
+      "gpu": null
+    },
+    {
+      "name": "port",
+      "run": 0,
+      "calls": 251,
+      "triangles": 636748,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 100,
+      "meshes": 1003,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 4,
+        "meanMs": 611.6749999998137,
+        "p50": 596.9000000003725,
+        "p95": 650.7999999988824,
+        "p99": 650.7999999988824,
+        "onePercentLow": 1.5365703749258102
+      },
+      "cpu": {
+        "frames": 5,
+        "meanMs": 4.580000000074506,
+        "p50": 4.5,
+        "p95": 5.700000001117587,
+        "p99": 5.700000001117587,
+        "onePercentLow": 175.4385964568302
+      },
+      "gpu": null
+    },
+    {
+      "name": "beach",
+      "run": 0,
+      "calls": 72,
+      "triangles": 82664,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 100,
+      "meshes": 1003,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 20,
+        "meanMs": 146.275,
+        "p50": 148.09999999962747,
+        "p95": 158.5,
+        "p99": 159.80000000074506,
+        "onePercentLow": 6.257822277818132
+      },
+      "cpu": {
+        "frames": 21,
+        "meanMs": 3.6523809526115656,
+        "p50": 4,
+        "p95": 4.300000000745058,
+        "p99": 4.300000000745058,
+        "onePercentLow": 232.55813949458854
+      },
+      "gpu": null
+    },
+    {
+      "name": "situation",
+      "run": 0,
+      "calls": 232,
+      "triangles": 318588,
+      "geometries": 1141,
+      "textures": 2,
+      "programs": 100,
+      "meshes": 1003,
+      "instances": 36573,
+      "width": 1280,
+      "height": 800,
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": true
+      },
+      "frame": {
+        "frames": 7,
+        "meanMs": 388.5857142856611,
+        "p50": 393.09999999962747,
+        "p95": 400.5,
+        "p99": 400.5,
+        "onePercentLow": 2.4968789013732833
+      },
+      "cpu": {
+        "frames": 8,
+        "meanMs": 5.037499999627471,
+        "p50": 4.699999999254942,
+        "p95": 6.5,
+        "p99": 6.5,
+        "onePercentLow": 153.84615384615384
+      },
+      "gpu": null
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,19 @@
+{
+  "states": [
+    "initial",
+    "temporary",
+    "solved"
+  ],
+  "solvedAfterReload": true,
+  "backgroundChanges": [
+    {
+      "stage": "temporary",
+      "fraction": 0
+    },
+    {
+      "stage": "solved",
+      "fraction": 0
+    }
+  ],
+  "errors": []
+}

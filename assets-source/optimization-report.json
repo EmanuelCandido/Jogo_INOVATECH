@@ -1,26 +1,38 @@
 [
   {
     "name": "access-ramp.glb",
-    "before": 57828,
-    "after": 42588,
+    "before": 57848,
+    "after": 42608,
     "meshes": 5
   },
   {
     "name": "access-step.glb",
-    "before": 17760,
-    "after": 13376,
+    "before": 17776,
+    "after": 13392,
     "meshes": 4
   },
   {
     "name": "access-temporary.glb",
-    "before": 40692,
-    "after": 31056,
+    "before": 40712,
+    "after": 31072,
     "meshes": 7
   },
   {
+    "name": "air-treatment-low.glb",
+    "before": 40124,
+    "after": 31800,
+    "meshes": 4
+  },
+  {
+    "name": "air-treatment.glb",
+    "before": 127640,
+    "after": 94044,
+    "meshes": 6
+  },
+  {
     "name": "assistance-kiosk.glb",
-    "before": 41580,
-    "after": 29408,
+    "before": 41604,
+    "after": 29432,
     "meshes": 8
   },
   {
@@ -31,129 +43,219 @@
   },
   {
     "name": "bench.glb",
-    "before": 63268,
-    "after": 46152,
-    "meshes": 3
+    "before": 64444,
+    "after": 47076,
+    "meshes": 4
   },
   {
     "name": "bridge.glb",
     "before": 123340,
-    "after": 91440,
+    "after": 91436,
     "meshes": 6
   },
   {
+    "name": "bus-shelter-low.glb",
+    "before": 68784,
+    "after": 47844,
+    "meshes": 8
+  },
+  {
     "name": "bus-shelter.glb",
-    "before": 50716,
-    "after": 36932,
-    "meshes": 7
+    "before": 141244,
+    "after": 104120,
+    "meshes": 10
+  },
+  {
+    "name": "car-blue-low.glb",
+    "before": 176432,
+    "after": 130908,
+    "meshes": 8
   },
   {
     "name": "car-blue.glb",
-    "before": 94820,
-    "after": 69172,
-    "meshes": 9
+    "before": 502948,
+    "after": 371956,
+    "meshes": 10
+  },
+  {
+    "name": "car-coral-low.glb",
+    "before": 182820,
+    "after": 131128,
+    "meshes": 8
   },
   {
     "name": "car-coral.glb",
-    "before": 93932,
-    "after": 69140,
+    "before": 498216,
+    "after": 368440,
+    "meshes": 10
+  },
+  {
+    "name": "car-gold-low.glb",
+    "before": 176612,
+    "after": 131040,
     "meshes": 8
   },
   {
     "name": "car-gold.glb",
-    "before": 94820,
-    "after": 69172,
-    "meshes": 9
-  },
-  {
-    "name": "car-white.glb",
-    "before": 93660,
-    "after": 68260,
-    "meshes": 8
-  },
-  {
-    "name": "cargo-ship.glb",
-    "before": 306612,
-    "after": 220564,
-    "meshes": 11
-  },
-  {
-    "name": "city-bus.glb",
-    "before": 178492,
-    "after": 127604,
+    "before": 511260,
+    "after": 372008,
     "meshes": 10
   },
   {
-    "name": "civic.glb",
-    "before": 273552,
-    "after": 196044,
+    "name": "car-white-low.glb",
+    "before": 176836,
+    "after": 131204,
     "meshes": 8
+  },
+  {
+    "name": "car-white.glb",
+    "before": 498340,
+    "after": 368540,
+    "meshes": 10
+  },
+  {
+    "name": "cargo-ship-low.glb",
+    "before": 1382376,
+    "after": 976528,
+    "meshes": 12
+  },
+  {
+    "name": "cargo-ship.glb",
+    "before": 2557988,
+    "after": 1806796,
+    "meshes": 12
+  },
+  {
+    "name": "city-bus-low.glb",
+    "before": 77712,
+    "after": 57476,
+    "meshes": 6
+  },
+  {
+    "name": "city-bus.glb",
+    "before": 169996,
+    "after": 125416,
+    "meshes": 9
+  },
+  {
+    "name": "civic-low.glb",
+    "before": 216180,
+    "after": 161168,
+    "meshes": 8
+  },
+  {
+    "name": "civic.glb",
+    "before": 350124,
+    "after": 261312,
+    "meshes": 10
   },
   {
     "name": "container-blue.glb",
     "before": 108472,
-    "after": 79200,
+    "after": 79204,
     "meshes": 4
   },
   {
     "name": "container-red.glb",
-    "before": 108468,
-    "after": 79200,
+    "before": 108472,
+    "after": 79204,
     "meshes": 4
   },
   {
-    "name": "corner-cafe.glb",
-    "before": 198652,
-    "after": 129584,
-    "meshes": 10
-  },
-  {
-    "name": "court.glb",
-    "before": 674196,
-    "after": 434064,
-    "meshes": 6
-  },
-  {
-    "name": "delivery-truck.glb",
-    "before": 118960,
-    "after": 86476,
-    "meshes": 9
-  },
-  {
-    "name": "factory.glb",
-    "before": 486180,
-    "after": 332932,
+    "name": "corner-cafe-low.glb",
+    "before": 125596,
+    "after": 95448,
     "meshes": 13
   },
   {
-    "name": "football-field.glb",
-    "before": 704632,
-    "after": 471040,
+    "name": "corner-cafe.glb",
+    "before": 284376,
+    "after": 216856,
+    "meshes": 15
+  },
+  {
+    "name": "court-low.glb",
+    "before": 660900,
+    "after": 427012,
     "meshes": 7
   },
   {
+    "name": "court.glb",
+    "before": 692156,
+    "after": 447716,
+    "meshes": 7
+  },
+  {
+    "name": "delivery-truck-low.glb",
+    "before": 58848,
+    "after": 43856,
+    "meshes": 7
+  },
+  {
+    "name": "delivery-truck.glb",
+    "before": 130192,
+    "after": 95908,
+    "meshes": 8
+  },
+  {
+    "name": "ev-charger-low.glb",
+    "before": 22688,
+    "after": 17684,
+    "meshes": 5
+  },
+  {
+    "name": "ev-charger.glb",
+    "before": 46096,
+    "after": 34156,
+    "meshes": 7
+  },
+  {
+    "name": "factory-low.glb",
+    "before": 185388,
+    "after": 133976,
+    "meshes": 15
+  },
+  {
+    "name": "factory.glb",
+    "before": 443844,
+    "after": 319564,
+    "meshes": 17
+  },
+  {
     "name": "fountain.glb",
-    "before": 143572,
-    "after": 106856,
+    "before": 200284,
+    "after": 147184,
     "meshes": 6
+  },
+  {
+    "name": "fuel-station-low.glb",
+    "before": 139176,
+    "after": 104844,
+    "meshes": 10
   },
   {
     "name": "fuel-station.glb",
-    "before": 230132,
-    "after": 147436,
-    "meshes": 10
+    "before": 303456,
+    "after": 219504,
+    "meshes": 11
+  },
+  {
+    "name": "greenhouse-low.glb",
+    "before": 523900,
+    "after": 387484,
+    "meshes": 11
   },
   {
     "name": "greenhouse.glb",
-    "before": 674844,
-    "after": 499588,
-    "meshes": 10
+    "before": 685476,
+    "after": 509440,
+    "meshes": 11
   },
   {
     "name": "harbor-crane.glb",
-    "before": 282564,
-    "after": 193552,
-    "meshes": 6
+    "before": 293152,
+    "after": 201524,
+    "meshes": 7
   },
   {
     "name": "heat-pump.glb",
@@ -162,160 +264,310 @@
     "meshes": 4
   },
   {
+    "name": "hospital-low.glb",
+    "before": 168516,
+    "after": 126228,
+    "meshes": 11
+  },
+  {
     "name": "hospital.glb",
-    "before": 618076,
-    "after": 429656,
+    "before": 368752,
+    "after": 255972,
+    "meshes": 14
+  },
+  {
+    "name": "house-coral-low.glb",
+    "before": 170320,
+    "after": 130460,
     "meshes": 12
   },
   {
     "name": "house-coral.glb",
-    "before": 335948,
-    "after": 244264,
-    "meshes": 19
+    "before": 442004,
+    "after": 327448,
+    "meshes": 14
+  },
+  {
+    "name": "house-cream-low.glb",
+    "before": 185132,
+    "after": 140916,
+    "meshes": 11
   },
   {
     "name": "house-cream.glb",
-    "before": 335564,
-    "after": 244076,
-    "meshes": 18
+    "before": 411164,
+    "after": 312732,
+    "meshes": 13
+  },
+  {
+    "name": "house-solar-low.glb",
+    "before": 187008,
+    "after": 139984,
+    "meshes": 10
+  },
+  {
+    "name": "house-solar.glb",
+    "before": 420892,
+    "after": 313308,
+    "meshes": 12
+  },
+  {
+    "name": "house-terrace-low.glb",
+    "before": 184412,
+    "after": 140080,
+    "meshes": 12
+  },
+  {
+    "name": "house-terrace.glb",
+    "before": 439188,
+    "after": 332576,
+    "meshes": 14
   },
   {
     "name": "information-sign.glb",
-    "before": 22740,
-    "after": 16540,
+    "before": 22744,
+    "after": 16544,
     "meshes": 4
   },
   {
     "name": "lamp.glb",
-    "before": 24936,
-    "after": 17452,
-    "meshes": 5
+    "before": 36440,
+    "after": 26480,
+    "meshes": 7
   },
   {
     "name": "lighthouse.glb",
-    "before": 201060,
-    "after": 146516,
+    "before": 201080,
+    "after": 146536,
+    "meshes": 11
+  },
+  {
+    "name": "office-glass-low.glb",
+    "before": 121460,
+    "after": 89424,
     "meshes": 11
   },
   {
     "name": "office-glass.glb",
-    "before": 204276,
-    "after": 145232,
-    "meshes": 8
+    "before": 256460,
+    "after": 187772,
+    "meshes": 14
   },
   {
     "name": "pergola.glb",
-    "before": 162140,
-    "after": 121092,
-    "meshes": 9
+    "before": 183132,
+    "after": 136900,
+    "meshes": 12
   },
   {
-    "name": "pier.glb",
-    "before": 691596,
-    "after": 451864,
+    "name": "pier-low.glb",
+    "before": 682976,
+    "after": 445432,
     "meshes": 8
   },
   {
+    "name": "pier.glb",
+    "before": 691624,
+    "after": 451896,
+    "meshes": 8
+  },
+  {
+    "name": "pine-low.glb",
+    "before": 41152,
+    "after": 33460,
+    "meshes": 2
+  },
+  {
     "name": "pine.glb",
-    "before": 56304,
-    "after": 47204,
+    "before": 56308,
+    "after": 47208,
     "meshes": 2
   },
   {
     "name": "playground.glb",
-    "before": 127380,
-    "after": 86912,
+    "before": 127400,
+    "after": 86936,
     "meshes": 7
   },
   {
+    "name": "port-warehouse-low.glb",
+    "before": 130984,
+    "after": 96224,
+    "meshes": 13
+  },
+  {
     "name": "port-warehouse.glb",
-    "before": 177700,
-    "after": 125564,
-    "meshes": 10
+    "before": 310984,
+    "after": 230824,
+    "meshes": 15
   },
   {
     "name": "rabbit.glb",
     "before": 46456,
-    "after": 34700,
+    "after": 34696,
     "meshes": 5
   },
   {
     "name": "river-outfall.glb",
-    "before": 88772,
-    "after": 59956,
+    "before": 88776,
+    "after": 59960,
     "meshes": 4
   },
   {
     "name": "rock.glb",
-    "before": 10320,
+    "before": 10324,
     "after": 7720,
     "meshes": 2
   },
   {
     "name": "sailboat.glb",
-    "before": 40732,
+    "before": 40728,
     "after": 30548,
     "meshes": 6
   },
   {
     "name": "salvador.glb",
     "before": 214708,
-    "after": 161756,
+    "after": 161760,
     "meshes": 10
   },
   {
-    "name": "school.glb",
-    "before": 448420,
-    "after": 326132,
+    "name": "school-low.glb",
+    "before": 139980,
+    "after": 104900,
     "meshes": 11
+  },
+  {
+    "name": "school.glb",
+    "before": 260580,
+    "after": 194848,
+    "meshes": 13
+  },
+  {
+    "name": "shrub-low.glb",
+    "before": 47320,
+    "after": 35864,
+    "meshes": 5
   },
   {
     "name": "shrub.glb",
-    "before": 73204,
-    "after": 55400,
+    "before": 73312,
+    "after": 55508,
     "meshes": 5
+  },
+  {
+    "name": "solar-canopy-low.glb",
+    "before": 22524,
+    "after": 18672,
+    "meshes": 4
+  },
+  {
+    "name": "solar-canopy.glb",
+    "before": 60580,
+    "after": 47276,
+    "meshes": 5
+  },
+  {
+    "name": "solar-station-low.glb",
+    "before": 260144,
+    "after": 187248,
+    "meshes": 10
+  },
+  {
+    "name": "solar-station.glb",
+    "before": 835704,
+    "after": 611596,
+    "meshes": 14
   },
   {
     "name": "thermometer.glb",
-    "before": 44512,
-    "after": 30056,
+    "before": 40868,
+    "after": 30064,
     "meshes": 5
   },
   {
+    "name": "townhouse-coral-low.glb",
+    "before": 376652,
+    "after": 281968,
+    "meshes": 11
+  },
+  {
     "name": "townhouse-coral.glb",
-    "before": 632588,
-    "after": 461696,
-    "meshes": 16
+    "before": 1042536,
+    "after": 777460,
+    "meshes": 14
+  },
+  {
+    "name": "townhouse-cream-low.glb",
+    "before": 311624,
+    "after": 247856,
+    "meshes": 10
   },
   {
     "name": "townhouse-cream.glb",
-    "before": 570672,
-    "after": 417060,
-    "meshes": 16
+    "before": 806576,
+    "after": 646456,
+    "meshes": 14
+  },
+  {
+    "name": "townhouse-pink-low.glb",
+    "before": 347284,
+    "after": 263988,
+    "meshes": 10
   },
   {
     "name": "townhouse-pink.glb",
-    "before": 521972,
-    "after": 381860,
-    "meshes": 15
+    "before": 871960,
+    "after": 660612,
+    "meshes": 14
+  },
+  {
+    "name": "townhouse-sage-low.glb",
+    "before": 337376,
+    "after": 268592,
+    "meshes": 10
   },
   {
     "name": "townhouse-sage.glb",
-    "before": 632580,
-    "after": 461684,
-    "meshes": 16
+    "before": 951684,
+    "after": 709556,
+    "meshes": 14
   },
   {
     "name": "traffic.glb",
-    "before": 58128,
-    "after": 40652,
-    "meshes": 7
+    "before": 69624,
+    "after": 49680,
+    "meshes": 9
+  },
+  {
+    "name": "train-cab-low.glb",
+    "before": 67404,
+    "after": 51080,
+    "meshes": 6
+  },
+  {
+    "name": "train-cab.glb",
+    "before": 151620,
+    "after": 106840,
+    "meshes": 9
+  },
+  {
+    "name": "train-carriage-low.glb",
+    "before": 63280,
+    "after": 48584,
+    "meshes": 6
   },
   {
     "name": "train-carriage.glb",
-    "before": 176048,
-    "after": 129104,
-    "meshes": 11
+    "before": 146072,
+    "after": 108780,
+    "meshes": 8
+  },
+  {
+    "name": "tree-birch-low.glb",
+    "before": 59052,
+    "after": 43724,
+    "meshes": 4
   },
   {
     "name": "tree-birch.glb",
@@ -324,69 +576,135 @@
     "meshes": 4
   },
   {
-    "name": "tree-fir.glb",
-    "before": 32212,
-    "after": 23704,
+    "name": "tree-blossom-low.glb",
+    "before": 26856,
+    "after": 20176,
     "meshes": 2
   },
   {
-    "name": "tree-maple.glb",
+    "name": "tree-blossom.glb",
+    "before": 44388,
+    "after": 33236,
+    "meshes": 4
+  },
+  {
+    "name": "tree-fir-low.glb",
+    "before": 32216,
+    "after": 23708,
+    "meshes": 2
+  },
+  {
+    "name": "tree-fir.glb",
+    "before": 32276,
+    "after": 23768,
+    "meshes": 2
+  },
+  {
+    "name": "tree-low.glb",
+    "before": 33348,
+    "after": 27816,
+    "meshes": 2
+  },
+  {
+    "name": "tree-maple-low.glb",
     "before": 50468,
     "after": 36988,
     "meshes": 3
   },
   {
-    "name": "tree-oak.glb",
+    "name": "tree-maple.glb",
+    "before": 50472,
+    "after": 36992,
+    "meshes": 3
+  },
+  {
+    "name": "tree-oak-low.glb",
     "before": 53816,
     "after": 40036,
     "meshes": 4
   },
   {
-    "name": "tree-stump.glb",
-    "before": 112752,
-    "after": 71616,
+    "name": "tree-oak.glb",
+    "before": 53812,
+    "after": 40032,
+    "meshes": 4
+  },
+  {
+    "name": "tree-palm-low.glb",
+    "before": 40796,
+    "after": 32764,
     "meshes": 3
   },
   {
-    "name": "tree-thicket.glb",
-    "before": 36704,
+    "name": "tree-palm.glb",
+    "before": 208016,
+    "after": 155124,
+    "meshes": 4
+  },
+  {
+    "name": "tree-rooftop-low.glb",
+    "before": 26860,
+    "after": 20184,
+    "meshes": 2
+  },
+  {
+    "name": "tree-rooftop.glb",
+    "before": 43120,
+    "after": 32220,
+    "meshes": 3
+  },
+  {
+    "name": "tree-stump.glb",
+    "before": 112760,
+    "after": 71628,
+    "meshes": 3
+  },
+  {
+    "name": "tree-thicket-low.glb",
+    "before": 36700,
     "after": 25592,
+    "meshes": 4
+  },
+  {
+    "name": "tree-thicket.glb",
+    "before": 36696,
+    "after": 25588,
     "meshes": 4
   },
   {
     "name": "tree.glb",
     "before": 48496,
-    "after": 41552,
+    "after": 41556,
     "meshes": 2
   },
   {
     "name": "turbine.glb",
     "before": 53888,
-    "after": 40156,
+    "after": 40160,
     "meshes": 3
   },
   {
     "name": "waste-bin.glb",
-    "before": 54464,
-    "after": 37928,
-    "meshes": 6
+    "before": 56500,
+    "after": 39108,
+    "meshes": 7
   },
   {
     "name": "waste-partial.glb",
-    "before": 77744,
+    "before": 77748,
     "after": 58448,
     "meshes": 6
   },
   {
     "name": "waste-pile.glb",
-    "before": 184968,
+    "before": 184972,
     "after": 136944,
     "meshes": 7
   },
   {
     "name": "water-treatment.glb",
-    "before": 195976,
-    "after": 129524,
+    "before": 193556,
+    "after": 129520,
     "meshes": 7
   },
   {
@@ -397,8 +715,296 @@
   },
   {
     "name": "wildlife-shelter.glb",
-    "before": 94780,
-    "after": 68300,
+    "before": 106696,
+    "after": 78528,
+    "meshes": 10
+  },
+  {
+    "name": "arched-bridge-low.glb",
+    "before": 276628,
+    "after": 207212,
+    "meshes": 4
+  },
+  {
+    "name": "arched-bridge.glb",
+    "before": 291212,
+    "after": 220264,
+    "meshes": 4
+  },
+  {
+    "name": "eco-dome-low.glb",
+    "before": 379196,
+    "after": 277768,
+    "meshes": 11
+  },
+  {
+    "name": "eco-dome.glb",
+    "before": 430560,
+    "after": 317072,
+    "meshes": 11
+  },
+  {
+    "name": "eco-observatory-low.glb",
+    "before": 437540,
+    "after": 324116,
+    "meshes": 10
+  },
+  {
+    "name": "eco-observatory.glb",
+    "before": 484660,
+    "after": 361008,
+    "meshes": 10
+  },
+  {
+    "name": "grid-pylon-low.glb",
+    "before": 159816,
+    "after": 119712,
+    "meshes": 4
+  },
+  {
+    "name": "grid-pylon.glb",
+    "before": 174404,
+    "after": 132768,
+    "meshes": 4
+  },
+  {
+    "name": "river-dam-low.glb",
+    "before": 95884,
+    "after": 78220,
     "meshes": 8
+  },
+  {
+    "name": "river-dam.glb",
+    "before": 153692,
+    "after": 128712,
+    "meshes": 8
+  },
+  {
+    "name": "station-canopy-low.glb",
+    "before": 231968,
+    "after": 171416,
+    "meshes": 4
+  },
+  {
+    "name": "station-canopy.glb",
+    "before": 235616,
+    "after": 174676,
+    "meshes": 4
+  },
+  {
+    "name": "solar-cottage-low.glb",
+    "before": 112276,
+    "after": 84404,
+    "meshes": 13
+  },
+  {
+    "name": "solar-cottage.glb",
+    "before": 180268,
+    "after": 134688,
+    "meshes": 13
+  },
+  {
+    "name": "solar-rack-low.glb",
+    "before": 58484,
+    "after": 46388,
+    "meshes": 6
+  },
+  {
+    "name": "solar-rack.glb",
+    "before": 83808,
+    "after": 67952,
+    "meshes": 6
+  },
+  {
+    "name": "central-station-low.glb",
+    "before": 291868,
+    "after": 216184,
+    "meshes": 11
+  },
+  {
+    "name": "central-station.glb",
+    "before": 395396,
+    "after": 293684,
+    "meshes": 11
+  },
+  {
+    "name": "excavator-low.glb",
+    "before": 128688,
+    "after": 95060,
+    "meshes": 8
+  },
+  {
+    "name": "excavator.glb",
+    "before": 181048,
+    "after": 133580,
+    "meshes": 8
+  },
+  {
+    "name": "fish-market-low.glb",
+    "before": 141068,
+    "after": 103776,
+    "meshes": 14
+  },
+  {
+    "name": "fish-market.glb",
+    "before": 215124,
+    "after": 157288,
+    "meshes": 14
+  },
+  {
+    "name": "ruined-building-low.glb",
+    "before": 316744,
+    "after": 229028,
+    "meshes": 9
+  },
+  {
+    "name": "ruined-building.glb",
+    "before": 354012,
+    "after": 265636,
+    "meshes": 9
+  },
+  {
+    "name": "solar-school-low.glb",
+    "before": 214784,
+    "after": 160620,
+    "meshes": 12
+  },
+  {
+    "name": "solar-school.glb",
+    "before": 328960,
+    "after": 247272,
+    "meshes": 12
+  },
+  {
+    "name": "recycling-centre-low.glb",
+    "before": 421860,
+    "after": 309240,
+    "meshes": 15
+  },
+  {
+    "name": "recycling-centre.glb",
+    "before": 718712,
+    "after": 484984,
+    "meshes": 15
+  },
+  {
+    "name": "station-lift-landing.glb",
+    "before": 62688,
+    "after": 45724,
+    "meshes": 8
+  },
+  {
+    "name": "station-lift-shaft.glb",
+    "before": 13356,
+    "after": 10084,
+    "meshes": 3
+  },
+  {
+    "name": "football-field-low.glb",
+    "before": 696904,
+    "after": 487228,
+    "meshes": 10
+  },
+  {
+    "name": "football-field.glb",
+    "before": 714224,
+    "after": 499016,
+    "meshes": 10
+  },
+  {
+    "name": "industrial-waste-low.glb",
+    "before": 110036,
+    "after": 80700,
+    "meshes": 6
+  },
+  {
+    "name": "industrial-waste.glb",
+    "before": 157180,
+    "after": 114700,
+    "meshes": 6
+  },
+  {
+    "name": "industrial-works-low.glb",
+    "before": 265744,
+    "after": 186912,
+    "meshes": 9
+  },
+  {
+    "name": "industrial-works.glb",
+    "before": 351424,
+    "after": 258152,
+    "meshes": 9
+  },
+  {
+    "name": "industrial-gate-low.glb",
+    "before": 118948,
+    "after": 83604,
+    "meshes": 10
+  },
+  {
+    "name": "industrial-gate.glb",
+    "before": 187084,
+    "after": 132096,
+    "meshes": 10
+  },
+  {
+    "name": "road-deck-module.glb",
+    "before": 22228,
+    "after": 19956,
+    "meshes": 2
+  },
+  {
+    "name": "road-pier-cap.glb",
+    "before": 11092,
+    "after": 9520,
+    "meshes": 2
+  },
+  {
+    "name": "road-pier-footing.glb",
+    "before": 14424,
+    "after": 10712,
+    "meshes": 2
+  },
+  {
+    "name": "road-pier-shaft.glb",
+    "before": 11132,
+    "after": 9560,
+    "meshes": 2
+  },
+  {
+    "name": "road-retaining-wall.glb",
+    "before": 16580,
+    "after": 12336,
+    "meshes": 3
+  },
+  {
+    "name": "station-platform-canopy-low.glb",
+    "before": 34816,
+    "after": 27144,
+    "meshes": 3
+  },
+  {
+    "name": "station-platform-canopy.glb",
+    "before": 61284,
+    "after": 47852,
+    "meshes": 3
+  },
+  {
+    "name": "station-stairs-low.glb",
+    "before": 195788,
+    "after": 159168,
+    "meshes": 4
+  },
+  {
+    "name": "station-stairs.glb",
+    "before": 325760,
+    "after": 273396,
+    "meshes": 4
+  },
+  {
+    "name": "station-guardrail.glb",
+    "before": 12132,
+    "after": 9080,
+    "meshes": 1
   }
 ]

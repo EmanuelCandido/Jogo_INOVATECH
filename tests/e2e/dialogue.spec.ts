@@ -1,6 +1,7 @@
 import {test,expect} from '@playwright/test';
 test('cinco poses, tutorial com tentativas, teclado e restauração',async({page})=>{
  test.setTimeout(180000);await page.goto('/');
+ await page.getByRole('button',{name:'JOGAR',exact:true}).click();
  const portrait=page.getByAltText('Robô companheiro da jornada');
  await expect(portrait).toBeVisible();await expect(portrait).toHaveJSProperty('naturalWidth',768);
  await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_intro');
@@ -18,7 +19,7 @@ test('cinco poses, tutorial com tentativas, teclado e restauração',async({page
  }
  await page.locator('[data-choice-id="observe"]').click();await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_success');
  await expect(portrait).toHaveJSProperty('naturalWidth',768);
- await page.screenshot({path:'docs/screenshots/robot-tutorial-'+test.info().project.name+'.png',animations:'disabled'});
+ await page.screenshot({path:test.info().outputPath('robot-tutorial-'+test.info().project.name+'.png'),animations:'disabled'});
  await page.getByRole('button',{name:'Investigar a cidade'}).focus();await page.keyboard.press('Enter');
  await page.getByRole('button',{name:'Centralizar mapa'}).click();await expect(page.locator('.marker')).toHaveCount(2);
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data.decisions)).toEqual([]);

@@ -60,7 +60,7 @@ function build(id:string,state:VisualKey):SituationVisual{
    d('cylinder',[0,1.0,-2.1],[.16,.04,.16],'#f2ead8',[Math.PI/2,0,0]);
    box([0,1.045,-2.067],[.018,.10,.015],'#4b656b');box([.05,1.0,-2.067],[.10,.018,.015],'#4b656b');
   }
-  if(full){for(const[x,z]of[[-2,.2],[0,.5],[2,.2]])tree(x,z,.86);for(const x of [-1,1]){box([x,.65,-1.1],[1.1,.07,.75],'#337a9d');box([x,.32,-1.1],[.07,.65,.07],'#688789');}}
+  if(full){for(const[x,z]of[[-2,.2],[0,.5],[2,.2]])tree(x,z,.86);p('prop.solarCanopy',[0,.02,-1.1],[.8,.8,.8]);}
   else {p('prop.thermometer',[1.9,.04,-.5]);
    for(const x of [-1.8,.1]){box([x,.15,-.5],[.63,.29,.44],'#c8aa7b');d('patch',[x,.305,-.5],[.26,1,.17],'#816944');
     d('cylinder',[x,.53,-.5],[.02,.43,.02],'#9d8750');for(const side of [-1,1])d('leaf',[x+side*.1,.56,-.5],[.13,.06,.055],'#b9a363',[0,0,side*.5]);}
@@ -75,14 +75,28 @@ function build(id:string,state:VisualKey):SituationVisual{
  }
  if(id==='health_02'){
   // Top of the existing factory stacks. No duplicate building or light source.
-  for(const x of [-1.3,1.3])smoke(x,4.5,-.65,full?1:5);
-  if(full){box([0,.14,4.45],[3,.2,.4],'#5b9690');sign(-2.3,3.8,'#64947a');}
-  if(partial||full)for(const x of [-3.4,3.4])tree(x,3.7,.6);
-  if(!full){box([2.1,.08,3.9],[1,.12,.65],'#8e7660');smoke(2.1,.35,3.9,3);}
+  // The valley district owns the full-height chimney plume for this state.
+  if(full){
+   // Service equipment beside the factory, clear of its loading truck and doors.
+   p('prop.airTreatment',[7,.10,0],[1,1,1],[0,Math.PI/2,0]);
+   for(const z of [-.5,.5])d('cylinder',[3.03,.86,z],[.07,1.42,.07],'#85a5a2',[0,0,Math.PI/2]);
+   sign(-8.2,5.5,'#64947a');
+  }
+  // The front apron belongs to loading and the staff entrance in every state.
+  if(partial||full){tree(-8.2,-2,.6);tree(8.2,3,.6);}
+  if(!full){box([-8.2,.08,2],[1,.12,.65],'#8e7660');smoke(-8.2,.35,2,3);}
  }
  if(id==='accessibility_02'){
   // Continuous L-shaped tactile route on the hospital sidewalk and entrance path.
-  if(full){for(let x=-3.4;x<=.05;x+=.23)box([x,.12,-.35],[.22,.035,.25],'#e5b74c');for(let z=-.35;z>=-2.9;z-=.23)box([0,.18,z],[.3,.045,.22],'#e5b74c');}
+  if(full){
+   const endZ=-1.9;
+   for(let x=-3.4;x<=.05;x+=.23)box([x,.12,-.35],[.22,.035,.25],'#e5b74c');
+   const segments=Math.ceil((-.35-endZ)/.22);
+   for(let i=0;i<=segments;i++){
+    const z=-.35+(endZ+.35)*i/segments;
+    box([0,.15,z],[.3,.045,.22],'#e5b74c');
+   }
+  }
   else if(partial){railing(-1.8,-.05,1.8);railing(.5,-1.6,.7);}
   else{cone(-.8,-.35);box([-2.2,.35,-.38],[.43,.6,.4],'#8a9c91');}
   // A cane and a small person make the orientation problem visible.
@@ -99,3 +113,4 @@ function build(id:string,state:VisualKey):SituationVisual{
  return {assets,details};
 }
 for(const id of ids)situationVisuals[id]={initial:build(id,'initial'),temporary:build(id,'temporary'),solved:build(id,'solved')};
+

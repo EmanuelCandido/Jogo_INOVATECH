@@ -1,0 +1,656 @@
+{
+  "build": [
+    "/assets/index-BXRLG4I9.js"
+  ],
+  "errors": [],
+  "results": [
+    {
+      "run": 0,
+      "quality": "LOW",
+      "name": "07-bridge",
+      "actual": {
+        "x": -31.42809703146004,
+        "z": -5.0273966405220065,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            73,
+            41
+          ],
+          "rgb": [
+            37.444444444444436,
+            159,
+            180.8888888888889
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            96,
+            27
+          ],
+          "rgb": [
+            36,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            126,
+            32
+          ],
+          "rgb": [
+            37.888888888888886,
+            159.33333333333334,
+            181
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "LOW",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/0-LOW-07-bridge.png"
+    },
+    {
+      "run": 0,
+      "quality": "LOW",
+      "name": "08-10-campus-crossing",
+      "actual": {
+        "x": -46.56523117860558,
+        "z": 6.455946505588365,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            218,
+            41
+          ],
+          "rgb": [
+            37.444444444444436,
+            159,
+            180.77777777777777
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            241,
+            27
+          ],
+          "rgb": [
+            36,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            271,
+            32
+          ],
+          "rgb": [
+            37.77777777777777,
+            159.22222222222223,
+            180.8888888888889
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "LOW",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/0-LOW-08-10-campus-crossing.png"
+    },
+    {
+      "run": 0,
+      "quality": "LOW",
+      "name": "reservoir-bank",
+      "actual": {
+        "x": -42.58177482409361,
+        "z": 3.4340140987172134,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            180,
+            41
+          ],
+          "rgb": [
+            37.444444444444436,
+            159,
+            180.8888888888889
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            203,
+            27
+          ],
+          "rgb": [
+            36,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            233,
+            32
+          ],
+          "rgb": [
+            37.888888888888886,
+            159.33333333333334,
+            181
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "LOW",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/0-LOW-reservoir-bank.png"
+    },
+    {
+      "run": 1,
+      "quality": "HIGH",
+      "name": "07-bridge",
+      "actual": {
+        "x": -31.42809703146004,
+        "z": -5.0273966405220065,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            73,
+            41
+          ],
+          "rgb": [
+            37.666666666666664,
+            159.11111111111111,
+            180.8888888888889
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            96,
+            27
+          ],
+          "rgb": [
+            35.888888888888886,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            126,
+            32
+          ],
+          "rgb": [
+            37.77777777777777,
+            159.33333333333334,
+            181
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "HIGH",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/1-HIGH-07-bridge.png"
+    },
+    {
+      "run": 1,
+      "quality": "HIGH",
+      "name": "08-10-campus-crossing",
+      "actual": {
+        "x": -46.56523117860558,
+        "z": 6.455946505588365,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            218,
+            41
+          ],
+          "rgb": [
+            37.444444444444436,
+            159,
+            180.77777777777777
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            241,
+            27
+          ],
+          "rgb": [
+            35.888888888888886,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            271,
+            32
+          ],
+          "rgb": [
+            37.666666666666664,
+            159.33333333333334,
+            181
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "HIGH",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/1-HIGH-08-10-campus-crossing.png"
+    },
+    {
+      "run": 1,
+      "quality": "HIGH",
+      "name": "reservoir-bank",
+      "actual": {
+        "x": -42.58177482409361,
+        "z": 3.4340140987172134,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            180,
+            41
+          ],
+          "rgb": [
+            37.55555555555555,
+            159,
+            180.8888888888889
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            203,
+            27
+          ],
+          "rgb": [
+            35.888888888888886,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            233,
+            32
+          ],
+          "rgb": [
+            37.888888888888886,
+            159.33333333333334,
+            181
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "HIGH",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/1-HIGH-reservoir-bank.png"
+    },
+    {
+      "run": 2,
+      "quality": "LOW",
+      "name": "07-bridge",
+      "actual": {
+        "x": -31.42809703146004,
+        "z": -5.0273966405220065,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            73,
+            41
+          ],
+          "rgb": [
+            37.444444444444436,
+            159,
+            180.8888888888889
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            96,
+            27
+          ],
+          "rgb": [
+            36,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            126,
+            32
+          ],
+          "rgb": [
+            37.888888888888886,
+            159.33333333333334,
+            181
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "LOW",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/2-LOW-07-bridge.png"
+    },
+    {
+      "run": 2,
+      "quality": "LOW",
+      "name": "08-10-campus-crossing",
+      "actual": {
+        "x": -46.56523117860558,
+        "z": 6.455946505588365,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            218,
+            41
+          ],
+          "rgb": [
+            37.444444444444436,
+            159,
+            180.77777777777777
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            241,
+            27
+          ],
+          "rgb": [
+            36,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            271,
+            32
+          ],
+          "rgb": [
+            37.77777777777777,
+            159.22222222222223,
+            180.8888888888889
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "LOW",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/2-LOW-08-10-campus-crossing.png"
+    },
+    {
+      "run": 2,
+      "quality": "LOW",
+      "name": "reservoir-bank",
+      "actual": {
+        "x": -42.58177482409361,
+        "z": 3.4340140987172134,
+        "zoom": 7.642563256645836,
+        "width": 390,
+        "height": 844,
+        "y": 0
+      },
+      "samples": [
+        {
+          "point": [
+            -38,
+            100
+          ],
+          "pixel": [
+            180,
+            41
+          ],
+          "rgb": [
+            37.444444444444436,
+            159,
+            180.8888888888889
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -35,
+            103
+          ],
+          "pixel": [
+            203,
+            27
+          ],
+          "rgb": [
+            36,
+            158,
+            180
+          ],
+          "water": true
+        },
+        {
+          "point": [
+            -31,
+            102
+          ],
+          "pixel": [
+            233,
+            32
+          ],
+          "rgb": [
+            37.888888888888886,
+            159.33333333333334,
+            181
+          ],
+          "water": true
+        }
+      ],
+      "settings": {
+        "renderScale": 100,
+        "shadows": "PRESET",
+        "ambientAnimation": false,
+        "showPerformance": false,
+        "quality": "LOW",
+        "reducedMotion": true
+      },
+      "path": "docs/screenshots/reservoir-navigation-reproduction/2-LOW-reservoir-bank.png"
+    }
+  ]
+}
