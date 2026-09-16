@@ -1,0 +1,103 @@
+{
+  "before": [
+    "shader-navigation-baseline",
+    "shader-navigation-reverse-baseline"
+  ],
+  "after": [
+    "shader-navigation-after",
+    "shader-navigation-reverse-after"
+  ],
+  "sameReference": true,
+  "errors": [],
+  "mobileEmulation": false,
+  "presentationVerified": false,
+  "target60FpsVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "before": {
+        "runs": 5,
+        "meanFps": 11.028001534330684,
+        "frameP95": 152,
+        "frameP95Range": [
+          79.60000000009313,
+          181.5999999998603
+        ],
+        "gpuP50": 67.386822,
+        "gpuSamples": [
+          174,
+          114,
+          113,
+          177,
+          134
+        ],
+        "cpuP50": 3.800000000046566,
+        "bufferUploadBytes": 13899228,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 5,
+        "meanFps": 11.324868990257798,
+        "frameP95": 146.19999999995343,
+        "frameP95Range": [
+          139.39999999990687,
+          151.9000000001397
+        ],
+        "gpuP50": 65.934687,
+        "gpuSamples": [
+          178,
+          135,
+          133,
+          134,
+          133
+        ],
+        "cpuP50": 3.800000000046566,
+        "bufferUploadBytes": 13899228,
+        "maximumGuardsPass": true
+      }
+    },
+    {
+      "name": "held-key",
+      "before": {
+        "runs": 5,
+        "meanFps": 13.078163825798725,
+        "frameP95": 80.90000000002328,
+        "frameP95Range": [
+          79.59999999997672,
+          96.5
+        ],
+        "gpuP50": 69.754478,
+        "gpuSamples": [
+          27,
+          28,
+          28,
+          26,
+          26
+        ],
+        "cpuP50": 4.099999999976717,
+        "bufferUploadBytes": 6792760,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 5,
+        "meanFps": 13.486470025232205,
+        "frameP95": 79.9000000001397,
+        "frameP95Range": [
+          78.29999999981374,
+          82.30000000004657
+        ],
+        "gpuP50": 68.809634,
+        "gpuSamples": [
+          28,
+          28,
+          28,
+          28,
+          28
+        ],
+        "cpuP50": 4.199999999953434,
+        "bufferUploadBytes": 6990684,
+        "maximumGuardsPass": true
+      }
+    }
+  ]
+}

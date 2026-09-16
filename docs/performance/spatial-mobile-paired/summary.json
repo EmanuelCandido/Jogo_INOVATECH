@@ -1,0 +1,76 @@
+{
+  "device": {
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "gpuTimer": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "dpr": 3
+  },
+  "mobileEmulation": true,
+  "presentationVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "spatial": false,
+      "runs": 2,
+      "fps": 22.75305566222964,
+      "p95": 155.0500000002794,
+      "cpu": 4.600000000093132,
+      "gpu": 35.425807000000006,
+      "gpuSamples": [
+        215,
+        214
+      ],
+      "uploads": 4406976,
+      "sphereTests": 4080600,
+      "regionTests": 0
+    },
+    {
+      "name": "drag",
+      "spatial": true,
+      "runs": 2,
+      "fps": 22.3786787158445,
+      "p95": 145.40000000037253,
+      "cpu": 4.350000000093132,
+      "gpu": 35.242395,
+      "gpuSamples": [
+        219,
+        212
+      ],
+      "uploads": 4406976,
+      "sphereTests": 1276633,
+      "regionTests": 161742
+    },
+    {
+      "name": "pinch",
+      "spatial": false,
+      "runs": 2,
+      "fps": 29.406808688165327,
+      "p95": 110.5500000002794,
+      "cpu": 4.449999999720603,
+      "gpu": 29.3429945,
+      "gpuSamples": [
+        114,
+        111
+      ],
+      "uploads": 2640912,
+      "sphereTests": 2516370,
+      "regionTests": 0
+    },
+    {
+      "name": "pinch",
+      "spatial": true,
+      "runs": 2,
+      "fps": 29.767799441250958,
+      "p95": 104.35000000009313,
+      "cpu": 4.100000000093132,
+      "gpu": 28.5426035,
+      "gpuSamples": [
+        108,
+        109
+      ],
+      "uploads": 2640912,
+      "sphereTests": 707565,
+      "regionTests": 86494
+    }
+  ]
+}

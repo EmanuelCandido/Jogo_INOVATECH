@@ -1,8 +1,9 @@
+import {publicAsset} from '../../assets/publicAsset';
 import {useEffect,useRef} from 'react';
 import {useGame} from '../../stores/gameStore';
 import {introNode,dialogueCopy} from '../../content/dialogues';
 import {characters} from '../../content/characters';
-import {problemById,categories} from '../../content/problems';
+import {problemById} from '../../content/problems';
 import {questions,tutorialQuestion} from '../../content/questions';
 import {story} from '../../content/story';
 import {canAfford} from '../../game/economy';
@@ -10,10 +11,12 @@ import {CharacterStage} from './CharacterStage';
 import {ChoiceList} from '../choices/ChoiceList';
 import type {CharacterPose} from '../../game/types';
 export function DialogueStage({sceneReady}:{sceneReady:boolean}){
- const {progress:s,next,narrativeChoice,choose,leave}=useGame(),panel=useRef<HTMLElement>(null);
+ const {progress:s,next,narrativeChoice,choose}=useGame(),panel=useRef<HTMLElement>(null);
+ const tap=useRef<{id:number;x:number;y:number}|null>(null);
  const node=introNode(s),p=s.selectedProblem?problemById[s.selectedProblem]:null;
  const tutorial=s.phase==='TUTORIAL_QUESTION'||s.phase==='TUTORIAL_RESULT';
  const isQuestion=s.phase==='QUESTION'||s.phase==='TUTORIAL_QUESTION';
+ const canContinue=sceneReady&&!isQuestion;
  const q=tutorial?tutorialQuestion:p?questions[p.questionId]:null;
  const decision=p?s.decisions.findLast(d=>d.problemId===p.id):null;
  const answer=tutorial?tutorialQuestion.alternatives.find(a=>a.id===s.tutorialAnswerId):q?.alternatives.find(a=>a.id===decision?.alternativeId);
@@ -25,7 +28,25 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
  useEffect(()=>{panel.current?.focus({preventScroll:true});panel.current?.scrollTo(0,0);},[s.phase,s.dialogueNodeId,s.selectedProblem]);
  if(!['INTRO','COMMENT','CONTEXT','QUESTION','RESULT','TUTORIAL_QUESTION','TUTORIAL_RESULT'].includes(s.phase))return null;
  const advanceLabel=s.phase==='INTRO'?node.actionLabel:s.phase==='COMMENT'?'Entender a situação':s.phase==='CONTEXT'?dialogueCopy.contextAction:s.phase==='TUTORIAL_RESULT'?(answer?.effectiveness==='COMPLETE'?'Investigar a cidade':'Tentar novamente'):dialogueCopy.resultAction;
- return <div className={'narrative-stage '+(isQuestion?'has-choices ':'')+(result?'has-result':'')}>
+ return <div className={'narrative-stage '+(p?'problem-dialogue ':'')+(isQuestion?'has-choices ':'')+(result?'has-result ':'')+(canContinue?'can-continue':'')}
+  onPointerDown={e=>{
+   tap.current=canContinue&&e.isPrimary&&e.button===0?{id:e.pointerId,x:e.clientX,y:e.clientY}:null;
+  }}
+  onPointerMove={e=>{
+   const start=tap.current;
+   if(start&&start.id===e.pointerId&&Math.hypot(e.clientX-start.x,e.clientY-start.y)>10)tap.current=null;
+  }}
+  onPointerCancel={()=>{tap.current=null;}}
+  onPointerUp={e=>{
+   const start=tap.current;tap.current=null;
+   // Browsers can omit click after a touch scroll. Handle a completed primary
+   // tap once; native buttons keep their own click and keyboard behavior.
+   if(!canContinue||!start||start.id!==e.pointerId||!e.isPrimary||!(e.target instanceof Element)
+    ||e.target.closest('button,a,input,select,textarea,[role="button"]')
+    ||window.getSelection()?.isCollapsed===false)return;
+   e.preventDefault();
+   next();
+  }}>
   <div className="narrative-content">
    <div className="dialogue-scene">
    <CharacterStage characterId={characterId} pose={pose}/>
@@ -34,23 +55,20 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
     data-effectiveness={result?answer.effectiveness:undefined}
     onKeyDown={e=>{if(sceneReady&&!isQuestion&&e.target===e.currentTarget&&['Enter',' '].includes(e.key)){e.preventDefault();next();}}}>
     <div className="speaker-plate"><b>{character.name}</b></div>
-    <span className="dialogue-stripes" aria-hidden="true"><i/><i/><i/></span>
+    <img className="dialogue-stripes" src={publicAsset('/assets/ui/figma/stripes.svg')} alt="" />
     <div className="dialogue-body">
      {result&&<div className="eyebrow">{story.results[answer.effectiveness].label}</div>}
-     {!isQuestion&&s.phase!=='INTRO'&&p&&!result&&<div className="eyebrow">{categories[p.category].label+' · '+p.regionName}</div>}
-     {s.phase!=='INTRO'&&<h2>{title}</h2>}
+     {(isQuestion||result)&&<h2>{title}</h2>}
      {!isQuestion&&<p>{text}</p>}
      {result&&!tutorial&&p&&<div className="result-receipt"><span>✦ − {answer.cost} moedas investidas</span>{answer.effectiveness==='COMPLETE'&&<span>+ {p.rewards} pela transformação</span>}</div>}
     </div>
     <div className="dialogue-actions">
      {!sceneReady&&<span className="scene-loading" role="status">Preparando a cidade…</span>}
-     {sceneReady&&s.phase==='INTRO'&&<span className="dialogue-progress" aria-label={`Fala ${s.introIndex+1} de ${story.intro.length}`}>{story.intro.map((_,i)=><i key={i} className={i===s.introIndex?'current':''}/>)}</span>}
-     {isQuestion?<span className="choice-prompt">Selecione uma alternativa</span>:<button className="dialogue-continue" onClick={next} disabled={!sceneReady} aria-label={`${advanceLabel} →`}>{s.phase==='INTRO'&&node.actionLabel==='Continuar'?'Toque para continuar…':advanceLabel}<span aria-hidden="true">▸</span></button>}
+     {isQuestion?<span className="choice-prompt">Selecione uma alternativa</span>:<button className="dialogue-continue" onClick={next} disabled={!sceneReady} aria-label={`${advanceLabel} →`}>Toque para continuar...</button>}
     </div>
    </section>
    </div>
    {isQuestion&&q&&<ChoiceList choices={q.alternatives.map(a=>({id:a.id,text:a.text,cost:tutorial?undefined:a.cost,disabled:!sceneReady||!canAfford(s.coins,a.cost),hint:!canAfford(s.coins,a.cost)?'Faltam '+(a.cost-s.coins).toLocaleString('pt-BR')+' moedas':undefined}))} onChoose={tutorial?narrativeChoice:choose}/>}
-   {isQuestion&&!tutorial&&<button className="text-button decide-later" onClick={leave} disabled={!sceneReady}>Decidir depois · voltar ao mapa</button>}
   </div>
  </div>;
 }

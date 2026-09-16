@@ -3,6 +3,32 @@ import { test,expect } from "@playwright/test";
 import { initialProgress } from "../../src/game/save";
 import { NarrativeManager } from "../../src/game/NarrativeManager";
 
+test('tecla mantida move continuamente e para ao soltar ou perder foco',async({page,isMobile})=>{
+  test.skip(isMobile,'Cobertura de teclado físico; toque e pinça têm percurso próprio.');
+  const progress=overview();
+  progress.settings={...progress.settings,quality:'MINIMUM',ambientAnimation:false,reducedMotion:true};
+  await page.addInitScript(saved=>localStorage.setItem('ecoquest.save.v1',saved),JSON.stringify({version:1,data:progress}));
+  await page.goto('/?benchmark=1');
+  await page.getByRole('button',{name:'Centralizar mapa'}).click();
+  for(let i=0;i<3;i++)await page.getByRole('button',{name:'Aproximar mapa'}).click();
+  const position=()=>page.evaluate(()=>{
+    const api=(window as unknown as {ecoBenchmark:{snapshot:()=>{camera:{position:number[]}}}}).ecoBenchmark;
+    return api.snapshot().camera.position;
+  });
+  const distance=(a:number[],b:number[])=>Math.hypot(...a.map((v,i)=>v-b[i]));
+  await page.locator('canvas').focus();
+  await page.keyboard.down('ArrowRight');await page.waitForTimeout(180);
+  const first=await position();await page.waitForTimeout(250);
+  expect(distance(first,await position())).toBeGreaterThan(1);
+  await page.keyboard.up('ArrowRight');const released=await position();await page.waitForTimeout(200);
+  expect(distance(released,await position())).toBeLessThan(.001);
+  await page.keyboard.down('ArrowLeft');await page.waitForTimeout(180);
+  await page.getByRole('button',{name:'Centralizar mapa'}).focus();
+  const blurred=await position();await page.waitForTimeout(200);
+  expect(distance(blurred,await position())).toBeLessThan(.001);
+  await page.keyboard.up('ArrowLeft');
+});
+
 test("exploração por arrasto, zoom, limites, centralização e retorno da missão",async({page,isMobile})=>{
   const errors:string[]=[];page.on("pageerror",e=>errors.push(e.message));
   const progress=overview();

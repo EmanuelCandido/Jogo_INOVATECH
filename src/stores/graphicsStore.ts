@@ -9,9 +9,9 @@ export function deviceGraphics(software=false){
 }
 interface GraphicsRuntimeState {
  automatic:GraphicsTier; software:boolean; probe:number; measuring:boolean; fps:number|null; frameMs:number|null;
- drawCalls:number; triangles:number; pixelRatio:number; reason:string; actualShadowSize:number; frameP95:number|null;
+ drawCalls:number; triangles:number; pixelRatio:number; reason:string; actualShadowSize:number; frameP95:number|null; renderer:string;
 }
-export const useGraphicsRuntime=create<GraphicsRuntimeState>(()=>({automatic:deviceGraphics(),software:false,probe:0,measuring:false,fps:null,frameMs:null,frameP95:null,drawCalls:0,triangles:0,pixelRatio:1,actualShadowSize:0,reason:'Perfil inicial do dispositivo'}));
+export const useGraphicsRuntime=create<GraphicsRuntimeState>(()=>({automatic:deviceGraphics(),software:false,probe:0,measuring:false,fps:null,frameMs:null,frameP95:null,drawCalls:0,triangles:0,pixelRatio:1,actualShadowSize:0,renderer:'',reason:'Perfil inicial do dispositivo'}));
 export function useResolvedGraphics(){
  const settings=useGame(s=>s.progress.settings),automatic=useGraphicsRuntime(s=>s.automatic);
  return useMemo(()=>resolveGraphics(settings,automatic),[settings,automatic]);

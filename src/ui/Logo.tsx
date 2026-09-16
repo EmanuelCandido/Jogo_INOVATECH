@@ -1,8 +1,6 @@
+import {publicAsset} from '../assets/publicAsset';
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <span className={`eco-logo${compact ? " compact" : ""}`} aria-label="Eco City!" role="img">
-      <span aria-hidden="true">ECO</span>
-      <span aria-hidden="true">CITY!</span>
-    </span>
+    <img className={`eco-logo${compact ? " compact" : ""}`} src={publicAsset('/assets/ui/figma/logo.svg')} alt="Eco City!" width="454" height="315" />
   );
 }

@@ -1,0 +1,409 @@
+{
+  "date": "2026-09-16T00:43:32.867Z",
+  "results": [
+    {
+      "channel": "bundled-chromium",
+      "mode": "default",
+      "args": [
+        "--enable-gpu",
+        "--use-angle=d3d11"
+      ],
+      "webgl": {
+        "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "attributes": {
+          "alpha": false,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "default",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+      },
+      "devices": [
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "Intel",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 4318,
+          "deviceId": 9708,
+          "subSysId": 200806440,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+          "driverVendor": "",
+          "driverVersion": "32.0.16.1074"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9278"
+        }
+      ]
+    },
+    {
+      "channel": "bundled-chromium",
+      "mode": "preference",
+      "args": [
+        "--enable-gpu",
+        "--use-angle=d3d11"
+      ],
+      "webgl": {
+        "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "attributes": {
+          "alpha": false,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "high-performance",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+      },
+      "devices": [
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "Intel",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 4318,
+          "deviceId": 9708,
+          "subSysId": 200806440,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+          "driverVendor": "",
+          "driverVersion": "32.0.16.1074"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9278"
+        }
+      ]
+    },
+    {
+      "channel": "bundled-chromium",
+      "mode": "forced",
+      "args": [
+        "--enable-gpu",
+        "--use-angle=d3d11",
+        "--force-high-performance-gpu"
+      ],
+      "webgl": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "attributes": {
+          "alpha": false,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "high-performance",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+      },
+      "devices": [
+        {
+          "vendorId": 4318,
+          "deviceId": 9708,
+          "subSysId": 200806440,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+          "driverVendor": "",
+          "driverVersion": "32.0.16.1074"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "NVIDIA",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9278"
+        }
+      ]
+    },
+    {
+      "channel": "chrome",
+      "mode": "default",
+      "args": [
+        "--enable-gpu",
+        "--use-angle=d3d11"
+      ],
+      "webgl": {
+        "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "attributes": {
+          "alpha": false,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "default",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+      },
+      "devices": [
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "Intel",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 4318,
+          "deviceId": 9708,
+          "subSysId": 200806440,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+          "driverVendor": "",
+          "driverVersion": "32.0.16.1074"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9278"
+        }
+      ]
+    },
+    {
+      "channel": "chrome",
+      "mode": "preference",
+      "args": [
+        "--enable-gpu",
+        "--use-angle=d3d11"
+      ],
+      "webgl": {
+        "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "attributes": {
+          "alpha": false,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "high-performance",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+      },
+      "devices": [
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "Intel",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 4318,
+          "deviceId": 9708,
+          "subSysId": 200806440,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+          "driverVendor": "",
+          "driverVersion": "32.0.16.1074"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9278"
+        }
+      ]
+    },
+    {
+      "channel": "chrome",
+      "mode": "forced",
+      "args": [
+        "--enable-gpu",
+        "--use-angle=d3d11",
+        "--force-high-performance-gpu"
+      ],
+      "webgl": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "attributes": {
+          "alpha": false,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "high-performance",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+      },
+      "devices": [
+        {
+          "vendorId": 4318,
+          "deviceId": 9708,
+          "subSysId": 200806440,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+          "driverVendor": "",
+          "driverVersion": "32.0.16.1074"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "NVIDIA",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 42891,
+          "subSysId": 200806440,
+          "revision": 4,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7085"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9278"
+        }
+      ]
+    }
+  ]
+}

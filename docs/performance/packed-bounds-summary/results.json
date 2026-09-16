@@ -1,0 +1,390 @@
+{
+  "date": "2026-09-15T19:43:28.672Z",
+  "presentationVerified": false,
+  "physicalPhones": false,
+  "notes": [
+    "Heap and backing storage are CDP isolate counters, not total process memory or VRAM.",
+    "Collections occur between timed laps.",
+    "Driver cache is uncontrolled; bootstrap can warm it.",
+    "CPU values cover the render wrapper, not every callback in the frame.",
+    "GPU and navigation timings are separate browser sessions, with possible thermal/driver variance."
+  ],
+  "profiles": [
+    {
+      "profile": "desktop",
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1920,
+        1200
+      ],
+      "samples": [
+        {
+          "stage": "exploration-before",
+          "readyMs": 15032.300000000047,
+          "measuredSeconds": 204.05830000000006,
+          "first": {
+            "samples": 1,
+            "fps": 19.25739751690105,
+            "fpsRange": [
+              19.25739751690105,
+              19.25739751690105
+            ],
+            "p95Ms": 135,
+            "cpuP50Ms": 4.900000000023283,
+            "gpuP50Ms": 43.59927,
+            "longTasks": 0
+          },
+          "warm": {
+            "samples": 1,
+            "fps": 16.697965028416192,
+            "fpsRange": [
+              16.697965028416192,
+              16.697965028416192
+            ],
+            "p95Ms": 138.39999999990687,
+            "cpuP50Ms": 4.699999999953434,
+            "gpuP50Ms": 43.820052,
+            "longTasks": 0
+          },
+          "repeats": {
+            "samples": 10,
+            "fps": 20.036414747353604,
+            "fpsRange": [
+              18.911129773851915,
+              21.247312373546844
+            ],
+            "p95Ms": 136.20000000001164,
+            "cpuP50Ms": 4.800000000046566,
+            "gpuP50Ms": 42.7030725,
+            "longTasks": 0
+          },
+          "longTaskObserverSupported": true,
+          "heap": [
+            {
+              "label": "warm-baseline",
+              "usedSize": 38439692,
+              "totalSize": 39809024,
+              "embedderHeapUsedSize": 2155664,
+              "backingStorageSize": 46425058,
+              "geometries": 643,
+              "textures": 4,
+              "programs": 62
+            },
+            {
+              "label": "repeat-5",
+              "usedSize": 38919736,
+              "totalSize": 40071168,
+              "embedderHeapUsedSize": 2472232,
+              "backingStorageSize": 46425058,
+              "geometries": 643,
+              "textures": 4,
+              "programs": 62
+            },
+            {
+              "label": "repeat-10",
+              "usedSize": 38947088,
+              "totalSize": 40071168,
+              "embedderHeapUsedSize": 2523304,
+              "backingStorageSize": 46424944,
+              "geometries": 643,
+              "textures": 4,
+              "programs": 62
+            }
+          ],
+          "bundles": [
+            "http://127.0.0.1:4175/assets/index-C4HBIcEt.js",
+            "http://127.0.0.1:4175/assets/World-GyO8CIGs.js",
+            "http://127.0.0.1:4175/assets/Benchmark-CrHhHQhH.js"
+          ]
+        },
+        {
+          "stage": "exploration-packed-desktop",
+          "readyMs": 15721,
+          "measuredSeconds": 221.65989999999965,
+          "first": {
+            "samples": 1,
+            "fps": 17.027573520096123,
+            "fpsRange": [
+              17.027573520096123,
+              17.027573520096123
+            ],
+            "p95Ms": 145.19999999995343,
+            "cpuP50Ms": 6.199999999953434,
+            "gpuP50Ms": 47.799635,
+            "longTasks": 0
+          },
+          "warm": {
+            "samples": 1,
+            "fps": 16.13244597041601,
+            "fpsRange": [
+              16.13244597041601,
+              16.13244597041601
+            ],
+            "p95Ms": 143.69999999995343,
+            "cpuP50Ms": 5.2999999998137355,
+            "gpuP50Ms": 46.390468,
+            "longTasks": 0
+          },
+          "repeats": {
+            "samples": 10,
+            "fps": 18.34672155115669,
+            "fpsRange": [
+              18.076328755940406,
+              18.819674308930537
+            ],
+            "p95Ms": 148.69999999995343,
+            "cpuP50Ms": 5.349999999976717,
+            "gpuP50Ms": 47.4267185,
+            "longTasks": 0
+          },
+          "longTaskObserverSupported": true,
+          "heap": [
+            {
+              "label": "warm-baseline",
+              "usedSize": 34825400,
+              "totalSize": 35876864,
+              "embedderHeapUsedSize": 2174096,
+              "backingStorageSize": 47501712,
+              "geometries": 643,
+              "textures": 4,
+              "programs": 62
+            },
+            {
+              "label": "repeat-5",
+              "usedSize": 35049880,
+              "totalSize": 36139008,
+              "embedderHeapUsedSize": 2179880,
+              "backingStorageSize": 47501706,
+              "geometries": 643,
+              "textures": 4,
+              "programs": 62
+            },
+            {
+              "label": "repeat-10",
+              "usedSize": 35327056,
+              "totalSize": 36401152,
+              "embedderHeapUsedSize": 2529160,
+              "backingStorageSize": 47501598,
+              "geometries": 643,
+              "textures": 4,
+              "programs": 62
+            }
+          ],
+          "bundles": [
+            "http://127.0.0.1:4175/assets/index-GiQp-WwG.js",
+            "http://127.0.0.1:4175/assets/World-CzjyXtPw.js",
+            "http://127.0.0.1:4175/assets/Benchmark-Dk6wFzHo.js"
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "label": "warm-baseline",
+          "heapDeltaBytes": -3614292,
+          "backingStorageDeltaBytes": 1076654,
+          "heapPlusBackingDeltaBytes": -2537638
+        },
+        {
+          "label": "repeat-5",
+          "heapDeltaBytes": -3869856,
+          "backingStorageDeltaBytes": 1076648,
+          "heapPlusBackingDeltaBytes": -2793208
+        },
+        {
+          "label": "repeat-10",
+          "heapDeltaBytes": -3620032,
+          "backingStorageDeltaBytes": 1076654,
+          "heapPlusBackingDeltaBytes": -2543378
+        }
+      ]
+    },
+    {
+      "profile": "mobile-emulation",
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "canvas": [
+        1170,
+        2532
+      ],
+      "samples": [
+        {
+          "stage": "exploration-mobile-before",
+          "readyMs": 15138,
+          "measuredSeconds": 253.25629999999984,
+          "first": {
+            "samples": 1,
+            "fps": 23.20959647709785,
+            "fpsRange": [
+              23.20959647709785,
+              23.20959647709785
+            ],
+            "p95Ms": 158.5,
+            "cpuP50Ms": 4.400000000023283,
+            "gpuP50Ms": 35.399218,
+            "longTasks": 0
+          },
+          "warm": {
+            "samples": 1,
+            "fps": 21.03863534995662,
+            "fpsRange": [
+              21.03863534995662,
+              21.03863534995662
+            ],
+            "p95Ms": 163.5,
+            "cpuP50Ms": 4.300000000046566,
+            "gpuP50Ms": 35.53875,
+            "longTasks": 0
+          },
+          "repeats": {
+            "samples": 10,
+            "fps": 23.509654263380035,
+            "fpsRange": [
+              21.879604480658827,
+              26.10368448874394
+            ],
+            "p95Ms": 157.70000000006985,
+            "cpuP50Ms": 4.499999999883585,
+            "gpuP50Ms": 35.7340095,
+            "longTasks": 0
+          },
+          "longTaskObserverSupported": true,
+          "heap": [
+            {
+              "label": "warm-baseline",
+              "usedSize": 38076828,
+              "totalSize": 39809024,
+              "embedderHeapUsedSize": 2398496,
+              "backingStorageSize": 46424668,
+              "geometries": 633,
+              "textures": 2,
+              "programs": 59
+            },
+            {
+              "label": "repeat-5",
+              "usedSize": 38279584,
+              "totalSize": 39809024,
+              "embedderHeapUsedSize": 2422528,
+              "backingStorageSize": 46424662,
+              "geometries": 633,
+              "textures": 2,
+              "programs": 59
+            },
+            {
+              "label": "repeat-10",
+              "usedSize": 38025596,
+              "totalSize": 39546880,
+              "embedderHeapUsedSize": 2037392,
+              "backingStorageSize": 46424360,
+              "geometries": 633,
+              "textures": 2,
+              "programs": 59
+            }
+          ],
+          "bundles": [
+            "http://127.0.0.1:4175/assets/index-C4HBIcEt.js",
+            "http://127.0.0.1:4175/assets/World-GyO8CIGs.js",
+            "http://127.0.0.1:4175/assets/Benchmark-CrHhHQhH.js"
+          ]
+        },
+        {
+          "stage": "exploration-packed-mobile",
+          "readyMs": 15720.600000000093,
+          "measuredSeconds": 246.11859999999965,
+          "first": {
+            "samples": 1,
+            "fps": 23.324640035723327,
+            "fpsRange": [
+              23.324640035723327,
+              23.324640035723327
+            ],
+            "p95Ms": 151.5999999998603,
+            "cpuP50Ms": 4.899999999906868,
+            "gpuP50Ms": 36.178957,
+            "longTasks": 0
+          },
+          "warm": {
+            "samples": 1,
+            "fps": 20.564228376946186,
+            "fpsRange": [
+              20.564228376946186,
+              20.564228376946186
+            ],
+            "p95Ms": 151.0999999998603,
+            "cpuP50Ms": 4.899999999906868,
+            "gpuP50Ms": 35.71401,
+            "longTasks": 0
+          },
+          "repeats": {
+            "samples": 10,
+            "fps": 24.35058059707645,
+            "fpsRange": [
+              23.288712673101692,
+              24.673862791211768
+            ],
+            "p95Ms": 148.14999999990687,
+            "cpuP50Ms": 4.500000000116415,
+            "gpuP50Ms": 35.609764999999996,
+            "longTasks": 0
+          },
+          "longTaskObserverSupported": true,
+          "heap": [
+            {
+              "label": "warm-baseline",
+              "usedSize": 34720728,
+              "totalSize": 36401152,
+              "embedderHeapUsedSize": 2409976,
+              "backingStorageSize": 47501318,
+              "geometries": 633,
+              "textures": 2,
+              "programs": 59
+            },
+            {
+              "label": "repeat-5",
+              "usedSize": 34914896,
+              "totalSize": 36401152,
+              "embedderHeapUsedSize": 2399632,
+              "backingStorageSize": 47501312,
+              "geometries": 633,
+              "textures": 2,
+              "programs": 59
+            },
+            {
+              "label": "repeat-10",
+              "usedSize": 35010244,
+              "totalSize": 36401152,
+              "embedderHeapUsedSize": 2435208,
+              "backingStorageSize": 47501010,
+              "geometries": 633,
+              "textures": 2,
+              "programs": 59
+            }
+          ],
+          "bundles": [
+            "http://127.0.0.1:4175/assets/index-GiQp-WwG.js",
+            "http://127.0.0.1:4175/assets/World-CzjyXtPw.js",
+            "http://127.0.0.1:4175/assets/Benchmark-Dk6wFzHo.js"
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "label": "warm-baseline",
+          "heapDeltaBytes": -3356100,
+          "backingStorageDeltaBytes": 1076650,
+          "heapPlusBackingDeltaBytes": -2279450
+        },
+        {
+          "label": "repeat-5",
+          "heapDeltaBytes": -3364688,
+          "backingStorageDeltaBytes": 1076650,
+          "heapPlusBackingDeltaBytes": -2288038
+        },
+        {
+          "label": "repeat-10",
+          "heapDeltaBytes": -3015352,
+          "backingStorageDeltaBytes": 1076650,
+          "heapPlusBackingDeltaBytes": -1938702
+        }
+      ]
+    }
+  ]
+}

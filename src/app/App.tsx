@@ -1,4 +1,5 @@
-import { Component, lazy, Suspense, useCallback, useState, type ReactNode } from "react";
+import { Component, lazy, Suspense, useCallback, useState, type CSSProperties, type ReactNode } from "react";
+import { problemViewHeight, problemViewWidth } from '../game/problemFraming';
 import { useGame } from "../stores/gameStore";
 import { GameUI } from "../ui/GameUI";
 const World = lazy(() => import("./World"));
@@ -31,6 +32,7 @@ export default function App() {
   return (
     <main
       className={`game ${settings.reducedMotion ? "reduced-motion" : ""} ${selected && phase!=="RETURNING" ? "focused" : ""}`}
+      style={{ '--problem-view-height': `${problemViewHeight * 100}dvh`, '--problem-view-width': `${problemViewWidth * 100}%` } as CSSProperties}
     >
       <div className="world" aria-label="Diorama 3D da Praça do Encontro">
         <SceneBoundary>

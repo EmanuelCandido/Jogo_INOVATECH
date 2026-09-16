@@ -1,0 +1,42 @@
+{
+  "before": "shader-navigation-baseline",
+  "after": "shader-navigation-after",
+  "results": [
+    {
+      "name": "centre.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0.00001220703125,
+      "max": 9,
+      "changedChannels": 14,
+      "changedPixels": 5
+    },
+    {
+      "name": "forest.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0.000010986328125,
+      "max": 7,
+      "changedChannels": 19,
+      "changedPixels": 7
+    },
+    {
+      "name": "overview.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0.0000537109375,
+      "max": 22,
+      "changedChannels": 40,
+      "changedPixels": 14
+    },
+    {
+      "name": "river.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0.00004345703125,
+      "max": 19,
+      "changedChannels": 25,
+      "changedPixels": 9
+    }
+  ]
+}

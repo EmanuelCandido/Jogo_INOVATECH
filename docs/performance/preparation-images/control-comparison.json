@@ -1,0 +1,143 @@
+{
+  "date": "2026-09-15T16:36:47.224Z",
+  "results": [
+    {
+      "before": "leaf-hashes-reuse-images",
+      "after": "leaf-cells-images",
+      "comparisons": [
+        {
+          "name": "overview",
+          "changedPixels": 4,
+          "max": 10
+        },
+        {
+          "name": "centre",
+          "changedPixels": 395,
+          "max": 106
+        },
+        {
+          "name": "forest",
+          "changedPixels": 2,
+          "max": 11
+        },
+        {
+          "name": "industry",
+          "changedPixels": 2,
+          "max": 4
+        },
+        {
+          "name": "beach",
+          "changedPixels": 7,
+          "max": 33
+        },
+        {
+          "name": "river",
+          "changedPixels": 4,
+          "max": 10
+        },
+        {
+          "name": "forest-close",
+          "changedPixels": 2,
+          "max": 13
+        },
+        {
+          "name": "centre-close",
+          "changedPixels": 879,
+          "max": 112
+        }
+      ]
+    },
+    {
+      "before": "isolated-models-cached",
+      "after": "leaf-cells-images",
+      "comparisons": [
+        {
+          "name": "overview",
+          "changedPixels": 4,
+          "max": 10
+        },
+        {
+          "name": "centre",
+          "changedPixels": 395,
+          "max": 106
+        },
+        {
+          "name": "forest",
+          "changedPixels": 2,
+          "max": 11
+        },
+        {
+          "name": "industry",
+          "changedPixels": 2,
+          "max": 4
+        },
+        {
+          "name": "beach",
+          "changedPixels": 7,
+          "max": 33
+        },
+        {
+          "name": "river",
+          "changedPixels": 4,
+          "max": 10
+        },
+        {
+          "name": "forest-close",
+          "changedPixels": 2,
+          "max": 13
+        },
+        {
+          "name": "centre-close",
+          "changedPixels": 879,
+          "max": 112
+        }
+      ]
+    },
+    {
+      "before": "leaf-hashes-reuse-images",
+      "after": "preparation-images",
+      "comparisons": [
+        {
+          "name": "overview",
+          "changedPixels": 0,
+          "max": 0
+        },
+        {
+          "name": "centre",
+          "changedPixels": 0,
+          "max": 0
+        },
+        {
+          "name": "forest",
+          "changedPixels": 0,
+          "max": 0
+        },
+        {
+          "name": "industry",
+          "changedPixels": 0,
+          "max": 0
+        },
+        {
+          "name": "beach",
+          "changedPixels": 0,
+          "max": 0
+        },
+        {
+          "name": "river",
+          "changedPixels": 0,
+          "max": 0
+        },
+        {
+          "name": "forest-close",
+          "changedPixels": 0,
+          "max": 0
+        },
+        {
+          "name": "centre-close",
+          "changedPixels": 0,
+          "max": 0
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,8 @@ import type { CameraShot } from "./types";
 import { useMapNavigation } from "./useMapNavigation";
 import {mapFit} from '../config/referenceFrame';
 import {introNode} from '../content/dialogues';
+import {preparationActivity} from './resourcePreparation';
+import {frameProblemShot,flightZoom} from './problemFraming';
 export const CameraDirector = {
   focusCity: (): CameraShot => overview,
   focusProblem: (id: string): CameraShot => problemById[id].camera,
@@ -20,7 +22,7 @@ export const CameraDirector = {
   returnToOverview: (): CameraShot => overview,
 };
 export function CameraRig({ interactive }: { interactive: boolean }) {
-  const { camera, size, invalidate } = useThree();
+  const { camera, size, invalidate, gl } = useThree();
   const phase = useGame((s) => s.progress.phase);
   const introView=useGame(s=>s.progress.phase==='INTRO'?introNode(s.progress).view:'city');
   const selected = useGame((s) => s.progress.selectedProblem);
@@ -35,8 +37,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
   const viewportKey=`${phase}:${size.width}:${size.height}:${moving}`;
   useEffect(()=>{
     if(!interactive || phase!=="OVERVIEW" || moving)return;
-    // Leaving the dialogue changes the canvas CSS bounds. Let ResizeObserver
-    // settle before exposing controls for the new full-map viewport.
+    // Let viewport changes settle before exposing map controls.
     let second=0;
     const first=requestAnimationFrame(()=>{
       second=requestAnimationFrame(()=>setReadyViewport(viewportKey));
@@ -59,14 +60,9 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     setMoving(true);
     const intro=shotId.startsWith('intro_'),shift=introView==='west'?[-16,0,8]:[-18,0,-26];
     const shot = shotId==="city" ? CameraDirector.focusCity() : intro?{...overview,position:overview.position.map((v,i)=>v+shift[i]) as [number,number,number],target:overview.target.map((v,i)=>v+shift[i]) as [number,number,number],zoom:overview.zoom*1.22}:CameraDirector.focusProblem(shotId);
-    const responsive = {
-      ...shot,
-      zoom:
-        shot.zoom *
-        (shotId!=="city" && !intro && window.innerWidth <= 650
-          ? Math.min(size.width / 500, size.height / 270, 1)
-          : shotId==='city'||intro ? mapFit(size.width,size.height) : Math.min(size.width / 1100, size.height / 760, 1.25)),
-    };
+    const responsive = shotId==='city'||intro
+      ? {...shot,zoom:shot.zoom*mapFit(size.width,size.height)}
+      : frameProblemShot(shot,size.width,size.height);
     if(shotId==='city'||intro){
       responsive.zoom=Math.max(responsive.zoom,mapBaseZoom(size.width,size.height));
       const [x,z]=clampTarget(responsive.target[0],responsive.target[2],mapFootprint(responsive.zoom,size.width,size.height));
@@ -89,6 +85,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
   useFrame(() => {
     const a = animation.current;
     if (!a || a.done) return;
+    preparationActivity(gl.domElement).touch();
     // Demand rendering may pause while models and shaders are prepared. Measure
     // the command's elapsed time directly instead of accumulating frame deltas.
     const elapsed = (performance.now() - a.startedAt) / 1000;
@@ -98,7 +95,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     target.current.copy(a.fromTarget).lerp(a.destinationTarget, smooth);
     camera.lookAt(target.current);
     (camera as OrthographicCamera).zoom =
-      a.fromZoom + (a.shot.zoom - a.fromZoom) * smooth;
+      flightZoom(a.fromZoom, a.shot.zoom, smooth);
     camera.updateProjectionMatrix();
     if (t === 1) {
       a.done = true;

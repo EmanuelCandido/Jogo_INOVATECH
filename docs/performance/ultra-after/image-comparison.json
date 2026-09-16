@@ -1,0 +1,26 @@
+[
+  {
+    "name": "overview",
+    "mae": 0,
+    "max": 0,
+    "changedChannels": 0
+  },
+  {
+    "name": "centre",
+    "mae": 0,
+    "max": 0,
+    "changedChannels": 0
+  },
+  {
+    "name": "forest",
+    "mae": 0,
+    "max": 0,
+    "changedChannels": 0
+  },
+  {
+    "name": "river",
+    "mae": 0,
+    "max": 0,
+    "changedChannels": 0
+  }
+]

@@ -9,6 +9,7 @@ import { SceneReady } from "../components/city/SceneReady";
 import { ShadowCache } from "../components/city/ShadowCache";
 import {InstanceCulling} from '../components/city/InstanceCulling';
 import {ShaderWarmup} from '../components/city/ShaderWarmup';
+import {DepthPrepass} from '../components/city/DepthPrepass';
 import {lazy,Suspense,useRef} from 'react';
 import type {DirectionalLight} from 'three';
 const Benchmark=lazy(()=>import('../components/city/Benchmark'));
@@ -58,6 +59,7 @@ export default function World({ onReady, interactive }: { onReady: () => void; i
       <City interactive={interactive} />
       <ShadowCache light={sun}/>
       <InstanceCulling/>
+      <DepthPrepass/>
       <ShaderWarmup ready={interactive}/>
       <SceneReady onReady={onReady} />
       {benchmarking&&<Suspense fallback={null}><Benchmark/></Suspense>}

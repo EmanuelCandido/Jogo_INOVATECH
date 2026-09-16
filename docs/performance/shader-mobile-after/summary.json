@@ -1,0 +1,65 @@
+{
+  "before": "shader-mobile-baseline",
+  "after": "shader-mobile-after",
+  "sameReference": true,
+  "errors": [],
+  "mobileEmulation": true,
+  "presentationVerified": false,
+  "target60FpsVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "before": {
+        "runs": 1,
+        "meanFps": 15.240333634773632,
+        "frameP95": 259.69999999995343,
+        "gpuP50": 58.39427,
+        "gpuSamples": [
+          215
+        ],
+        "cpuP50": 2.800000000046566,
+        "bufferUploadBytes": 4540280,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 1,
+        "meanFps": 15.510641628285477,
+        "frameP95": 244,
+        "gpuP50": 60.060103,
+        "gpuSamples": [
+          214
+        ],
+        "cpuP50": 2.800000000046566,
+        "bufferUploadBytes": 4540280,
+        "maximumGuardsPass": true
+      }
+    },
+    {
+      "name": "pinch",
+      "before": {
+        "runs": 1,
+        "meanFps": 15.789436584970481,
+        "frameP95": 209.39999999990687,
+        "gpuP50": 53.896822,
+        "gpuSamples": [
+          106
+        ],
+        "cpuP50": 2.699999999953434,
+        "bufferUploadBytes": 2640912,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 1,
+        "meanFps": 16.337152564426937,
+        "frameP95": 219.5,
+        "gpuP50": 55.985729,
+        "gpuSamples": [
+          106
+        ],
+        "cpuP50": 2.4000000001396984,
+        "bufferUploadBytes": 2640912,
+        "maximumGuardsPass": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "before": "spatial-desktop-linear",
+  "after": "spatial-desktop-regions",
+  "sameReference": true,
+  "errors": [],
+  "mobileEmulation": false,
+  "presentationVerified": false,
+  "target60FpsVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "before": {
+        "runs": 2,
+        "meanFps": 18.919676849400826,
+        "frameP95": 131.70000000018626,
+        "frameP95Range": [
+          129.70000000018626,
+          133.70000000018626
+        ],
+        "gpuP50": 43.699713,
+        "gpuSamples": [
+          176,
+          166
+        ],
+        "cpuP50": 5.5,
+        "bufferUploadBytes": 13899228,
+        "visibilityChecks": {
+          "sphereTests": 4080600,
+          "regionTests": 0
+        },
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 2,
+        "meanFps": 17.091734566886952,
+        "frameP95": 127.79999999981374,
+        "frameP95Range": [
+          113.29999999981374,
+          142.29999999981374
+        ],
+        "gpuP50": 47.443515,
+        "gpuSamples": [
+          174,
+          133
+        ],
+        "cpuP50": 5.999999999534339,
+        "bufferUploadBytes": 13847652,
+        "visibilityChecks": {
+          "sphereTests": 1572659,
+          "regionTests": 204518.5
+        },
+        "maximumGuardsPass": true
+      }
+    },
+    {
+      "name": "held-key",
+      "before": {
+        "runs": 2,
+        "meanFps": 19.652256227915277,
+        "frameP95": 58.549999999813735,
+        "frameP95Range": [
+          57.700000000186265,
+          59.39999999944121
+        ],
+        "gpuP50": 43.7918485,
+        "gpuSamples": [
+          42,
+          41
+        ],
+        "cpuP50": 6.350000000093132,
+        "bufferUploadBytes": 8954830,
+        "visibilityChecks": {
+          "sphereTests": 1581232.5,
+          "regionTests": 0
+        },
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 2,
+        "meanFps": 18.162016350150296,
+        "frameP95": 64.84999999962747,
+        "frameP95Range": [
+          62.59999999962747,
+          67.09999999962747
+        ],
+        "gpuP50": 47.346509,
+        "gpuSamples": [
+          35,
+          40
+        ],
+        "cpuP50": 6.550000000279397,
+        "bufferUploadBytes": 8589752,
+        "visibilityChecks": {
+          "sphereTests": 557986.5,
+          "regionTests": 73234
+        },
+        "maximumGuardsPass": true
+      }
+    }
+  ]
+}

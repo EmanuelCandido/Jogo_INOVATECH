@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-16T00:56:54.659Z",
+  "diffs": [
+    "app/World.tsx",
+    "assets/roofGrassMaterial.ts",
+    "assets/surfaceFinish.ts",
+    "components/city/GraphicsRuntime.tsx",
+    "components/city/ShaderWarmup.tsx",
+    "components/city/SituationLayers.tsx",
+    "components/environment/Beach.tsx",
+    "config/graphics.ts",
+    "game/CameraDirector.tsx",
+    "game/frameMetrics.ts",
+    "game/instanceVisibility.ts",
+    "game/useMapNavigation.ts"
+  ],
+  "unexpected": []
+}

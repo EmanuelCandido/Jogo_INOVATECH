@@ -1,0 +1,279 @@
+{
+  "date": "2026-09-15T03:18:00.618Z",
+  "source": "spatial-selection-cpu",
+  "modelCount": 77,
+  "primitives": 584,
+  "totalBytes": 13750806,
+  "uniqueGeometries": 568,
+  "skippedMorphs": 0,
+  "potentialSavedBytes": 77996,
+  "duplicates": [
+    {
+      "hash": "b32c8a5d751ac96d7cd9195172a378a538c4a1b482b47cfd314a43b5f5db1728",
+      "bytes": 24640,
+      "uses": [
+        {
+          "model": "townhouse-coral.glb",
+          "mesh": "paved building footprint.002",
+          "primitive": 0,
+          "material": "eco.concrete"
+        },
+        {
+          "model": "townhouse-cream.glb",
+          "mesh": "paved building footprint.004",
+          "primitive": 0,
+          "material": "eco.concrete"
+        },
+        {
+          "model": "townhouse-sage.glb",
+          "mesh": "paved building footprint",
+          "primitive": 0,
+          "material": "eco.concrete"
+        }
+      ],
+      "potentialSavedBytes": 49280
+    },
+    {
+      "hash": "13ad121b42c669ecf09b2c28894619a22b0d1318a8e00402c527e6fd4f58e7bb",
+      "bytes": 6256,
+      "uses": [
+        {
+          "model": "house-cream.glb",
+          "mesh": "Texto.005",
+          "primitive": 0,
+          "material": "eco.navy"
+        },
+        {
+          "model": "house-terrace.glb",
+          "mesh": "Texto.009",
+          "primitive": 0,
+          "material": "eco.navy"
+        }
+      ],
+      "potentialSavedBytes": 6256
+    },
+    {
+      "hash": "d4f6fa84681f1ef55eb788f11bf50047772e3986d58aa9a412d4133cbd37474a",
+      "bytes": 5960,
+      "uses": [
+        {
+          "model": "house-cream.glb",
+          "mesh": "residential garden",
+          "primitive": 0,
+          "material": "eco.lawn"
+        },
+        {
+          "model": "house-terrace.glb",
+          "mesh": "residential garden.004",
+          "primitive": 0,
+          "material": "eco.lawn"
+        }
+      ],
+      "potentialSavedBytes": 5960
+    },
+    {
+      "hash": "0907020d30e9eaeeaab914c006f16b2c5d5587ebdbb235d552fa6537052588c3",
+      "bytes": 5960,
+      "uses": [
+        {
+          "model": "townhouse-coral.glb",
+          "mesh": "green roof.002",
+          "primitive": 0,
+          "material": "eco.roofgrass"
+        },
+        {
+          "model": "townhouse-pink.glb",
+          "mesh": "green roof.006",
+          "primitive": 0,
+          "material": "eco.roofgrass"
+        }
+      ],
+      "potentialSavedBytes": 5960
+    },
+    {
+      "hash": "5682b411e22f459de7aedd137f51b0e94f61970c008611a5def53e8661dcaf6f",
+      "bytes": 744,
+      "uses": [
+        {
+          "model": "townhouse-coral.glb",
+          "mesh": "Cubo.310",
+          "primitive": 0,
+          "material": "eco.led"
+        },
+        {
+          "model": "townhouse-cream.glb",
+          "mesh": "Cubo.513",
+          "primitive": 0,
+          "material": "eco.led"
+        },
+        {
+          "model": "townhouse-pink.glb",
+          "mesh": "Cubo.707",
+          "primitive": 0,
+          "material": "eco.led"
+        },
+        {
+          "model": "townhouse-sage.glb",
+          "mesh": "Cubo.084",
+          "primitive": 0,
+          "material": "eco.led"
+        }
+      ],
+      "potentialSavedBytes": 2232
+    },
+    {
+      "hash": "789ecd1445ce9925f4896dc799f4ee2e53df13dd5369061736fece4045f63c6b",
+      "bytes": 2232,
+      "uses": [
+        {
+          "model": "townhouse-coral.glb",
+          "mesh": "Cubo.313",
+          "primitive": 0,
+          "material": "eco.roofdeck"
+        },
+        {
+          "model": "townhouse-pink.glb",
+          "mesh": "Cubo.710",
+          "primitive": 0,
+          "material": "eco.roofdeck"
+        }
+      ],
+      "potentialSavedBytes": 2232
+    },
+    {
+      "hash": "38b7c16fac8ec33e4049e1b161bc7fd1e8360bab0b6b0b999c1f8071b4cc4818",
+      "bytes": 1488,
+      "uses": [
+        {
+          "model": "house-cream.glb",
+          "mesh": "Cubo.861",
+          "primitive": 0,
+          "material": "eco.trim"
+        },
+        {
+          "model": "house-terrace.glb",
+          "mesh": "Cubo.1016",
+          "primitive": 0,
+          "material": "eco.trim"
+        }
+      ],
+      "potentialSavedBytes": 1488
+    },
+    {
+      "hash": "7d3a50c20d1c8840e62f54b9d8083773d1bcb653f8a2d24cf9675d35dce750cb",
+      "bytes": 1488,
+      "uses": [
+        {
+          "model": "townhouse-coral.glb",
+          "mesh": "Cubo.361",
+          "primitive": 0,
+          "material": "eco.trim"
+        },
+        {
+          "model": "townhouse-pink.glb",
+          "mesh": "Cubo.758",
+          "primitive": 0,
+          "material": "eco.trim"
+        }
+      ],
+      "potentialSavedBytes": 1488
+    },
+    {
+      "hash": "bf684c03ac8b9f47fdd4c7ea0e17a09f16a965fe46cc1745bd6dceccb569fce7",
+      "bytes": 744,
+      "uses": [
+        {
+          "model": "corner-cafe.glb",
+          "mesh": "Cubo.1505",
+          "primitive": 0,
+          "material": "eco.led"
+        },
+        {
+          "model": "hospital.glb",
+          "mesh": "Cubo.1033",
+          "primitive": 0,
+          "material": "eco.led"
+        }
+      ],
+      "potentialSavedBytes": 744
+    },
+    {
+      "hash": "b44ee0ef9734455571a680840386a079de6a27c29d1b11dfb6ebf63608628802",
+      "bytes": 744,
+      "uses": [
+        {
+          "model": "house-cream.glb",
+          "mesh": "Cubo.848",
+          "primitive": 0,
+          "material": "eco.concrete"
+        },
+        {
+          "model": "house-terrace.glb",
+          "mesh": "Cubo.1003",
+          "primitive": 0,
+          "material": "eco.concrete"
+        }
+      ],
+      "potentialSavedBytes": 744
+    },
+    {
+      "hash": "c07bbb9edeb3da96a70ea57727b6ae61e68ab431cabe8ea2f29662def0ced81b",
+      "bytes": 744,
+      "uses": [
+        {
+          "model": "house-cream.glb",
+          "mesh": "Cubo.856",
+          "primitive": 0,
+          "material": "eco.led"
+        },
+        {
+          "model": "house-terrace.glb",
+          "mesh": "Cubo.1011",
+          "primitive": 0,
+          "material": "eco.led"
+        }
+      ],
+      "potentialSavedBytes": 744
+    },
+    {
+      "hash": "8d4c2c80a7d5ed276b114fc5cba3bf3cfd23d22aef3eb3b042656f634f7ee9ed",
+      "bytes": 744,
+      "uses": [
+        {
+          "model": "townhouse-cream.glb",
+          "mesh": "Cubo.504",
+          "primitive": 0,
+          "material": "eco.glassdark"
+        },
+        {
+          "model": "townhouse-sage.glb",
+          "mesh": "Cubo.075",
+          "primitive": 0,
+          "material": "eco.glassdark"
+        }
+      ],
+      "potentialSavedBytes": 744
+    },
+    {
+      "hash": "b74075db51277e2453e4ef288d58a7af77ca89adc773150ec164d10c03229274",
+      "bytes": 124,
+      "uses": [
+        {
+          "model": "townhouse-coral.glb",
+          "mesh": "photovoltaic cells.002",
+          "primitive": 0,
+          "material": "eco.solar"
+        },
+        {
+          "model": "townhouse-pink.glb",
+          "mesh": "photovoltaic cells.006",
+          "primitive": 0,
+          "material": "eco.solar"
+        }
+      ],
+      "potentialSavedBytes": 124
+    }
+  ],
+  "readOnly": true,
+  "scope": "Decoded primitive attribute/index bytes, not total VRAM; source model files unchanged"
+}

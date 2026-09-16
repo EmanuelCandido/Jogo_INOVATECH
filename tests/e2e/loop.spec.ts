@@ -43,6 +43,7 @@ test('temporário, reavaliação, nenhuma melhoria e recursos insuficientes',asy
  await question(page);
  await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('ecoquest.save.v1')!);s.data.coins=50;localStorage.setItem('ecoquest.save.v1',JSON.stringify(s));});
  await page.reload();for(const button of await page.locator('.alternative').all())await expect(button).toBeDisabled();
+ await page.getByRole('button',{name:'Configurações',exact:true}).click();
  await page.getByRole('button',{name:'Decidir depois · voltar ao mapa'}).click();await page.getByRole('button',{name:'Centralizar mapa'}).click();
  await expect(page.locator('.balance')).toContainText('50');
 });

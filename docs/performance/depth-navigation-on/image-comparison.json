@@ -1,0 +1,42 @@
+{
+  "before": "depth-navigation-off",
+  "after": "depth-navigation-on",
+  "results": [
+    {
+      "name": "centre.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "forest.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "overview.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "river.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="poses-companheiro">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/docs/poses-companheiro.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

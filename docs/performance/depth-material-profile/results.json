@@ -1,0 +1,3333 @@
+{
+  "date": "2026-09-15T02:43:17.619Z",
+  "baseline": {
+    "calls": 1354,
+    "triangles": 11714328,
+    "geometries": 643,
+    "textures": 4,
+    "programs": 62,
+    "meshes": 731,
+    "instances": 34005,
+    "materials": 116,
+    "sourceBytes": 2233668,
+    "width": 1920,
+    "height": 1200,
+    "pixelRatio": 1.5,
+    "settings": {
+      "renderScale": 150,
+      "shadows": "PRESET",
+      "ambientAnimation": true,
+      "showPerformance": false,
+      "quality": "ULTRA",
+      "reducedMotion": false
+    },
+    "resolvedGraphics": {
+      "label": "Ultra",
+      "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+      "pixelRatio": 2,
+      "maxPixels": 6500000,
+      "shadowSize": 4096,
+      "forestDensity": 1,
+      "undergrowth": 1,
+      "flowers": 1,
+      "traffic": 1,
+      "visitors": 1,
+      "cityDetail": 2,
+      "waterEffects": true,
+      "smoothGeometry": true,
+      "tier": "ULTRA",
+      "shadows": true,
+      "renderScale": 150,
+      "animate": true
+    },
+    "modelUrls": [
+      "/assets/models/access-step.glb",
+      "/assets/models/arched-bridge.glb",
+      "/assets/models/beach-set.glb",
+      "/assets/models/bench.glb",
+      "/assets/models/bus-shelter.glb",
+      "/assets/models/car-blue.glb",
+      "/assets/models/car-coral.glb",
+      "/assets/models/car-gold.glb",
+      "/assets/models/car-white.glb",
+      "/assets/models/central-station.glb",
+      "/assets/models/city-bus.glb",
+      "/assets/models/corner-cafe.glb",
+      "/assets/models/court.glb",
+      "/assets/models/delivery-truck.glb",
+      "/assets/models/eco-dome.glb",
+      "/assets/models/eco-observatory.glb",
+      "/assets/models/excavator.glb",
+      "/assets/models/fish-market.glb",
+      "/assets/models/football-field.glb",
+      "/assets/models/fountain.glb",
+      "/assets/models/greenhouse.glb",
+      "/assets/models/grid-pylon.glb",
+      "/assets/models/heat-pump.glb",
+      "/assets/models/hospital.glb",
+      "/assets/models/house-cream.glb",
+      "/assets/models/house-terrace.glb",
+      "/assets/models/industrial-gate.glb",
+      "/assets/models/industrial-waste.glb",
+      "/assets/models/industrial-works.glb",
+      "/assets/models/information-sign.glb",
+      "/assets/models/lamp.glb",
+      "/assets/models/lighthouse.glb",
+      "/assets/models/office-glass.glb",
+      "/assets/models/pier.glb",
+      "/assets/models/playground.glb",
+      "/assets/models/rabbit.glb",
+      "/assets/models/recycling-centre.glb",
+      "/assets/models/river-dam.glb",
+      "/assets/models/river-outfall.glb",
+      "/assets/models/road-deck-module.glb",
+      "/assets/models/road-pier-cap.glb",
+      "/assets/models/road-pier-footing.glb",
+      "/assets/models/road-pier-shaft.glb",
+      "/assets/models/road-retaining-wall.glb",
+      "/assets/models/rock.glb",
+      "/assets/models/ruined-building.glb",
+      "/assets/models/sailboat.glb",
+      "/assets/models/solar-cottage.glb",
+      "/assets/models/solar-rack.glb",
+      "/assets/models/solar-school.glb",
+      "/assets/models/solar-station.glb",
+      "/assets/models/station-guardrail.glb",
+      "/assets/models/station-lift-landing.glb",
+      "/assets/models/station-lift-shaft.glb",
+      "/assets/models/station-platform-canopy.glb",
+      "/assets/models/station-stairs.glb",
+      "/assets/models/thermometer.glb",
+      "/assets/models/townhouse-coral.glb",
+      "/assets/models/townhouse-cream.glb",
+      "/assets/models/townhouse-pink.glb",
+      "/assets/models/townhouse-sage.glb",
+      "/assets/models/train-cab.glb",
+      "/assets/models/train-carriage.glb",
+      "/assets/models/tree-birch.glb",
+      "/assets/models/tree-blossom.glb",
+      "/assets/models/tree-fir.glb",
+      "/assets/models/tree-maple.glb",
+      "/assets/models/tree-oak.glb",
+      "/assets/models/tree-palm.glb",
+      "/assets/models/tree-stump.glb",
+      "/assets/models/tree-thicket.glb",
+      "/assets/models/tree.glb",
+      "/assets/models/turbine.glb",
+      "/assets/models/waste-partial.glb",
+      "/assets/models/waste-pile.glb",
+      "/assets/models/wheelchair-user.glb",
+      "/assets/models/wildlife-shelter.glb"
+    ],
+    "camera": {
+      "position": [
+        98.71487267020187,
+        130,
+        125.16051397435702
+      ],
+      "zoom": 7.2727272727272725
+    },
+    "frame": null,
+    "cpu": null,
+    "gpu": null,
+    "bufferUploads": 0,
+    "bufferUploadBytes": 0,
+    "maximumGuard": {
+      "valid": true,
+      "violations": []
+    },
+    "presentationVerified": false
+  },
+  "device": {
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "dpr": 1
+  },
+  "bundles": [
+    "http://127.0.0.1:4175/assets/index-olwox4og.js",
+    "http://127.0.0.1:4175/assets/World-Cw1Q1NB3.js",
+    "http://127.0.0.1:4175/assets/Benchmark-C2IHo1AO.js"
+  ],
+  "profiles": [
+    {
+      "name": "overview",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 177,
+          "gpuMs": 14.516585,
+          "samples": 177,
+          "gpuMsPerFrame": 4.838861666666666
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 66,
+          "gpuMs": 14.461852000000004,
+          "samples": 66,
+          "gpuMsPerFrame": 4.820617333333335
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 12.545728,
+          "samples": 3,
+          "gpuMsPerFrame": 4.1819093333333335
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 9.356871,
+          "samples": 6,
+          "gpuMsPerFrame": 3.118957
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 123,
+          "gpuMs": 8.954265000000001,
+          "samples": 123,
+          "gpuMsPerFrame": 2.9847550000000003
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 99,
+          "gpuMs": 8.602450999999999,
+          "samples": 99,
+          "gpuMsPerFrame": 2.8674836666666663
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 177,
+          "gpuMs": 8.414236000000002,
+          "samples": 177,
+          "gpuMsPerFrame": 2.8047453333333343
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 8.194372,
+          "samples": 6,
+          "gpuMsPerFrame": 2.731457333333333
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 72,
+          "gpuMs": 6.508722000000001,
+          "samples": 72,
+          "gpuMsPerFrame": 2.1695740000000003
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 36,
+          "gpuMs": 5.48639,
+          "samples": 36,
+          "gpuMsPerFrame": 1.8287966666666666
+        },
+        {
+          "key": "eco.white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 177,
+          "gpuMs": 5.431592000000003,
+          "samples": 177,
+          "gpuMsPerFrame": 1.8105306666666676
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 5.215152000000001,
+          "samples": 12,
+          "gpuMsPerFrame": 1.7383840000000002
+        },
+        {
+          "key": "eco.navy | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 123,
+          "gpuMs": 5.080512999999998,
+          "samples": 123,
+          "gpuMsPerFrame": 1.6935043333333326
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 5.0022160000000016,
+          "samples": 45,
+          "gpuMsPerFrame": 1.6674053333333339
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 96,
+          "gpuMs": 4.501106999999998,
+          "samples": 96,
+          "gpuMsPerFrame": 1.5003689999999994
+        },
+        {
+          "key": "eco.metal | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 177,
+          "gpuMs": 4.380750000000001,
+          "samples": 177,
+          "gpuMsPerFrame": 1.4602500000000003
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 93,
+          "gpuMs": 4.203705000000001,
+          "samples": 93,
+          "gpuMsPerFrame": 1.4012350000000005
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 60,
+          "gpuMs": 4.165182999999999,
+          "samples": 60,
+          "gpuMsPerFrame": 1.388394333333333
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 3.807811,
+          "samples": 3,
+          "gpuMsPerFrame": 1.2692703333333333
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 3.608277,
+          "samples": 9,
+          "gpuMsPerFrame": 1.2027590000000001
+        },
+        {
+          "key": "eco.trunk | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 36,
+          "gpuMs": 3.4489419999999993,
+          "samples": 36,
+          "gpuMsPerFrame": 1.149647333333333
+        },
+        {
+          "key": "eco.leaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 66,
+          "gpuMs": 2.8045020000000003,
+          "samples": 66,
+          "gpuMsPerFrame": 0.934834
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 2.7830719999999998,
+          "samples": 3,
+          "gpuMsPerFrame": 0.9276906666666666
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 6,
+          "gpuMs": 2.602653,
+          "samples": 6,
+          "gpuMsPerFrame": 0.8675510000000001
+        },
+        {
+          "key": "eco.stone | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 2.5650839999999997,
+          "samples": 45,
+          "gpuMsPerFrame": 0.8550279999999999
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 12,
+          "gpuMs": 2.523171,
+          "samples": 12,
+          "gpuMsPerFrame": 0.841057
+        },
+        {
+          "key": "eco.roofdeck | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 60,
+          "gpuMs": 2.4027849999999997,
+          "samples": 60,
+          "gpuMsPerFrame": 0.8009283333333332
+        },
+        {
+          "key": "eco.leaflight | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 72,
+          "gpuMs": 2.224707,
+          "samples": 72,
+          "gpuMsPerFrame": 0.741569
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-land",
+          "draws": 3,
+          "gpuMs": 2.120884,
+          "samples": 3,
+          "gpuMsPerFrame": 0.7069613333333334
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 69,
+          "gpuMs": 1.9591350000000003,
+          "samples": 69,
+          "gpuMsPerFrame": 0.6530450000000001
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 18,
+          "gpuMs": 1.8858780000000002,
+          "samples": 18,
+          "gpuMsPerFrame": 0.628626
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 1.7899450000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.5966483333333333
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 84,
+          "gpuMs": 1.6546490000000003,
+          "samples": 84,
+          "gpuMsPerFrame": 0.5515496666666667
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 21,
+          "gpuMs": 1.5539489999999998,
+          "samples": 21,
+          "gpuMsPerFrame": 0.517983
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 54,
+          "gpuMs": 1.5398729999999996,
+          "samples": 54,
+          "gpuMsPerFrame": 0.5132909999999998
+        },
+        {
+          "key": "eco.glass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 93,
+          "gpuMs": 1.5151150000000002,
+          "samples": 93,
+          "gpuMsPerFrame": 0.5050383333333334
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 69,
+          "gpuMs": 1.4814780000000007,
+          "samples": 69,
+          "gpuMsPerFrame": 0.49382600000000026
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 69,
+          "gpuMs": 1.4638750000000003,
+          "samples": 69,
+          "gpuMsPerFrame": 0.48795833333333344
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-water-3-false-false-true--65",
+          "draws": 6,
+          "gpuMs": 1.4558830000000003,
+          "samples": 6,
+          "gpuMsPerFrame": 0.48529433333333344
+        },
+        {
+          "key": "eco.oakleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 1.420413,
+          "samples": 6,
+          "gpuMsPerFrame": 0.473471
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 51,
+          "gpuMs": 1.2919070000000001,
+          "samples": 51,
+          "gpuMsPerFrame": 0.4306356666666667
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 27,
+          "gpuMs": 1.265405,
+          "samples": 27,
+          "gpuMsPerFrame": 0.42180166666666663
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 21,
+          "gpuMs": 1.1891049999999999,
+          "samples": 21,
+          "gpuMsPerFrame": 0.39636833333333327
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 1.1592160000000002,
+          "samples": 6,
+          "gpuMsPerFrame": 0.38640533333333343
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 36,
+          "gpuMs": 1.154462,
+          "samples": 36,
+          "gpuMsPerFrame": 0.3848206666666667
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 1.1296840000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.37656133333333336
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 1.120309,
+          "samples": 6,
+          "gpuMsPerFrame": 0.3734363333333333
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 1.076193,
+          "samples": 12,
+          "gpuMsPerFrame": 0.35873099999999997
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.985671,
+          "samples": 15,
+          "gpuMsPerFrame": 0.328557
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.969373,
+          "samples": 6,
+          "gpuMsPerFrame": 0.32312433333333335
+        },
+        {
+          "key": "eco.teal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 69,
+          "gpuMs": 0.9647060000000002,
+          "samples": 69,
+          "gpuMsPerFrame": 0.3215686666666667
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.8948940000000001,
+          "samples": 3,
+          "gpuMsPerFrame": 0.298298
+        },
+        {
+          "key": "eco.rubber | depth-prepass-v1-surface-finish-v3-asphalt",
+          "draws": 54,
+          "gpuMs": 0.8661209999999999,
+          "samples": 54,
+          "gpuMsPerFrame": 0.288707
+        },
+        {
+          "key": "eco.red | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 51,
+          "gpuMs": 0.7916960000000004,
+          "samples": 51,
+          "gpuMsPerFrame": 0.2638986666666668
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 39,
+          "gpuMs": 0.7894609999999999,
+          "samples": 39,
+          "gpuMsPerFrame": 0.2631536666666666
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 39,
+          "gpuMs": 0.7507109999999999,
+          "samples": 39,
+          "gpuMsPerFrame": 0.250237
+        },
+        {
+          "key": "eco.glassdark | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 84,
+          "gpuMs": 0.7372040000000003,
+          "samples": 84,
+          "gpuMsPerFrame": 0.24573466666666677
+        },
+        {
+          "key": "eco.alloy | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 27,
+          "gpuMs": 0.7291009999999999,
+          "samples": 27,
+          "gpuMsPerFrame": 0.24303366666666662
+        },
+        {
+          "key": "eco.mapleleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 0.724058,
+          "samples": 9,
+          "gpuMsPerFrame": 0.24135266666666666
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 54,
+          "gpuMs": 0.7167449999999997,
+          "samples": 54,
+          "gpuMsPerFrame": 0.2389149999999999
+        },
+        {
+          "key": "eco.wooddark | surface-finish-v3-wood",
+          "draws": 9,
+          "gpuMs": 0.6241099999999999,
+          "samples": 9,
+          "gpuMsPerFrame": 0.20803666666666665
+        },
+        {
+          "key": "eco.firleaf | depth-prepass-v1-foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 0.609165,
+          "samples": 3,
+          "gpuMsPerFrame": 0.20305499999999999
+        },
+        {
+          "key": "eco.flower | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 12,
+          "gpuMs": 0.602859,
+          "samples": 12,
+          "gpuMsPerFrame": 0.20095300000000002
+        },
+        {
+          "key": "eco.paint_gold | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.593487,
+          "samples": 6,
+          "gpuMsPerFrame": 0.197829
+        },
+        {
+          "key": "eco.solar | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 69,
+          "gpuMs": 0.5846569999999999,
+          "samples": 69,
+          "gpuMsPerFrame": 0.19488566666666662
+        },
+        {
+          "key": "eco.concrete | depth-prepass-v1-surface-finish-v3-paving",
+          "draws": 69,
+          "gpuMs": 0.58398,
+          "samples": 69,
+          "gpuMsPerFrame": 0.19466000000000003
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.547547,
+          "samples": 12,
+          "gpuMsPerFrame": 0.18251566666666666
+        },
+        {
+          "key": "eco.autoglass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 21,
+          "gpuMs": 0.523377,
+          "samples": 21,
+          "gpuMsPerFrame": 0.174459
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.5213,
+          "samples": 6,
+          "gpuMsPerFrame": 0.17376666666666665
+        },
+        {
+          "key": "eco.paint_coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.477758,
+          "samples": 6,
+          "gpuMsPerFrame": 0.15925266666666668
+        },
+        {
+          "key": "eco.cream | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 21,
+          "gpuMs": 0.47103200000000006,
+          "samples": 21,
+          "gpuMsPerFrame": 0.1570106666666667
+        },
+        {
+          "key": "eco.paint_white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.44953,
+          "samples": 3,
+          "gpuMsPerFrame": 0.14984333333333333
+        },
+        {
+          "key": "eco.paint_blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.446249,
+          "samples": 3,
+          "gpuMsPerFrame": 0.14874966666666667
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 30,
+          "gpuMs": 0.44384200000000007,
+          "samples": 30,
+          "gpuMsPerFrame": 0.14794733333333335
+        },
+        {
+          "key": "MeshStandardMaterial | sand-swash-v3",
+          "draws": 6,
+          "gpuMs": 0.425571,
+          "samples": 6,
+          "gpuMsPerFrame": 0.14185699999999998
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.40701699999999996,
+          "samples": 27,
+          "gpuMsPerFrame": 0.1356723333333333
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 21,
+          "gpuMs": 0.40394899999999995,
+          "samples": 21,
+          "gpuMsPerFrame": 0.13464966666666664
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.39229,
+          "samples": 3,
+          "gpuMsPerFrame": 0.13076333333333334
+        },
+        {
+          "key": "eco.wooddark | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 9,
+          "gpuMs": 0.38916400000000007,
+          "samples": 9,
+          "gpuMsPerFrame": 0.12972133333333336
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 0.38837400000000016,
+          "samples": 27,
+          "gpuMsPerFrame": 0.12945800000000005
+        },
+        {
+          "key": "eco.coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.370776,
+          "samples": 15,
+          "gpuMsPerFrame": 0.123592
+        },
+        {
+          "key": "eco.roofgrass | depth-prepass-v1-roof-turf-v2",
+          "draws": 36,
+          "gpuMs": 0.36258899999999994,
+          "samples": 36,
+          "gpuMsPerFrame": 0.12086299999999998
+        },
+        {
+          "key": "eco.led | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 54,
+          "gpuMs": 0.3608090000000001,
+          "samples": 54,
+          "gpuMsPerFrame": 0.1202696666666667
+        },
+        {
+          "key": "eco.trim | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 39,
+          "gpuMs": 0.35758400000000007,
+          "samples": 39,
+          "gpuMsPerFrame": 0.11919466666666668
+        },
+        {
+          "key": "eco.wood | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 39,
+          "gpuMs": 0.34727399999999997,
+          "samples": 39,
+          "gpuMsPerFrame": 0.11575799999999999
+        },
+        {
+          "key": "eco.birch | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.27979,
+          "samples": 3,
+          "gpuMsPerFrame": 0.09326333333333332
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.27104,
+          "samples": 6,
+          "gpuMsPerFrame": 0.09034666666666667
+        },
+        {
+          "key": "eco.dark | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 0.262592,
+          "samples": 27,
+          "gpuMsPerFrame": 0.08753066666666666
+        },
+        {
+          "key": "eco.masonry | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.25427,
+          "samples": 3,
+          "gpuMsPerFrame": 0.08475666666666666
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 15,
+          "gpuMs": 0.24874500000000002,
+          "samples": 15,
+          "gpuMsPerFrame": 0.082915
+        },
+        {
+          "key": "eco.bloomshade | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.243382,
+          "samples": 6,
+          "gpuMsPerFrame": 0.08112733333333333
+        },
+        {
+          "key": "eco.woodlight | surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.22286100000000006,
+          "samples": 12,
+          "gpuMsPerFrame": 0.07428700000000002
+        },
+        {
+          "key": "eco.signal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 30,
+          "gpuMs": 0.21592399999999998,
+          "samples": 30,
+          "gpuMsPerFrame": 0.07197466666666666
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.21338300000000002,
+          "samples": 6,
+          "gpuMsPerFrame": 0.07112766666666667
+        },
+        {
+          "key": "eco.gold | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 21,
+          "gpuMs": 0.18650099999999997,
+          "samples": 21,
+          "gpuMsPerFrame": 0.06216699999999999
+        },
+        {
+          "key": "eco.rust | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.18624400000000002,
+          "samples": 12,
+          "gpuMsPerFrame": 0.06208133333333334
+        },
+        {
+          "key": "eco.blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.17337500000000003,
+          "samples": 27,
+          "gpuMsPerFrame": 0.05779166666666668
+        },
+        {
+          "key": "eco.rubble | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.140466,
+          "samples": 6,
+          "gpuMsPerFrame": 0.046822
+        },
+        {
+          "key": "eco.petal | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.138799,
+          "samples": 6,
+          "gpuMsPerFrame": 0.04626633333333333
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.123434,
+          "samples": 6,
+          "gpuMsPerFrame": 0.04114466666666667
+        },
+        {
+          "key": "eco.fieldturf | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.11828,
+          "samples": 3,
+          "gpuMsPerFrame": 0.039426666666666665
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-true-true--65",
+          "draws": 3,
+          "gpuMs": 0.1163,
+          "samples": 3,
+          "gpuMsPerFrame": 0.038766666666666665
+        },
+        {
+          "key": "eco.soil | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.11374799999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.037916
+        },
+        {
+          "key": "eco.sand | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 15,
+          "gpuMs": 0.10567199999999999,
+          "samples": 15,
+          "gpuMsPerFrame": 0.035224
+        },
+        {
+          "key": "eco.fieldstripe | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.09723799999999999,
+          "samples": 3,
+          "gpuMsPerFrame": 0.032412666666666666
+        },
+        {
+          "key": "eco.masonry | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.086717,
+          "samples": 3,
+          "gpuMsPerFrame": 0.028905666666666666
+        },
+        {
+          "key": "eco.lawn | depth-prepass-v1-surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.079685,
+          "samples": 6,
+          "gpuMsPerFrame": 0.026561666666666667
+        },
+        {
+          "key": "eco.woodlight | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.071452,
+          "samples": 12,
+          "gpuMsPerFrame": 0.023817333333333333
+        },
+        {
+          "key": "eco.fieldmark | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.070936,
+          "samples": 3,
+          "gpuMsPerFrame": 0.023645333333333334
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.064114,
+          "samples": 3,
+          "gpuMsPerFrame": 0.021371333333333336
+        },
+        {
+          "key": "eco.waste | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.063957,
+          "samples": 3,
+          "gpuMsPerFrame": 0.021319
+        },
+        {
+          "key": "eco.skin | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.058227,
+          "samples": 3,
+          "gpuMsPerFrame": 0.019409
+        },
+        {
+          "key": "eco.rubble | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.057133,
+          "samples": 6,
+          "gpuMsPerFrame": 0.019044333333333333
+        },
+        {
+          "key": "eco.roof | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.056819999999999996,
+          "samples": 6,
+          "gpuMsPerFrame": 0.01894
+        },
+        {
+          "key": "eco.soil | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.05327799999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.017759333333333332
+        },
+        {
+          "key": "eco.waste | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.041509,
+          "samples": 3,
+          "gpuMsPerFrame": 0.013836333333333332
+        },
+        {
+          "key": "eco.fieldturf | depth-prepass-v1-surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.041456,
+          "samples": 3,
+          "gpuMsPerFrame": 0.013818666666666667
+        },
+        {
+          "key": "eco.hair | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.039113,
+          "samples": 3,
+          "gpuMsPerFrame": 0.013037666666666668
+        },
+        {
+          "key": "eco.fieldstripe | depth-prepass-v1-surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.029321000000000003,
+          "samples": 3,
+          "gpuMsPerFrame": 0.009773666666666668
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-water-3-false-true-true--65",
+          "draws": 3,
+          "gpuMs": 0.028072,
+          "samples": 3,
+          "gpuMsPerFrame": 0.009357333333333334
+        },
+        {
+          "key": "eco.fieldmark | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.026665,
+          "samples": 3,
+          "gpuMsPerFrame": 0.008888333333333333
+        },
+        {
+          "key": "eco.pink | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.026561,
+          "samples": 3,
+          "gpuMsPerFrame": 0.008853666666666668
+        },
+        {
+          "key": "eco.skin | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.022134,
+          "samples": 3,
+          "gpuMsPerFrame": 0.007378
+        },
+        {
+          "key": "eco.pants | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.013593000000000001,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004531
+        },
+        {
+          "key": "eco.hair | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.013228,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004409333333333334
+        },
+        {
+          "key": "eco.pants | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.012968,
+          "samples": 3,
+          "gpuMsPerFrame": 0.0043226666666666665
+        }
+      ],
+      "depthPrepass": true
+    },
+    {
+      "name": "centre",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 10.163904,
+          "samples": 6,
+          "gpuMsPerFrame": 3.3879680000000003
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 9.431509,
+          "samples": 3,
+          "gpuMsPerFrame": 3.1438363333333332
+        },
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 105,
+          "gpuMs": 7.392147000000001,
+          "samples": 105,
+          "gpuMsPerFrame": 2.4640490000000006
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 5.018536,
+          "samples": 12,
+          "gpuMsPerFrame": 1.6728453333333333
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 78,
+          "gpuMs": 4.2436690000000015,
+          "samples": 78,
+          "gpuMsPerFrame": 1.4145563333333337
+        },
+        {
+          "key": "eco.white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 105,
+          "gpuMs": 3.340838000000002,
+          "samples": 105,
+          "gpuMsPerFrame": 1.1136126666666673
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 108,
+          "gpuMs": 3.2259960000000003,
+          "samples": 108,
+          "gpuMsPerFrame": 1.0753320000000002
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 2.980138000000001,
+          "samples": 45,
+          "gpuMsPerFrame": 0.9933793333333337
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 66,
+          "gpuMs": 2.764084000000001,
+          "samples": 66,
+          "gpuMsPerFrame": 0.9213613333333336
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 54,
+          "gpuMs": 2.571484,
+          "samples": 54,
+          "gpuMsPerFrame": 0.8571613333333333
+        },
+        {
+          "key": "eco.metal | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 108,
+          "gpuMs": 1.9966149999999994,
+          "samples": 108,
+          "gpuMsPerFrame": 0.6655383333333331
+        },
+        {
+          "key": "eco.navy | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 78,
+          "gpuMs": 1.8711159999999998,
+          "samples": 78,
+          "gpuMsPerFrame": 0.6237053333333332
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 1.8488390000000006,
+          "samples": 30,
+          "gpuMsPerFrame": 0.6162796666666669
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 48,
+          "gpuMs": 1.79972,
+          "samples": 48,
+          "gpuMsPerFrame": 0.5999066666666667
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 1.6323409999999998,
+          "samples": 6,
+          "gpuMsPerFrame": 0.5441136666666666
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-land",
+          "draws": 3,
+          "gpuMs": 1.600207,
+          "samples": 3,
+          "gpuMsPerFrame": 0.5334023333333333
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 1.5427419999999996,
+          "samples": 45,
+          "gpuMsPerFrame": 0.5142473333333332
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 1.375934,
+          "samples": 6,
+          "gpuMsPerFrame": 0.45864466666666664
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 54,
+          "gpuMs": 1.281487,
+          "samples": 54,
+          "gpuMsPerFrame": 0.42716233333333337
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 1.258853,
+          "samples": 3,
+          "gpuMsPerFrame": 0.41961766666666667
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 18,
+          "gpuMs": 1.236451,
+          "samples": 18,
+          "gpuMsPerFrame": 0.41215033333333334
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 1.210517,
+          "samples": 9,
+          "gpuMsPerFrame": 0.4035056666666667
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 1.1446809999999998,
+          "samples": 12,
+          "gpuMsPerFrame": 0.3815603333333333
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 1.135988,
+          "samples": 3,
+          "gpuMsPerFrame": 0.37866266666666665
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 57,
+          "gpuMs": 1.0418480000000003,
+          "samples": 57,
+          "gpuMsPerFrame": 0.3472826666666668
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 57,
+          "gpuMs": 1.009818,
+          "samples": 57,
+          "gpuMsPerFrame": 0.336606
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 42,
+          "gpuMs": 0.9824829999999999,
+          "samples": 42,
+          "gpuMsPerFrame": 0.3274943333333333
+        },
+        {
+          "key": "eco.stone | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 0.8848800000000001,
+          "samples": 30,
+          "gpuMsPerFrame": 0.29496000000000006
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.8766649999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.29222166666666666
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.8199979999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.2733326666666666
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.8151409999999999,
+          "samples": 42,
+          "gpuMsPerFrame": 0.27171366666666663
+        },
+        {
+          "key": "eco.glass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 66,
+          "gpuMs": 0.7539279999999998,
+          "samples": 66,
+          "gpuMsPerFrame": 0.2513093333333333
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 51,
+          "gpuMs": 0.7485680000000001,
+          "samples": 51,
+          "gpuMsPerFrame": 0.2495226666666667
+        },
+        {
+          "key": "eco.roofdeck | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 0.734147,
+          "samples": 45,
+          "gpuMsPerFrame": 0.24471566666666666
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 30,
+          "gpuMs": 0.7163919999999999,
+          "samples": 30,
+          "gpuMsPerFrame": 0.2387973333333333
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 36,
+          "gpuMs": 0.6462359999999999,
+          "samples": 36,
+          "gpuMsPerFrame": 0.21541199999999996
+        },
+        {
+          "key": "eco.leaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 0.634772,
+          "samples": 45,
+          "gpuMsPerFrame": 0.21159066666666668
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 24,
+          "gpuMs": 0.6197799999999999,
+          "samples": 24,
+          "gpuMsPerFrame": 0.2065933333333333
+        },
+        {
+          "key": "eco.rubber | depth-prepass-v1-surface-finish-v3-asphalt",
+          "draws": 54,
+          "gpuMs": 0.6145589999999999,
+          "samples": 54,
+          "gpuMsPerFrame": 0.20485299999999995
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.5782710000000001,
+          "samples": 27,
+          "gpuMsPerFrame": 0.19275700000000004
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 0.556822,
+          "samples": 3,
+          "gpuMsPerFrame": 0.18560733333333335
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.5209329999999999,
+          "samples": 12,
+          "gpuMsPerFrame": 0.1736443333333333
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.5207729999999999,
+          "samples": 21,
+          "gpuMsPerFrame": 0.17359099999999997
+        },
+        {
+          "key": "eco.leaflight | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 48,
+          "gpuMs": 0.517793,
+          "samples": 48,
+          "gpuMsPerFrame": 0.17259766666666665
+        },
+        {
+          "key": "eco.trunk | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 30,
+          "gpuMs": 0.4815480000000001,
+          "samples": 30,
+          "gpuMsPerFrame": 0.16051600000000002
+        },
+        {
+          "key": "eco.teal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 57,
+          "gpuMs": 0.4601850000000001,
+          "samples": 57,
+          "gpuMsPerFrame": 0.15339500000000003
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 12,
+          "gpuMs": 0.422495,
+          "samples": 12,
+          "gpuMsPerFrame": 0.14083166666666666
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.417706,
+          "samples": 6,
+          "gpuMsPerFrame": 0.13923533333333335
+        },
+        {
+          "key": "eco.glassdark | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 57,
+          "gpuMs": 0.38211300000000004,
+          "samples": 57,
+          "gpuMsPerFrame": 0.127371
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.381562,
+          "samples": 3,
+          "gpuMsPerFrame": 0.12718733333333335
+        },
+        {
+          "key": "eco.masonry | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.379582,
+          "samples": 3,
+          "gpuMsPerFrame": 0.12652733333333332
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.354982,
+          "samples": 42,
+          "gpuMsPerFrame": 0.11832733333333334
+        },
+        {
+          "key": "eco.alloy | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 24,
+          "gpuMs": 0.33801,
+          "samples": 24,
+          "gpuMsPerFrame": 0.11266999999999999
+        },
+        {
+          "key": "eco.autoglass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 18,
+          "gpuMs": 0.327024,
+          "samples": 18,
+          "gpuMsPerFrame": 0.109008
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 0.312029,
+          "samples": 3,
+          "gpuMsPerFrame": 0.10400966666666667
+        },
+        {
+          "key": "eco.concrete | depth-prepass-v1-surface-finish-v3-paving",
+          "draws": 42,
+          "gpuMs": 0.29727500000000007,
+          "samples": 42,
+          "gpuMsPerFrame": 0.09909166666666669
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 15,
+          "gpuMs": 0.282441,
+          "samples": 15,
+          "gpuMsPerFrame": 0.094147
+        },
+        {
+          "key": "eco.red | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.28201699999999996,
+          "samples": 27,
+          "gpuMsPerFrame": 0.09400566666666665
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.277028,
+          "samples": 6,
+          "gpuMsPerFrame": 0.09234266666666667
+        },
+        {
+          "key": "eco.solar | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.26331600000000016,
+          "samples": 42,
+          "gpuMsPerFrame": 0.08777200000000006
+        },
+        {
+          "key": "eco.trim | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 36,
+          "gpuMs": 0.2587350000000001,
+          "samples": 36,
+          "gpuMsPerFrame": 0.08624500000000003
+        },
+        {
+          "key": "eco.paint_gold | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.251091,
+          "samples": 6,
+          "gpuMsPerFrame": 0.08369700000000001
+        },
+        {
+          "key": "eco.paint_coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.21671600000000002,
+          "samples": 6,
+          "gpuMsPerFrame": 0.07223866666666667
+        },
+        {
+          "key": "eco.oakleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 0.210779,
+          "samples": 6,
+          "gpuMsPerFrame": 0.07025966666666666
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.209788,
+          "samples": 12,
+          "gpuMsPerFrame": 0.06992933333333333
+        },
+        {
+          "key": "eco.mapleleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 0.20161199999999999,
+          "samples": 9,
+          "gpuMsPerFrame": 0.067204
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.19806600000000002,
+          "samples": 18,
+          "gpuMsPerFrame": 0.06602200000000001
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.17853899999999998,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05951299999999999
+        },
+        {
+          "key": "eco.paint_white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.177967,
+          "samples": 3,
+          "gpuMsPerFrame": 0.05932233333333333
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.16791199999999998,
+          "samples": 9,
+          "gpuMsPerFrame": 0.05597066666666666
+        },
+        {
+          "key": "eco.led | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.1660780000000001,
+          "samples": 42,
+          "gpuMsPerFrame": 0.055359333333333365
+        },
+        {
+          "key": "eco.firleaf | depth-prepass-v1-foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 0.159217,
+          "samples": 3,
+          "gpuMsPerFrame": 0.05307233333333333
+        },
+        {
+          "key": "eco.roofgrass | depth-prepass-v1-roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.148377,
+          "samples": 21,
+          "gpuMsPerFrame": 0.049459
+        },
+        {
+          "key": "eco.dark | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.14692300000000003,
+          "samples": 12,
+          "gpuMsPerFrame": 0.04897433333333334
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.14499499999999999,
+          "samples": 15,
+          "gpuMsPerFrame": 0.04833166666666666
+        },
+        {
+          "key": "eco.wood | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 15,
+          "gpuMs": 0.127076,
+          "samples": 15,
+          "gpuMsPerFrame": 0.04235866666666666
+        },
+        {
+          "key": "eco.rubble | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.125885,
+          "samples": 3,
+          "gpuMsPerFrame": 0.04196166666666667
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.12187400000000001,
+          "samples": 3,
+          "gpuMsPerFrame": 0.04062466666666667
+        },
+        {
+          "key": "eco.masonry | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.117863,
+          "samples": 3,
+          "gpuMsPerFrame": 0.039287666666666665
+        },
+        {
+          "key": "eco.paint_blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.105884,
+          "samples": 3,
+          "gpuMsPerFrame": 0.03529466666666667
+        },
+        {
+          "key": "eco.flower | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.104579,
+          "samples": 6,
+          "gpuMsPerFrame": 0.03485966666666667
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.10312199999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.034373999999999995
+        },
+        {
+          "key": "eco.cream | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.101454,
+          "samples": 12,
+          "gpuMsPerFrame": 0.033818
+        },
+        {
+          "key": "eco.signal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.09405500000000001,
+          "samples": 18,
+          "gpuMsPerFrame": 0.031351666666666674
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.087186,
+          "samples": 6,
+          "gpuMsPerFrame": 0.029062
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 0.080102,
+          "samples": 6,
+          "gpuMsPerFrame": 0.026700666666666668
+        },
+        {
+          "key": "eco.gold | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.076663,
+          "samples": 9,
+          "gpuMsPerFrame": 0.02555433333333333
+        },
+        {
+          "key": "eco.blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.070671,
+          "samples": 15,
+          "gpuMsPerFrame": 0.023556999999999998
+        },
+        {
+          "key": "eco.bloomshade | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.061664,
+          "samples": 6,
+          "gpuMsPerFrame": 0.020554666666666666
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.061456,
+          "samples": 6,
+          "gpuMsPerFrame": 0.02048533333333333
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.054165000000000005,
+          "samples": 3,
+          "gpuMsPerFrame": 0.018055
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.05177,
+          "samples": 3,
+          "gpuMsPerFrame": 0.017256666666666667
+        },
+        {
+          "key": "eco.birch | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.049530000000000005,
+          "samples": 3,
+          "gpuMsPerFrame": 0.01651
+        },
+        {
+          "key": "eco.rubble | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.049374,
+          "samples": 3,
+          "gpuMsPerFrame": 0.016458
+        },
+        {
+          "key": "eco.petal | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.045258,
+          "samples": 6,
+          "gpuMsPerFrame": 0.015086
+        },
+        {
+          "key": "eco.skin | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.045258,
+          "samples": 3,
+          "gpuMsPerFrame": 0.015086
+        },
+        {
+          "key": "eco.pants | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.042238,
+          "samples": 3,
+          "gpuMsPerFrame": 0.014079333333333333
+        },
+        {
+          "key": "eco.hair | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.040833,
+          "samples": 3,
+          "gpuMsPerFrame": 0.013611
+        },
+        {
+          "key": "eco.rust | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.038019,
+          "samples": 6,
+          "gpuMsPerFrame": 0.012672999999999999
+        },
+        {
+          "key": "eco.roof | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.028175,
+          "samples": 3,
+          "gpuMsPerFrame": 0.009391666666666666
+        },
+        {
+          "key": "eco.lawn | depth-prepass-v1-surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.024685,
+          "samples": 6,
+          "gpuMsPerFrame": 0.008228333333333332
+        },
+        {
+          "key": "eco.pink | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.024529000000000002,
+          "samples": 3,
+          "gpuMsPerFrame": 0.008176333333333334
+        },
+        {
+          "key": "eco.skin | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.019791,
+          "samples": 3,
+          "gpuMsPerFrame": 0.0065969999999999996
+        },
+        {
+          "key": "eco.pants | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.014374,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004791333333333333
+        },
+        {
+          "key": "eco.hair | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.013749,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004583
+        },
+        {
+          "key": "eco.coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.001508,
+          "samples": 6,
+          "gpuMsPerFrame": 0.0005026666666666667
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.0014039999999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.00046799999999999994
+        },
+        {
+          "key": "eco.sand | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.000676,
+          "samples": 3,
+          "gpuMsPerFrame": 0.00022533333333333333
+        },
+        {
+          "key": "eco.wooddark | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.000624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.000208
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.000624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.000208
+        },
+        {
+          "key": "eco.wooddark | surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.000624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.000208
+        }
+      ],
+      "depthPrepass": true
+    },
+    {
+      "name": "forest",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 7.575207,
+          "samples": 3,
+          "gpuMsPerFrame": 2.525069
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 39,
+          "gpuMs": 7.164718999999998,
+          "samples": 39,
+          "gpuMsPerFrame": 2.388239666666666
+        },
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 96,
+          "gpuMs": 6.908448999999999,
+          "samples": 96,
+          "gpuMsPerFrame": 2.302816333333333
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 4.616454999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 1.5388183333333332
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 48,
+          "gpuMs": 4.567112,
+          "samples": 48,
+          "gpuMsPerFrame": 1.5223706666666665
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 60,
+          "gpuMs": 4.230651000000001,
+          "samples": 60,
+          "gpuMsPerFrame": 1.4102170000000003
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 3.9325970000000003,
+          "samples": 12,
+          "gpuMsPerFrame": 1.3108656666666667
+        },
+        {
+          "key": "eco.white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 96,
+          "gpuMs": 3.9112049999999985,
+          "samples": 96,
+          "gpuMsPerFrame": 1.3037349999999994
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 3.6866139999999996,
+          "samples": 3,
+          "gpuMsPerFrame": 1.2288713333333332
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 39,
+          "gpuMs": 3.504929,
+          "samples": 39,
+          "gpuMsPerFrame": 1.1683096666666668
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 3.422172,
+          "samples": 30,
+          "gpuMsPerFrame": 1.140724
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 2.803277,
+          "samples": 9,
+          "gpuMsPerFrame": 0.9344256666666667
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 90,
+          "gpuMs": 2.682457,
+          "samples": 90,
+          "gpuMsPerFrame": 0.8941523333333333
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 2.3470659999999994,
+          "samples": 45,
+          "gpuMsPerFrame": 0.7823553333333332
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 1.984464,
+          "samples": 27,
+          "gpuMsPerFrame": 0.661488
+        },
+        {
+          "key": "eco.leaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 39,
+          "gpuMs": 1.7828959999999998,
+          "samples": 39,
+          "gpuMsPerFrame": 0.5942986666666666
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-land",
+          "draws": 3,
+          "gpuMs": 1.676717,
+          "samples": 3,
+          "gpuMsPerFrame": 0.5589056666666666
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 12,
+          "gpuMs": 1.5535359999999998,
+          "samples": 12,
+          "gpuMsPerFrame": 0.5178453333333333
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 3,
+          "gpuMs": 1.431978,
+          "samples": 3,
+          "gpuMsPerFrame": 0.477326
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 1.3820299999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.4606766666666666
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 39,
+          "gpuMs": 1.3362299999999998,
+          "samples": 39,
+          "gpuMsPerFrame": 0.4454099999999999
+        },
+        {
+          "key": "eco.trunk | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 1.2893609999999995,
+          "samples": 27,
+          "gpuMsPerFrame": 0.42978699999999986
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 57,
+          "gpuMs": 1.206069,
+          "samples": 57,
+          "gpuMsPerFrame": 0.402023
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 1.174525,
+          "samples": 12,
+          "gpuMsPerFrame": 0.39150833333333335
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 6,
+          "gpuMs": 1.1717689999999998,
+          "samples": 6,
+          "gpuMsPerFrame": 0.3905896666666666
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 12,
+          "gpuMs": 1.169942,
+          "samples": 12,
+          "gpuMsPerFrame": 0.3899806666666667
+        },
+        {
+          "key": "eco.leaflight | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 48,
+          "gpuMs": 1.131488,
+          "samples": 48,
+          "gpuMsPerFrame": 0.3771626666666667
+        },
+        {
+          "key": "eco.glass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 60,
+          "gpuMs": 1.094974,
+          "samples": 60,
+          "gpuMsPerFrame": 0.3649913333333333
+        },
+        {
+          "key": "eco.metal | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 90,
+          "gpuMs": 1.063971,
+          "samples": 90,
+          "gpuMsPerFrame": 0.354657
+        },
+        {
+          "key": "eco.roofdeck | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 1.055606,
+          "samples": 45,
+          "gpuMsPerFrame": 0.35186866666666666
+        },
+        {
+          "key": "eco.stone | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 0.9855069999999997,
+          "samples": 30,
+          "gpuMsPerFrame": 0.32850233333333323
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 48,
+          "gpuMs": 0.934977,
+          "samples": 48,
+          "gpuMsPerFrame": 0.31165899999999996
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.8363459999999999,
+          "samples": 21,
+          "gpuMsPerFrame": 0.278782
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 42,
+          "gpuMs": 0.8320640000000001,
+          "samples": 42,
+          "gpuMsPerFrame": 0.2773546666666667
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.752756,
+          "samples": 15,
+          "gpuMsPerFrame": 0.2509186666666667
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 0.702172,
+          "samples": 36,
+          "gpuMsPerFrame": 0.23405733333333334
+        },
+        {
+          "key": "eco.oakleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 0.689475,
+          "samples": 6,
+          "gpuMsPerFrame": 0.22982499999999997
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-water-3-false-false-true--65",
+          "draws": 6,
+          "gpuMs": 0.6828620000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.2276206666666667
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 36,
+          "gpuMs": 0.6661809999999999,
+          "samples": 36,
+          "gpuMsPerFrame": 0.2220603333333333
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.659686,
+          "samples": 6,
+          "gpuMsPerFrame": 0.21989533333333333
+        },
+        {
+          "key": "eco.navy | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 57,
+          "gpuMs": 0.6182070000000002,
+          "samples": 57,
+          "gpuMsPerFrame": 0.20606900000000006
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 33,
+          "gpuMs": 0.5598280000000001,
+          "samples": 33,
+          "gpuMsPerFrame": 0.18660933333333338
+        },
+        {
+          "key": "eco.firleaf | depth-prepass-v1-foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 0.536456,
+          "samples": 3,
+          "gpuMsPerFrame": 0.17881866666666668
+        },
+        {
+          "key": "eco.mapleleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 0.4607260000000001,
+          "samples": 9,
+          "gpuMsPerFrame": 0.15357533333333337
+        },
+        {
+          "key": "eco.teal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 42,
+          "gpuMs": 0.40425,
+          "samples": 42,
+          "gpuMsPerFrame": 0.13475
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 24,
+          "gpuMs": 0.376968,
+          "samples": 24,
+          "gpuMsPerFrame": 0.12565600000000002
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 12,
+          "gpuMs": 0.371037,
+          "samples": 12,
+          "gpuMsPerFrame": 0.123679
+        },
+        {
+          "key": "eco.glassdark | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 48,
+          "gpuMs": 0.33393500000000004,
+          "samples": 48,
+          "gpuMsPerFrame": 0.11131166666666668
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.30608599999999997,
+          "samples": 18,
+          "gpuMsPerFrame": 0.10202866666666666
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 15,
+          "gpuMs": 0.29838000000000003,
+          "samples": 15,
+          "gpuMsPerFrame": 0.09946
+        },
+        {
+          "key": "eco.cream | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.294421,
+          "samples": 15,
+          "gpuMsPerFrame": 0.09814033333333333
+        },
+        {
+          "key": "eco.rubber | depth-prepass-v1-surface-finish-v3-asphalt",
+          "draws": 33,
+          "gpuMs": 0.28118099999999996,
+          "samples": 33,
+          "gpuMsPerFrame": 0.09372699999999999
+        },
+        {
+          "key": "eco.concrete | depth-prepass-v1-surface-finish-v3-paving",
+          "draws": 36,
+          "gpuMs": 0.27826300000000004,
+          "samples": 36,
+          "gpuMsPerFrame": 0.09275433333333334
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 0.270405,
+          "samples": 27,
+          "gpuMsPerFrame": 0.090135
+        },
+        {
+          "key": "eco.flower | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 12,
+          "gpuMs": 0.259838,
+          "samples": 12,
+          "gpuMsPerFrame": 0.08661266666666667
+        },
+        {
+          "key": "eco.solar | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 0.25540100000000004,
+          "samples": 36,
+          "gpuMsPerFrame": 0.08513366666666668
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.249374,
+          "samples": 3,
+          "gpuMsPerFrame": 0.08312466666666667
+        },
+        {
+          "key": "eco.roofgrass | depth-prepass-v1-roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.24509500000000006,
+          "samples": 21,
+          "gpuMsPerFrame": 0.08169833333333336
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 15,
+          "gpuMs": 0.22780599999999998,
+          "samples": 15,
+          "gpuMsPerFrame": 0.07593533333333333
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.227393,
+          "samples": 6,
+          "gpuMsPerFrame": 0.07579766666666667
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.214791,
+          "samples": 3,
+          "gpuMsPerFrame": 0.07159700000000001
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.21072300000000002,
+          "samples": 12,
+          "gpuMsPerFrame": 0.07024100000000001
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-asphalt",
+          "draws": 3,
+          "gpuMs": 0.198332,
+          "samples": 3,
+          "gpuMsPerFrame": 0.06611066666666666
+        },
+        {
+          "key": "eco.coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.19265300000000002,
+          "samples": 6,
+          "gpuMsPerFrame": 0.06421766666666667
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.18744699999999997,
+          "samples": 3,
+          "gpuMsPerFrame": 0.06248233333333333
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-true-true--65",
+          "draws": 3,
+          "gpuMs": 0.18505100000000002,
+          "samples": 3,
+          "gpuMsPerFrame": 0.06168366666666667
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.173851,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05795033333333333
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.166717,
+          "samples": 3,
+          "gpuMsPerFrame": 0.055572333333333335
+        },
+        {
+          "key": "eco.trim | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 24,
+          "gpuMs": 0.16493600000000003,
+          "samples": 24,
+          "gpuMsPerFrame": 0.054978666666666676
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.157964,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05265466666666666
+        },
+        {
+          "key": "eco.red | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.12936699999999998,
+          "samples": 18,
+          "gpuMsPerFrame": 0.043122333333333325
+        },
+        {
+          "key": "eco.led | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 0.12826899999999997,
+          "samples": 27,
+          "gpuMsPerFrame": 0.04275633333333332
+        },
+        {
+          "key": "eco.gold | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 15,
+          "gpuMs": 0.116138,
+          "samples": 15,
+          "gpuMsPerFrame": 0.038712666666666666
+        },
+        {
+          "key": "eco.alloy | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 15,
+          "gpuMs": 0.11468,
+          "samples": 15,
+          "gpuMsPerFrame": 0.038226666666666666
+        },
+        {
+          "key": "eco.autoglass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 12,
+          "gpuMs": 0.111401,
+          "samples": 12,
+          "gpuMsPerFrame": 0.03713366666666667
+        },
+        {
+          "key": "eco.wood | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.105724,
+          "samples": 12,
+          "gpuMsPerFrame": 0.03524133333333333
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.10332699999999997,
+          "samples": 12,
+          "gpuMsPerFrame": 0.034442333333333325
+        },
+        {
+          "key": "eco.woodlight | surface-finish-v3-wood",
+          "draws": 6,
+          "gpuMs": 0.086559,
+          "samples": 6,
+          "gpuMsPerFrame": 0.028853
+        },
+        {
+          "key": "eco.bloomshade | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.08624799999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.02874933333333333
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.08385000000000002,
+          "samples": 9,
+          "gpuMsPerFrame": 0.027950000000000006
+        },
+        {
+          "key": "eco.birch | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.080676,
+          "samples": 3,
+          "gpuMsPerFrame": 0.026892
+        },
+        {
+          "key": "eco.water | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.080623,
+          "samples": 6,
+          "gpuMsPerFrame": 0.026874333333333333
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.078593,
+          "samples": 3,
+          "gpuMsPerFrame": 0.026197666666666664
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.073957,
+          "samples": 3,
+          "gpuMsPerFrame": 0.02465233333333333
+        },
+        {
+          "key": "eco.blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.07176599999999998,
+          "samples": 12,
+          "gpuMsPerFrame": 0.023921999999999995
+        },
+        {
+          "key": "eco.paint_coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.070936,
+          "samples": 3,
+          "gpuMsPerFrame": 0.023645333333333334
+        },
+        {
+          "key": "eco.dark | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.06833,
+          "samples": 9,
+          "gpuMsPerFrame": 0.022776666666666667
+        },
+        {
+          "key": "eco.rust | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.067083,
+          "samples": 3,
+          "gpuMsPerFrame": 0.022361000000000002
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.06458,
+          "samples": 9,
+          "gpuMsPerFrame": 0.021526666666666666
+        },
+        {
+          "key": "eco.petal | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.06098699999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.020328999999999996
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.058019,
+          "samples": 3,
+          "gpuMsPerFrame": 0.019339666666666668
+        },
+        {
+          "key": "eco.soil | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.054165000000000005,
+          "samples": 3,
+          "gpuMsPerFrame": 0.018055
+        },
+        {
+          "key": "eco.signal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.053693,
+          "samples": 9,
+          "gpuMsPerFrame": 0.017897666666666666
+        },
+        {
+          "key": "eco.lawn | depth-prepass-v1-surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.052758,
+          "samples": 6,
+          "gpuMsPerFrame": 0.017586
+        },
+        {
+          "key": "eco.paint_gold | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.049426000000000005,
+          "samples": 3,
+          "gpuMsPerFrame": 0.016475333333333335
+        },
+        {
+          "key": "eco.sand | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.04525800000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.015086000000000002
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.038175,
+          "samples": 6,
+          "gpuMsPerFrame": 0.012725
+        },
+        {
+          "key": "eco.water | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.036872,
+          "samples": 6,
+          "gpuMsPerFrame": 0.012290666666666667
+        },
+        {
+          "key": "eco.woodlight | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 6,
+          "gpuMs": 0.035309,
+          "samples": 6,
+          "gpuMsPerFrame": 0.011769666666666666
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.032913,
+          "samples": 6,
+          "gpuMsPerFrame": 0.010971
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-water-3-false-true-true--65",
+          "draws": 3,
+          "gpuMs": 0.030624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.010208
+        },
+        {
+          "key": "eco.paint_blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.026197,
+          "samples": 3,
+          "gpuMsPerFrame": 0.008732333333333333
+        },
+        {
+          "key": "eco.roof | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.024062,
+          "samples": 3,
+          "gpuMsPerFrame": 0.008020666666666667
+        },
+        {
+          "key": "eco.soil | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.022133,
+          "samples": 3,
+          "gpuMsPerFrame": 0.007377666666666667
+        },
+        {
+          "key": "eco.paint_white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.020937,
+          "samples": 3,
+          "gpuMsPerFrame": 0.006979
+        },
+        {
+          "key": "eco.wooddark | surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.018488,
+          "samples": 3,
+          "gpuMsPerFrame": 0.006162666666666667
+        },
+        {
+          "key": "eco.wooddark | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.011666,
+          "samples": 3,
+          "gpuMsPerFrame": 0.0038886666666666666
+        }
+      ],
+      "depthPrepass": true
+    },
+    {
+      "name": "river",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 8.005051000000002,
+          "samples": 3,
+          "gpuMsPerFrame": 2.668350333333334
+        },
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 105,
+          "gpuMs": 6.427137000000001,
+          "samples": 105,
+          "gpuMsPerFrame": 2.1423790000000005
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 3,
+          "gpuMs": 5.9313,
+          "samples": 3,
+          "gpuMsPerFrame": 1.9771
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 5.768468999999999,
+          "samples": 45,
+          "gpuMsPerFrame": 1.9228229999999995
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 4.298536,
+          "samples": 12,
+          "gpuMsPerFrame": 1.4328453333333335
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 3.643954,
+          "samples": 6,
+          "gpuMsPerFrame": 1.2146513333333333
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 3.4887850000000005,
+          "samples": 36,
+          "gpuMsPerFrame": 1.1629283333333336
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 102,
+          "gpuMs": 3.2777640000000012,
+          "samples": 102,
+          "gpuMsPerFrame": 1.0925880000000003
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 3.129841,
+          "samples": 6,
+          "gpuMsPerFrame": 1.0432803333333334
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 54,
+          "gpuMs": 3.074094,
+          "samples": 54,
+          "gpuMsPerFrame": 1.024698
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-land",
+          "draws": 3,
+          "gpuMs": 2.739529,
+          "samples": 3,
+          "gpuMsPerFrame": 0.9131763333333334
+        },
+        {
+          "key": "eco.white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 105,
+          "gpuMs": 2.710000999999998,
+          "samples": 105,
+          "gpuMsPerFrame": 0.9033336666666659
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 69,
+          "gpuMs": 2.580283,
+          "samples": 69,
+          "gpuMsPerFrame": 0.8600943333333334
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 72,
+          "gpuMs": 2.4896010000000004,
+          "samples": 72,
+          "gpuMsPerFrame": 0.8298670000000001
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 2.480312,
+          "samples": 3,
+          "gpuMsPerFrame": 0.8267706666666667
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 12,
+          "gpuMs": 2.340205,
+          "samples": 12,
+          "gpuMsPerFrame": 0.7800683333333334
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 2.262862,
+          "samples": 9,
+          "gpuMsPerFrame": 0.7542873333333334
+        },
+        {
+          "key": "eco.metal | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 102,
+          "gpuMs": 2.0507809999999997,
+          "samples": 102,
+          "gpuMsPerFrame": 0.6835936666666665
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 51,
+          "gpuMs": 1.962687,
+          "samples": 51,
+          "gpuMsPerFrame": 0.6542290000000001
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 9,
+          "gpuMs": 1.5547349999999998,
+          "samples": 9,
+          "gpuMsPerFrame": 0.518245
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 1.5503109999999998,
+          "samples": 3,
+          "gpuMsPerFrame": 0.5167703333333332
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 1.4232140000000009,
+          "samples": 27,
+          "gpuMsPerFrame": 0.474404666666667
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 33,
+          "gpuMs": 1.3672739999999999,
+          "samples": 33,
+          "gpuMsPerFrame": 0.45575799999999994
+        },
+        {
+          "key": "eco.navy | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 72,
+          "gpuMs": 1.3317900000000003,
+          "samples": 72,
+          "gpuMsPerFrame": 0.4439300000000001
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 1.243013,
+          "samples": 18,
+          "gpuMsPerFrame": 0.41433766666666666
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 24,
+          "gpuMs": 1.1913429999999996,
+          "samples": 24,
+          "gpuMsPerFrame": 0.3971143333333332
+        },
+        {
+          "key": "eco.leaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 1.1002929999999997,
+          "samples": 45,
+          "gpuMsPerFrame": 0.36676433333333325
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 45,
+          "gpuMs": 0.9945640000000002,
+          "samples": 45,
+          "gpuMsPerFrame": 0.3315213333333334
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 48,
+          "gpuMs": 0.970659,
+          "samples": 48,
+          "gpuMsPerFrame": 0.32355300000000004
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 51,
+          "gpuMs": 0.941905,
+          "samples": 51,
+          "gpuMsPerFrame": 0.31396833333333335
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 0.9223890000000001,
+          "samples": 12,
+          "gpuMsPerFrame": 0.30746300000000004
+        },
+        {
+          "key": "eco.trunk | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 0.898008,
+          "samples": 27,
+          "gpuMsPerFrame": 0.299336
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 0.883904,
+          "samples": 3,
+          "gpuMsPerFrame": 0.29463466666666666
+        },
+        {
+          "key": "eco.leaflight | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 54,
+          "gpuMs": 0.8506520000000002,
+          "samples": 54,
+          "gpuMsPerFrame": 0.28355066666666673
+        },
+        {
+          "key": "eco.roofdeck | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 51,
+          "gpuMs": 0.8452909999999998,
+          "samples": 51,
+          "gpuMsPerFrame": 0.2817636666666666
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 18,
+          "gpuMs": 0.8398370000000002,
+          "samples": 18,
+          "gpuMsPerFrame": 0.2799456666666667
+        },
+        {
+          "key": "eco.glass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 69,
+          "gpuMs": 0.8356489999999999,
+          "samples": 69,
+          "gpuMsPerFrame": 0.27854966666666664
+        },
+        {
+          "key": "MeshStandardMaterial | depth-prepass-v1-primitive-surface-v2-asphalt",
+          "draws": 3,
+          "gpuMs": 0.7589570000000001,
+          "samples": 3,
+          "gpuMsPerFrame": 0.2529856666666667
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.746403,
+          "samples": 9,
+          "gpuMsPerFrame": 0.24880100000000002
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.717585,
+          "samples": 42,
+          "gpuMsPerFrame": 0.23919500000000002
+        },
+        {
+          "key": "eco.stone | depth-prepass-v1-surface-finish-v3-concrete",
+          "draws": 24,
+          "gpuMs": 0.699884,
+          "samples": 24,
+          "gpuMsPerFrame": 0.23329466666666665
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 33,
+          "gpuMs": 0.660508,
+          "samples": 33,
+          "gpuMsPerFrame": 0.22016933333333333
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 36,
+          "gpuMs": 0.6479529999999999,
+          "samples": 36,
+          "gpuMsPerFrame": 0.2159843333333333
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 21,
+          "gpuMs": 0.5706669999999999,
+          "samples": 21,
+          "gpuMsPerFrame": 0.1902223333333333
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.539737,
+          "samples": 6,
+          "gpuMsPerFrame": 0.17991233333333334
+        },
+        {
+          "key": "eco.oakleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 0.50932,
+          "samples": 6,
+          "gpuMsPerFrame": 0.16977333333333333
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.47098,
+          "samples": 21,
+          "gpuMsPerFrame": 0.15699333333333335
+        },
+        {
+          "key": "eco.cream | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.45082500000000003,
+          "samples": 18,
+          "gpuMsPerFrame": 0.15027500000000002
+        },
+        {
+          "key": "eco.rubber | depth-prepass-v1-surface-finish-v3-asphalt",
+          "draws": 48,
+          "gpuMs": 0.4478439999999999,
+          "samples": 48,
+          "gpuMsPerFrame": 0.1492813333333333
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.401872,
+          "samples": 6,
+          "gpuMsPerFrame": 0.13395733333333334
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.400779,
+          "samples": 3,
+          "gpuMsPerFrame": 0.133593
+        },
+        {
+          "key": "eco.teal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 45,
+          "gpuMs": 0.39899099999999993,
+          "samples": 45,
+          "gpuMsPerFrame": 0.13299699999999998
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.3975950000000001,
+          "samples": 27,
+          "gpuMsPerFrame": 0.1325316666666667
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.37114400000000003,
+          "samples": 3,
+          "gpuMsPerFrame": 0.12371466666666668
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.36760200000000004,
+          "samples": 6,
+          "gpuMsPerFrame": 0.12253400000000002
+        },
+        {
+          "key": "eco.glassdark | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 51,
+          "gpuMs": 0.36331,
+          "samples": 51,
+          "gpuMsPerFrame": 0.12110333333333334
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 0.342537,
+          "samples": 36,
+          "gpuMsPerFrame": 0.11417899999999999
+        },
+        {
+          "key": "eco.flower | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 9,
+          "gpuMs": 0.340673,
+          "samples": 9,
+          "gpuMsPerFrame": 0.11355766666666667
+        },
+        {
+          "key": "eco.mapleleaf | depth-prepass-v1-foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 0.340309,
+          "samples": 9,
+          "gpuMsPerFrame": 0.11343633333333332
+        },
+        {
+          "key": "eco.red | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 33,
+          "gpuMs": 0.29925699999999994,
+          "samples": 33,
+          "gpuMsPerFrame": 0.09975233333333332
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.29005000000000003,
+          "samples": 6,
+          "gpuMsPerFrame": 0.09668333333333334
+        },
+        {
+          "key": "eco.concrete | depth-prepass-v1-surface-finish-v3-paving",
+          "draws": 36,
+          "gpuMs": 0.259516,
+          "samples": 36,
+          "gpuMsPerFrame": 0.08650533333333334
+        },
+        {
+          "key": "eco.alloy | depth-prepass-v1-surface-finish-v3-metal",
+          "draws": 21,
+          "gpuMs": 0.259,
+          "samples": 21,
+          "gpuMsPerFrame": 0.08633333333333333
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.23650500000000005,
+          "samples": 12,
+          "gpuMsPerFrame": 0.07883500000000002
+        },
+        {
+          "key": "eco.autoglass | depth-prepass-v1-surface-finish-v3-glass",
+          "draws": 18,
+          "gpuMs": 0.23374000000000003,
+          "samples": 18,
+          "gpuMsPerFrame": 0.07791333333333335
+        },
+        {
+          "key": "eco.solar | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.2300880000000001,
+          "samples": 42,
+          "gpuMsPerFrame": 0.07669600000000003
+        },
+        {
+          "key": "eco.coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.21801900000000002,
+          "samples": 9,
+          "gpuMsPerFrame": 0.072673
+        },
+        {
+          "key": "eco.firleaf | depth-prepass-v1-foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 0.21447899999999998,
+          "samples": 3,
+          "gpuMsPerFrame": 0.07149299999999999
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.194002,
+          "samples": 18,
+          "gpuMsPerFrame": 0.06466733333333334
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.188747,
+          "samples": 6,
+          "gpuMsPerFrame": 0.06291566666666666
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.16822700000000002,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05607566666666667
+        },
+        {
+          "key": "eco.paint_gold | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.164165,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05472166666666667
+        },
+        {
+          "key": "eco.trim | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.15535300000000005,
+          "samples": 27,
+          "gpuMsPerFrame": 0.05178433333333335
+        },
+        {
+          "key": "eco.led | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 0.15342100000000003,
+          "samples": 36,
+          "gpuMsPerFrame": 0.05114033333333334
+        },
+        {
+          "key": "eco.roofgrass | depth-prepass-v1-roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.15202200000000002,
+          "samples": 21,
+          "gpuMsPerFrame": 0.050674000000000004
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.140932,
+          "samples": 15,
+          "gpuMsPerFrame": 0.046977333333333336
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.139061,
+          "samples": 3,
+          "gpuMsPerFrame": 0.04635366666666666
+        },
+        {
+          "key": "eco.paint_blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.132185,
+          "samples": 3,
+          "gpuMsPerFrame": 0.044061666666666666
+        },
+        {
+          "key": "eco.bloomshade | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.125206,
+          "samples": 6,
+          "gpuMsPerFrame": 0.04173533333333334
+        },
+        {
+          "key": "eco.paint_coral | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.116247,
+          "samples": 6,
+          "gpuMsPerFrame": 0.038749
+        },
+        {
+          "key": "eco.rust | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.11515399999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.038384666666666664
+        },
+        {
+          "key": "eco.wood | depth-prepass-v1-surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.114891,
+          "samples": 12,
+          "gpuMsPerFrame": 0.038297
+        },
+        {
+          "key": "eco.fieldturf | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.114739,
+          "samples": 3,
+          "gpuMsPerFrame": 0.038246333333333334
+        },
+        {
+          "key": "eco.paint_white | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.097133,
+          "samples": 3,
+          "gpuMsPerFrame": 0.032377666666666666
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.09437000000000001,
+          "samples": 9,
+          "gpuMsPerFrame": 0.03145666666666667
+        },
+        {
+          "key": "eco.blue | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.08301499999999999,
+          "samples": 18,
+          "gpuMsPerFrame": 0.027671666666666664
+        },
+        {
+          "key": "eco.fieldstripe | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.079947,
+          "samples": 3,
+          "gpuMsPerFrame": 0.026649000000000003
+        },
+        {
+          "key": "eco.petal | depth-prepass-v1-foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.076403,
+          "samples": 6,
+          "gpuMsPerFrame": 0.025467666666666666
+        },
+        {
+          "key": "eco.soil | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.074893,
+          "samples": 6,
+          "gpuMsPerFrame": 0.024964333333333335
+        },
+        {
+          "key": "eco.signal | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.069838,
+          "samples": 15,
+          "gpuMsPerFrame": 0.023279333333333332
+        },
+        {
+          "key": "eco.lawn | depth-prepass-v1-surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.06682099999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.022273666666666664
+        },
+        {
+          "key": "eco.birch | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.066769,
+          "samples": 3,
+          "gpuMsPerFrame": 0.022256333333333333
+        },
+        {
+          "key": "eco.fieldmark | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.066353,
+          "samples": 3,
+          "gpuMsPerFrame": 0.022117666666666664
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.058331,
+          "samples": 3,
+          "gpuMsPerFrame": 0.019443666666666668
+        },
+        {
+          "key": "eco.gold | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.055673,
+          "samples": 9,
+          "gpuMsPerFrame": 0.018557666666666667
+        },
+        {
+          "key": "eco.fieldturf | depth-prepass-v1-surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.046822,
+          "samples": 3,
+          "gpuMsPerFrame": 0.015607333333333334
+        },
+        {
+          "key": "eco.soil | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.032601000000000005,
+          "samples": 6,
+          "gpuMsPerFrame": 0.010867000000000002
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.027393,
+          "samples": 6,
+          "gpuMsPerFrame": 0.009131
+        },
+        {
+          "key": "eco.roof | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.025676,
+          "samples": 3,
+          "gpuMsPerFrame": 0.008558666666666668
+        },
+        {
+          "key": "eco.dark | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.025675,
+          "samples": 6,
+          "gpuMsPerFrame": 0.008558333333333333
+        },
+        {
+          "key": "eco.fieldmark | depth-prepass-v1-onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.025311,
+          "samples": 3,
+          "gpuMsPerFrame": 0.008437
+        },
+        {
+          "key": "eco.fieldstripe | depth-prepass-v1-surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.023540000000000002,
+          "samples": 3,
+          "gpuMsPerFrame": 0.007846666666666667
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.019164,
+          "samples": 6,
+          "gpuMsPerFrame": 0.0063880000000000004
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.012654,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004218
+        },
+        {
+          "key": "eco.pink | depth-prepass-v1-surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.010208,
+          "samples": 3,
+          "gpuMsPerFrame": 0.0034026666666666667
+        }
+      ],
+      "depthPrepass": true
+    }
+  ],
+  "errors": [],
+  "includesQueryOverhead": true
+}

@@ -1,0 +1,77 @@
+{
+  "device": {
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "gpuTimer": true,
+    "multiDraw": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "dpr": 1
+  },
+  "mobileEmulation": false,
+  "presentationVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "frontFaces": false,
+      "runs": 2,
+      "fps": 17.16723035639965,
+      "p95": 145.25000000011642,
+      "cpu": 5.499999999883585,
+      "gpu": 47.997941999999995,
+      "gpuSamples": [
+        176,
+        163
+      ],
+      "uploads": 13899228,
+      "calls": 933,
+      "triangles": 4889458
+    },
+    {
+      "name": "drag",
+      "frontFaces": true,
+      "runs": 2,
+      "fps": 15.278861745217512,
+      "p95": 107.30000000004657,
+      "cpu": 5.899999999906868,
+      "gpu": 47.0532545,
+      "gpuSamples": [
+        133,
+        133
+      ],
+      "uploads": 13796076,
+      "calls": 935,
+      "triangles": 4887526
+    },
+    {
+      "name": "held-key",
+      "frontFaces": false,
+      "runs": 2,
+      "fps": 17.85291780748375,
+      "p95": 64.20000000006985,
+      "cpu": 6.400000000023283,
+      "gpu": 47.830051499999996,
+      "gpuSamples": [
+        36,
+        39
+      ],
+      "uploads": 8489160,
+      "calls": 936,
+      "triangles": 4897266
+    },
+    {
+      "name": "held-key",
+      "frontFaces": true,
+      "runs": 2,
+      "fps": 17.934431199635043,
+      "p95": 65.64999999990687,
+      "cpu": 6.75,
+      "gpu": 47.619166,
+      "gpuSamples": [
+        37,
+        39
+      ],
+      "uploads": 8587996,
+      "calls": 934,
+      "triangles": 4889540
+    }
+  ]
+}

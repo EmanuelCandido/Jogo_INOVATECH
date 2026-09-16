@@ -3,8 +3,8 @@ import { useGame } from "../../stores/gameStore";
 import type { GameSettings,Quality } from "../../game/types";
 import {graphicsPresets,graphicsTiers} from '../../config/graphics';
 import {recheckGraphics,useGraphicsRuntime,useResolvedGraphics} from '../../stores/graphicsStore';
-export function SettingsPanel({ close }: { close: () => void }) {
-  const { progress: s, graphics, reset } = useGame();
+export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneReady: boolean }) {
+  const { progress: s, graphics, reset, leave } = useGame();
   const q=useResolvedGraphics(),runtime=useGraphicsRuntime();
   const [confirmReset, setConfirmReset] = useState(false);
   const panel = useRef<HTMLElement>(null);
@@ -21,6 +21,7 @@ export function SettingsPanel({ close }: { close: () => void }) {
     >
       <div className="eyebrow">DO SEU JEITO</div>
       <div className="settings-heading"><h2>Gráficos e desempenho</h2><button className="settings-close" aria-label="Fechar configurações" onClick={close}>×</button></div>
+      {s.phase === 'QUESTION' && <button className="primary" disabled={!sceneReady} onClick={() => { leave(); close(); }}>Decidir depois · voltar ao mapa</button>}
       <label>
         Qualidade gráfica
         <select
@@ -62,6 +63,7 @@ export function SettingsPanel({ close }: { close: () => void }) {
       {s.settings.showPerformance&&<div className="graphics-measurement">
         <strong>{runtime.measuring?'Medindo…':runtime.fps!==null?`${runtime.fps} FPS medidos`:'Aguardando a cena'}</strong>
         <p>Amostra curta de renderização. A fluidez varia conforme a área do mapa.</p>
+        <p>GPU informada pelo navegador: {runtime.renderer||'Identificação indisponível'}</p>
         {!runtime.measuring&&runtime.frameMs!==null&&<p>Tempo por quadro: {runtime.frameMs.toFixed(1)} ms · 95% até {runtime.frameP95?.toFixed(1)} ms.</p>}
         <button className="text-button" disabled={runtime.measuring} onClick={()=>useGraphicsRuntime.setState(v=>({probe:v.probe+1}))}>Medir novamente</button>
       </div>}

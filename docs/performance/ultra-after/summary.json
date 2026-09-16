@@ -1,0 +1,67 @@
+{
+  "before": {
+    "bufferUploadBytes": 60976204,
+    "bufferUploads": 56899,
+    "cpuRenderP50": 4.2999999998137355,
+    "gpuP50": 73.179478,
+    "renderMeanFps": 10.276836266380824,
+    "frameP95": 181.80000000074506
+  },
+  "after": {
+    "bufferUploadBytes": 13796076,
+    "bufferUploads": 2628,
+    "cpuRenderP50": 3.5,
+    "gpuP50": 71.382343,
+    "renderMeanFps": 10.326444734158464,
+    "frameP95": 160.59999999962747
+  },
+  "reductions": {
+    "bufferUploadBytes": 77.37465585755388,
+    "bufferUploads": 95.38128965359672,
+    "cpuRenderP50": 18.604651159264872
+  },
+  "settings": {
+    "renderScale": 150,
+    "shadows": "PRESET",
+    "ambientAnimation": true,
+    "showPerformance": false,
+    "quality": "ULTRA",
+    "reducedMotion": false
+  },
+  "canvas": [
+    1920,
+    1200
+  ],
+  "models": 77,
+  "instances": 34005,
+  "imageComparison": [
+    {
+      "name": "overview",
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0
+    },
+    {
+      "name": "centre",
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0
+    },
+    {
+      "name": "forest",
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0
+    },
+    {
+      "name": "river",
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0
+    }
+  ],
+  "presentationVerified": false,
+  "target60FpsReached": false,
+  "mobileHardwareTested": false,
+  "scope": "Primeira etapa; comparação preliminar de arrasto. Teclado anterior era discreto e não é uma carga equivalente."
+}

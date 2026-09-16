@@ -10,6 +10,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "benchmark": "node scripts/benchmark.mjs",
+    "benchmark:navigation": "node scripts/benchmark-navigation.mjs",
+    "benchmark:materials": "node scripts/benchmark-materials.mjs",
     "test:rendering": "node scripts/verify-rendering.mjs",
     "assets:optimize": "node scripts/optimize-assets.mjs",
     "assets:build": "powershell -ExecutionPolicy Bypass -File scripts/build-assets.ps1",

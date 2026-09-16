@@ -14,6 +14,8 @@ export const graphicsPresets:Record<GraphicsTier,GraphicsProfile>={
 };
 export const qualityOptions:Quality[]=['AUTO',...graphicsTiers];
 export const defaultGraphicsSettings={renderScale:100,shadows:'PRESET',ambientAnimation:true,showPerformance:false} as const;
+/** Explicit benchmark reference; never changes the player's chosen settings. */
+export const maximumGraphicsSettings={quality:'ULTRA',renderScale:150,shadows:'PRESET',ambientAnimation:true,reducedMotion:false,showPerformance:false} as const satisfies GameSettings;
 export function normalizeGraphicsSettings(settings:Partial<GameSettings>):GameSettings{
  return {...defaultGraphicsSettings,quality:'AUTO',reducedMotion:false,...settings,
   renderScale:typeof settings.renderScale==='number'&&Number.isFinite(settings.renderScale)?Math.max(60,Math.min(150,Math.round(settings.renderScale/5)*5)):100,

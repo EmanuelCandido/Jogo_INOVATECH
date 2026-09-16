@@ -13,9 +13,9 @@ export function GraphicsRuntime({ready}:{ready:boolean}){
  const sample=useRef({last:0,warmup:5,values:[] as number[],done:true});
  useEffect(()=>{
   const context=gl.getContext(),extension=context.getExtension('WEBGL_debug_renderer_info');
-  const renderer=extension?String(context.getParameter(extension.UNMASKED_RENDERER_WEBGL)):'';
+  const renderer=String(context.getParameter(extension?extension.UNMASKED_RENDERER_WEBGL:context.RENDERER)??'');
   const software=/swiftshader|llvmpipe|software|basic render/i.test(renderer);
-  useGraphicsRuntime.setState({software,automatic:deviceGraphics(software)});
+  useGraphicsRuntime.setState({software,automatic:deviceGraphics(software),renderer});
  },[gl]);
  useEffect(()=>{
   const dpr=graphicsPixelRatio(size.width,size.height,devicePixelRatio,q,q.renderScale,gl.capabilities.maxTextureSize);
@@ -59,7 +59,7 @@ export function GraphicsRuntime({ready}:{ready:boolean}){
   if(s.values.length<24&&(s.values.length<8||elapsed<1500)){invalidate();return;}
   const metrics=frameMetrics(s.values)!,ms=metrics.p50;
   s.done=true;
-  useGraphicsRuntime.setState({measuring:false,frameMs:ms,frameP95:metrics.p95,fps:Math.round(1000/ms),drawCalls:gl.info.render.calls,triangles:gl.info.render.triangles,
+  useGraphicsRuntime.setState({measuring:false,frameMs:ms,frameP95:metrics.p95,fps:Math.round(metrics.meanFps),drawCalls:gl.info.render.calls,triangles:gl.info.render.triangles,
    reason:settings.quality==='AUTO'?'Perfil recomendado para o dispositivo; qualidade preservada':'Perfil escolhido por você'});
  });
  return null;

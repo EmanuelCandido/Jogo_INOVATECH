@@ -1,0 +1,83 @@
+{
+  "before": "depth-mobile-off",
+  "after": "depth-integrated-mobile",
+  "sameReference": true,
+  "errors": [],
+  "mobileEmulation": true,
+  "presentationVerified": false,
+  "target60FpsVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "before": {
+        "runs": 2,
+        "meanFps": 14.120266178491507,
+        "frameP95": 241.44999999995343,
+        "frameP95Range": [
+          240.79999999981374,
+          242.10000000009313
+        ],
+        "gpuP50": 62.383332499999995,
+        "gpuSamples": [
+          218,
+          215
+        ],
+        "cpuP50": 2.8499999998603016,
+        "bufferUploadBytes": 4473628,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 1,
+        "meanFps": 22.898198994946874,
+        "frameP95": 145.5,
+        "frameP95Range": [
+          145.5,
+          145.5
+        ],
+        "gpuP50": 34.327758,
+        "gpuSamples": [
+          210
+        ],
+        "cpuP50": 5,
+        "bufferUploadBytes": 4406976,
+        "maximumGuardsPass": true
+      }
+    },
+    {
+      "name": "pinch",
+      "before": {
+        "runs": 2,
+        "meanFps": 16.001734561826208,
+        "frameP95": 204.64999999990687,
+        "frameP95Range": [
+          202.79999999981374,
+          206.5
+        ],
+        "gpuP50": 58.5545045,
+        "gpuSamples": [
+          103,
+          106
+        ],
+        "cpuP50": 2.800000000046566,
+        "bufferUploadBytes": 2640912,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 1,
+        "meanFps": 30.54466819840519,
+        "frameP95": 100.10000000009313,
+        "frameP95Range": [
+          100.10000000009313,
+          100.10000000009313
+        ],
+        "gpuP50": 27.591092,
+        "gpuSamples": [
+          116
+        ],
+        "cpuP50": 4.899999999906868,
+        "bufferUploadBytes": 2640912,
+        "maximumGuardsPass": true
+      }
+    }
+  ]
+}

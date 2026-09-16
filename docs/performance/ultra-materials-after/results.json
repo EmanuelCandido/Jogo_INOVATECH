@@ -1,0 +1,6051 @@
+{
+  "stage": "ultra-materials-after",
+  "date": "2026-09-14T17:45:34.398Z",
+  "commit": "4b7528348a8f0dde283c848a433d1bea4db41e51",
+  "bundles": [
+    "http://127.0.0.1:4175/assets/index-BcDMuqXu.js",
+    "http://127.0.0.1:4175/assets/World-D59J0Q9m.js",
+    "http://127.0.0.1:4175/assets/Benchmark-STwu0Y2y.js"
+  ],
+  "device": {
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "gpuTimer": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "dpr": 1
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "mobileEmulation": false,
+  "headless": true,
+  "presentationVerified": false,
+  "seconds": 6,
+  "runs": 2,
+  "baseline": {
+    "calls": 682,
+    "triangles": 5861624,
+    "geometries": 643,
+    "textures": 4,
+    "programs": 38,
+    "meshes": 731,
+    "instances": 34005,
+    "materials": 116,
+    "sourceBytes": 2233668,
+    "width": 1920,
+    "height": 1200,
+    "pixelRatio": 1.5,
+    "settings": {
+      "renderScale": 150,
+      "shadows": "PRESET",
+      "ambientAnimation": true,
+      "showPerformance": false,
+      "quality": "ULTRA",
+      "reducedMotion": false
+    },
+    "resolvedGraphics": {
+      "label": "Ultra",
+      "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+      "pixelRatio": 2,
+      "maxPixels": 6500000,
+      "shadowSize": 4096,
+      "forestDensity": 1,
+      "undergrowth": 1,
+      "flowers": 1,
+      "traffic": 1,
+      "visitors": 1,
+      "cityDetail": 2,
+      "waterEffects": true,
+      "smoothGeometry": true,
+      "tier": "ULTRA",
+      "shadows": true,
+      "renderScale": 150,
+      "animate": true
+    },
+    "modelUrls": [
+      "/assets/models/access-step.glb",
+      "/assets/models/arched-bridge.glb",
+      "/assets/models/beach-set.glb",
+      "/assets/models/bench.glb",
+      "/assets/models/bus-shelter.glb",
+      "/assets/models/car-blue.glb",
+      "/assets/models/car-coral.glb",
+      "/assets/models/car-gold.glb",
+      "/assets/models/car-white.glb",
+      "/assets/models/central-station.glb",
+      "/assets/models/city-bus.glb",
+      "/assets/models/corner-cafe.glb",
+      "/assets/models/court.glb",
+      "/assets/models/delivery-truck.glb",
+      "/assets/models/eco-dome.glb",
+      "/assets/models/eco-observatory.glb",
+      "/assets/models/excavator.glb",
+      "/assets/models/fish-market.glb",
+      "/assets/models/football-field.glb",
+      "/assets/models/fountain.glb",
+      "/assets/models/greenhouse.glb",
+      "/assets/models/grid-pylon.glb",
+      "/assets/models/heat-pump.glb",
+      "/assets/models/hospital.glb",
+      "/assets/models/house-cream.glb",
+      "/assets/models/house-terrace.glb",
+      "/assets/models/industrial-gate.glb",
+      "/assets/models/industrial-waste.glb",
+      "/assets/models/industrial-works.glb",
+      "/assets/models/information-sign.glb",
+      "/assets/models/lamp.glb",
+      "/assets/models/lighthouse.glb",
+      "/assets/models/office-glass.glb",
+      "/assets/models/pier.glb",
+      "/assets/models/playground.glb",
+      "/assets/models/rabbit.glb",
+      "/assets/models/recycling-centre.glb",
+      "/assets/models/river-dam.glb",
+      "/assets/models/river-outfall.glb",
+      "/assets/models/road-deck-module.glb",
+      "/assets/models/road-pier-cap.glb",
+      "/assets/models/road-pier-footing.glb",
+      "/assets/models/road-pier-shaft.glb",
+      "/assets/models/road-retaining-wall.glb",
+      "/assets/models/rock.glb",
+      "/assets/models/ruined-building.glb",
+      "/assets/models/sailboat.glb",
+      "/assets/models/solar-cottage.glb",
+      "/assets/models/solar-rack.glb",
+      "/assets/models/solar-school.glb",
+      "/assets/models/solar-station.glb",
+      "/assets/models/station-guardrail.glb",
+      "/assets/models/station-lift-landing.glb",
+      "/assets/models/station-lift-shaft.glb",
+      "/assets/models/station-platform-canopy.glb",
+      "/assets/models/station-stairs.glb",
+      "/assets/models/thermometer.glb",
+      "/assets/models/townhouse-coral.glb",
+      "/assets/models/townhouse-cream.glb",
+      "/assets/models/townhouse-pink.glb",
+      "/assets/models/townhouse-sage.glb",
+      "/assets/models/train-cab.glb",
+      "/assets/models/train-carriage.glb",
+      "/assets/models/tree-birch.glb",
+      "/assets/models/tree-blossom.glb",
+      "/assets/models/tree-fir.glb",
+      "/assets/models/tree-maple.glb",
+      "/assets/models/tree-oak.glb",
+      "/assets/models/tree-palm.glb",
+      "/assets/models/tree-stump.glb",
+      "/assets/models/tree-thicket.glb",
+      "/assets/models/tree.glb",
+      "/assets/models/turbine.glb",
+      "/assets/models/waste-partial.glb",
+      "/assets/models/waste-pile.glb",
+      "/assets/models/wheelchair-user.glb",
+      "/assets/models/wildlife-shelter.glb"
+    ],
+    "camera": {
+      "position": [
+        98.71487267020187,
+        130,
+        125.16051397435702
+      ],
+      "zoom": 7.2727272727272725
+    }
+  },
+  "measurements": [
+    {
+      "name": "overview",
+      "run": 0,
+      "calls": 637,
+      "triangles": 4251140,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          100.30234418522255,
+          130,
+          127.25301513782938
+        ],
+        "zoom": 9.5
+      },
+      "frame": {
+        "frames": 3,
+        "meanMs": 1190.8666666665424,
+        "meanFps": 0.8397245703410158,
+        "p50": 1759.0999999996275,
+        "p95": 1802.7999999998137,
+        "p99": 1802.7999999998137,
+        "onePercentLow": 0.5546927002441221,
+        "over33Ms": 2,
+        "over50Ms": 2
+      },
+      "cpu": {
+        "frames": 4,
+        "meanMs": 3.5750000001862645,
+        "meanFps": 279.72027970570576,
+        "p50": 3,
+        "p95": 4.5,
+        "p99": 4.5,
+        "onePercentLow": 222.22222222222223,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": null,
+      "bufferUploads": 229,
+      "bufferUploadBytes": 639376,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "overview",
+      "run": 1,
+      "calls": 637,
+      "triangles": 4251140,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          100.30234418522255,
+          130,
+          127.25301513782938
+        ],
+        "zoom": 9.5
+      },
+      "frame": {
+        "frames": 115,
+        "meanMs": 47.80086956522225,
+        "meanFps": 20.92012151861678,
+        "p50": 16.700000000186265,
+        "p95": 18.100000000558794,
+        "p99": 191.40000000037253,
+        "onePercentLow": 0.5790387955991491,
+        "over33Ms": 4,
+        "over50Ms": 4
+      },
+      "cpu": {
+        "frames": 116,
+        "meanMs": 3.0784482757865996,
+        "meanFps": 324.83898068564486,
+        "p50": 3,
+        "p95": 3.7000000001862645,
+        "p99": 4.199999999254942,
+        "onePercentLow": 235.29411767283938,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 4,
+        "meanMs": 94.8507545,
+        "meanFps": 10.542878707411864,
+        "p50": 94.338645,
+        "p95": 98.038854,
+        "p99": 98.038854,
+        "onePercentLow": 10.200037629978825,
+        "over33Ms": 4,
+        "over50Ms": 4
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "centre",
+      "run": 0,
+      "calls": 328,
+      "triangles": 1141241,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 25
+      },
+      "frame": {
+        "frames": 135,
+        "meanMs": 44.4422222222236,
+        "meanFps": 22.501125056252114,
+        "p50": 16.600000000558794,
+        "p95": 49.09999999962747,
+        "p99": 1299.7999999998137,
+        "onePercentLow": 0.6983971784753535,
+        "over33Ms": 7,
+        "over50Ms": 6
+      },
+      "cpu": {
+        "frames": 136,
+        "meanMs": 2.2544117646483595,
+        "meanFps": 443.57469016135076,
+        "p50": 2.2000000001862645,
+        "p95": 2.699999999254942,
+        "p99": 3.400000000372529,
+        "onePercentLow": 289.8550724481189,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 4,
+        "meanMs": 54.42003875,
+        "meanFps": 18.375584122493848,
+        "p50": 53.379427,
+        "p95": 57.754375,
+        "p99": 57.754375,
+        "onePercentLow": 17.314705595896413,
+        "over33Ms": 4,
+        "over50Ms": 4
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "centre",
+      "run": 1,
+      "calls": 328,
+      "triangles": 1141241,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 25
+      },
+      "frame": {
+        "frames": 110,
+        "meanMs": 49.84818181818012,
+        "meanFps": 20.060912224391103,
+        "p50": 16.600000000558794,
+        "p95": 124.20000000018626,
+        "p99": 1512.5,
+        "onePercentLow": 0.6389572218138855,
+        "over33Ms": 8,
+        "over50Ms": 7
+      },
+      "cpu": {
+        "frames": 111,
+        "meanMs": 2.2369369369352587,
+        "meanFps": 447.0398711239761,
+        "p50": 2.2000000001862645,
+        "p95": 2.7999999998137355,
+        "p99": 3.1000000005587935,
+        "onePercentLow": 294.1176470265978,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 4,
+        "meanMs": 52.149843249999996,
+        "meanFps": 19.175513053915076,
+        "p50": 52.297187,
+        "p95": 53.08401,
+        "p99": 53.08401,
+        "onePercentLow": 18.838064419021848,
+        "over33Ms": 4,
+        "over50Ms": 4
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "forest",
+      "run": 0,
+      "calls": 339,
+      "triangles": 1104322,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 22
+      },
+      "frame": {
+        "frames": 117,
+        "meanMs": 35.715384615386206,
+        "meanFps": 27.999138488045276,
+        "p50": 16.600000000558794,
+        "p95": 98.90000000037253,
+        "p99": 334.90000000037253,
+        "onePercentLow": 1.3673343816228518,
+        "over33Ms": 6,
+        "over50Ms": 6
+      },
+      "cpu": {
+        "frames": 118,
+        "meanMs": 2.0025423729034553,
+        "meanFps": 499.36521370587303,
+        "p50": 1.900000000372529,
+        "p95": 2.400000000372529,
+        "p99": 3.2000000001862645,
+        "onePercentLow": 277.7777777705916,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 4,
+        "meanMs": 60.390767749999995,
+        "meanFps": 16.558822436894754,
+        "p50": 58.469114,
+        "p95": 65.464739,
+        "p99": 65.464739,
+        "onePercentLow": 15.275398867778271,
+        "over33Ms": 4,
+        "over50Ms": 4
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "forest",
+      "run": 1,
+      "calls": 339,
+      "triangles": 1104322,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 22
+      },
+      "frame": {
+        "frames": 30,
+        "meanMs": 193.7633333333147,
+        "meanFps": 5.160935161451751,
+        "p50": 16.600000000558794,
+        "p95": 1991.2000000001863,
+        "p99": 1991.3999999994412,
+        "onePercentLow": 0.5021592849253191,
+        "over33Ms": 5,
+        "over50Ms": 5
+      },
+      "cpu": {
+        "frames": 31,
+        "meanMs": 2.0645161289721727,
+        "meanFps": 484.37500001409717,
+        "p50": 2,
+        "p95": 2.599999999627471,
+        "p99": 2.7000000001862645,
+        "onePercentLow": 370.37037034481966,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 3,
+        "meanMs": 60.97248199999999,
+        "meanFps": 16.400841284433856,
+        "p50": 61.20677,
+        "p95": 64.657968,
+        "p99": 64.657968,
+        "onePercentLow": 15.465997941661266,
+        "over33Ms": 3,
+        "over50Ms": 3
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "industry",
+      "run": 0,
+      "calls": 173,
+      "triangles": 808656,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          140.30174040708079,
+          133,
+          54.23213934270629
+        ],
+        "zoom": 22
+      },
+      "frame": {
+        "frames": 164,
+        "meanMs": 35.13353658536813,
+        "meanFps": 28.462833440356373,
+        "p50": 16.600000000558794,
+        "p95": 17.799999999813735,
+        "p99": 292.09999999962747,
+        "onePercentLow": 0.7631548822833052,
+        "over33Ms": 6,
+        "over50Ms": 6
+      },
+      "cpu": {
+        "frames": 165,
+        "meanMs": 2.072727272715984,
+        "meanFps": 482.4561403535048,
+        "p50": 2,
+        "p95": 2.6000000005587935,
+        "p99": 3,
+        "onePercentLow": 327.86885247903945,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 4,
+        "meanMs": 52.632551750000005,
+        "meanFps": 18.99964882474086,
+        "p50": 51.742864,
+        "p95": 56.550885,
+        "p99": 56.550885,
+        "onePercentLow": 17.68318921976199,
+        "over33Ms": 4,
+        "over50Ms": 4
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "industry",
+      "run": 1,
+      "calls": 173,
+      "triangles": 808656,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          140.30174040708079,
+          133,
+          54.23213934270629
+        ],
+        "zoom": 22
+      },
+      "frame": {
+        "frames": 3,
+        "meanMs": 794.1666666666666,
+        "meanFps": 1.2591815320041972,
+        "p50": 17,
+        "p95": 2348.9000000003725,
+        "p99": 2348.9000000003725,
+        "onePercentLow": 0.42573119332446735,
+        "over33Ms": 1,
+        "over50Ms": 1
+      },
+      "cpu": {
+        "frames": 4,
+        "meanMs": 2.449999999953434,
+        "meanFps": 408.16326531388023,
+        "p50": 2.1000000005587935,
+        "p95": 3.099999999627471,
+        "p99": 3.099999999627471,
+        "onePercentLow": 322.5806452000551,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": null,
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "beach",
+      "run": 0,
+      "calls": 237,
+      "triangles": 664110,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          178.21325605691896,
+          130,
+          147.22524113596876
+        ],
+        "zoom": 23
+      },
+      "frame": {
+        "frames": 187,
+        "meanMs": 29.684491978609625,
+        "meanFps": 33.68762385155828,
+        "p50": 16.59999999962747,
+        "p95": 18.200000000186265,
+        "p99": 375.8999999994412,
+        "onePercentLow": 1.3113034356156419,
+        "over33Ms": 7,
+        "over50Ms": 7
+      },
+      "cpu": {
+        "frames": 188,
+        "meanMs": 2.3367021277229836,
+        "meanFps": 427.9535624741598,
+        "p50": 2.2999999998137355,
+        "p95": 2.8999999994412065,
+        "p99": 3.099999999627471,
+        "onePercentLow": 312.4999999818101,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 12,
+        "meanMs": 35.55875391666667,
+        "meanFps": 28.12247027394546,
+        "p50": 36.422604,
+        "p95": 38.64276,
+        "p99": 38.64276,
+        "onePercentLow": 25.87806875078281,
+        "over33Ms": 10,
+        "over50Ms": 0
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "beach",
+      "run": 1,
+      "calls": 237,
+      "triangles": 664110,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          178.21325605691896,
+          130,
+          147.22524113596876
+        ],
+        "zoom": 23
+      },
+      "frame": {
+        "frames": 163,
+        "meanMs": 30.909202453988872,
+        "meanFps": 32.35282442141915,
+        "p50": 16.699999999254942,
+        "p95": 18.200000000186265,
+        "p99": 550,
+        "onePercentLow": 1.0351431085344556,
+        "over33Ms": 6,
+        "over50Ms": 6
+      },
+      "cpu": {
+        "frames": 164,
+        "meanMs": 2.1847560975428033,
+        "meanFps": 457.71699693375416,
+        "p50": 2.1000000005587935,
+        "p95": 2.7000000001862645,
+        "p99": 3,
+        "onePercentLow": 317.46031746970345,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 11,
+        "meanMs": 35.266571545454546,
+        "meanFps": 28.355464003953866,
+        "p50": 35.235572,
+        "p95": 38.572239,
+        "p99": 38.572239,
+        "onePercentLow": 25.92538120486083,
+        "over33Ms": 8,
+        "over50Ms": 0
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "river",
+      "run": 0,
+      "calls": 338,
+      "triangles": 1249945,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          78.24223761506309,
+          130,
+          152.7746079194958
+        ],
+        "zoom": 21
+      },
+      "frame": {
+        "frames": 108,
+        "meanMs": 55.40370370370888,
+        "meanFps": 18.04933484858445,
+        "p50": 16.700000000186265,
+        "p95": 53.59999999962747,
+        "p99": 1829.2000000001863,
+        "onePercentLow": 0.5362792942565291,
+        "over33Ms": 6,
+        "over50Ms": 6
+      },
+      "cpu": {
+        "frames": 109,
+        "meanMs": 2.2192660550920107,
+        "meanFps": 450.59942123908166,
+        "p50": 2.2000000001862645,
+        "p95": 2.7000000001862645,
+        "p99": 3,
+        "onePercentLow": 327.8688524289818,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 4,
+        "meanMs": 61.91169225,
+        "meanFps": 16.152037905247212,
+        "p50": 60.089166,
+        "p95": 67.128854,
+        "p99": 67.128854,
+        "onePercentLow": 14.896723843967305,
+        "over33Ms": 4,
+        "over50Ms": 4
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "river",
+      "run": 1,
+      "calls": 338,
+      "triangles": 1249945,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          78.24223761506309,
+          130,
+          152.7746079194958
+        ],
+        "zoom": 21
+      },
+      "frame": {
+        "frames": 134,
+        "meanMs": 32.8873134328386,
+        "meanFps": 30.40686196645911,
+        "p50": 16.700000000186265,
+        "p95": 18.09999999962747,
+        "p99": 529,
+        "onePercentLow": 1.0671789125449003,
+        "over33Ms": 6,
+        "over50Ms": 5
+      },
+      "cpu": {
+        "frames": 135,
+        "meanMs": 2.1940740740409606,
+        "meanFps": 455.7731262729151,
+        "p50": 2.1000000005587935,
+        "p95": 2.7999999998137355,
+        "p99": 3.2000000001862645,
+        "onePercentLow": 273.97260274671663,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 3,
+        "meanMs": 57.915797999999995,
+        "meanFps": 17.26644602220624,
+        "p50": 57.903906,
+        "p95": 58.451822,
+        "p99": 58.451822,
+        "onePercentLow": 17.108106570228042,
+        "over33Ms": 3,
+        "over50Ms": 3
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "forest-close",
+      "run": 0,
+      "calls": 223,
+      "triangles": 569999,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 40
+      },
+      "frame": {
+        "frames": 157,
+        "meanMs": 34.60828025477707,
+        "meanFps": 28.894819177325846,
+        "p50": 16.600000000558794,
+        "p95": 28.299999999813735,
+        "p99": 218.6000000005588,
+        "onePercentLow": 0.8011215701979787,
+        "over33Ms": 7,
+        "over50Ms": 6
+      },
+      "cpu": {
+        "frames": 158,
+        "meanMs": 1.8943037974141255,
+        "meanFps": 527.8984296843405,
+        "p50": 1.7999999998137355,
+        "p95": 2.900000000372529,
+        "p99": 3.699999999254942,
+        "onePercentLow": 266.66666669978036,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 4,
+        "meanMs": 45.876704749999995,
+        "meanFps": 21.797555108837674,
+        "p50": 44.026718,
+        "p95": 48.146197,
+        "p99": 48.146197,
+        "onePercentLow": 20.770072452451437,
+        "over33Ms": 4,
+        "over50Ms": 0
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "forest-close",
+      "run": 1,
+      "calls": 223,
+      "triangles": 569999,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 40
+      },
+      "frame": {
+        "frames": 85,
+        "meanMs": 51.18000000000877,
+        "meanFps": 19.53888237592475,
+        "p50": 16.700000000186265,
+        "p95": 18.600000000558794,
+        "p99": 2086.399999999441,
+        "onePercentLow": 0.4792944785277357,
+        "over33Ms": 4,
+        "over50Ms": 3
+      },
+      "cpu": {
+        "frames": 86,
+        "meanMs": 1.8488372092698375,
+        "meanFps": 540.8805031541585,
+        "p50": 1.7999999998137355,
+        "p95": 2.3999999994412065,
+        "p99": 3.599999999627471,
+        "onePercentLow": 277.7777778065223,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 5,
+        "meanMs": 46.179665799999995,
+        "meanFps": 21.654552554167687,
+        "p50": 45.934114,
+        "p95": 48.997863,
+        "p99": 48.997863,
+        "onePercentLow": 20.409053349938954,
+        "over33Ms": 5,
+        "over50Ms": 0
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "centre-close",
+      "run": 0,
+      "calls": 240,
+      "triangles": 646065,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 40
+      },
+      "frame": {
+        "frames": 138,
+        "meanMs": 43.470289855075166,
+        "meanFps": 23.004217439862547,
+        "p50": 16.600000000558794,
+        "p95": 89.29999999981374,
+        "p99": 1568.7000000001863,
+        "onePercentLow": 0.6361525493812663,
+        "over33Ms": 7,
+        "over50Ms": 7
+      },
+      "cpu": {
+        "frames": 139,
+        "meanMs": 2.5575539568345325,
+        "meanFps": 390.9985935302391,
+        "p50": 2.5,
+        "p95": 3.599999999627471,
+        "p99": 4.099999999627471,
+        "onePercentLow": 232.55813954495753,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 8,
+        "meanMs": 42.5966465,
+        "meanFps": 23.47602645198842,
+        "p50": 42.373593,
+        "p95": 44.41427,
+        "p99": 44.41427,
+        "onePercentLow": 22.515286190677003,
+        "over33Ms": 8,
+        "over50Ms": 0
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    },
+    {
+      "name": "centre-close",
+      "run": 1,
+      "calls": 240,
+      "triangles": 646065,
+      "geometries": 643,
+      "textures": 4,
+      "programs": 38,
+      "meshes": 731,
+      "instances": 34005,
+      "materials": 116,
+      "sourceBytes": 2233668,
+      "width": 1920,
+      "height": 1200,
+      "pixelRatio": 1.5,
+      "settings": {
+        "renderScale": 150,
+        "shadows": "PRESET",
+        "ambientAnimation": true,
+        "showPerformance": false,
+        "quality": "ULTRA",
+        "reducedMotion": false
+      },
+      "resolvedGraphics": {
+        "label": "Ultra",
+        "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+        "pixelRatio": 2,
+        "maxPixels": 6500000,
+        "shadowSize": 4096,
+        "forestDensity": 1,
+        "undergrowth": 1,
+        "flowers": 1,
+        "traffic": 1,
+        "visitors": 1,
+        "cityDetail": 2,
+        "waterEffects": true,
+        "smoothGeometry": true,
+        "tier": "ULTRA",
+        "shadows": true,
+        "renderScale": 150,
+        "animate": true
+      },
+      "modelUrls": [
+        "/assets/models/access-step.glb",
+        "/assets/models/arched-bridge.glb",
+        "/assets/models/beach-set.glb",
+        "/assets/models/bench.glb",
+        "/assets/models/bus-shelter.glb",
+        "/assets/models/car-blue.glb",
+        "/assets/models/car-coral.glb",
+        "/assets/models/car-gold.glb",
+        "/assets/models/car-white.glb",
+        "/assets/models/central-station.glb",
+        "/assets/models/city-bus.glb",
+        "/assets/models/corner-cafe.glb",
+        "/assets/models/court.glb",
+        "/assets/models/delivery-truck.glb",
+        "/assets/models/eco-dome.glb",
+        "/assets/models/eco-observatory.glb",
+        "/assets/models/excavator.glb",
+        "/assets/models/fish-market.glb",
+        "/assets/models/football-field.glb",
+        "/assets/models/fountain.glb",
+        "/assets/models/greenhouse.glb",
+        "/assets/models/grid-pylon.glb",
+        "/assets/models/heat-pump.glb",
+        "/assets/models/hospital.glb",
+        "/assets/models/house-cream.glb",
+        "/assets/models/house-terrace.glb",
+        "/assets/models/industrial-gate.glb",
+        "/assets/models/industrial-waste.glb",
+        "/assets/models/industrial-works.glb",
+        "/assets/models/information-sign.glb",
+        "/assets/models/lamp.glb",
+        "/assets/models/lighthouse.glb",
+        "/assets/models/office-glass.glb",
+        "/assets/models/pier.glb",
+        "/assets/models/playground.glb",
+        "/assets/models/rabbit.glb",
+        "/assets/models/recycling-centre.glb",
+        "/assets/models/river-dam.glb",
+        "/assets/models/river-outfall.glb",
+        "/assets/models/road-deck-module.glb",
+        "/assets/models/road-pier-cap.glb",
+        "/assets/models/road-pier-footing.glb",
+        "/assets/models/road-pier-shaft.glb",
+        "/assets/models/road-retaining-wall.glb",
+        "/assets/models/rock.glb",
+        "/assets/models/ruined-building.glb",
+        "/assets/models/sailboat.glb",
+        "/assets/models/solar-cottage.glb",
+        "/assets/models/solar-rack.glb",
+        "/assets/models/solar-school.glb",
+        "/assets/models/solar-station.glb",
+        "/assets/models/station-guardrail.glb",
+        "/assets/models/station-lift-landing.glb",
+        "/assets/models/station-lift-shaft.glb",
+        "/assets/models/station-platform-canopy.glb",
+        "/assets/models/station-stairs.glb",
+        "/assets/models/thermometer.glb",
+        "/assets/models/townhouse-coral.glb",
+        "/assets/models/townhouse-cream.glb",
+        "/assets/models/townhouse-pink.glb",
+        "/assets/models/townhouse-sage.glb",
+        "/assets/models/train-cab.glb",
+        "/assets/models/train-carriage.glb",
+        "/assets/models/tree-birch.glb",
+        "/assets/models/tree-blossom.glb",
+        "/assets/models/tree-fir.glb",
+        "/assets/models/tree-maple.glb",
+        "/assets/models/tree-oak.glb",
+        "/assets/models/tree-palm.glb",
+        "/assets/models/tree-stump.glb",
+        "/assets/models/tree-thicket.glb",
+        "/assets/models/tree.glb",
+        "/assets/models/turbine.glb",
+        "/assets/models/waste-partial.glb",
+        "/assets/models/waste-pile.glb",
+        "/assets/models/wheelchair-user.glb",
+        "/assets/models/wildlife-shelter.glb"
+      ],
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 40
+      },
+      "frame": {
+        "frames": 156,
+        "meanMs": 37.40064102564103,
+        "meanFps": 26.737509640928955,
+        "p50": 16.799999999813735,
+        "p95": 97.5,
+        "p99": 936,
+        "onePercentLow": 0.8379771232244706,
+        "over33Ms": 8,
+        "over50Ms": 8
+      },
+      "cpu": {
+        "frames": 157,
+        "meanMs": 3.247133757948733,
+        "meanFps": 307.96390741591017,
+        "p50": 3.099999999627471,
+        "p95": 4.7999999998137355,
+        "p99": 5.5,
+        "onePercentLow": 170.94017093744955,
+        "over33Ms": 0,
+        "over50Ms": 0
+      },
+      "gpu": {
+        "frames": 8,
+        "meanMs": 43.738091875,
+        "meanFps": 22.863365938731864,
+        "p50": 41.572968,
+        "p95": 48.486718,
+        "p99": 48.486718,
+        "onePercentLow": 20.624204756444847,
+        "over33Ms": 8,
+        "over50Ms": 0
+      },
+      "bufferUploads": 0,
+      "bufferUploadBytes": 0,
+      "maximumGuard": {
+        "valid": true,
+        "violations": []
+      },
+      "presentationVerified": false
+    }
+  ],
+  "profiles": [
+    {
+      "name": "overview",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 177,
+          "gpuMs": 34.69038499999999,
+          "samples": 177,
+          "gpuMsPerFrame": 11.563461666666663
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 66,
+          "gpuMs": 34.646012000000006,
+          "samples": 66,
+          "gpuMsPerFrame": 11.548670666666668
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 6,
+          "gpuMs": 24.566561,
+          "samples": 6,
+          "gpuMsPerFrame": 8.188853666666667
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 14.928538999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 4.976179666666666
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 12.865779,
+          "samples": 6,
+          "gpuMsPerFrame": 4.288593
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 11.132551,
+          "samples": 3,
+          "gpuMsPerFrame": 3.710850333333333
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 72,
+          "gpuMs": 11.048349,
+          "samples": 72,
+          "gpuMsPerFrame": 3.682783
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 177,
+          "gpuMs": 10.93512700000001,
+          "samples": 177,
+          "gpuMsPerFrame": 3.6450423333333366
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 36,
+          "gpuMs": 10.494464,
+          "samples": 36,
+          "gpuMsPerFrame": 3.4981546666666667
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 99,
+          "gpuMs": 10.322140000000001,
+          "samples": 99,
+          "gpuMsPerFrame": 3.4407133333333335
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 9.742182999999999,
+          "samples": 12,
+          "gpuMsPerFrame": 3.247394333333333
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 123,
+          "gpuMs": 9.150674999999996,
+          "samples": 123,
+          "gpuMsPerFrame": 3.050224999999999
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 7.157707,
+          "samples": 3,
+          "gpuMsPerFrame": 2.3859023333333336
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 5.536383,
+          "samples": 45,
+          "gpuMsPerFrame": 1.845461
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 93,
+          "gpuMs": 5.065896,
+          "samples": 93,
+          "gpuMsPerFrame": 1.6886320000000001
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 60,
+          "gpuMs": 5.0652870000000005,
+          "samples": 60,
+          "gpuMsPerFrame": 1.6884290000000002
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 4.997287999999999,
+          "samples": 9,
+          "gpuMsPerFrame": 1.6657626666666665
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 12,
+          "gpuMs": 4.397493999999999,
+          "samples": 12,
+          "gpuMsPerFrame": 1.465831333333333
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 69,
+          "gpuMs": 3.689139000000001,
+          "samples": 69,
+          "gpuMsPerFrame": 1.2297130000000003
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 54,
+          "gpuMs": 3.3488849999999997,
+          "samples": 54,
+          "gpuMsPerFrame": 1.1162949999999998
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 21,
+          "gpuMs": 2.999262,
+          "samples": 21,
+          "gpuMsPerFrame": 0.9997539999999999
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 9,
+          "gpuMs": 2.9590080000000003,
+          "samples": 9,
+          "gpuMsPerFrame": 0.9863360000000001
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 21,
+          "gpuMs": 2.5866049999999996,
+          "samples": 21,
+          "gpuMsPerFrame": 0.8622016666666665
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 2.125571,
+          "samples": 3,
+          "gpuMsPerFrame": 0.7085236666666667
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 1.8112999999999997,
+          "samples": 6,
+          "gpuMsPerFrame": 0.6037666666666666
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 84,
+          "gpuMs": 1.7977239999999994,
+          "samples": 84,
+          "gpuMsPerFrame": 0.5992413333333332
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 69,
+          "gpuMs": 1.7486690000000005,
+          "samples": 69,
+          "gpuMsPerFrame": 0.5828896666666669
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 51,
+          "gpuMs": 1.4348700000000003,
+          "samples": 51,
+          "gpuMsPerFrame": 0.4782900000000001
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 69,
+          "gpuMs": 1.3025729999999995,
+          "samples": 69,
+          "gpuMsPerFrame": 0.4341909999999998
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 27,
+          "gpuMs": 1.2514969999999999,
+          "samples": 27,
+          "gpuMsPerFrame": 0.4171656666666666
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 1.229217,
+          "samples": 6,
+          "gpuMsPerFrame": 0.409739
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 39,
+          "gpuMs": 1.149306,
+          "samples": 39,
+          "gpuMsPerFrame": 0.383102
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 36,
+          "gpuMs": 1.1395720000000003,
+          "samples": 36,
+          "gpuMsPerFrame": 0.37985733333333344
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 1.133175,
+          "samples": 6,
+          "gpuMsPerFrame": 0.37772500000000003
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 1.038592,
+          "samples": 6,
+          "gpuMsPerFrame": 0.3461973333333333
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 1.018539,
+          "samples": 6,
+          "gpuMsPerFrame": 0.339513
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 1.009477,
+          "samples": 3,
+          "gpuMsPerFrame": 0.33649233333333334
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.9896800000000001,
+          "samples": 15,
+          "gpuMsPerFrame": 0.32989333333333337
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.964218,
+          "samples": 3,
+          "gpuMsPerFrame": 0.321406
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 39,
+          "gpuMs": 0.9323279999999999,
+          "samples": 39,
+          "gpuMsPerFrame": 0.310776
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.807599,
+          "samples": 12,
+          "gpuMsPerFrame": 0.26919966666666667
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 54,
+          "gpuMs": 0.6815380000000001,
+          "samples": 54,
+          "gpuMsPerFrame": 0.22717933333333337
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 0.642851,
+          "samples": 27,
+          "gpuMsPerFrame": 0.21428366666666665
+        },
+        {
+          "key": "eco.wooddark | surface-finish-v3-wood",
+          "draws": 9,
+          "gpuMs": 0.637965,
+          "samples": 9,
+          "gpuMsPerFrame": 0.212655
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 21,
+          "gpuMs": 0.49988599999999994,
+          "samples": 21,
+          "gpuMsPerFrame": 0.16662866666666665
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.44759299999999996,
+          "samples": 27,
+          "gpuMsPerFrame": 0.14919766666666665
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 30,
+          "gpuMs": 0.439778,
+          "samples": 30,
+          "gpuMsPerFrame": 0.14659266666666668
+        },
+        {
+          "key": "MeshStandardMaterial | sand-swash-v3",
+          "draws": 6,
+          "gpuMs": 0.426145,
+          "samples": 6,
+          "gpuMsPerFrame": 0.14204833333333333
+        },
+        {
+          "key": "eco.masonry | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.327602,
+          "samples": 3,
+          "gpuMsPerFrame": 0.10920066666666667
+        },
+        {
+          "key": "eco.woodlight | surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.288173,
+          "samples": 12,
+          "gpuMsPerFrame": 0.09605766666666667
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 15,
+          "gpuMs": 0.28025400000000006,
+          "samples": 15,
+          "gpuMsPerFrame": 0.09341800000000001
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.257289,
+          "samples": 6,
+          "gpuMsPerFrame": 0.08576299999999999
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.214528,
+          "samples": 6,
+          "gpuMsPerFrame": 0.07150933333333333
+        },
+        {
+          "key": "eco.rubble | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.179788,
+          "samples": 6,
+          "gpuMsPerFrame": 0.059929333333333334
+        },
+        {
+          "key": "eco.fieldturf | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.159686,
+          "samples": 3,
+          "gpuMsPerFrame": 0.05322866666666667
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-true-true--65",
+          "draws": 3,
+          "gpuMs": 0.147759,
+          "samples": 3,
+          "gpuMsPerFrame": 0.049253
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.12812199999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.042707333333333326
+        },
+        {
+          "key": "eco.soil | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.122446,
+          "samples": 6,
+          "gpuMsPerFrame": 0.040815333333333335
+        },
+        {
+          "key": "eco.fieldmark | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.095832,
+          "samples": 3,
+          "gpuMsPerFrame": 0.031944
+        },
+        {
+          "key": "eco.fieldstripe | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.086769,
+          "samples": 3,
+          "gpuMsPerFrame": 0.028923
+        },
+        {
+          "key": "eco.waste | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.060363,
+          "samples": 3,
+          "gpuMsPerFrame": 0.020121
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.052343,
+          "samples": 3,
+          "gpuMsPerFrame": 0.017447666666666667
+        },
+        {
+          "key": "eco.skin | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.050416,
+          "samples": 3,
+          "gpuMsPerFrame": 0.016805333333333335
+        },
+        {
+          "key": "eco.hair | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.031978,
+          "samples": 3,
+          "gpuMsPerFrame": 0.010659333333333333
+        },
+        {
+          "key": "eco.pants | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.013697,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004565666666666667
+        }
+      ]
+    },
+    {
+      "name": "centre",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 105,
+          "gpuMs": 30.145215999999998,
+          "samples": 105,
+          "gpuMsPerFrame": 10.048405333333333
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 24.278695999999997,
+          "samples": 3,
+          "gpuMsPerFrame": 8.092898666666665
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 15.183591000000002,
+          "samples": 6,
+          "gpuMsPerFrame": 5.061197000000001
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 11.09338,
+          "samples": 12,
+          "gpuMsPerFrame": 3.6977933333333333
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 6.987915,
+          "samples": 3,
+          "gpuMsPerFrame": 2.329305
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 5.875085000000002,
+          "samples": 45,
+          "gpuMsPerFrame": 1.9583616666666674
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 78,
+          "gpuMs": 5.302989000000002,
+          "samples": 78,
+          "gpuMsPerFrame": 1.7676630000000007
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 108,
+          "gpuMs": 4.992915,
+          "samples": 108,
+          "gpuMsPerFrame": 1.664305
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 66,
+          "gpuMs": 3.702261000000002,
+          "samples": 66,
+          "gpuMsPerFrame": 1.2340870000000006
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 54,
+          "gpuMs": 2.7832539999999995,
+          "samples": 54,
+          "gpuMsPerFrame": 0.9277513333333332
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 2.6661319999999997,
+          "samples": 30,
+          "gpuMsPerFrame": 0.8887106666666665
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 48,
+          "gpuMs": 2.5873250000000003,
+          "samples": 48,
+          "gpuMsPerFrame": 0.8624416666666668
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 54,
+          "gpuMs": 2.563098999999999,
+          "samples": 54,
+          "gpuMsPerFrame": 0.854366333333333
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 18,
+          "gpuMs": 2.282232,
+          "samples": 18,
+          "gpuMsPerFrame": 0.760744
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 2.094215,
+          "samples": 6,
+          "gpuMsPerFrame": 0.6980716666666668
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 2.00873,
+          "samples": 45,
+          "gpuMsPerFrame": 0.6695766666666666
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 1.976405,
+          "samples": 3,
+          "gpuMsPerFrame": 0.6588016666666666
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 30,
+          "gpuMs": 1.7224369999999998,
+          "samples": 30,
+          "gpuMsPerFrame": 0.5741456666666666
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 1.6785379999999999,
+          "samples": 9,
+          "gpuMsPerFrame": 0.5595126666666667
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 57,
+          "gpuMs": 1.3173219999999999,
+          "samples": 57,
+          "gpuMsPerFrame": 0.4391073333333333
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 57,
+          "gpuMs": 1.1849720000000001,
+          "samples": 57,
+          "gpuMsPerFrame": 0.3949906666666667
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 42,
+          "gpuMs": 1.041596,
+          "samples": 42,
+          "gpuMsPerFrame": 0.34719866666666666
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.938748,
+          "samples": 6,
+          "gpuMsPerFrame": 0.312916
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.9239549999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.30798499999999995
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 24,
+          "gpuMs": 0.8376989999999999,
+          "samples": 24,
+          "gpuMsPerFrame": 0.27923299999999995
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.7834209999999999,
+          "samples": 42,
+          "gpuMsPerFrame": 0.2611403333333333
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.754269,
+          "samples": 3,
+          "gpuMsPerFrame": 0.251423
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.7393079999999999,
+          "samples": 27,
+          "gpuMsPerFrame": 0.24643599999999996
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 36,
+          "gpuMs": 0.733268,
+          "samples": 36,
+          "gpuMsPerFrame": 0.24442266666666668
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.715153,
+          "samples": 6,
+          "gpuMsPerFrame": 0.23838433333333334
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.548794,
+          "samples": 21,
+          "gpuMsPerFrame": 0.18293133333333333
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.544631,
+          "samples": 12,
+          "gpuMsPerFrame": 0.18154366666666666
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.529371,
+          "samples": 12,
+          "gpuMsPerFrame": 0.176457
+        },
+        {
+          "key": "eco.masonry | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.522238,
+          "samples": 3,
+          "gpuMsPerFrame": 0.17407933333333334
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 6,
+          "gpuMs": 0.513851,
+          "samples": 6,
+          "gpuMsPerFrame": 0.17128366666666664
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 15,
+          "gpuMs": 0.485877,
+          "samples": 15,
+          "gpuMsPerFrame": 0.161959
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.424269,
+          "samples": 3,
+          "gpuMsPerFrame": 0.141423
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.340192,
+          "samples": 42,
+          "gpuMsPerFrame": 0.11339733333333334
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.26900799999999997,
+          "samples": 6,
+          "gpuMsPerFrame": 0.08966933333333332
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.209265,
+          "samples": 9,
+          "gpuMsPerFrame": 0.069755
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.17838,
+          "samples": 18,
+          "gpuMsPerFrame": 0.059460000000000006
+        },
+        {
+          "key": "eco.rubble | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.170468,
+          "samples": 3,
+          "gpuMsPerFrame": 0.05682266666666667
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.16203,
+          "samples": 3,
+          "gpuMsPerFrame": 0.05401
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.157288,
+          "samples": 6,
+          "gpuMsPerFrame": 0.052429333333333335
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.14379499999999998,
+          "samples": 15,
+          "gpuMsPerFrame": 0.04793166666666666
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.13921699999999998,
+          "samples": 6,
+          "gpuMsPerFrame": 0.04640566666666666
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.129685,
+          "samples": 6,
+          "gpuMsPerFrame": 0.043228333333333334
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 0.074528,
+          "samples": 6,
+          "gpuMsPerFrame": 0.024842666666666666
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.06828000000000001,
+          "samples": 3,
+          "gpuMsPerFrame": 0.022760000000000002
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.051976999999999995,
+          "samples": 3,
+          "gpuMsPerFrame": 0.017325666666666666
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.051300000000000005,
+          "samples": 6,
+          "gpuMsPerFrame": 0.0171
+        },
+        {
+          "key": "eco.skin | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.046300999999999995,
+          "samples": 3,
+          "gpuMsPerFrame": 0.015433666666666665
+        },
+        {
+          "key": "eco.hair | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.037498000000000004,
+          "samples": 3,
+          "gpuMsPerFrame": 0.012499333333333335
+        },
+        {
+          "key": "eco.pants | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.033019,
+          "samples": 3,
+          "gpuMsPerFrame": 0.011006333333333333
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.001352,
+          "samples": 6,
+          "gpuMsPerFrame": 0.00045066666666666665
+        },
+        {
+          "key": "eco.wooddark | surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.000676,
+          "samples": 3,
+          "gpuMsPerFrame": 0.00022533333333333333
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.000624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.000208
+        }
+      ]
+    },
+    {
+      "name": "forest",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 39,
+          "gpuMs": 26.548416,
+          "samples": 39,
+          "gpuMsPerFrame": 8.849472
+        },
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 96,
+          "gpuMs": 25.795842999999994,
+          "samples": 96,
+          "gpuMsPerFrame": 8.598614333333332
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 6,
+          "gpuMs": 24.330413,
+          "samples": 6,
+          "gpuMsPerFrame": 8.110137666666667
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 9.866192999999999,
+          "samples": 12,
+          "gpuMsPerFrame": 3.288731
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 7.561508999999999,
+          "samples": 3,
+          "gpuMsPerFrame": 2.5205029999999997
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 7.375363,
+          "samples": 3,
+          "gpuMsPerFrame": 2.4584543333333335
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 48,
+          "gpuMs": 7.346543,
+          "samples": 48,
+          "gpuMsPerFrame": 2.4488476666666665
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 7.203329999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 2.4011099999999996
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 6.449521000000001,
+          "samples": 27,
+          "gpuMsPerFrame": 2.1498403333333336
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 60,
+          "gpuMs": 5.049034,
+          "samples": 60,
+          "gpuMsPerFrame": 1.6830113333333332
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 4.683580999999999,
+          "samples": 30,
+          "gpuMsPerFrame": 1.5611936666666664
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 39,
+          "gpuMs": 4.326753,
+          "samples": 39,
+          "gpuMsPerFrame": 1.442251
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 90,
+          "gpuMs": 3.834544,
+          "samples": 90,
+          "gpuMsPerFrame": 1.2781813333333334
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 3.716506,
+          "samples": 9,
+          "gpuMsPerFrame": 1.2388353333333333
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 3.535290999999999,
+          "samples": 45,
+          "gpuMsPerFrame": 1.178430333333333
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 12,
+          "gpuMs": 2.2327529999999998,
+          "samples": 12,
+          "gpuMsPerFrame": 0.7442509999999999
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 3,
+          "gpuMs": 1.89229,
+          "samples": 3,
+          "gpuMsPerFrame": 0.6307633333333333
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 6,
+          "gpuMs": 1.888382,
+          "samples": 6,
+          "gpuMsPerFrame": 0.6294606666666667
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 1.856764,
+          "samples": 15,
+          "gpuMsPerFrame": 0.6189213333333333
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 57,
+          "gpuMs": 1.5663770000000001,
+          "samples": 57,
+          "gpuMsPerFrame": 0.5221256666666667
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 1.375778,
+          "samples": 6,
+          "gpuMsPerFrame": 0.45859266666666665
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 42,
+          "gpuMs": 0.965761,
+          "samples": 42,
+          "gpuMsPerFrame": 0.3219203333333333
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 48,
+          "gpuMs": 0.9629990000000002,
+          "samples": 48,
+          "gpuMsPerFrame": 0.32099966666666674
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 36,
+          "gpuMs": 0.8775870000000001,
+          "samples": 36,
+          "gpuMsPerFrame": 0.29252900000000004
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.859417,
+          "samples": 21,
+          "gpuMsPerFrame": 0.28647233333333333
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 33,
+          "gpuMs": 0.7996709999999999,
+          "samples": 33,
+          "gpuMsPerFrame": 0.266557
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.78359,
+          "samples": 6,
+          "gpuMsPerFrame": 0.2611966666666667
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 0.6926390000000001,
+          "samples": 36,
+          "gpuMsPerFrame": 0.2308796666666667
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 12,
+          "gpuMs": 0.523119,
+          "samples": 12,
+          "gpuMsPerFrame": 0.174373
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 24,
+          "gpuMs": 0.521551,
+          "samples": 24,
+          "gpuMsPerFrame": 0.17385033333333333
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.445618,
+          "samples": 12,
+          "gpuMsPerFrame": 0.14853933333333333
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.382811,
+          "samples": 3,
+          "gpuMsPerFrame": 0.12760366666666667
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 15,
+          "gpuMs": 0.33306700000000006,
+          "samples": 15,
+          "gpuMsPerFrame": 0.11102233333333335
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.31192100000000006,
+          "samples": 18,
+          "gpuMsPerFrame": 0.10397366666666669
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.299999,
+          "samples": 3,
+          "gpuMsPerFrame": 0.09999966666666667
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.293332,
+          "samples": 6,
+          "gpuMsPerFrame": 0.09777733333333333
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 0.288477,
+          "samples": 27,
+          "gpuMsPerFrame": 0.096159
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-true-true--65",
+          "draws": 3,
+          "gpuMs": 0.28088399999999997,
+          "samples": 3,
+          "gpuMsPerFrame": 0.09362799999999999
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 15,
+          "gpuMs": 0.27009999999999995,
+          "samples": 15,
+          "gpuMsPerFrame": 0.09003333333333331
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.220727,
+          "samples": 3,
+          "gpuMsPerFrame": 0.07357566666666666
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.21218599999999999,
+          "samples": 3,
+          "gpuMsPerFrame": 0.07072866666666666
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.169945,
+          "samples": 6,
+          "gpuMsPerFrame": 0.056648333333333335
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.16942100000000002,
+          "samples": 12,
+          "gpuMsPerFrame": 0.05647366666666667
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.16838399999999998,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05612799999999999
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.13718200000000003,
+          "samples": 9,
+          "gpuMsPerFrame": 0.04572733333333334
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.11645699999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.038819
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.085206,
+          "samples": 3,
+          "gpuMsPerFrame": 0.028402
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.083695,
+          "samples": 9,
+          "gpuMsPerFrame": 0.027898333333333334
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.08005,
+          "samples": 3,
+          "gpuMsPerFrame": 0.026683333333333333
+        },
+        {
+          "key": "eco.woodlight | surface-finish-v3-wood",
+          "draws": 6,
+          "gpuMs": 0.07739399999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.025797999999999998
+        },
+        {
+          "key": "eco.water | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.074008,
+          "samples": 6,
+          "gpuMsPerFrame": 0.024669333333333335
+        },
+        {
+          "key": "eco.soil | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.047498,
+          "samples": 3,
+          "gpuMsPerFrame": 0.015832666666666665
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.046354,
+          "samples": 3,
+          "gpuMsPerFrame": 0.015451333333333333
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.03479,
+          "samples": 6,
+          "gpuMsPerFrame": 0.011596666666666667
+        },
+        {
+          "key": "eco.wooddark | surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.016196,
+          "samples": 3,
+          "gpuMsPerFrame": 0.005398666666666666
+        }
+      ]
+    },
+    {
+      "name": "industry",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 24.351822,
+          "samples": 3,
+          "gpuMsPerFrame": 8.117274
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 27,
+          "gpuMs": 22.933063000000004,
+          "samples": 27,
+          "gpuMsPerFrame": 7.644354333333335
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 13.988747,
+          "samples": 6,
+          "gpuMsPerFrame": 4.662915666666667
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 12.261092,
+          "samples": 3,
+          "gpuMsPerFrame": 4.087030666666666
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 10.583383999999999,
+          "samples": 3,
+          "gpuMsPerFrame": 3.5277946666666664
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 8.92531,
+          "samples": 6,
+          "gpuMsPerFrame": 2.975103333333333
+        },
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 69,
+          "gpuMs": 8.458773000000006,
+          "samples": 69,
+          "gpuMsPerFrame": 2.819591000000002
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 7.281081999999999,
+          "samples": 27,
+          "gpuMsPerFrame": 2.4270273333333328
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 66,
+          "gpuMs": 4.854400000000001,
+          "samples": 66,
+          "gpuMsPerFrame": 1.6181333333333336
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 33,
+          "gpuMs": 4.011550000000001,
+          "samples": 33,
+          "gpuMsPerFrame": 1.3371833333333336
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 9,
+          "gpuMs": 3.9490049999999997,
+          "samples": 9,
+          "gpuMsPerFrame": 1.3163349999999998
+        },
+        {
+          "key": "MeshStandardMaterial | dump-finish-v1-initial",
+          "draws": 6,
+          "gpuMs": 3.64708,
+          "samples": 6,
+          "gpuMsPerFrame": 1.2156933333333333
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 1.962965,
+          "samples": 9,
+          "gpuMsPerFrame": 0.6543216666666667
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 1.6617549999999999,
+          "samples": 30,
+          "gpuMsPerFrame": 0.5539183333333333
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 9,
+          "gpuMs": 1.622965,
+          "samples": 9,
+          "gpuMsPerFrame": 0.5409883333333333
+        },
+        {
+          "key": "eco.rubble | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 1.347239,
+          "samples": 3,
+          "gpuMsPerFrame": 0.4490796666666667
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 9,
+          "gpuMs": 1.1971829999999999,
+          "samples": 9,
+          "gpuMsPerFrame": 0.39906099999999994
+        },
+        {
+          "key": "eco.waste | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 1.162496,
+          "samples": 9,
+          "gpuMsPerFrame": 0.38749866666666666
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 24,
+          "gpuMs": 1.137332,
+          "samples": 24,
+          "gpuMsPerFrame": 0.37911066666666665
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 1.070191,
+          "samples": 42,
+          "gpuMsPerFrame": 0.3567303333333333
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 15,
+          "gpuMs": 1.0330659999999998,
+          "samples": 15,
+          "gpuMsPerFrame": 0.3443553333333333
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 33,
+          "gpuMs": 0.925508,
+          "samples": 33,
+          "gpuMsPerFrame": 0.30850266666666665
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.772549,
+          "samples": 6,
+          "gpuMsPerFrame": 0.25751633333333335
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 33,
+          "gpuMs": 0.6799330000000001,
+          "samples": 33,
+          "gpuMsPerFrame": 0.22664433333333336
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 33,
+          "gpuMs": 0.555663,
+          "samples": 33,
+          "gpuMsPerFrame": 0.185221
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 24,
+          "gpuMs": 0.5219709999999999,
+          "samples": 24,
+          "gpuMsPerFrame": 0.17399033333333327
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.426819,
+          "samples": 9,
+          "gpuMsPerFrame": 0.142273
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 24,
+          "gpuMs": 0.40723,
+          "samples": 24,
+          "gpuMsPerFrame": 0.13574333333333333
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.3901,
+          "samples": 6,
+          "gpuMsPerFrame": 0.13003333333333333
+        },
+        {
+          "key": "eco.industrial | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.241614,
+          "samples": 3,
+          "gpuMsPerFrame": 0.080538
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 24,
+          "gpuMs": 0.22879200000000005,
+          "samples": 24,
+          "gpuMsPerFrame": 0.07626400000000001
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 36,
+          "gpuMs": 0.22165300000000016,
+          "samples": 36,
+          "gpuMsPerFrame": 0.07388433333333339
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.200306,
+          "samples": 12,
+          "gpuMsPerFrame": 0.06676866666666667
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.18426600000000004,
+          "samples": 12,
+          "gpuMsPerFrame": 0.06142200000000001
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.177603,
+          "samples": 3,
+          "gpuMsPerFrame": 0.059201000000000004
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.153695,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05123166666666667
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 15,
+          "gpuMs": 0.134786,
+          "samples": 15,
+          "gpuMsPerFrame": 0.044928666666666665
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 21,
+          "gpuMs": 0.11202200000000001,
+          "samples": 21,
+          "gpuMsPerFrame": 0.03734066666666667
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.105621,
+          "samples": 9,
+          "gpuMsPerFrame": 0.035207
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.103071,
+          "samples": 6,
+          "gpuMsPerFrame": 0.034357
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 12,
+          "gpuMs": 0.09410899999999998,
+          "samples": 12,
+          "gpuMsPerFrame": 0.031369666666666664
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.09088399999999999,
+          "samples": 3,
+          "gpuMsPerFrame": 0.030294666666666664
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.088853,
+          "samples": 3,
+          "gpuMsPerFrame": 0.029617666666666667
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 15,
+          "gpuMs": 0.072338,
+          "samples": 15,
+          "gpuMsPerFrame": 0.024112666666666668
+        },
+        {
+          "key": "eco.woodlight | surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.057915,
+          "samples": 3,
+          "gpuMsPerFrame": 0.019305
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.05328000000000001,
+          "samples": 3,
+          "gpuMsPerFrame": 0.01776
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 18,
+          "gpuMs": 0.033379,
+          "samples": 18,
+          "gpuMsPerFrame": 0.011126333333333334
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.032394,
+          "samples": 3,
+          "gpuMsPerFrame": 0.010798
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 0.030831,
+          "samples": 6,
+          "gpuMsPerFrame": 0.010277
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.017030999999999998,
+          "samples": 3,
+          "gpuMsPerFrame": 0.005676999999999999
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.015672,
+          "samples": 15,
+          "gpuMsPerFrame": 0.0052239999999999995
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.013749,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004583
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 9,
+          "gpuMs": 0.0019760000000000003,
+          "samples": 9,
+          "gpuMsPerFrame": 0.0006586666666666668
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 3,
+          "gpuMs": 0.000676,
+          "samples": 3,
+          "gpuMsPerFrame": 0.00022533333333333333
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.000624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.000208
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.000624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.000208
+        }
+      ]
+    },
+    {
+      "name": "beach",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 24.427551,
+          "samples": 3,
+          "gpuMsPerFrame": 8.142517
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 8.834983000000001,
+          "samples": 45,
+          "gpuMsPerFrame": 2.9449943333333337
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 7.055727000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 2.3519090000000005
+        },
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 90,
+          "gpuMs": 6.5568880000000025,
+          "samples": 90,
+          "gpuMsPerFrame": 2.1856293333333343
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 5.16458,
+          "samples": 6,
+          "gpuMsPerFrame": 1.7215266666666666
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 5.0868210000000005,
+          "samples": 3,
+          "gpuMsPerFrame": 1.695607
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 3.7354619999999996,
+          "samples": 12,
+          "gpuMsPerFrame": 1.2451539999999999
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 51,
+          "gpuMs": 3.057790000000002,
+          "samples": 51,
+          "gpuMsPerFrame": 1.019263333333334
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 30,
+          "gpuMs": 2.537482,
+          "samples": 30,
+          "gpuMsPerFrame": 0.8458273333333333
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 45,
+          "gpuMs": 2.1850839999999994,
+          "samples": 45,
+          "gpuMsPerFrame": 0.7283613333333331
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 63,
+          "gpuMs": 2.1443989999999995,
+          "samples": 63,
+          "gpuMsPerFrame": 0.7147996666666665
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 1.965155,
+          "samples": 3,
+          "gpuMsPerFrame": 0.6550516666666667
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 87,
+          "gpuMs": 1.8033489999999994,
+          "samples": 87,
+          "gpuMsPerFrame": 0.6011163333333331
+        },
+        {
+          "key": "MeshStandardMaterial | sand-swash-v3",
+          "draws": 6,
+          "gpuMs": 1.6762990000000002,
+          "samples": 6,
+          "gpuMsPerFrame": 0.5587663333333334
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 24,
+          "gpuMs": 1.5244149999999999,
+          "samples": 24,
+          "gpuMsPerFrame": 0.5081383333333332
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 1.305726,
+          "samples": 9,
+          "gpuMsPerFrame": 0.43524199999999996
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 1.238373,
+          "samples": 27,
+          "gpuMsPerFrame": 0.41279099999999996
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 1.0253609999999997,
+          "samples": 6,
+          "gpuMsPerFrame": 0.3417869999999999
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 30,
+          "gpuMs": 1.021444,
+          "samples": 30,
+          "gpuMsPerFrame": 0.34048133333333336
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 60,
+          "gpuMs": 0.9850769999999996,
+          "samples": 60,
+          "gpuMsPerFrame": 0.3283589999999999
+        },
+        {
+          "key": "eco.woodlight | surface-finish-v3-wood",
+          "draws": 9,
+          "gpuMs": 0.9010880000000001,
+          "samples": 9,
+          "gpuMsPerFrame": 0.3003626666666667
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 12,
+          "gpuMs": 0.8542150000000001,
+          "samples": 12,
+          "gpuMsPerFrame": 0.28473833333333337
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 36,
+          "gpuMs": 0.7846199999999999,
+          "samples": 36,
+          "gpuMsPerFrame": 0.26153999999999994
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.7038510000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.23461700000000005
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 6,
+          "gpuMs": 0.699319,
+          "samples": 6,
+          "gpuMsPerFrame": 0.23310633333333333
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 51,
+          "gpuMs": 0.6070609999999999,
+          "samples": 51,
+          "gpuMsPerFrame": 0.20235366666666663
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 0.575206,
+          "samples": 6,
+          "gpuMsPerFrame": 0.19173533333333334
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.514052,
+          "samples": 27,
+          "gpuMsPerFrame": 0.17135066666666665
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 42,
+          "gpuMs": 0.46341999999999994,
+          "samples": 42,
+          "gpuMsPerFrame": 0.15447333333333332
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.41578000000000004,
+          "samples": 3,
+          "gpuMsPerFrame": 0.13859333333333335
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 15,
+          "gpuMs": 0.3905640000000001,
+          "samples": 15,
+          "gpuMsPerFrame": 0.13018800000000003
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.3593680000000001,
+          "samples": 21,
+          "gpuMsPerFrame": 0.11978933333333336
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.315155,
+          "samples": 3,
+          "gpuMsPerFrame": 0.10505166666666667
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 30,
+          "gpuMs": 0.29722800000000005,
+          "samples": 30,
+          "gpuMsPerFrame": 0.09907600000000001
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.280311,
+          "samples": 3,
+          "gpuMsPerFrame": 0.09343699999999999
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 0.22175800000000012,
+          "samples": 36,
+          "gpuMsPerFrame": 0.07391933333333338
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.21843400000000002,
+          "samples": 9,
+          "gpuMsPerFrame": 0.07281133333333334
+        },
+        {
+          "key": "eco.wooddark | surface-finish-v3-wood",
+          "draws": 3,
+          "gpuMs": 0.19682100000000002,
+          "samples": 3,
+          "gpuMsPerFrame": 0.06560700000000001
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.18936800000000004,
+          "samples": 12,
+          "gpuMsPerFrame": 0.06312266666666667
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.162497,
+          "samples": 6,
+          "gpuMsPerFrame": 0.05416566666666667
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.14749500000000001,
+          "samples": 9,
+          "gpuMsPerFrame": 0.04916500000000001
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.146037,
+          "samples": 12,
+          "gpuMsPerFrame": 0.048679
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.144737,
+          "samples": 9,
+          "gpuMsPerFrame": 0.048245666666666666
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 33,
+          "gpuMs": 0.142593,
+          "samples": 33,
+          "gpuMsPerFrame": 0.047531
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.14124699999999998,
+          "samples": 6,
+          "gpuMsPerFrame": 0.04708233333333333
+        },
+        {
+          "key": "eco.rubble | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.137602,
+          "samples": 3,
+          "gpuMsPerFrame": 0.045867333333333336
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.12812199999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.042707333333333326
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.127968,
+          "samples": 3,
+          "gpuMsPerFrame": 0.042656
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.11249400000000001,
+          "samples": 12,
+          "gpuMsPerFrame": 0.037498000000000004
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.10067599999999999,
+          "samples": 3,
+          "gpuMsPerFrame": 0.03355866666666666
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 24,
+          "gpuMs": 0.09217800000000001,
+          "samples": 24,
+          "gpuMsPerFrame": 0.030726000000000003
+        },
+        {
+          "key": "eco.masonry | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.076353,
+          "samples": 3,
+          "gpuMsPerFrame": 0.025451
+        },
+        {
+          "key": "eco.sand | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.074321,
+          "samples": 3,
+          "gpuMsPerFrame": 0.024773666666666666
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.038592,
+          "samples": 6,
+          "gpuMsPerFrame": 0.012864
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.001352,
+          "samples": 6,
+          "gpuMsPerFrame": 0.00045066666666666665
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.000624,
+          "samples": 3,
+          "gpuMsPerFrame": 0.000208
+        }
+      ]
+    },
+    {
+      "name": "river",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 24.364269999999998,
+          "samples": 3,
+          "gpuMsPerFrame": 8.121423333333333
+        },
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 105,
+          "gpuMs": 20.529636000000004,
+          "samples": 105,
+          "gpuMsPerFrame": 6.843212000000001
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 11.545398,
+          "samples": 45,
+          "gpuMsPerFrame": 3.848466
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 8.064843,
+          "samples": 3,
+          "gpuMsPerFrame": 2.688281
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 7.613014000000001,
+          "samples": 12,
+          "gpuMsPerFrame": 2.5376713333333334
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 3,
+          "gpuMs": 6.697863,
+          "samples": 3,
+          "gpuMsPerFrame": 2.232621
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 6.163383,
+          "samples": 6,
+          "gpuMsPerFrame": 2.054461
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 102,
+          "gpuMs": 5.328180000000001,
+          "samples": 102,
+          "gpuMsPerFrame": 1.7760600000000002
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 54,
+          "gpuMs": 4.605290000000001,
+          "samples": 54,
+          "gpuMsPerFrame": 1.535096666666667
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 4.297953000000001,
+          "samples": 36,
+          "gpuMsPerFrame": 1.4326510000000001
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 3.6550430000000005,
+          "samples": 27,
+          "gpuMsPerFrame": 1.2183476666666668
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 69,
+          "gpuMs": 3.6171040000000003,
+          "samples": 69,
+          "gpuMsPerFrame": 1.2057013333333335
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 72,
+          "gpuMs": 3.4297580000000014,
+          "samples": 72,
+          "gpuMsPerFrame": 1.1432526666666671
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 3.2025440000000005,
+          "samples": 18,
+          "gpuMsPerFrame": 1.0675146666666668
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 3.1241630000000002,
+          "samples": 9,
+          "gpuMsPerFrame": 1.0413876666666668
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 3.038695,
+          "samples": 6,
+          "gpuMsPerFrame": 1.0128983333333335
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 9,
+          "gpuMs": 2.992131,
+          "samples": 9,
+          "gpuMsPerFrame": 0.9973770000000001
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 2.972603,
+          "samples": 3,
+          "gpuMsPerFrame": 0.9908676666666666
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 6,
+          "gpuMs": 2.8625499999999997,
+          "samples": 6,
+          "gpuMsPerFrame": 0.9541833333333333
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 51,
+          "gpuMs": 2.058465,
+          "samples": 51,
+          "gpuMsPerFrame": 0.686155
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 48,
+          "gpuMs": 1.7166950000000005,
+          "samples": 48,
+          "gpuMsPerFrame": 0.5722316666666668
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 24,
+          "gpuMs": 1.7095209999999998,
+          "samples": 24,
+          "gpuMsPerFrame": 0.5698403333333333
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 18,
+          "gpuMs": 1.471971,
+          "samples": 18,
+          "gpuMsPerFrame": 0.49065699999999995
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 45,
+          "gpuMs": 1.171075,
+          "samples": 45,
+          "gpuMsPerFrame": 0.39035833333333336
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 36,
+          "gpuMs": 1.010923,
+          "samples": 36,
+          "gpuMsPerFrame": 0.3369743333333333
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 51,
+          "gpuMs": 0.931801,
+          "samples": 51,
+          "gpuMsPerFrame": 0.3106003333333333
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 33,
+          "gpuMs": 0.8648790000000001,
+          "samples": 33,
+          "gpuMsPerFrame": 0.288293
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.7485379999999999,
+          "samples": 9,
+          "gpuMsPerFrame": 0.24951266666666663
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 0.672794,
+          "samples": 42,
+          "gpuMsPerFrame": 0.22426466666666667
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 12,
+          "gpuMs": 0.61536,
+          "samples": 12,
+          "gpuMsPerFrame": 0.20512
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.60182,
+          "samples": 6,
+          "gpuMsPerFrame": 0.20060666666666668
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 21,
+          "gpuMs": 0.59473,
+          "samples": 21,
+          "gpuMsPerFrame": 0.19824333333333333
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.592861,
+          "samples": 6,
+          "gpuMsPerFrame": 0.19762033333333331
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 21,
+          "gpuMs": 0.4695220000000001,
+          "samples": 21,
+          "gpuMsPerFrame": 0.15650733333333336
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.46915299999999993,
+          "samples": 27,
+          "gpuMsPerFrame": 0.15638433333333332
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.46244599999999997,
+          "samples": 3,
+          "gpuMsPerFrame": 0.15414866666666666
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.45911199999999996,
+          "samples": 6,
+          "gpuMsPerFrame": 0.15303733333333333
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.416457,
+          "samples": 3,
+          "gpuMsPerFrame": 0.138819
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.37530899999999995,
+          "samples": 6,
+          "gpuMsPerFrame": 0.125103
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 36,
+          "gpuMs": 0.34019599999999994,
+          "samples": 36,
+          "gpuMsPerFrame": 0.11339866666666665
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.203643,
+          "samples": 6,
+          "gpuMsPerFrame": 0.067881
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.19389800000000007,
+          "samples": 18,
+          "gpuMsPerFrame": 0.06463266666666669
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.184998,
+          "samples": 3,
+          "gpuMsPerFrame": 0.061666
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.184424,
+          "samples": 6,
+          "gpuMsPerFrame": 0.06147466666666667
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.159108,
+          "samples": 15,
+          "gpuMsPerFrame": 0.053036
+        },
+        {
+          "key": "eco.fieldturf | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.15353899999999998,
+          "samples": 3,
+          "gpuMsPerFrame": 0.05117966666666666
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.099527,
+          "samples": 9,
+          "gpuMsPerFrame": 0.033175666666666666
+        },
+        {
+          "key": "eco.fieldstripe | surface-finish-v3-sportsGrass",
+          "draws": 3,
+          "gpuMs": 0.086978,
+          "samples": 3,
+          "gpuMsPerFrame": 0.028992666666666667
+        },
+        {
+          "key": "eco.fieldmark | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.073697,
+          "samples": 3,
+          "gpuMsPerFrame": 0.024565666666666666
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.063332,
+          "samples": 3,
+          "gpuMsPerFrame": 0.021110666666666666
+        },
+        {
+          "key": "eco.soil | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.062342,
+          "samples": 6,
+          "gpuMsPerFrame": 0.020780666666666666
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.05327900000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.01775966666666667
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.028592000000000003,
+          "samples": 6,
+          "gpuMsPerFrame": 0.009530666666666668
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.012551,
+          "samples": 3,
+          "gpuMsPerFrame": 0.004183666666666666
+        }
+      ]
+    },
+    {
+      "name": "forest-close",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 78,
+          "gpuMs": 37.623039000000006,
+          "samples": 78,
+          "gpuMsPerFrame": 12.541013000000001
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 24.327863999999998,
+          "samples": 3,
+          "gpuMsPerFrame": 8.109288
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 13.172704,
+          "samples": 12,
+          "gpuMsPerFrame": 4.390901333333333
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 51,
+          "gpuMs": 8.312998999999998,
+          "samples": 51,
+          "gpuMsPerFrame": 2.770999666666666
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 6.810207,
+          "samples": 3,
+          "gpuMsPerFrame": 2.270069
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 36,
+          "gpuMs": 6.181700999999999,
+          "samples": 36,
+          "gpuMsPerFrame": 2.0605669999999994
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 3,
+          "gpuMs": 2.64052,
+          "samples": 3,
+          "gpuMsPerFrame": 0.8801733333333334
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 42,
+          "gpuMs": 2.6101889999999996,
+          "samples": 42,
+          "gpuMsPerFrame": 0.8700629999999999
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 2.484895,
+          "samples": 3,
+          "gpuMsPerFrame": 0.8282983333333332
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 2.481663,
+          "samples": 6,
+          "gpuMsPerFrame": 0.8272210000000001
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 2.2886330000000004,
+          "samples": 27,
+          "gpuMsPerFrame": 0.7628776666666668
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 1.7167069999999998,
+          "samples": 27,
+          "gpuMsPerFrame": 0.5722356666666666
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 72,
+          "gpuMs": 1.6505419999999995,
+          "samples": 72,
+          "gpuMsPerFrame": 0.5501806666666665
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 1.6344200000000002,
+          "samples": 15,
+          "gpuMsPerFrame": 0.5448066666666668
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 27,
+          "gpuMs": 1.5622260000000001,
+          "samples": 27,
+          "gpuMsPerFrame": 0.520742
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 15,
+          "gpuMs": 1.537233,
+          "samples": 15,
+          "gpuMsPerFrame": 0.5124110000000001
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 39,
+          "gpuMs": 1.4634709999999997,
+          "samples": 39,
+          "gpuMsPerFrame": 0.4878236666666666
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 51,
+          "gpuMs": 1.2910700000000002,
+          "samples": 51,
+          "gpuMsPerFrame": 0.4303566666666667
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 27,
+          "gpuMs": 1.279259,
+          "samples": 27,
+          "gpuMsPerFrame": 0.42641966666666664
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 1.013953,
+          "samples": 9,
+          "gpuMsPerFrame": 0.3379843333333334
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.9512480000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.3170826666666667
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.9361959999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 0.3120653333333333
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 39,
+          "gpuMs": 0.8401359999999999,
+          "samples": 39,
+          "gpuMsPerFrame": 0.2800453333333333
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 6,
+          "gpuMs": 0.8280180000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.27600600000000003
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 33,
+          "gpuMs": 0.6219660000000002,
+          "samples": 33,
+          "gpuMsPerFrame": 0.2073220000000001
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 33,
+          "gpuMs": 0.5873299999999999,
+          "samples": 33,
+          "gpuMsPerFrame": 0.19577666666666663
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 12,
+          "gpuMs": 0.5826,
+          "samples": 12,
+          "gpuMsPerFrame": 0.1942
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 30,
+          "gpuMs": 0.477436,
+          "samples": 30,
+          "gpuMsPerFrame": 0.15914533333333333
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.47129599999999994,
+          "samples": 18,
+          "gpuMsPerFrame": 0.15709866666666664
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 0.356559,
+          "samples": 6,
+          "gpuMsPerFrame": 0.118853
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 18,
+          "gpuMs": 0.261035,
+          "samples": 18,
+          "gpuMsPerFrame": 0.08701166666666667
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.25588299999999997,
+          "samples": 3,
+          "gpuMsPerFrame": 0.08529433333333332
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 15,
+          "gpuMs": 0.25181600000000004,
+          "samples": 15,
+          "gpuMsPerFrame": 0.08393866666666668
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 27,
+          "gpuMs": 0.2516570000000001,
+          "samples": 27,
+          "gpuMsPerFrame": 0.08388566666666669
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.250155,
+          "samples": 3,
+          "gpuMsPerFrame": 0.083385
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.187028,
+          "samples": 6,
+          "gpuMsPerFrame": 0.062342666666666664
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.147291,
+          "samples": 3,
+          "gpuMsPerFrame": 0.049097
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.137499,
+          "samples": 3,
+          "gpuMsPerFrame": 0.045833000000000006
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 6,
+          "gpuMs": 0.129684,
+          "samples": 6,
+          "gpuMsPerFrame": 0.043227999999999996
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.12400800000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.041336000000000005
+        },
+        {
+          "key": "eco.water | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.10255,
+          "samples": 3,
+          "gpuMsPerFrame": 0.034183333333333336
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.09426599999999999,
+          "samples": 12,
+          "gpuMsPerFrame": 0.031422
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.083172,
+          "samples": 12,
+          "gpuMsPerFrame": 0.027724
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.072706,
+          "samples": 6,
+          "gpuMsPerFrame": 0.024235333333333334
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.046195,
+          "samples": 6,
+          "gpuMsPerFrame": 0.015398333333333333
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.044999000000000004,
+          "samples": 3,
+          "gpuMsPerFrame": 0.014999666666666668
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.043019,
+          "samples": 3,
+          "gpuMsPerFrame": 0.014339666666666667
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 9,
+          "gpuMs": 0.017339999999999998,
+          "samples": 9,
+          "gpuMsPerFrame": 0.0057799999999999995
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.000676,
+          "samples": 3,
+          "gpuMsPerFrame": 0.00022533333333333333
+        }
+      ]
+    },
+    {
+      "name": "centre-close",
+      "frames": 3,
+      "valid": true,
+      "includesQueryOverhead": true,
+      "groups": [
+        {
+          "key": "eco.white | surface-finish-v3-paint",
+          "draws": 102,
+          "gpuMs": 29.65506200000001,
+          "samples": 102,
+          "gpuMsPerFrame": 9.885020666666671
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-false-false-true--65",
+          "draws": 3,
+          "gpuMs": 24.458593000000004,
+          "samples": 3,
+          "gpuMsPerFrame": 8.152864333333335
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-asphalt",
+          "draws": 6,
+          "gpuMs": 10.073694999999999,
+          "samples": 6,
+          "gpuMsPerFrame": 3.357898333333333
+        },
+        {
+          "key": "MeshStandardMaterial | primitive-surface-v2-paving",
+          "draws": 12,
+          "gpuMs": 9.489837,
+          "samples": 12,
+          "gpuMsPerFrame": 3.1632789999999997
+        },
+        {
+          "key": "MeshStandardMaterial | valley-land",
+          "draws": 3,
+          "gpuMs": 7.516456999999999,
+          "samples": 3,
+          "gpuMsPerFrame": 2.5054856666666665
+        },
+        {
+          "key": "eco.navy | surface-finish-v3-paint",
+          "draws": 75,
+          "gpuMs": 3.840751000000001,
+          "samples": 75,
+          "gpuMsPerFrame": 1.2802503333333337
+        },
+        {
+          "key": "eco.leaf | foliage-painted-v3-false-false-false",
+          "draws": 42,
+          "gpuMs": 3.395975000000001,
+          "samples": 42,
+          "gpuMsPerFrame": 1.131991666666667
+        },
+        {
+          "key": "eco.metal | surface-finish-v3-metal",
+          "draws": 105,
+          "gpuMs": 3.0209990000000015,
+          "samples": 105,
+          "gpuMsPerFrame": 1.0069996666666672
+        },
+        {
+          "key": "eco.glass | surface-finish-v3-glass",
+          "draws": 63,
+          "gpuMs": 3.0044000000000004,
+          "samples": 63,
+          "gpuMsPerFrame": 1.0014666666666667
+        },
+        {
+          "key": "eco.rubber | surface-finish-v3-asphalt",
+          "draws": 54,
+          "gpuMs": 1.930602,
+          "samples": 54,
+          "gpuMsPerFrame": 0.6435339999999999
+        },
+        {
+          "key": "eco.stone | surface-finish-v3-concrete",
+          "draws": 30,
+          "gpuMs": 1.612176,
+          "samples": 30,
+          "gpuMsPerFrame": 0.537392
+        },
+        {
+          "key": "eco.autoglass | surface-finish-v3-glass",
+          "draws": 18,
+          "gpuMs": 1.5967109999999998,
+          "samples": 18,
+          "gpuMsPerFrame": 0.532237
+        },
+        {
+          "key": "MeshStandardMaterial | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 1.5886810000000002,
+          "samples": 42,
+          "gpuMsPerFrame": 0.5295603333333334
+        },
+        {
+          "key": "eco.oakleaf | foliage-painted-v3-false-false-false",
+          "draws": 6,
+          "gpuMs": 1.541561,
+          "samples": 6,
+          "gpuMsPerFrame": 0.5138536666666667
+        },
+        {
+          "key": "eco.firleaf | foliage-painted-v3-false-true-false",
+          "draws": 3,
+          "gpuMs": 1.517916,
+          "samples": 3,
+          "gpuMsPerFrame": 0.505972
+        },
+        {
+          "key": "eco.leaflight | foliage-painted-v3-false-false-false",
+          "draws": 45,
+          "gpuMs": 1.5039369999999996,
+          "samples": 45,
+          "gpuMsPerFrame": 0.5013123333333332
+        },
+        {
+          "key": "eco.mapleleaf | foliage-painted-v3-false-false-false",
+          "draws": 9,
+          "gpuMs": 1.3405150000000001,
+          "samples": 9,
+          "gpuMsPerFrame": 0.4468383333333334
+        },
+        {
+          "key": "eco.glassdark | surface-finish-v3-glass",
+          "draws": 54,
+          "gpuMs": 1.1907069999999997,
+          "samples": 54,
+          "gpuMsPerFrame": 0.39690233333333325
+        },
+        {
+          "key": "eco.trunk | surface-finish-v3-wood",
+          "draws": 27,
+          "gpuMs": 1.1503539999999999,
+          "samples": 27,
+          "gpuMsPerFrame": 0.3834513333333333
+        },
+        {
+          "key": "eco.cream | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 1.14135,
+          "samples": 12,
+          "gpuMsPerFrame": 0.38045
+        },
+        {
+          "key": "eco.solar | onBeforeCompile(){}",
+          "draws": 42,
+          "gpuMs": 1.0357110000000003,
+          "samples": 42,
+          "gpuMsPerFrame": 0.34523700000000007
+        },
+        {
+          "key": "eco.concrete | surface-finish-v3-paving",
+          "draws": 39,
+          "gpuMs": 0.9304509999999999,
+          "samples": 39,
+          "gpuMsPerFrame": 0.3101503333333333
+        },
+        {
+          "key": "eco.roofdeck | surface-finish-v3-concrete",
+          "draws": 45,
+          "gpuMs": 0.8921720000000001,
+          "samples": 45,
+          "gpuMsPerFrame": 0.2973906666666667
+        },
+        {
+          "key": "eco.masonry | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.763592,
+          "samples": 3,
+          "gpuMsPerFrame": 0.2545306666666667
+        },
+        {
+          "key": "eco.paint_gold | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.7053090000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.23510300000000003
+        },
+        {
+          "key": "eco.alloy | surface-finish-v3-metal",
+          "draws": 24,
+          "gpuMs": 0.6971760000000001,
+          "samples": 24,
+          "gpuMsPerFrame": 0.23239200000000004
+        },
+        {
+          "key": "eco.trim | surface-finish-v3-paint",
+          "draws": 33,
+          "gpuMs": 0.6176959999999999,
+          "samples": 33,
+          "gpuMsPerFrame": 0.20589866666666665
+        },
+        {
+          "key": "eco.wood | surface-finish-v3-wood",
+          "draws": 15,
+          "gpuMs": 0.6157220000000002,
+          "samples": 15,
+          "gpuMsPerFrame": 0.20524066666666674
+        },
+        {
+          "key": "eco.red | surface-finish-v3-paint",
+          "draws": 27,
+          "gpuMs": 0.5959789999999999,
+          "samples": 27,
+          "gpuMsPerFrame": 0.19865966666666665
+        },
+        {
+          "key": "eco.teal | surface-finish-v3-paint",
+          "draws": 57,
+          "gpuMs": 0.547997,
+          "samples": 57,
+          "gpuMsPerFrame": 0.18266566666666664
+        },
+        {
+          "key": "eco.dark | onBeforeCompile(){}",
+          "draws": 12,
+          "gpuMs": 0.53286,
+          "samples": 12,
+          "gpuMsPerFrame": 0.17762
+        },
+        {
+          "key": "eco.paint_white | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.525676,
+          "samples": 3,
+          "gpuMsPerFrame": 0.17522533333333334
+        },
+        {
+          "key": "eco.paint_coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.497237,
+          "samples": 6,
+          "gpuMsPerFrame": 0.16574566666666665
+        },
+        {
+          "key": "eco.paint_blue | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.270572,
+          "samples": 3,
+          "gpuMsPerFrame": 0.09019066666666666
+        },
+        {
+          "key": "eco.roofgrass | roof-turf-v2",
+          "draws": 18,
+          "gpuMs": 0.26072200000000006,
+          "samples": 18,
+          "gpuMsPerFrame": 0.08690733333333335
+        },
+        {
+          "key": "eco.rust | onBeforeCompile(){}",
+          "draws": 6,
+          "gpuMs": 0.19484100000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.064947
+        },
+        {
+          "key": "eco.led | onBeforeCompile(){}",
+          "draws": 39,
+          "gpuMs": 0.15087,
+          "samples": 39,
+          "gpuMsPerFrame": 0.05029
+        },
+        {
+          "key": "eco.signal | surface-finish-v3-paint",
+          "draws": 15,
+          "gpuMs": 0.142286,
+          "samples": 15,
+          "gpuMsPerFrame": 0.04742866666666667
+        },
+        {
+          "key": "eco.blue | surface-finish-v3-paint",
+          "draws": 12,
+          "gpuMs": 0.10879699999999999,
+          "samples": 12,
+          "gpuMsPerFrame": 0.03626566666666666
+        },
+        {
+          "key": "eco.gold | onBeforeCompile(){}",
+          "draws": 9,
+          "gpuMs": 0.090934,
+          "samples": 9,
+          "gpuMsPerFrame": 0.030311333333333332
+        },
+        {
+          "key": "eco.pink | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.083801,
+          "samples": 3,
+          "gpuMsPerFrame": 0.027933666666666666
+        },
+        {
+          "key": "eco.birch | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.077602,
+          "samples": 3,
+          "gpuMsPerFrame": 0.025867333333333336
+        },
+        {
+          "key": "MeshStandardMaterial | MeshStandardMaterial",
+          "draws": 6,
+          "gpuMs": 0.055152999999999994,
+          "samples": 6,
+          "gpuMsPerFrame": 0.018384333333333332
+        },
+        {
+          "key": "eco.rubble | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.052759,
+          "samples": 3,
+          "gpuMsPerFrame": 0.017586333333333332
+        },
+        {
+          "key": "eco.skin | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.047342,
+          "samples": 3,
+          "gpuMsPerFrame": 0.01578066666666667
+        },
+        {
+          "key": "eco.roof | surface-finish-v3-paint",
+          "draws": 3,
+          "gpuMs": 0.046456,
+          "samples": 3,
+          "gpuMsPerFrame": 0.015485333333333332
+        },
+        {
+          "key": "eco.pants | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.041196,
+          "samples": 3,
+          "gpuMsPerFrame": 0.013732000000000001
+        },
+        {
+          "key": "eco.hair | onBeforeCompile(){}",
+          "draws": 3,
+          "gpuMs": 0.035154000000000005,
+          "samples": 3,
+          "gpuMsPerFrame": 0.011718000000000001
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--65",
+          "draws": 6,
+          "gpuMs": 0.030778000000000003,
+          "samples": 6,
+          "gpuMsPerFrame": 0.010259333333333334
+        },
+        {
+          "key": "MeshStandardMaterial | valley-water-3-true-false-true--27",
+          "draws": 6,
+          "gpuMs": 0.028902,
+          "samples": 6,
+          "gpuMsPerFrame": 0.009634
+        },
+        {
+          "key": "eco.bloomshade | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.0013520000000000001,
+          "samples": 6,
+          "gpuMsPerFrame": 0.0004506666666666667
+        },
+        {
+          "key": "eco.flower | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.001248,
+          "samples": 6,
+          "gpuMsPerFrame": 0.000416
+        },
+        {
+          "key": "eco.lawn | surface-finish-v3-grass",
+          "draws": 6,
+          "gpuMs": 0.001248,
+          "samples": 6,
+          "gpuMsPerFrame": 0.000416
+        },
+        {
+          "key": "eco.coral | surface-finish-v3-paint",
+          "draws": 6,
+          "gpuMs": 0.001196,
+          "samples": 6,
+          "gpuMsPerFrame": 0.0003986666666666667
+        },
+        {
+          "key": "eco.petal | foliage-painted-v3-false-false-true",
+          "draws": 6,
+          "gpuMs": 0.0011439999999999998,
+          "samples": 6,
+          "gpuMsPerFrame": 0.0003813333333333333
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

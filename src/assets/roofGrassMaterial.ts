@@ -15,9 +15,11 @@ export function finishRoofGrass(material:MeshStandardMaterial){
    vec2 blades=turfPoint*vec2(75.,25.);
    float footprint=max(length(dFdx(blades)),length(dFdy(blades)));
    float detail=1.-smoothstep(.3,1.2,footprint);
-   float fine=turfNoise(blades);
+   // Compute the footprint for every fragment, then skip noise only where its
+   // unchanged filter makes the contribution exactly zero.
+   float fine=.5;if(detail>0.)fine=turfNoise(blades);
    diffuseColor.rgb*=.94+turf*.09+(fine-.5)*.075*detail;
   `);
  };
- material.customProgramCacheKey=()=> 'roof-turf-v1';material.needsUpdate=true;
+ material.customProgramCacheKey=()=> 'roof-turf-v2';material.needsUpdate=true;
 }

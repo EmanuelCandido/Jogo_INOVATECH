@@ -10,6 +10,8 @@ import {DetailInstances} from '../environment/Landscape';
 import type {Progress} from '../../game/types';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {situationAnchors} from '../../config/referenceMap';
+import {useThree} from '@react-three/fiber';
+import {preparationActivity,schedulePreparation} from '../../game/resourcePreparation';
 export const situationPreloadStatus={pending:false};
 export function situationVisualKey(s:Progress,id:string):VisualKey{
  const state=s.problemStates[id];
@@ -18,26 +20,20 @@ export function situationVisualKey(s:Progress,id:string):VisualKey{
  return 'initial';
 }
 export function SituationLayers({interactive}:{interactive:boolean}){
+ const gl=useThree(s=>s.gl);
  const {tier}=useResolvedGraphics();
  const s=useGame(v=>v.progress),select=useGame(v=>v.select),revisit=useGame(v=>v.revisit);
  useEffect(()=>{
   situationPreloadStatus.pending=true;
   const ids=[...new Set(Object.values(situationVisuals).flatMap(states=>Object.values(states).flatMap(v=>v.assets.map(a=>a.asset))))];
-  let index=0,idle:number|undefined,timer:ReturnType<typeof setTimeout>|undefined,stopped=false;
-  const schedule=()=>{
-   if(stopped)return;
-   if(index===ids.length){situationPreloadStatus.pending=false;return;}
-   const next=()=>{
-    if(stopped)return;
-    // Visible assets have priority. Warm upcoming outcomes one at a time.
-    if(!useProgress.getState().active)preloadAsset(ids[index++],tier);
-    timer=setTimeout(schedule,80);
-   };
-   if('requestIdleCallback' in window)idle=window.requestIdleCallback(next,{timeout:500});else timer=setTimeout(next,80);
-  };
-  timer=setTimeout(schedule,500);
-  return()=>{stopped=true;clearTimeout(timer);if(idle!==undefined)window.cancelIdleCallback(idle);};
- },[tier]);
+  let index=0;const activity=preparationActivity(gl.domElement);
+  const job=schedulePreparation(gl.domElement,'models',()=>{
+   // Visible loads and interaction have priority; retain every future outcome.
+   if(index<ids.length)preloadAsset(ids[index++],tier);
+   const more=index<ids.length;if(!more)situationPreloadStatus.pending=false;return more;
+  },()=>!document.hidden&&!activity.busy()&&!useProgress.getState().active,500);
+  return()=>{job.cancel();situationPreloadStatus.pending=false;};
+ },[tier,gl]);
  return <group name="Situações da cidade">
   {problems.map(p=>{
    const state=s.problemStates[p.id],key=situationVisualKey(s,p.id),v=p.id==='pollution_02'?trafficSituation[key]:situationVisuals[p.id][key],category=categories[p.category];

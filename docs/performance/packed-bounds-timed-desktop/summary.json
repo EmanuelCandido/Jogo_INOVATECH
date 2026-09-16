@@ -1,0 +1,167 @@
+{
+  "device": {
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "gpuTimer": true,
+    "multiDraw": true,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+    "dpr": 1
+  },
+  "mobileEmulation": false,
+  "timedInput": true,
+  "collectionBetweenRuns": true,
+  "presentationVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "reference": true,
+      "runs": 4,
+      "fps": 16.40286531275339,
+      "p95": 141,
+      "cpu": 6.0499999998137355,
+      "gpu": 47.498228,
+      "gpuSamples": [
+        74,
+        74,
+        73,
+        76
+      ],
+      "uploads": 8779758,
+      "inputTiming": [
+        {
+          "timedInput": true,
+          "events": 56,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6125.713300000003
+        },
+        {
+          "timedInput": true,
+          "events": 53,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6150.816099999996
+        },
+        {
+          "timedInput": true,
+          "events": 68,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6121.039199999999
+        },
+        {
+          "timedInput": true,
+          "events": 67,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6159.963300000003
+        }
+      ],
+      "measuredSeconds": [
+        6.125,
+        6.153200000000186,
+        6.1184000000003715,
+        6.161899999999906
+      ]
+    },
+    {
+      "name": "drag",
+      "reference": false,
+      "runs": 4,
+      "fps": 16.535072504840503,
+      "p95": 145.05000000004657,
+      "cpu": 5.7000000001862645,
+      "gpu": 47.0712755,
+      "gpuSamples": [
+        76,
+        74,
+        64,
+        73
+      ],
+      "uploads": 8318076,
+      "inputTiming": [
+        {
+          "timedInput": true,
+          "events": 65,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6103.449899999992
+        },
+        {
+          "timedInput": true,
+          "events": 54,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6130.271099999984
+        },
+        {
+          "timedInput": true,
+          "events": 46,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6122.317300000024
+        },
+        {
+          "timedInput": true,
+          "events": 52,
+          "requestedDurationMs": 6000,
+          "elapsedMs": 6172.257899999997
+        }
+      ],
+      "measuredSeconds": [
+        6.103299999999813,
+        6.129,
+        6.1385000000000005,
+        6.172999999999999
+      ]
+    },
+    {
+      "name": "held-key",
+      "reference": true,
+      "runs": 4,
+      "fps": 18.163476713031763,
+      "p95": 63.949999999953434,
+      "cpu": 6.749999999767169,
+      "gpu": 47.113175999999996,
+      "gpuSamples": [
+        39,
+        37,
+        41,
+        38
+      ],
+      "uploads": 8641770,
+      "inputTiming": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "measuredSeconds": [
+        2.3867000000001863,
+        2.4167000000001866,
+        2.403,
+        2.3445
+      ]
+    },
+    {
+      "name": "held-key",
+      "reference": false,
+      "runs": 4,
+      "fps": 18.294588945224803,
+      "p95": 66.04999999981374,
+      "cpu": 6.199999999953434,
+      "gpu": 47.268722999999994,
+      "gpuSamples": [
+        39,
+        35,
+        39,
+        38
+      ],
+      "uploads": 8628508,
+      "inputTiming": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "measuredSeconds": [
+        2.3888000000002796,
+        2.2520000000000002,
+        2.4177999999998137,
+        2.339100000000093
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "before": "spatial-desktop-linear",
+  "after": "spatial-desktop-regions",
+  "results": [
+    {
+      "name": "centre.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "forest.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0.00000439453125,
+      "max": 4,
+      "changedChannels": 10,
+      "changedPixels": 4
+    },
+    {
+      "name": "overview.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "river.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 9.765625e-7,
+      "max": 1,
+      "changedChannels": 4,
+      "changedPixels": 2
+    }
+  ]
+}

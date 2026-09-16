@@ -23,9 +23,10 @@ export function Beach({surface}:{surface?:BufferGeometry}){
    float irregular=(sandNoise(vec2(along*.85,swashTime*.11))-.5)*.065+(sandNoise(vec2(along*3.7,swashTime*.14))-.5)*.018;
    float front=.935-advance*.26+irregular;
    float aa=max(fwidth(u),.003),wet=smoothstep(.62,.85,u);
-   float grain=sandNoise(vec2(along*53.,u*180.));
    float grainAA=max(fwidth(along*53.),fwidth(u*180.));
-   diffuseColor.rgb*=1.-wet*.18+(grain-.5)*.065*(1.-smoothstep(.4,1.4,grainAA));
+   float grainDetail=1.-smoothstep(.4,1.4,grainAA),grain=.5;
+   if(grainDetail>0.)grain=sandNoise(vec2(along*53.,u*180.));
+   diffuseColor.rgb*=1.-wet*.18+(grain-.5)*.065*grainDetail;
    float wash=smoothstep(front-aa,front+.085,u)*(.32+advance*.13);
    diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.08,.52,.55),wash);
    float foam=exp(-pow((u-front)/(.009+aa*1.3),2.));
@@ -40,6 +41,6 @@ export function Beach({surface}:{surface?:BufferGeometry}){
   `);
  },[]);
  return <mesh name='beach-swash' geometry={geometry} receiveShadow>
-  <meshStandardMaterial color='#f0dba5' side={2} transparent depthWrite={false} onBeforeCompile={compile} customProgramCacheKey={()=>'sand-swash-v2'} userData={{swashTime:time.current}}/>
+  <meshStandardMaterial color='#f0dba5' side={2} transparent depthWrite={false} onBeforeCompile={compile} customProgramCacheKey={()=>'sand-swash-v3'} userData={{swashTime:time.current}}/>
  </mesh>;
 }

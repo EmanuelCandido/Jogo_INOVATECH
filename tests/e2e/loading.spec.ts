@@ -25,6 +25,9 @@ test("save restaurado aguarda modelos antes de retornar à cidade", async ({ pag
     const returnButton = page.getByRole("button", { name: "Voltar à cidade" });
     await expect(returnButton).toBeDisabled();
     await expect(page.getByRole("status")).toContainText("Preparando a cidade");
+    await page.mouse.click(6, 115);
+    await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible();
+    await expect(returnButton).toBeDisabled();
     release();
     await returnButton.click();
     await expect(page.getByRole("button", { name: "Analisar: Lixo nas ruas" })).toBeVisible();

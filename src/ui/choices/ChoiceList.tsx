@@ -1,3 +1,4 @@
+import {publicAsset} from '../../assets/publicAsset';
 export interface ChoiceView {
   id: string;
   text: string;
@@ -33,12 +34,10 @@ export function ChoiceList({
           </span>
           {choice.cost !== undefined ? (
             <span className="choice-cost" aria-label={`${choice.cost} moedas`}>
-              <span aria-hidden="true">{choice.cost > 0 ? '−' : ''}{choice.cost.toLocaleString("pt-BR")}</span>
-              <i className="coin" aria-hidden="true">✦</i>
+              <span aria-hidden="true">{choice.cost > 0 ? '-' : ''}{choice.cost.toLocaleString("pt-BR")}</span>
+              <span className="coin" aria-hidden="true"><img src={publicAsset('/assets/ui/figma/coin.webp')} alt="" /></span>
             </span>
-          ) : (
-            <span aria-hidden="true">↗</span>
-          )}
+          ) : null}
         </button>
       ))}
     </div>

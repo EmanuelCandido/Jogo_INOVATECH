@@ -1,0 +1,219 @@
+{
+  "date": "2026-09-16T01:19:19.349Z",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "canvas": [
+    2880,
+    1620
+  ],
+  "headless": true,
+  "presentationVerified": false,
+  "rows": [
+    {
+      "gpu": "intel",
+      "view": "overview",
+      "mode": "reference",
+      "runs": 2,
+      "fps": 6.713662303055013,
+      "p95": 150.5,
+      "cpuP50": 3.699999999254942,
+      "gpuDiagnosticP50": 141.047552,
+      "gpuSamples": [
+        27
+      ],
+      "instrumentedFps": 6.492826473976332,
+      "calls": 682,
+      "triangles": 5575312,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "intel",
+      "view": "overview",
+      "mode": "single",
+      "runs": 2,
+      "fps": 6.667358845500059,
+      "p95": 153.20000000018626,
+      "cpuP50": 3.9500000001862645,
+      "gpuDiagnosticP50": 141.525833,
+      "gpuSamples": [
+        28
+      ],
+      "instrumentedFps": 6.4502704952143155,
+      "calls": 682,
+      "triangles": 5575312,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "intel",
+      "view": "overview",
+      "mode": "depth",
+      "runs": 2,
+      "fps": 9.286269153818864,
+      "p95": 113.30000000074506,
+      "cpuP50": 7.650000000372529,
+      "gpuDiagnosticP50": 98.611145,
+      "gpuSamples": [
+        42
+      ],
+      "instrumentedFps": 9.148572822641746,
+      "calls": 1354,
+      "triangles": 11141704,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "intel",
+      "view": "zoomed",
+      "mode": "reference",
+      "runs": 2,
+      "fps": 9.564267355084533,
+      "p95": 110.3999999994412,
+      "cpuP50": 3.099999999627471,
+      "gpuDiagnosticP50": 100.125468,
+      "gpuSamples": [
+        39
+      ],
+      "instrumentedFps": 8.960938454646792,
+      "calls": 460,
+      "triangles": 2270167,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "intel",
+      "view": "zoomed",
+      "mode": "single",
+      "runs": 2,
+      "fps": 9.586512754533981,
+      "p95": 106.6499999994412,
+      "cpuP50": 3.199999999254942,
+      "gpuDiagnosticP50": 96.882864,
+      "gpuSamples": [
+        43
+      ],
+      "instrumentedFps": 9.337447223123686,
+      "calls": 460,
+      "triangles": 2270167,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "intel",
+      "view": "zoomed",
+      "mode": "depth",
+      "runs": 2,
+      "fps": 15.1159234085493,
+      "p95": 68.20000000018626,
+      "cpuP50": 6.25,
+      "gpuDiagnosticP50": 58.240937,
+      "gpuSamples": [
+        71
+      ],
+      "instrumentedFps": 14.927480685053693,
+      "calls": 913,
+      "triangles": 4533582,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "rtx",
+      "view": "overview",
+      "mode": "reference",
+      "runs": 2,
+      "fps": 104.54502977404499,
+      "p95": 10.700000000186265,
+      "cpuP50": 3.049999998882413,
+      "gpuDiagnosticP50": 8.702976,
+      "gpuSamples": [
+        535
+      ],
+      "instrumentedFps": 108.12975570684821,
+      "calls": 682,
+      "triangles": 5575312,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "rtx",
+      "view": "overview",
+      "mode": "single",
+      "runs": 2,
+      "fps": 110.33979388229463,
+      "p95": 9.350000000558794,
+      "cpuP50": 3.7999999998137355,
+      "gpuDiagnosticP50": 8.521728,
+      "gpuSamples": [
+        547
+      ],
+      "instrumentedFps": 110.31836441035279,
+      "calls": 682,
+      "triangles": 5575312,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "rtx",
+      "view": "overview",
+      "mode": "depth",
+      "runs": 2,
+      "fps": 96.17424872606429,
+      "p95": 10.799999998882413,
+      "cpuP50": 5.1499999994412065,
+      "gpuDiagnosticP50": 9.843712,
+      "gpuSamples": [
+        477
+      ],
+      "instrumentedFps": 96.23447670004724,
+      "calls": 1354,
+      "triangles": 11141704,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "rtx",
+      "view": "zoomed",
+      "mode": "reference",
+      "runs": 2,
+      "fps": 120.02124336742014,
+      "p95": 8.5,
+      "cpuP50": 2.2000000001862645,
+      "gpuDiagnosticP50": 5.521408,
+      "gpuSamples": [
+        601
+      ],
+      "instrumentedFps": 120.0199700449326,
+      "calls": 460,
+      "triangles": 2270167,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "rtx",
+      "view": "zoomed",
+      "mode": "single",
+      "runs": 2,
+      "fps": 120.01923305554274,
+      "p95": 8.5,
+      "cpuP50": 2.25,
+      "gpuDiagnosticP50": 5.378048,
+      "gpuSamples": [
+        599
+      ],
+      "instrumentedFps": 120.02083834257718,
+      "calls": 460,
+      "triangles": 2270167,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "gpu": "rtx",
+      "view": "zoomed",
+      "mode": "depth",
+      "runs": 2,
+      "fps": 120.01824314809014,
+      "p95": 8.5,
+      "cpuP50": 3.8500000005587935,
+      "gpuDiagnosticP50": 6.074368,
+      "gpuSamples": [
+        599
+      ],
+      "instrumentedFps": 120.01680235235615,
+      "calls": 913,
+      "triangles": 4533582,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025EC) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    }
+  ]
+}

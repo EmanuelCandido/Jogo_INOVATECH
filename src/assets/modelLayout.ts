@@ -1,6 +1,7 @@
 import metadata from '../../assets-source/model-attachments.json' with {type:'json'};
 import lodModels from '../../assets-source/model-lods.json' with {type:'json'};
 import {assetRegistry,type ModelAsset} from './registry';
+import {publicAsset} from './publicAsset';
 import type {GraphicsTier,Placement,Vec3} from '../game/types';
 
 export interface ModelLayout {
@@ -11,7 +12,7 @@ export const modelLayouts=metadata as unknown as Record<string,ModelLayout>;
 const economical=new Set(lodModels);
 export function modelUrl(asset:Extract<ModelAsset,{kind:'glb'}>,tier:GraphicsTier){
  const name=asset.url.split('/').at(-1)!.replace('.glb','');
- return (tier==='MINIMUM'||tier==='LOW')&&economical.has(name)?asset.url.replace('.glb','-low.glb'):asset.url;
+ return publicAsset((tier==='MINIMUM'||tier==='LOW')&&economical.has(name)?asset.url.replace('.glb','-low.glb'):asset.url);
 }
 export function layoutFor(id:string){
  const asset=assetRegistry[id];

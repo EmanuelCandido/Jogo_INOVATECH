@@ -1,0 +1,922 @@
+{
+  "date": "2026-09-15T15:55:46.408Z",
+  "device": {
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "dpr": 1
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "mobileEmulation": false,
+  "experiment": "leaf-hashes",
+  "baseline": {
+    "calls": 1354,
+    "triangles": 11714328,
+    "geometries": 643,
+    "textures": 4,
+    "programs": 62,
+    "meshes": 731,
+    "instances": 34005,
+    "materials": 116,
+    "sourceBytes": 2233668,
+    "width": 1920,
+    "height": 1200,
+    "pixelRatio": 1.5,
+    "settings": {
+      "renderScale": 150,
+      "shadows": "PRESET",
+      "ambientAnimation": true,
+      "showPerformance": false,
+      "quality": "ULTRA",
+      "reducedMotion": false
+    },
+    "resolvedGraphics": {
+      "label": "Ultra",
+      "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+      "pixelRatio": 2,
+      "maxPixels": 6500000,
+      "shadowSize": 4096,
+      "forestDensity": 1,
+      "undergrowth": 1,
+      "flowers": 1,
+      "traffic": 1,
+      "visitors": 1,
+      "cityDetail": 2,
+      "waterEffects": true,
+      "smoothGeometry": true,
+      "tier": "ULTRA",
+      "shadows": true,
+      "renderScale": 150,
+      "animate": true
+    },
+    "modelUrls": [
+      "/assets/models/access-step.glb",
+      "/assets/models/arched-bridge.glb",
+      "/assets/models/beach-set.glb",
+      "/assets/models/bench.glb",
+      "/assets/models/bus-shelter.glb",
+      "/assets/models/car-blue.glb",
+      "/assets/models/car-coral.glb",
+      "/assets/models/car-gold.glb",
+      "/assets/models/car-white.glb",
+      "/assets/models/central-station.glb",
+      "/assets/models/city-bus.glb",
+      "/assets/models/corner-cafe.glb",
+      "/assets/models/court.glb",
+      "/assets/models/delivery-truck.glb",
+      "/assets/models/eco-dome.glb",
+      "/assets/models/eco-observatory.glb",
+      "/assets/models/excavator.glb",
+      "/assets/models/fish-market.glb",
+      "/assets/models/football-field.glb",
+      "/assets/models/fountain.glb",
+      "/assets/models/greenhouse.glb",
+      "/assets/models/grid-pylon.glb",
+      "/assets/models/heat-pump.glb",
+      "/assets/models/hospital.glb",
+      "/assets/models/house-cream.glb",
+      "/assets/models/house-terrace.glb",
+      "/assets/models/industrial-gate.glb",
+      "/assets/models/industrial-waste.glb",
+      "/assets/models/industrial-works.glb",
+      "/assets/models/information-sign.glb",
+      "/assets/models/lamp.glb",
+      "/assets/models/lighthouse.glb",
+      "/assets/models/office-glass.glb",
+      "/assets/models/pier.glb",
+      "/assets/models/playground.glb",
+      "/assets/models/rabbit.glb",
+      "/assets/models/recycling-centre.glb",
+      "/assets/models/river-dam.glb",
+      "/assets/models/river-outfall.glb",
+      "/assets/models/road-deck-module.glb",
+      "/assets/models/road-pier-cap.glb",
+      "/assets/models/road-pier-footing.glb",
+      "/assets/models/road-pier-shaft.glb",
+      "/assets/models/road-retaining-wall.glb",
+      "/assets/models/rock.glb",
+      "/assets/models/ruined-building.glb",
+      "/assets/models/sailboat.glb",
+      "/assets/models/solar-cottage.glb",
+      "/assets/models/solar-rack.glb",
+      "/assets/models/solar-school.glb",
+      "/assets/models/solar-station.glb",
+      "/assets/models/station-guardrail.glb",
+      "/assets/models/station-lift-landing.glb",
+      "/assets/models/station-lift-shaft.glb",
+      "/assets/models/station-platform-canopy.glb",
+      "/assets/models/station-stairs.glb",
+      "/assets/models/thermometer.glb",
+      "/assets/models/townhouse-coral.glb",
+      "/assets/models/townhouse-cream.glb",
+      "/assets/models/townhouse-pink.glb",
+      "/assets/models/townhouse-sage.glb",
+      "/assets/models/train-cab.glb",
+      "/assets/models/train-carriage.glb",
+      "/assets/models/tree-birch.glb",
+      "/assets/models/tree-blossom.glb",
+      "/assets/models/tree-fir.glb",
+      "/assets/models/tree-maple.glb",
+      "/assets/models/tree-oak.glb",
+      "/assets/models/tree-palm.glb",
+      "/assets/models/tree-stump.glb",
+      "/assets/models/tree-thicket.glb",
+      "/assets/models/tree.glb",
+      "/assets/models/turbine.glb",
+      "/assets/models/waste-partial.glb",
+      "/assets/models/waste-pile.glb",
+      "/assets/models/wheelchair-user.glb",
+      "/assets/models/wildlife-shelter.glb"
+    ],
+    "camera": {
+      "position": [
+        98.71487267020187,
+        130,
+        125.16051397435702
+      ],
+      "zoom": 7.2727272727272725
+    },
+    "frame": null,
+    "cpu": null,
+    "gpu": null,
+    "bufferUploads": 0,
+    "bufferUploadBytes": 0,
+    "visibilityChecks": {
+      "sphereTests": 0,
+      "regionTests": 0
+    },
+    "maximumGuard": {
+      "valid": true,
+      "violations": []
+    },
+    "presentationVerified": false
+  },
+  "bundles": [
+    "http://127.0.0.1:4175/assets/index-Brk253sm.js",
+    "http://127.0.0.1:4175/assets/World-CGXpFH7l.js",
+    "http://127.0.0.1:4175/assets/Benchmark-D8NOnA0j.js"
+  ],
+  "samples": [],
+  "comparisons": [
+    {
+      "name": "overview",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          100.30234418522255,
+          130,
+          127.25301513782938
+        ],
+        "zoom": 9.5
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "overview",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          100.30234418522255,
+          130,
+          127.25301513782938
+        ],
+        "zoom": 9.5
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "overview",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          100.30234418522255,
+          130,
+          127.25301513782938
+        ],
+        "zoom": 9.5
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "centre",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 25
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "centre",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 25
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "centre",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 25
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "forest",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 22
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "forest",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 22
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "forest",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 22
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "industry",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          140.30174040708079,
+          133,
+          54.23213934270629
+        ],
+        "zoom": 22
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "industry",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          140.30174040708079,
+          133,
+          54.23213934270629
+        ],
+        "zoom": 22
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "industry",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          140.30174040708079,
+          133,
+          54.23213934270629
+        ],
+        "zoom": 22
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "beach",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          178.21325605691896,
+          130,
+          147.22524113596876
+        ],
+        "zoom": 23
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "beach",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          178.21325605691896,
+          130,
+          147.22524113596876
+        ],
+        "zoom": 23
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "beach",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          178.21325605691896,
+          130,
+          147.22524113596876
+        ],
+        "zoom": 23
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "river",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          78.24223761506309,
+          130,
+          152.7746079194958
+        ],
+        "zoom": 21
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "river",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          78.24223761506309,
+          130,
+          152.7746079194958
+        ],
+        "zoom": 21
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "river",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          78.24223761506309,
+          130,
+          152.7746079194958
+        ],
+        "zoom": 21
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "forest-close",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 40
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "forest-close",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 40
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "forest-close",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          29.17704417259138,
+          133,
+          141.04401575827777
+        ],
+        "zoom": 40
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "centre-close",
+      "mode": "leaf-hashes",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 40
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "centre-close",
+      "mode": "shadow-refresh",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 40
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    },
+    {
+      "name": "centre-close",
+      "mode": "control",
+      "mae": 0,
+      "max": 0,
+      "changedPixels": 0,
+      "camera": {
+        "position": [
+          101.04409123054548,
+          131,
+          116.6487796009906
+        ],
+        "zoom": 40
+      },
+      "clocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.4
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": true,
+      "materials": 8,
+      "texels": 16384,
+      "bytes": 65536
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    },
+    {
+      "enabled": false,
+      "materials": 0,
+      "texels": 0,
+      "bytes": 0
+    }
+  ],
+  "errors": []
+}

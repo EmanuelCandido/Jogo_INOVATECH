@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-15T10:02:57.719Z",
+  "source": "depth-order-desktop",
+  "modelCount": 77,
+  "primitives": 584,
+  "eligible": 584,
+  "potentialDrawReduction": 0,
+  "models": [],
+  "readOnly": true,
+  "scope": "Same-model opaque primitives with identical transforms and materials. Potential draw reduction per complete asset-batch pass, not measured frame cost; no geometry or source model changed."
+}

@@ -1,0 +1,69 @@
+{
+  "before": "shader-navigation-reverse-baseline",
+  "after": "shader-navigation-reverse-after",
+  "sameReference": true,
+  "errors": [],
+  "mobileEmulation": false,
+  "presentationVerified": false,
+  "target60FpsVerified": false,
+  "measurements": [
+    {
+      "name": "drag",
+      "before": {
+        "runs": 2,
+        "meanFps": 12.230880088170345,
+        "frameP95": 166.79999999993015,
+        "gpuP50": 69.1433325,
+        "gpuSamples": [
+          177,
+          134
+        ],
+        "cpuP50": 3.8500000000931323,
+        "bufferUploadBytes": 14086122,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 2,
+        "meanFps": 10.956791043192123,
+        "frameP95": 146.84999999997672,
+        "gpuP50": 67.666718,
+        "gpuSamples": [
+          134,
+          133
+        ],
+        "cpuP50": 4.050000000046566,
+        "bufferUploadBytes": 13796076,
+        "maximumGuardsPass": true
+      }
+    },
+    {
+      "name": "held-key",
+      "before": {
+        "runs": 2,
+        "meanFps": 12.562724496869485,
+        "frameP95": 91.25,
+        "gpuP50": 72.0267185,
+        "gpuSamples": [
+          26,
+          26
+        ],
+        "cpuP50": 4.25,
+        "bufferUploadBytes": 6679300,
+        "maximumGuardsPass": true
+      },
+      "after": {
+        "runs": 2,
+        "meanFps": 13.163230728604947,
+        "frameP95": 82.15000000002328,
+        "gpuP50": 69.288437,
+        "gpuSamples": [
+          28,
+          28
+        ],
+        "cpuP50": 4.300000000046566,
+        "bufferUploadBytes": 6955648,
+        "maximumGuardsPass": true
+      }
+    }
+  ]
+}

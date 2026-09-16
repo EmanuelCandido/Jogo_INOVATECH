@@ -12,7 +12,20 @@ test('abertura, Impactus e continuação do progresso', async ({ page }, info) =
   await page.keyboard.press('Enter');
   await expect(page.locator('.speaker-plate')).toHaveText('Impactus');
   await expect(page.locator('.dialogue-body')).toContainText('Olá! Vamos transformar nossa cidade em um lugar melhor?');
-  await expect(page.getByAltText('Robô companheiro da jornada')).toHaveJSProperty('naturalWidth', 768);
+  await expect(page.getByAltText('Robô companheiro da jornada')).toHaveJSProperty('naturalWidth', 2508);
+  if (info.project.name === 'desktop') {
+    // Wide screens use a readable, bottom-aligned panel instead of a scaled phone layout.
+    for (const viewport of [{ width: 1440, height: 900 }, { width: 1600, height: 756 }, { width: 1024, height: 600 }]) {
+      await page.setViewportSize(viewport);
+      const panel = (await page.locator('.dialogue-box').boundingBox())!;
+      expect(panel.width).toBeGreaterThan(viewport.width * .6);
+      expect(panel.x).toBeLessThan(viewport.width * .1);
+      expect(viewport.height - panel.y - panel.height).toBeLessThanOrEqual(50);
+      await expect(page.locator('.robot-stage')).toBeInViewport({ ratio: 1 });
+      await expect(page.locator('.dialogue-continue')).toBeInViewport({ ratio: 1 });
+    }
+    await page.setViewportSize({ width: 1440, height: 900 });
+  }
   await page.screenshot({ path: info.outputPath('hud-intro.png'), animations: 'disabled' });
   await page.getByRole('button', { name: 'Continuar →', exact: true }).click();
   await page.reload();
@@ -29,8 +42,18 @@ test('pergunta, custos e alternativas acessíveis sobre a cidade', async ({ page
   const choices = page.locator('.alternative');
   await expect(choices).toHaveCount(3);
   await expect(choices.first()).toBeEnabled({ timeout: 45000 });
+  const menu = page.getByRole('button', { name: 'Configurações', exact: true });
+  expect((await menu.boundingBox())!.width).toBeGreaterThanOrEqual(48);
+  expect(await menu.evaluate(el => parseFloat(getComputedStyle(el, '::before').width))).toBeGreaterThanOrEqual(48);
+  expect((await page.locator('.balance').boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  expect((await page.locator('.balance .coin').boundingBox())!.width).toBeGreaterThanOrEqual(48);
+  expect(await page.locator('.balance b').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(20);
   for (const choice of await choices.all()) {
-    await expect(choice).toBeInViewport({ ratio: 1 });
+    // Compact mission layouts reserve the city above the dialogue. All choices
+    // remain reachable in their own scrollport without moving the question.
+    await choice.scrollIntoViewIfNeeded();
+    // Chromium rounds fractional scrollport edges down by a subpixel.
+    await expect(choice).toBeInViewport({ ratio: .99 });
     await expect(choice.locator('.choice-cost')).toHaveAccessibleName(/\d+ moedas/);
     const bounds = await choice.boundingBox();
     expect(bounds!.height).toBeGreaterThanOrEqual(44);
@@ -62,6 +85,7 @@ test('pergunta, custos e alternativas acessíveis sobre a cidade', async ({ page
     await expect(page.locator('.footer')).toBeHidden();
     await page.screenshot({ path: info.outputPath('hud-landscape.png'), animations: 'disabled' });
   }
+  await page.getByRole('button', { name: 'Configurações', exact: true }).click();
   await page.getByRole('button', { name: 'Decidir depois · voltar ao mapa' }).click();
   await page.getByRole('button', { name: 'Centralizar mapa' }).click();
   await expect(page.locator('.marker')).toHaveCount(2);

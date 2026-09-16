@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="blender">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.tools/blender.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

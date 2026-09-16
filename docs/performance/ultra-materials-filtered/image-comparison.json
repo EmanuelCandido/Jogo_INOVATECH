@@ -1,0 +1,78 @@
+{
+  "before": "ultra-materials-baseline",
+  "after": "ultra-materials-filtered",
+  "results": [
+    {
+      "name": "beach.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "centre-close.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "centre.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "forest-close.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "forest.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "industry.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "overview.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    },
+    {
+      "name": "river.png",
+      "width": 1280,
+      "height": 800,
+      "mae": 0,
+      "max": 0,
+      "changedChannels": 0,
+      "changedPixels": 0
+    }
+  ]
+}

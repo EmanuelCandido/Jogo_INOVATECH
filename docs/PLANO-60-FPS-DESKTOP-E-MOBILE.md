@@ -1,6 +1,22 @@
 # Plano de otimização para 60 fps com gráficos no máximo
 
+**Sequência substituída em 15/09/2026:** consultar a [revisão com auditoria da Intel UHD e RTX 3050](REVISAO-OTIMIZACAO-INTEL-E-RTX.md). A ativação incondicional da passagem de profundidade mostrou regressão na RTX; a compactação de limites não tem aceite de FPS. O texto abaixo fica como registro do planejamento original, não como ordem para continuar as etapas.
+
 14 de setembro de 2026, revisado conforme a exigência do usuário de alcançar 60 fps com gráficos no máximo, preservando toda a qualidade e todos os modelos. Escopo: desktop e celulares. Esta entrega contém análise e planejamento; não aplica mudanças ao jogo nem aos modelos.
+
+Aplicação iniciada posteriormente: [primeira etapa, medições e validações pendentes](APLICACAO-60-FPS-ETAPA-1.md). A meta de 60 fps ainda não foi atingida.
+
+Continuação: [segunda entrega, materiais e experimentos de desenho](APLICACAO-60-FPS-ETAPA-2.md).
+
+Investigação seguinte: [terceira etapa, passagem de profundidade](APLICACAO-60-FPS-ETAPA-3.md).
+
+Avaliação concluída: [quarta entrega, perfil completo e seleção espacial](APLICACAO-60-FPS-ETAPA-4.md).
+
+Avaliação concluída: [quinta entrega, profundidade e agrupamento](APLICACAO-60-FPS-ETAPA-5.md).
+
+Avaliação concluída: [sexta entrega, cache numérico das folhas](APLICACAO-60-FPS-ETAPA-6.md). As variantes preservaram a imagem, mas aumentaram o custo de GPU; continuam desligadas.
+
+Aplicada e validada funcionalmente: [sétima entrega, preparação durante a navegação](APLICACAO-60-FPS-ETAPA-7.md). A primeira exploração comparada e a estabilidade de memória continuam pendentes.
 
 ## Direção proposta
 
@@ -124,6 +140,22 @@ Usar uma build de produção e testar com o HUD e os marcadores visíveis. O ben
 | 7 | Validação sustentada de desempenho e equivalência visual | Obrigatória | Médio |
 
 Depois da etapa 1, ajustar a ordem entre materiais, agrupamento e visibilidade conforme o gargalo medido. Validar cada entrega antes de ampliar sua aplicação à cidade inteira. Uma melhoria de CPU sozinha não basta quando o limite está na GPU.
+
+### Andamento da aplicação
+
+Os relatórios de entrega não correspondem um a um às sete frentes do plano. Restam quatro frentes principais (4 a 7), além de pendências nas frentes de medição e materiais. Esse número organiza o trabalho; não garante que quatro alterações sejam suficientes para atingir 60 fps.
+
+| Frente do plano | Situação | Trabalho restante |
+| --- | --- | --- |
+| 1. Medição | Parcial | O benchmark mede movimento e verifica o máximo; faltam o indicador contínuo e o diagnóstico dos picos/apresentação. |
+| 2. Entrada e câmera | Implementada e com testes de navegação aprovados | Confirmar a cadência no aceite sustentado da frente 7. |
+| 3. Materiais e sombras | Parcial, com ganhos medidos | Ruídos filtrados e passagem de profundidade aplicados; reduzir o custo de GPU que ainda excede 16,67 ms. |
+| 4. Agrupamento | Avaliada parcialmente | Protótipo de 161 partes em 19 lotes não ganhou desempenho; faltam outras estratégias compatíveis. |
+| 5. Visibilidade | Parcial | Uploads seletivos aplicados; hierarquia testada e desligada por falta de ganho no quadro completo; grandes superfícies ainda pendentes. |
+| 6. Carregamento e memória | Parcial | Preparação incremental com prioridade para interação aplicada e validada; falta medir primeira exploração e estabilidade de memória em percursos repetidos. |
+| 7. Validação sustentada | Pendente | Aparelhos físicos, dez minutos de uso, apresentação e qualidade em movimento. |
+
+O perfil do quadro completo com a passagem de profundidade ativa foi implementado na quarta entrega. O perfil da terceira entrega desativava essa passagem e não representa essa divisão de custos. Após a liberação do limite, a candidata de seleção espacial passou nos testes de equivalência e imagem, mas permaneceu desativada porque a navegação não apresentou ganho consistente. O ganho isolado de seleção não foi tratado como aumento de FPS. O inventário de geometrias idênticas também mostrou economia pequena; a prioridade seguinte é materiais visíveis e agrupamento de geometrias diferentes com acabamentos compatíveis.
 
 ### 1. Medir o movimento e tornar o indicador confiável
 
