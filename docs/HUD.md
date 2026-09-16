@@ -18,6 +18,10 @@ O cenário continua sendo a cidade 3D jogável. Textos, custos, recompensas e sa
 
 ## Interação
 
+Ao selecionar uma missão, a câmera aproxima e centraliza o problema. Depois de chegar, a cena permanece sem personagem, diálogo ou cabeçalho por 2,2 segundos. Só então Impactus entra pela esquerda e o painel aparece de baixo para cima, com transição de opacidade. O personagem mantém o tamanho e o alinhamento originais da composição. As falas seguintes não reiniciam a câmera nem a animação de entrada.
+
+A preferência de movimento reduzido desativa a animação de entrada e abrevia o voo, mantendo o tempo para observar. Sair da aba interrompe a espera; voltar oferece novamente os 2,2 segundos. Girar a tela durante a aproximação reenquadra a cena antes de iniciar a espera.
+
 Toque ou clique em qualquer parte da tela durante uma fala para continuar. Arrastar, rolar ou selecionar texto não dispensa a fala; perguntas exigem escolher uma alternativa. Carregamento e configurações abertas bloqueiam o avanço. O botão de continuação e Enter/Espaço também funcionam.
 
 O menu aparece nas perguntas, resultados e mapa. No computador, Escape abre/fecha as configurações em qualquer etapa. “Decidir depois · voltar ao mapa” está no menu das perguntas, preservando o retorno sem gastar moedas. Uma partida salva retoma sua etapa; a abertura aparece para partidas novas.

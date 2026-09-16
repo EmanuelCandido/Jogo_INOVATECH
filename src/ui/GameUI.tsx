@@ -13,7 +13,7 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
   const [menu, setMenu] = useState(false);
   // The title is presentation state; opening it must never reset a saved game.
   const [showTitle, setShowTitle] = useState(() => s.phase === 'INTRO' && s.introIndex === 0);
-  const showHeader = menu || (!showTitle && !['INTRO', 'COMMENT', 'CONTEXT'].includes(s.phase));
+  const showHeader = menu || (!showTitle && !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase));
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') { event.preventDefault(); setMenu(open => !open); }
@@ -45,7 +45,7 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
         <TitleScreen sceneReady={sceneReady} onPlay={() => setShowTitle(false)} />
       ) : (
         <>
-          <QuestPanel sceneReady={sceneReady} />
+          {s.phase === 'OVERVIEW' && <QuestPanel sceneReady={sceneReady} />}
           {s.phase === "OVERVIEW" && (
             <>
               <MapControls />
@@ -68,9 +68,9 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
           )}
           <DialogueStage sceneReady={sceneReady} />
           {["FOCUSING", "RETURNING"].includes(s.phase) && (
-            <div className="camera-status" role="status">
+            <div className={s.phase === 'FOCUSING' ? 'camera-preview-status' : 'camera-status'} role="status">
               {s.phase === "FOCUSING"
-                ? "Vamos olhar mais de perto…"
+                ? "Observe o problema. O diálogo aparecerá em instantes…"
                 : "Voltando à cidade…"}
             </div>
           )}

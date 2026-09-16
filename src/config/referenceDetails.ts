@@ -9,6 +9,7 @@ import {reserveTraffic} from './trafficReservations';
 import {circulationCrossings,referenceTraffic,blocksJunctionMarking} from './referenceMap';
 import {atRoadJunction,riverCorridors,roadHeightAt} from './referenceMap';
 import {roadGuardrailRuns} from './roadGuardrails';
+import preparedRiverside from './riverside-layout.json' with {type:'json'};
 
 export const referenceDetails:LandscapeDetail[]=[],referenceVisitors:LandscapeDetail[]=[],referenceLitter:LandscapeDetail[]=[],referenceDump:LandscapeDetail[]=[],riversideAssets:Placement[]=[];
 export const referenceVisitorGroups:LandscapeDetail[][]=[];
@@ -197,6 +198,19 @@ for(const r of mapRoads.filter((r,i)=>!r.usage&&!r.terminal&&r.id!=='acesso-viad
 // or sit inside a building. Landmark entrances keep their own authored fittings.
 // A centre on the furnishing strip is insufficient at a tight river bend:
 // move the complete bench/lamp envelope into a free pocket on dry land.
+// Authoring/builds retain the original search. Browsers reuse its exact result;
+// a diagnostic control can still measure the original in the same build.
+const query=typeof location==='undefined'?null:new URLSearchParams(location.search);
+const runtimeRiverside=query?.get('benchmark')==='1'&&query.get('runtimeRiverside')==='1';
+export let riversidePreparation:Array<{sourceIndex:number;position:Vec3}>=[];
+if(!import.meta.env.SSR&&!runtimeRiverside){
+ const source=riversideAssets.slice();
+ const prepared=preparedRiverside as unknown as typeof riversidePreparation;
+ // Keep rotations/scales from this engine; only reuse the costly placement
+ // search. Math.atan2 may round differently between Node and a browser.
+ riversideAssets.splice(0,riversideAssets.length,...prepared.map(p=>({...source[p.sourceIndex],position:p.position})));
+}else{
+const sourceIndices=new Map(riversideAssets.map((p,i)=>[p,i]));
 for(let i=0;i<riversideAssets.length;i++){
  const original=riversideAssets[i],tree=original.asset.startsWith('tree.');if(!tree&&!['prop.bench','prop.lamp'].includes(original.asset))continue;
  const [u,v]=compositionPoint(original.position[0],original.position[2]);
@@ -212,7 +226,7 @@ for(let i=0;i<riversideAssets.length;i++){
  let moved=false;
  for(let distance=.5;distance<=(tree?50:16)&&!moved;distance+=.5)for(let a=0;a<16&&!moved;a++){
   const angle=a*Math.PI/8,x=u+Math.cos(angle)*distance,z=v+Math.sin(angle)*distance,p={...original,position:worldPoint(x,z,tree?terrainY(x,z):original.position[1])};
-  if(safe(p)){riversideAssets[i]=p;moved=true;}
+  if(safe(p)){riversideAssets[i]=p;sourceIndices.set(p,i);moved=true;}
  }
  if(!moved)throw new Error('Mobiliário ribeirinho sem espaço: '+original.asset+' @ '+u+','+v);
 }
@@ -223,5 +237,7 @@ for(let i=riversideAssets.length-1;i>=0;i--){
  const poly=placementFootprint(p),uv=compositionPoint(p.position[0],p.position[2]);
  const inside=buildingLots.some(l=>footprintGap(poly,l.footprint)<.2)||mapRoads.some(r=>distanceToRoute(...uv,r)<r.width/2+radius&&Math.abs(p.position[1]-routeHeight(r,r.points.reduce((best,q,i)=>Math.hypot(q[0]-uv[0],q[1]-uv[1])<Math.hypot(r.points[best][0]-uv[0],r.points[best][1]-uv[1])?i:best,0)))<1.5)||buildingLots.some(l=>pointInFootprint(uv,l.footprint));
  if(inside)riversideAssets.splice(i,1);
+}
+riversidePreparation=riversideAssets.map(p=>({sourceIndex:sourceIndices.get(p)!,position:p.position}));
 }
 

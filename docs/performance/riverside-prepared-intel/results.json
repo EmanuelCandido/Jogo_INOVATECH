@@ -1,0 +1,1731 @@
+{
+  "date": "2026-09-16T16:04:26.085Z",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "dpr": 1,
+  "presentationVerified": false,
+  "driverCacheControlled": false,
+  "samples": [
+    {
+      "run": 0,
+      "cached": false,
+      "startup": {
+        "interactiveMs": 13732.59999999986,
+        "tasks": [
+          {
+            "start": 83,
+            "duration": 311
+          },
+          {
+            "start": 425.89999999990687,
+            "duration": 6703
+          },
+          {
+            "start": 7209.399999999907,
+            "duration": 4837
+          },
+          {
+            "start": 12049,
+            "duration": 450
+          },
+          {
+            "start": 12700.199999999953,
+            "duration": 115
+          },
+          {
+            "start": 12870,
+            "duration": 340
+          },
+          {
+            "start": 13230,
+            "duration": 485
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414887,
+            130,
+            139.91381334926643
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 58,
+          "meanMs": 103.22758620689575,
+          "meanFps": 9.687332977017713,
+          "p50": 103.5,
+          "p95": 119.60000000009313,
+          "p99": 219.4000000001397,
+          "onePercentLow": 4.557885141291537,
+          "over33Ms": 56,
+          "over50Ms": 56
+        },
+        "cpu": {
+          "frames": 59,
+          "meanMs": 7.666101694908151,
+          "meanFps": 130.44439531296632,
+          "p50": 7.600000000093132,
+          "p95": 9.100000000093132,
+          "p99": 9.899999999906868,
+          "onePercentLow": 101.01010101105125,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3939,
+        "bufferUploadBytes": 28179524,
+        "visibilityChecks": {
+          "sphereTests": 1428210,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    },
+    {
+      "run": 0,
+      "cached": true,
+      "startup": {
+        "interactiveMs": 9979.399999999907,
+        "tasks": [
+          {
+            "start": 93.39999999990687,
+            "duration": 324
+          },
+          {
+            "start": 448.80000000004657,
+            "duration": 3138
+          },
+          {
+            "start": 3673.8000000000466,
+            "duration": 4936
+          },
+          {
+            "start": 8612.199999999953,
+            "duration": 253
+          },
+          {
+            "start": 9043.600000000093,
+            "duration": 76
+          },
+          {
+            "start": 9177.100000000093,
+            "duration": 340
+          },
+          {
+            "start": 9560.399999999907,
+            "duration": 404
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414885,
+            130,
+            139.91381334926652
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 57,
+          "meanMs": 103.81052631579274,
+          "meanFps": 9.632934496045124,
+          "p50": 104.60000000009313,
+          "p95": 118.60000000009313,
+          "p99": 217.70000000018626,
+          "onePercentLow": 4.5934772622836215,
+          "over33Ms": 55,
+          "over50Ms": 55
+        },
+        "cpu": {
+          "frames": 58,
+          "meanMs": 7.325862068963912,
+          "meanFps": 136.5027065192109,
+          "p50": 7.300000000046566,
+          "p95": 9.100000000093132,
+          "p99": 9.900000000139698,
+          "onePercentLow": 101.01010100867566,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3889,
+        "bufferUploadBytes": 27221416,
+        "visibilityChecks": {
+          "sphereTests": 1360200,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    },
+    {
+      "run": 1,
+      "cached": true,
+      "startup": {
+        "interactiveMs": 10008.199999999953,
+        "tasks": [
+          {
+            "start": 84.5,
+            "duration": 310
+          },
+          {
+            "start": 429.19999999995343,
+            "duration": 3105
+          },
+          {
+            "start": 3612.100000000093,
+            "duration": 4954
+          },
+          {
+            "start": 8569.800000000047,
+            "duration": 238
+          },
+          {
+            "start": 8971.899999999907,
+            "duration": 66
+          },
+          {
+            "start": 9098.600000000093,
+            "duration": 399
+          },
+          {
+            "start": 9516.600000000093,
+            "duration": 448
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414891,
+            130,
+            139.91381334926643
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 58,
+          "meanMs": 102.9448275862077,
+          "meanFps": 9.71394118041126,
+          "p50": 103.39999999990687,
+          "p95": 120,
+          "p99": 216.10000000009313,
+          "onePercentLow": 4.627487274408001,
+          "over33Ms": 56,
+          "over50Ms": 56
+        },
+        "cpu": {
+          "frames": 59,
+          "meanMs": 7.237288135585327,
+          "meanFps": 138.17330210787904,
+          "p50": 7.2999999998137355,
+          "p95": 8.5,
+          "p99": 8.899999999906868,
+          "onePercentLow": 112.35955056297351,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3957,
+        "bufferUploadBytes": 28133168,
+        "visibilityChecks": {
+          "sphereTests": 1394205,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    },
+    {
+      "run": 1,
+      "cached": false,
+      "startup": {
+        "interactiveMs": 13865.300000000047,
+        "tasks": [
+          {
+            "start": 100.30000000004657,
+            "duration": 313
+          },
+          {
+            "start": 446.19999999995343,
+            "duration": 6945
+          },
+          {
+            "start": 7480.800000000047,
+            "duration": 4991
+          },
+          {
+            "start": 12474.800000000047,
+            "duration": 251
+          },
+          {
+            "start": 12889.09999999986,
+            "duration": 69
+          },
+          {
+            "start": 13012.300000000047,
+            "duration": 344
+          },
+          {
+            "start": 13374.5,
+            "duration": 473
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414887,
+            130,
+            139.9138133492665
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 58,
+          "meanMs": 102.53275862068804,
+          "meanFps": 9.752980544485515,
+          "p50": 103,
+          "p95": 117.30000000004657,
+          "p99": 217.80000000004657,
+          "onePercentLow": 4.591368227730882,
+          "over33Ms": 56,
+          "over50Ms": 56
+        },
+        "cpu": {
+          "frames": 59,
+          "meanMs": 6.854237288126122,
+          "meanFps": 145.89515331375253,
+          "p50": 6.800000000046566,
+          "p95": 8.599999999860302,
+          "p99": 9.5,
+          "onePercentLow": 105.26315789473684,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3974,
+        "bufferUploadBytes": 28137936,
+        "visibilityChecks": {
+          "sphereTests": 1394205,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    },
+    {
+      "run": 2,
+      "cached": false,
+      "startup": {
+        "interactiveMs": 13900.600000000093,
+        "tasks": [
+          {
+            "start": 85.30000000004657,
+            "duration": 319
+          },
+          {
+            "start": 437.70000000018626,
+            "duration": 6928
+          },
+          {
+            "start": 7458.40000000014,
+            "duration": 5070
+          },
+          {
+            "start": 12531.200000000186,
+            "duration": 239
+          },
+          {
+            "start": 12936.40000000014,
+            "duration": 63
+          },
+          {
+            "start": 13056.5,
+            "duration": 398
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414888,
+            130,
+            139.91381334926646
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 58,
+          "meanMs": 102.8810344827562,
+          "meanFps": 9.719964471854228,
+          "p50": 103,
+          "p95": 118.89999999990687,
+          "p99": 219.29999999981374,
+          "onePercentLow": 4.55996352029571,
+          "over33Ms": 56,
+          "over50Ms": 56
+        },
+        "cpu": {
+          "frames": 59,
+          "meanMs": 7.161016949148596,
+          "meanFps": 139.64497041427813,
+          "p50": 7.2999999998137355,
+          "p95": 8.699999999953434,
+          "p99": 9.300000000046566,
+          "onePercentLow": 107.5268817198917,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3952,
+        "bufferUploadBytes": 27951160,
+        "visibilityChecks": {
+          "sphereTests": 1394205,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    },
+    {
+      "run": 2,
+      "cached": true,
+      "startup": {
+        "interactiveMs": 9818.09999999986,
+        "tasks": [
+          {
+            "start": 217.5999999998603,
+            "duration": 308
+          },
+          {
+            "start": 555.5,
+            "duration": 3032
+          },
+          {
+            "start": 3674.899999999907,
+            "duration": 4872
+          },
+          {
+            "start": 8549.799999999814,
+            "duration": 232
+          },
+          {
+            "start": 9009.899999999907,
+            "duration": 360
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414887,
+            130,
+            139.91381334926646
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 58,
+          "meanMs": 101.79827586206977,
+          "meanFps": 9.823349084565407,
+          "p50": 102,
+          "p95": 116.9000000001397,
+          "p99": 215.60000000009313,
+          "onePercentLow": 4.638218923931206,
+          "over33Ms": 56,
+          "over50Ms": 56
+        },
+        "cpu": {
+          "frames": 59,
+          "meanMs": 8.40677966100511,
+          "meanFps": 118.95161290339333,
+          "p50": 8.399999999906868,
+          "p95": 10.599999999860302,
+          "p99": 11,
+          "onePercentLow": 90.9090909090909,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3865,
+        "bufferUploadBytes": 27511448,
+        "visibilityChecks": {
+          "sphereTests": 1394205,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    },
+    {
+      "run": 3,
+      "cached": true,
+      "startup": {
+        "interactiveMs": 9637.699999999953,
+        "tasks": [
+          {
+            "start": 213.30000000004657,
+            "duration": 306
+          },
+          {
+            "start": 552.4000000001397,
+            "duration": 2939
+          },
+          {
+            "start": 3561.600000000093,
+            "duration": 4757
+          },
+          {
+            "start": 8320.5,
+            "duration": 231
+          },
+          {
+            "start": 8784,
+            "duration": 415
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414888,
+            130,
+            139.91381334926646
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 58,
+          "meanMs": 102.78793103448196,
+          "meanFps": 9.728768639817577,
+          "p50": 104.10000000009313,
+          "p95": 117.5999999998603,
+          "p99": 218.19999999995343,
+          "onePercentLow": 4.5829514207159185,
+          "over33Ms": 56,
+          "over50Ms": 56
+        },
+        "cpu": {
+          "frames": 59,
+          "meanMs": 7.620338983044533,
+          "meanFps": 131.22775800722619,
+          "p50": 7.600000000093132,
+          "p95": 9.100000000093132,
+          "p99": 9.600000000093132,
+          "onePercentLow": 104.16666666565612,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3982,
+        "bufferUploadBytes": 28213380,
+        "visibilityChecks": {
+          "sphereTests": 1394205,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    },
+    {
+      "run": 3,
+      "cached": false,
+      "startup": {
+        "interactiveMs": 13614.799999999814,
+        "tasks": [
+          {
+            "start": 77.29999999981374,
+            "duration": 297
+          },
+          {
+            "start": 405.69999999995343,
+            "duration": 6976
+          },
+          {
+            "start": 7459.699999999953,
+            "duration": 4843
+          },
+          {
+            "start": 12304.399999999907,
+            "duration": 234
+          },
+          {
+            "start": 12770.899999999907,
+            "duration": 408
+          }
+        ]
+      },
+      "navigation": {
+        "calls": 1339,
+        "triangles": 12476908,
+        "geometries": 643,
+        "textures": 4,
+        "programs": 62,
+        "meshes": 731,
+        "instances": 34005,
+        "materials": 116,
+        "sourceBytes": 2233668,
+        "width": 2880,
+        "height": 1620,
+        "pixelRatio": 1.5,
+        "settings": {
+          "renderScale": 150,
+          "shadows": "PRESET",
+          "ambientAnimation": true,
+          "showPerformance": false,
+          "quality": "ULTRA",
+          "reducedMotion": false
+        },
+        "resolvedGraphics": {
+          "label": "Ultra",
+          "description": "Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.",
+          "pixelRatio": 2,
+          "maxPixels": 6500000,
+          "shadowSize": 4096,
+          "forestDensity": 1,
+          "undergrowth": 1,
+          "flowers": 1,
+          "traffic": 1,
+          "visitors": 1,
+          "cityDetail": 2,
+          "waterEffects": true,
+          "smoothGeometry": true,
+          "tier": "ULTRA",
+          "shadows": true,
+          "renderScale": 150,
+          "animate": true
+        },
+        "modelUrls": [
+          "/assets/models/access-step.glb",
+          "/assets/models/arched-bridge.glb",
+          "/assets/models/beach-set.glb",
+          "/assets/models/bench.glb",
+          "/assets/models/bus-shelter.glb",
+          "/assets/models/car-blue.glb",
+          "/assets/models/car-coral.glb",
+          "/assets/models/car-gold.glb",
+          "/assets/models/car-white.glb",
+          "/assets/models/central-station.glb",
+          "/assets/models/city-bus.glb",
+          "/assets/models/corner-cafe.glb",
+          "/assets/models/court.glb",
+          "/assets/models/delivery-truck.glb",
+          "/assets/models/eco-dome.glb",
+          "/assets/models/eco-observatory.glb",
+          "/assets/models/excavator.glb",
+          "/assets/models/fish-market.glb",
+          "/assets/models/football-field.glb",
+          "/assets/models/fountain.glb",
+          "/assets/models/greenhouse.glb",
+          "/assets/models/grid-pylon.glb",
+          "/assets/models/heat-pump.glb",
+          "/assets/models/hospital.glb",
+          "/assets/models/house-cream.glb",
+          "/assets/models/house-terrace.glb",
+          "/assets/models/industrial-gate.glb",
+          "/assets/models/industrial-waste.glb",
+          "/assets/models/industrial-works.glb",
+          "/assets/models/information-sign.glb",
+          "/assets/models/lamp.glb",
+          "/assets/models/lighthouse.glb",
+          "/assets/models/office-glass.glb",
+          "/assets/models/pier.glb",
+          "/assets/models/playground.glb",
+          "/assets/models/rabbit.glb",
+          "/assets/models/recycling-centre.glb",
+          "/assets/models/river-dam.glb",
+          "/assets/models/river-outfall.glb",
+          "/assets/models/road-deck-module.glb",
+          "/assets/models/road-pier-cap.glb",
+          "/assets/models/road-pier-footing.glb",
+          "/assets/models/road-pier-shaft.glb",
+          "/assets/models/road-retaining-wall.glb",
+          "/assets/models/rock.glb",
+          "/assets/models/ruined-building.glb",
+          "/assets/models/sailboat.glb",
+          "/assets/models/solar-cottage.glb",
+          "/assets/models/solar-rack.glb",
+          "/assets/models/solar-school.glb",
+          "/assets/models/solar-station.glb",
+          "/assets/models/station-guardrail.glb",
+          "/assets/models/station-lift-landing.glb",
+          "/assets/models/station-lift-shaft.glb",
+          "/assets/models/station-platform-canopy.glb",
+          "/assets/models/station-stairs.glb",
+          "/assets/models/thermometer.glb",
+          "/assets/models/townhouse-coral.glb",
+          "/assets/models/townhouse-cream.glb",
+          "/assets/models/townhouse-pink.glb",
+          "/assets/models/townhouse-sage.glb",
+          "/assets/models/train-cab.glb",
+          "/assets/models/train-carriage.glb",
+          "/assets/models/tree-birch.glb",
+          "/assets/models/tree-blossom.glb",
+          "/assets/models/tree-fir.glb",
+          "/assets/models/tree-maple.glb",
+          "/assets/models/tree-oak.glb",
+          "/assets/models/tree-palm.glb",
+          "/assets/models/tree-stump.glb",
+          "/assets/models/tree-thicket.glb",
+          "/assets/models/tree.glb",
+          "/assets/models/turbine.glb",
+          "/assets/models/waste-partial.glb",
+          "/assets/models/waste-pile.glb",
+          "/assets/models/wheelchair-user.glb",
+          "/assets/models/wildlife-shelter.glb"
+        ],
+        "camera": {
+          "position": [
+            83.60679149414887,
+            130,
+            139.9138133492665
+          ],
+          "zoom": 10.903294367693942
+        },
+        "frame": {
+          "frames": 58,
+          "meanMs": 101.99655172413874,
+          "meanFps": 9.804253017343308,
+          "p50": 101.79999999981374,
+          "p95": 118.69999999995343,
+          "p99": 215.60000000009313,
+          "onePercentLow": 4.638218923931206,
+          "over33Ms": 56,
+          "over50Ms": 56
+        },
+        "cpu": {
+          "frames": 59,
+          "meanMs": 6.984745762709497,
+          "meanFps": 143.16913370545984,
+          "p50": 6.899999999906868,
+          "p95": 8.399999999906868,
+          "p99": 10.699999999953434,
+          "onePercentLow": 93.45794392564036,
+          "over33Ms": 0,
+          "over50Ms": 0
+        },
+        "gpu": null,
+        "bufferUploads": 3919,
+        "bufferUploadBytes": 27528936,
+        "visibilityChecks": {
+          "sphereTests": 1360200,
+          "regionTests": 0
+        },
+        "maximumGuard": {
+          "valid": true,
+          "violations": []
+        },
+        "presentationVerified": false
+      },
+      "placements": 334,
+      "placementHash": "d3a6797078fd0e55f4337124652a742e9283d3213d65e8d45b90e4299933c009",
+      "identicalPlacementData": true
+    }
+  ],
+  "comparisons": [
+    {
+      "name": "overview",
+      "run": 0,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "riverside",
+      "run": 0,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "forest",
+      "run": 0,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "beach",
+      "run": 0,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "overview",
+      "run": 1,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "riverside",
+      "run": 1,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "forest",
+      "run": 1,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "beach",
+      "run": 1,
+      "cached": true,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "overview",
+      "run": 1,
+      "cached": false,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "riverside",
+      "run": 1,
+      "cached": false,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "forest",
+      "run": 1,
+      "cached": false,
+      "changedPixels": 0,
+      "max": 0
+    },
+    {
+      "name": "beach",
+      "run": 1,
+      "cached": false,
+      "changedPixels": 0,
+      "max": 0
+    }
+  ],
+  "errors": [],
+  "finished": "2026-09-16T16:10:19.141Z",
+  "summary": {
+    "beforeMs": 13798.949999999953,
+    "afterMs": 9898.749999999884,
+    "beforeFps": 9.736472508169872,
+    "afterFps": 9.721354910114417,
+    "beforeLongTasksMs": 13129,
+    "afterLongTasksMs": 9137.5,
+    "pairs": [
+      {
+        "run": 0,
+        "openingImprovementPercent": 27.330585613794856,
+        "frameChangePercent": 0.564713494054403,
+        "p95Before": 119.60000000009313,
+        "p95After": 118.60000000009313
+      },
+      {
+        "run": 1,
+        "openingImprovementPercent": 27.818366714027686,
+        "frameChangePercent": 0.4018900603699471,
+        "p95Before": 117.30000000004657,
+        "p95After": 120
+      },
+      {
+        "run": 2,
+        "openingImprovementPercent": 29.36923586032405,
+        "frameChangePercent": -1.052437532466588,
+        "p95Before": 118.89999999990687,
+        "p95After": 116.9000000001397
+      },
+      {
+        "run": 3,
+        "openingImprovementPercent": 29.211593266150913,
+        "frameChangePercent": 0.7758882991295568,
+        "p95Before": 118.69999999995343,
+        "p95After": 117.5999999998603
+      }
+    ],
+    "samePlacementHash": true,
+    "unchangedImages": true,
+    "openingImprovementPercent": 28.264469398034507,
+    "snapshotBytes": 25894,
+    "snapshotGzipBytes": 8502
+  }
+}

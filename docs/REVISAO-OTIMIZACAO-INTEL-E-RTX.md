@@ -4,6 +4,8 @@
 
 **Retomada em 16/09 após a publicação permanente:** [diagnóstico atualizado](DIAGNOSTICO-INTEL-APOS-PUBLICACAO.md) concluiu a primeira entrada com trace, cerca de 60 segundos de navegação sem consultas de GPU e perfis separados por material. A GPU continua dominante; o cálculo das folhas é a próxima hipótese isolada em avaliação. A versão pública está em https://emanuelcandido.github.io/Jogo_INOVATECH/.
 
+**Resultado da rodada:** a candidata das máscaras de folhas foi rejeitada por falta de ganho. A [preparação antecipada das posições ribeirinhas](OTIMIZACAO-ABERTURA-RIBEIRINHA.md) reduziu a abertura em 28,3% na Intel UHD, com dados e imagens idênticos e sem ganho de FPS sustentado. A tesselação das superfícies permanece como hipótese para reduzir o bloqueio inicial; o custo de GPU continua pendente para a meta de 60 fps.
+
 15 de setembro de 2026. Esta revisão substitui a sequência de implementação do plano anterior. Motivação: queda de FPS relatada no Chrome, em Full HD, num i5 de 13ª geração com RTX 3050, e melhora ao aproximar a câmera. A Intel UHD integrada é um alvo obrigatório, por solicitação do usuário.
 
 ## Decisão

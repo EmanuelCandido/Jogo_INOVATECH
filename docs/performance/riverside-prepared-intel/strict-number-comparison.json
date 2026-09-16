@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-16T15:57:02.709Z",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "dpr": 1,
+  "presentationVerified": false,
+  "driverCacheControlled": false,
+  "samples": [],
+  "comparisons": [],
+  "errors": [],
+  "failure": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n@@ -5982,11 +5982,11 @@\n        0,\n        -61.10222604488624,\n      ],\n      \"rotation\": Array [\n        0,\n-       0.5701621689237735,\n+       0.5701621689237739,\n        0,\n      ],\n      \"scale\": Array [\n        1,\n        1,"
+}

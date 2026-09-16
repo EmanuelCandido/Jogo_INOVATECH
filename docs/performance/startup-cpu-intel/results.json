@@ -1,0 +1,738 @@
+{
+  "date": "2026-09-16T15:52:29.264Z",
+  "errors": [],
+  "profileOverhead": true,
+  "readyMs": 15890.799999999988,
+  "longTasks": [
+    {
+      "start": 103,
+      "duration": 338
+    },
+    {
+      "start": 475.5,
+      "duration": 6867
+    },
+    {
+      "start": 7418.700000000012,
+      "duration": 5095
+    },
+    {
+      "start": 12515.899999999965,
+      "duration": 1286
+    },
+    {
+      "start": 13986.299999999988,
+      "duration": 1146
+    }
+  ],
+  "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "application": [
+    {
+      "function": "cC",
+      "source": {
+        "source": "../../../src/components/environment/ReferenceCity.tsx",
+        "line": 120,
+        "column": 16,
+        "name": "ReferenceCity"
+      },
+      "selfMs": 0,
+      "totalMs": 4721.907000000003
+    },
+    {
+      "function": "lC",
+      "source": {
+        "source": "../../../src/components/environment/ReferenceCity.tsx",
+        "line": 32,
+        "column": 9,
+        "name": "createSurfaces"
+      },
+      "selfMs": 6.078,
+      "totalMs": 4718.332000000003
+    },
+    {
+      "function": "c",
+      "source": {
+        "source": "../../../src/config/referenceDetails.ts",
+        "line": 203,
+        "column": 13,
+        "name": null
+      },
+      "selfMs": 7.728000000000001,
+      "totalMs": 3668.515000000006
+    },
+    {
+      "function": "Ot",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 9,
+        "column": 16,
+        "name": "polygon"
+      },
+      "selfMs": 19.361000000000004,
+      "totalMs": 3052.9529999999995
+    },
+    {
+      "function": "oC",
+      "source": {
+        "source": "../../../src/assets/surfaceTriangulation.ts",
+        "line": 38,
+        "column": 16,
+        "name": "tessellateSurface"
+      },
+      "selfMs": 184.37999999999994,
+      "totalMs": 2962.179999999998
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/components/city/DepthPrepass.tsx",
+        "line": 25,
+        "column": 10,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 2486.218999999998
+    },
+    {
+      "function": "render",
+      "source": {
+        "source": "../../../src/game/depthPrepass.ts",
+        "line": 89,
+        "column": 118,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 2442.5670000000055
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/referenceDetails.ts",
+        "line": 207,
+        "column": 71,
+        "name": "r"
+      },
+      "selfMs": 31.962999999999997,
+      "totalMs": 1851.7629999999988
+    },
+    {
+      "function": "ft",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 29,
+        "column": 16,
+        "name": "corridorGap"
+      },
+      "selfMs": 89.76499999999997,
+      "totalMs": 1810.4239999999998
+    },
+    {
+      "function": "rC",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 44,
+        "column": 16,
+        "name": "valleyLand"
+      },
+      "selfMs": 2.686,
+      "totalMs": 1581.7959999999985
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/referenceDetails.ts",
+        "line": 206,
+        "column": 18,
+        "name": null
+      },
+      "selfMs": 23.886,
+      "totalMs": 1434.5770000000007
+    },
+    {
+      "function": "ft",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 29,
+        "column": 16,
+        "name": "corridorGap"
+      },
+      "selfMs": 73.068,
+      "totalMs": 1394.9769999999999
+    },
+    {
+      "function": "Zh",
+      "source": {
+        "source": "../../../src/assets/surfaceTriangulation.ts",
+        "line": 7,
+        "column": 16,
+        "name": "improveSurfaceTriangles"
+      },
+      "selfMs": 425.1120000000001,
+      "totalMs": 1078.5729999999996
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 1036.8209999999992,
+      "totalMs": 1036.8209999999992
+    },
+    {
+      "function": "Ot",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 9,
+        "column": 16,
+        "name": "polygon"
+      },
+      "selfMs": 92.804,
+      "totalMs": 980.0239999999997
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 55,
+        "column": 31,
+        "name": "poly"
+      },
+      "selfMs": 0,
+      "totalMs": 980.0239999999997
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/assets/surfaceTriangulation.ts",
+        "line": 46,
+        "column": 36,
+        "name": "j"
+      },
+      "selfMs": 48.418,
+      "totalMs": 936.648
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 779.0550000000005,
+      "totalMs": 779.0550000000005
+    },
+    {
+      "function": "t2",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 13,
+        "column": 16,
+        "name": "contains"
+      },
+      "selfMs": 92.84500000000004,
+      "totalMs": 653.9869999999997
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 0.84,
+      "totalMs": 633.5170000000002
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 2.126,
+      "totalMs": 632.1770000000001
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 632.1770000000001
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 0.733,
+      "totalMs": 627.6810000000002
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 1.584,
+      "totalMs": 625.3249999999999
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 625.3249999999999
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 615.435
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 1.567,
+      "totalMs": 602.7939999999999
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 5.665,
+      "totalMs": 586.556
+    },
+    {
+      "function": "i",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 51,
+        "column": 14,
+        "name": null
+      },
+      "selfMs": 278.0550000000002,
+      "totalMs": 584.8349999999997
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 561.1419999999999,
+      "totalMs": 561.1419999999999
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 10.73,
+      "totalMs": 552.752
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/crossingApproaches.ts",
+        "line": 8,
+        "column": 67,
+        "name": "c"
+      },
+      "selfMs": 3.064,
+      "totalMs": 546.6579999999998
+    },
+    {
+      "function": "t2",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 13,
+        "column": 16,
+        "name": "contains"
+      },
+      "selfMs": 85.46899999999998,
+      "totalMs": 524.9750000000001
+    },
+    {
+      "function": "B",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 14,
+        "column": 16,
+        "name": null
+      },
+      "selfMs": 6.407,
+      "totalMs": 489.2359999999998
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/components/environment/ReferenceCity.tsx",
+        "line": 40,
+        "column": 61,
+        "name": null
+      },
+      "selfMs": 15.324,
+      "totalMs": 485.44999999999965
+    }
+  ],
+  "self": [
+    {
+      "function": "R",
+      "source": {
+        "source": "../../../node_modules/three/build/three.module.js",
+        "line": 6491,
+        "column": 10,
+        "name": "onFirstUse"
+      },
+      "selfMs": 2228.364000000001,
+      "totalMs": 2232.708000000001
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 1036.8209999999992,
+      "totalMs": 1036.8209999999992
+    },
+    {
+      "function": "(idle)",
+      "source": null,
+      "selfMs": 786.8410000000005,
+      "totalMs": 786.8410000000005
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 779.0550000000005,
+      "totalMs": 779.0550000000005
+    },
+    {
+      "function": "(garbage collector)",
+      "source": null,
+      "selfMs": 617.2089999999994,
+      "totalMs": 617.2089999999994
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 561.1419999999999,
+      "totalMs": 561.1419999999999
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 117,
+        "column": 8,
+        "name": null
+      },
+      "selfMs": 463.63799999999964,
+      "totalMs": 470.1259999999997
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 439.50600000000026,
+      "totalMs": 439.50600000000026
+    },
+    {
+      "function": "Zh",
+      "source": {
+        "source": "../../../src/assets/surfaceTriangulation.ts",
+        "line": 7,
+        "column": 16,
+        "name": "improveSurfaceTriangles"
+      },
+      "selfMs": 425.1120000000001,
+      "totalMs": 1078.5729999999996
+    },
+    {
+      "function": "i",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 51,
+        "column": 14,
+        "name": null
+      },
+      "selfMs": 278.0550000000002,
+      "totalMs": 584.8349999999997
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 117,
+        "column": 8,
+        "name": null
+      },
+      "selfMs": 254.07900000000006,
+      "totalMs": 258.70800000000014
+    },
+    {
+      "function": "A",
+      "source": {
+        "source": "../../../src/assets/surfaceTriangulation.ts",
+        "line": 16,
+        "column": 15,
+        "name": "id"
+      },
+      "selfMs": 213.12700000000004,
+      "totalMs": 252.32900000000004
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/assets/surfaceTriangulation.ts",
+        "line": 9,
+        "column": 21,
+        "name": "p"
+      },
+      "selfMs": 191.27499999999992,
+      "totalMs": 199.10499999999993
+    },
+    {
+      "function": "Gv",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 82,
+        "column": 16,
+        "name": "heightAlongRoad"
+      },
+      "selfMs": 185.008,
+      "totalMs": 185.008
+    },
+    {
+      "function": "oC",
+      "source": {
+        "source": "../../../src/assets/surfaceTriangulation.ts",
+        "line": 38,
+        "column": 16,
+        "name": "tessellateSurface"
+      },
+      "selfMs": 184.37999999999994,
+      "totalMs": 2962.179999999998
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 184.04299999999998,
+      "totalMs": 184.04299999999998
+    },
+    {
+      "function": "sC",
+      "source": {
+        "source": "../../../node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+        "line": 644,
+        "column": 9,
+        "name": "mergeVertices"
+      },
+      "selfMs": 159.82899999999992,
+      "totalMs": 226.75999999999982
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 141.152,
+      "totalMs": 141.152
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 117,
+        "column": 8,
+        "name": null
+      },
+      "selfMs": 120.16700000000004,
+      "totalMs": 124.92300000000004
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 119.47999999999996,
+      "totalMs": 119.47999999999996
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 112.62100000000002,
+      "totalMs": 112.62100000000002
+    },
+    {
+      "function": "(program)",
+      "source": null,
+      "selfMs": 111.83800000000001,
+      "totalMs": 111.83800000000001
+    },
+    {
+      "function": "K0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 106.599,
+      "totalMs": 106.599
+    },
+    {
+      "function": "Gt",
+      "source": {
+        "source": "../../../src/config/referenceMap.ts",
+        "line": 431,
+        "column": 16,
+        "name": "distanceToRoute"
+      },
+      "selfMs": 96.08099999999999,
+      "totalMs": 96.08099999999999
+    },
+    {
+      "function": "Gv",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 82,
+        "column": 16,
+        "name": "heightAlongRoad"
+      },
+      "selfMs": 94.88100000000003,
+      "totalMs": 94.88100000000003
+    },
+    {
+      "function": "d6",
+      "source": {
+        "source": "../../../src/config/referenceMap.ts",
+        "line": 105,
+        "column": 16,
+        "name": "nearestRoutePoint"
+      },
+      "selfMs": 94.13799999999998,
+      "totalMs": 94.13799999999998
+    },
+    {
+      "function": "u",
+      "source": {
+        "source": "../../../src/config/crossingApproaches.ts",
+        "line": 14,
+        "column": 14,
+        "name": null
+      },
+      "selfMs": 92.9,
+      "totalMs": 92.9
+    },
+    {
+      "function": "t2",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 13,
+        "column": 16,
+        "name": "contains"
+      },
+      "selfMs": 92.84500000000004,
+      "totalMs": 653.9869999999997
+    },
+    {
+      "function": "Ot",
+      "source": {
+        "source": "../../../src/components/environment/referenceGeometry.ts",
+        "line": 9,
+        "column": 16,
+        "name": "polygon"
+      },
+      "selfMs": 92.804,
+      "totalMs": 980.0239999999997
+    },
+    {
+      "function": "ft",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 29,
+        "column": 16,
+        "name": "corridorGap"
+      },
+      "selfMs": 89.76499999999997,
+      "totalMs": 1810.4239999999998
+    }
+  ],
+  "bundles": [
+    "index-DIDLgMgi.js",
+    "World-Dpyp_Svu.js",
+    "Benchmark-WnHBZ8oJ.js"
+  ]
+}

@@ -49,8 +49,7 @@ test('pergunta, custos e alternativas acessíveis sobre a cidade', async ({ page
   expect((await page.locator('.balance .coin').boundingBox())!.width).toBeGreaterThanOrEqual(48);
   expect(await page.locator('.balance b').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(20);
   for (const choice of await choices.all()) {
-    // Compact mission layouts reserve the city above the dialogue. All choices
-    // remain reachable in their own scrollport without moving the question.
+    // Alternatives remain reachable in their own scrollport on small screens.
     await choice.scrollIntoViewIfNeeded();
     // Chromium rounds fractional scrollport edges down by a subpixel.
     await expect(choice).toBeInViewport({ ratio: .99 });

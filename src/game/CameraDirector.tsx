@@ -10,7 +10,7 @@ import { useMapNavigation } from "./useMapNavigation";
 import {mapFit} from '../config/referenceFrame';
 import {introNode} from '../content/dialogues';
 import {preparationActivity} from './resourcePreparation';
-import {frameProblemShot,flightZoom} from './problemFraming';
+import {frameProblemShot,flightZoom,problemPreviewDuration} from './problemFraming';
 export const CameraDirector = {
   focusCity: (): CameraShot => overview,
   focusProblem: (id: string): CameraShot => problemById[id].camera,
@@ -82,6 +82,22 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     };
     invalidate();
   }, [camera, shotId, size.width, size.height, reduced, invalidate,introView]);
+  useEffect(() => {
+    if (moving || !interactive || phase !== 'FOCUSING') return;
+    // Keep the completed shot clear before mounting the dialogue. No frames
+    // are requested just to run this timer, and hidden tabs do not consume it.
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const schedule = () => {
+      clearTimeout(timer);
+      if (!document.hidden) timer = setTimeout(() => {
+        const progress = useGame.getState().progress;
+        if (progress.phase === 'FOCUSING' && progress.selectedProblem === selected) arrived();
+      }, problemPreviewDuration);
+    };
+    schedule();
+    document.addEventListener('visibilitychange', schedule);
+    return () => { clearTimeout(timer); document.removeEventListener('visibilitychange', schedule); };
+  }, [moving, interactive, phase, selected, arrived, size.width, size.height]);
   useFrame(() => {
     const a = animation.current;
     if (!a || a.done) return;
@@ -100,7 +116,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     if (t === 1) {
       a.done = true;
       setMoving(false);
-      arrived();
+      if (useGame.getState().progress.phase !== 'FOCUSING') arrived();
     } else invalidate();
   });
   return null;

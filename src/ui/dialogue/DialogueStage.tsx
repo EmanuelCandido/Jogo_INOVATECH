@@ -28,7 +28,7 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
  useEffect(()=>{panel.current?.focus({preventScroll:true});panel.current?.scrollTo(0,0);},[s.phase,s.dialogueNodeId,s.selectedProblem]);
  if(!['INTRO','COMMENT','CONTEXT','QUESTION','RESULT','TUTORIAL_QUESTION','TUTORIAL_RESULT'].includes(s.phase))return null;
  const advanceLabel=s.phase==='INTRO'?node.actionLabel:s.phase==='COMMENT'?'Entender a situação':s.phase==='CONTEXT'?dialogueCopy.contextAction:s.phase==='TUTORIAL_RESULT'?(answer?.effectiveness==='COMPLETE'?'Investigar a cidade':'Tentar novamente'):dialogueCopy.resultAction;
- return <div className={'narrative-stage '+(p?'problem-dialogue ':'')+(isQuestion?'has-choices ':'')+(result?'has-result ':'')+(canContinue?'can-continue':'')}
+ return <div className={'narrative-stage '+(p?'problem-dialogue ':'')+(s.phase==='COMMENT'?'problem-arrival ':'')+(isQuestion?'has-choices ':'')+(result?'has-result ':'')+(canContinue?'can-continue':'')}
   onPointerDown={e=>{
    tap.current=canContinue&&e.isPrimary&&e.button===0?{id:e.pointerId,x:e.clientX,y:e.clientY}:null;
   }}

@@ -18,6 +18,7 @@ import {depthFrameRenderer} from '../../game/depthPrepass';
 import {batchIsolatedModels} from '../../game/modelBatchExperiment';
 import {cacheLeafHashes} from '../../game/leafHashExperiment';
 import {skipEmptyLeafTones} from '../../game/leafMaskExperiment';
+import {riversideAssets} from '../../config/referenceDetails';
 import {preparationActivity,preparationSnapshot} from '../../game/resourcePreparation';
 import {startShaderWarmup,warmupRoots,wholeShaderWarmup} from '../../game/shaderWarmup';
 
@@ -90,6 +91,7 @@ export default function Benchmark(){
    renderer:rendererExt?context.getParameter(rendererExt.UNMASKED_RENDERER_WEBGL):context.getParameter(context.RENDERER),
    gpuTimer:!!timer,multiDraw:!!context.getExtension('WEBGL_multi_draw'),
    ready(){return !situationPreloadStatus.pending&&!useProgress.getState().active;},
+   riversidePlacements(){return riversideAssets;},
    preparation(){return {busy:preparationActivity(gl.domElement).busy(),loading:useProgress.getState().active,jobs:preparationSnapshot(gl.domElement)};},
    restartWarmup(){
     if(state.current.active||profiling)throw new Error('Pare a amostra antes de reiniciar a preparação');

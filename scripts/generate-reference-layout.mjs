@@ -9,4 +9,8 @@ try{
  const path='src/config/reference-layout.json';
  if(await readFile(path,'utf8').catch(()=>'')!==json)await writeFile(path,json);
  console.log(`Layout prepared: ${m.buildingLots.length} buildings, ${m.referenceTrees.length} trees, ${m.pedestrianNetwork.links.length} pedestrian links.`);
+ const details=await server.ssrLoadModule('/src/config/referenceDetails.ts');
+ const riversidePath='src/config/riverside-layout.json',riverside=JSON.stringify(details.riversidePreparation);
+ if(await readFile(riversidePath,'utf8').catch(()=>'')!==riverside)await writeFile(riversidePath,riverside);
+ console.log(`Riverside prepared: ${details.riversideAssets.length} placements.`);
 }catch(error){console.error(error.message);process.exitCode=1;}finally{await server.close();}

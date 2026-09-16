@@ -31,9 +31,13 @@ Em contexto novo com cache HTTP desativado, o diagnóstico ficou acessível em 1
 
 Há, portanto, duas frentes distintas: trabalho síncrono na montagem inicial e custo de GPU contínuo durante a movimentação. O trace ainda não identifica a função de origem responsável pelas tarefas longas; é necessário perfil de CPU com mapeamento de código antes de alterar a inicialização.
 
-## Próxima hipótese em avaliação
+## Hipótese das máscaras das folhas — rejeitada
 
-O material das folhas calcula nervuras e tonalidade mesmo quando sua máscara já é exatamente zero. A candidata evita somente esse trecho, depois de calcular as derivadas e a máscara originais. Permanece optativa em `ecoBenchmark.leafEmptyMasks`, fora do jogo normal, até comparação visual e quatro pares de navegação com ordem invertida. Não altera modelos, densidade, resolução, sombras ou animações.
+O material das folhas calcula nervuras e tonalidade mesmo quando sua máscara já é exatamente zero. A candidata evita somente esse trecho, depois de calcular as derivadas e a máscara originais. Permanece optativa em `ecoBenchmark.leafEmptyMasks`, fora do jogo normal. Não altera modelos, densidade, resolução, sombras ou animações.
+
+Concluídas 24 comparações visuais em oito vistas, todas com zero pixels diferentes, incluindo atualização das sombras e restauração. Nos quatro pares de navegação por vista, porém, a mediana do panorama passou de 8,42 para 8,00 fps; na floresta, de 15,24 para 15,21 fps. A mudança não atingiu o critério de ganho. Dois pares do panorama tiveram aumento de tempo de quadro superior a 9%; a causa precisa não foi isolada. Evitar aritmética não basta para presumir ganho quando se introduz uma condição no shader.
+
+**Decisão:** não ativar nem publicar a candidata. [Evidências completas](performance/leaf-empty-mask-intel/results.json). A investigação seguinte mede a CPU da primeira abertura com mapeamento para os arquivos de origem.
 
 Critério mantido: imagem preservada e ganho repetido de pelo menos 5% no quadro completo, sem piora recorrente dos percentis. A meta de 60 fps permanece não atingida.
 
