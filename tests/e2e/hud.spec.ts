@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { open } from '../helpers';
+import {mapReady} from './helpers';
 
 test('abertura, Impactus e continuação do progresso', async ({ page }, info) => {
   await page.goto('/');
@@ -84,9 +85,9 @@ test('pergunta, custos e alternativas acessíveis sobre a cidade', async ({ page
     await expect(page.locator('.footer')).toBeHidden();
     await page.screenshot({ path: info.outputPath('hud-landscape.png'), animations: 'disabled' });
   }
-  await page.getByRole('button', { name: 'Configurações', exact: true }).click();
-  await page.getByRole('button', { name: 'Decidir depois · voltar ao mapa' }).click();
-  await page.getByRole('button', { name: 'Centralizar mapa' }).click();
+  await page.getByRole('button', { name: 'Voltar ao mapa', exact: true }).click();
+  await mapReady(page);
+  await expect(page.locator('.map-controls')).toHaveCount(0);
   await expect(page.locator('.marker')).toHaveCount(2);
   await page.screenshot({ path: info.outputPath('hud-map.png'), animations: 'disabled' });
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);

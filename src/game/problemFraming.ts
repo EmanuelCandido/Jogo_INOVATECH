@@ -2,7 +2,7 @@ import { Vector3 } from 'three';
 import type { CameraShot, Vec3 } from './types';
 
 // Reading time starts after the camera flight, including with reduced motion.
-export const problemPreviewDuration = 2200;
+export const problemPreviewDuration = 5000;
 
 export function frameProblemShot(shot: CameraShot, width: number, height: number): CameraShot {
   const mobile = width < 1000;

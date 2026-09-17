@@ -18,11 +18,13 @@ O cenário continua sendo a cidade 3D jogável. Textos, custos, recompensas e sa
 
 ## Interação
 
-Ao selecionar uma missão, a câmera aproxima e centraliza o problema. Depois de chegar, a cena permanece sem personagem, diálogo ou cabeçalho por 2,2 segundos. Só então Impactus entra pela esquerda e o painel aparece de baixo para cima, com transição de opacidade. O personagem mantém o tamanho e o alinhamento originais da composição. As falas seguintes não reiniciam a câmera nem a animação de entrada.
+Ao selecionar uma missão, a câmera aproxima e centraliza o problema, com aceleração e desaceleração suaves. Depois de chegar, a cena permanece sem personagem, diálogo ou cabeçalho por cinco segundos completos. Só então Impactus entra pela esquerda, no tamanho original, seguido do painel e da placa de nome. As alternativas aparecem em sequência. As falas seguintes não reiniciam a câmera nem a entrada do personagem.
 
-A preferência de movimento reduzido desativa a animação de entrada e abrevia o voo, mantendo o tempo para observar. Sair da aba interrompe a espera; voltar oferece novamente os 2,2 segundos. Girar a tela durante a aproximação reenquadra a cena antes de iniciar a espera.
+A preferência de movimento reduzido desativa as animações da interface e abrevia o voo, mantendo o tempo para observar. Sair da aba interrompe a espera; voltar oferece novamente os cinco segundos. Girar a tela durante a aproximação reenquadra a cena antes de iniciar a espera. O botão “Voltar” fica no canto superior esquerdo desde a aproximação e cancela a espera ao sair. Antes da decisão, preserva moedas e deixa o problema disponível; depois da decisão, preserva o resultado.
 
-Toque ou clique em qualquer parte da tela durante uma fala para continuar. Arrastar, rolar ou selecionar texto não dispensa a fala; perguntas exigem escolher uma alternativa. Carregamento e configurações abertas bloqueiam o avanço. O botão de continuação e Enter/Espaço também funcionam.
+Toque ou clique em qualquer parte da tela durante uma fala para continuar. Arrastar, rolar ou selecionar texto não dispensa a fala; perguntas exigem escolher uma alternativa. O clique sintetizado após o toque de continuação é consumido. As alternativas aguardam 650 ms e exigem um novo gesto iniciado sobre a opção habilitada, evitando escolhas involuntárias por toque duplo. Ativação por teclado e tecnologia assistiva continua disponível. Carregamento e configurações abertas bloqueiam o avanço. O botão de continuação e Enter/Espaço também funcionam.
+
+O card de zoom foi removido. O mapa mantém arrasto, pinça, roda do mouse e os atalhos de teclado anunciados pelo canvas (setas, mais, menos e Home).
 
 O menu aparece nas perguntas, resultados e mapa. No computador, Escape abre/fecha as configurações em qualquer etapa. “Decidir depois · voltar ao mapa” está no menu das perguntas, preservando o retorno sem gastar moedas. Uma partida salva retoma sua etapa; a abertura aparece para partidas novas.
 
@@ -47,3 +49,5 @@ Correção do enquadramento: a máscara do retrato agora acomoda toda a largura 
 Validação da correção de poses: seis testes unitários da narrativa, quatro testes de navegador (cinco poses em desktop, Pixel 7 e 360 × 640; carregamento atrasado no desktop), TypeScript e compilação de produção aprovados.
 
 Validação do enquadramento: dez testes de navegador de diálogo e HUD aprovados (desktop, Pixel 7, 360 × 640 e rotação para 844 × 390), além de TypeScript e compilação. Duas repetições móveis do teste de rede atrasada são ignoradas intencionalmente. Capturas `pose-uncropped-*` em `docs/screenshots/hud-responsive/` registram o resultado.
+
+Validação da correção mobile em 16/09/2026: 33 testes unitários aprovados, 14 testes de navegador nos perfis Pixel 7 e 360 × 640, cinco de mouse/teclado no desktop e duas verificações finais no celular pequeno. As duas verificações de teclado físico são ignoradas nos projetos de toque. A câmera ficou pelo menos 4,9 segundos completamente parada e sem diálogo antes da entrada (tolerância de amostragem de 100 ms para a espera de cinco segundos), inclusive com movimento reduzido. Toque duplo não alterou saldo nem decisões; um novo toque ou Enter escolheu apenas uma alternativa. TypeScript e build com o caminho de publicação aprovados. Capturas e relatórios locais em `test-results/mobile-problem-*`.

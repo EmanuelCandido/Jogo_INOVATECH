@@ -1,4 +1,5 @@
 import {test,expect,type Page} from '@playwright/test';
+import {resetMap} from './helpers';
 import {story} from '../../src/content/story';
 
 async function expectPose(page:Page,pose:string,src:string,width=768){
@@ -42,7 +43,7 @@ test('Impactus, tutorial com tentativas, teclado e restauração',async({page})=
  await page.locator('[data-choice-id="observe"]').click();await expectPose(page,'character_success','/assets/portraits/robot/pose-4.webp');
  await page.screenshot({path:test.info().outputPath('robot-tutorial-'+test.info().project.name+'.png'),animations:'disabled'});
  await page.getByRole('button',{name:'Investigar a cidade'}).focus();await page.keyboard.press('Enter');
- await page.getByRole('button',{name:'Centralizar mapa'}).click();await expect(page.locator('.marker')).toHaveCount(2);
+ await resetMap(page);await expect(page.locator('.marker')).toHaveCount(2);
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data.decisions)).toEqual([]);
 });
 

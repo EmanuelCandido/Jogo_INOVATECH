@@ -1,7 +1,6 @@
 import {overview} from '../helpers';
 import { test,expect } from "@playwright/test";
-import { initialProgress } from "../../src/game/save";
-import { NarrativeManager } from "../../src/game/NarrativeManager";
+import {resetMap,cameraZoom} from './helpers';
 
 test('tecla mantida move continuamente e para ao soltar ou perder foco',async({page,isMobile})=>{
   test.skip(isMobile,'Cobertura de teclado físico; toque e pinça têm percurso próprio.');
@@ -9,8 +8,8 @@ test('tecla mantida move continuamente e para ao soltar ou perder foco',async({p
   progress.settings={...progress.settings,quality:'MINIMUM',ambientAnimation:false,reducedMotion:true};
   await page.addInitScript(saved=>localStorage.setItem('ecoquest.save.v1',saved),JSON.stringify({version:1,data:progress}));
   await page.goto('/?benchmark=1');
-  await page.getByRole('button',{name:'Centralizar mapa'}).click();
-  for(let i=0;i<3;i++)await page.getByRole('button',{name:'Aproximar mapa'}).click();
+  await resetMap(page);
+  for(let i=0;i<3;i++)await page.keyboard.press('+');
   const position=()=>page.evaluate(()=>{
     const api=(window as unknown as {ecoBenchmark:{snapshot:()=>{camera:{position:number[]}}}}).ecoBenchmark;
     return api.snapshot().camera.position;
@@ -23,7 +22,7 @@ test('tecla mantida move continuamente e para ao soltar ou perder foco',async({p
   await page.keyboard.up('ArrowRight');const released=await position();await page.waitForTimeout(200);
   expect(distance(released,await position())).toBeLessThan(.001);
   await page.keyboard.down('ArrowLeft');await page.waitForTimeout(180);
-  await page.getByRole('button',{name:'Centralizar mapa'}).focus();
+  await page.getByRole('button',{name:'Configurações',exact:true}).focus();
   const blurred=await position();await page.waitForTimeout(200);
   expect(distance(blurred,await position())).toBeLessThan(.001);
   await page.keyboard.up('ArrowLeft');
@@ -33,15 +32,14 @@ test("exploração por arrasto, zoom, limites, centralização e retorno da miss
   const errors:string[]=[];page.on("pageerror",e=>errors.push(e.message));
   const progress=overview();
   await page.addInitScript(saved=>localStorage.setItem("ecoquest.save.v1",saved),JSON.stringify({version:1,data:progress}));
-  await page.goto("/");
-  const closer=page.getByRole("button",{name:"Aproximar mapa"});
-  const reset=page.getByRole("button",{name:"Centralizar mapa"});
-  const output=page.getByLabel("Zoom do mapa");
+  await page.goto("/?benchmark=1");
+  await resetMap(page);
+  const baseZoom=await cameraZoom(page);
+  const zoomPercent=async()=>Math.round(await cameraZoom(page)/baseZoom*100);
   const marker=page.getByRole("button",{name:"Analisar: Acesso ao prédio"});
   const saved=await page.evaluate(()=>localStorage.getItem("ecoquest.save.v1"));
-  // Click waits for scene readiness, including a cold GLB/shader load.
-  await closer.click();await expect(output).toHaveText("125%");
-  await reset.click();await expect(output).toHaveText("100%");
+  await page.keyboard.press('+');await expect.poll(zoomPercent).toBe(125);
+  await resetMap(page);await expect.poll(zoomPercent).toBe(100);
   const before=(await marker.boundingBox())!;
   const {width,height}=page.viewportSize()!;
   if(isMobile){
@@ -63,21 +61,21 @@ test("exploração por arrasto, zoom, limites, centralização e retorno da miss
     await cdp.send("Input.dispatchTouchEvent",{type:"touchStart",touchPoints:[{x:pinch.x-25,y:pinch.y,id:1},{x:pinch.x+25,y:pinch.y,id:2}]});
     await cdp.send("Input.dispatchTouchEvent",{type:"touchMove",touchPoints:[{x:pinch.x-60,y:pinch.y,id:1},{x:pinch.x+60,y:pinch.y,id:2}]});
     await cdp.send("Input.dispatchTouchEvent",{type:"touchEnd",touchPoints:[]});
-    await expect.poll(async()=>parseInt((await output.textContent())!)).toBeGreaterThan(150);
+    await expect.poll(zoomPercent).toBeGreaterThan(150);
     await cdp.detach();
   } else {
     await page.mouse.move(width*.35,height*.6);await page.mouse.down();await page.mouse.move(width*.35+90,height*.6-20,{steps:6});await page.mouse.up();
     await expect.poll(async()=>Math.abs((await marker.boundingBox())!.x-before.x)).toBeGreaterThan(30);
-    await page.mouse.wheel(0,-1200);await expect.poll(async()=>parseInt((await output.textContent())!)).toBeGreaterThan(150);
+    await page.mouse.wheel(0,-1200);await expect.poll(zoomPercent).toBeGreaterThan(150);
   }
   // A focused canvas also supports users who cannot drag or pinch.
   await page.locator("canvas").focus();
-  await page.keyboard.press("Home");await expect(output).toHaveText("100%");
+  await page.keyboard.press("Home");await expect.poll(zoomPercent).toBe(100);
   await page.keyboard.press("ArrowRight");
   await expect.poll(async()=>Math.abs((await marker.boundingBox())!.x-before.x)).toBeGreaterThan(5);
   for(let i=0;i<8;i++)await page.keyboard.press("+");
-  await expect(output).toHaveText("350%");await expect(closer).toBeDisabled();
-  await reset.click();await expect(output).toHaveText("100%");
+  await expect.poll(zoomPercent).toBe(350);
+  await resetMap(page);await expect.poll(zoomPercent).toBe(100);
   expect(await page.evaluate(()=>localStorage.getItem("ecoquest.save.v1"))).toBe(saved);
   await marker.click();await page.getByRole("button",{name:"Entender a situação"}).click();await page.getByRole("button",{name:"Pensar nas soluções"}).click();
   await expect(page.getByRole("navigation",{name:"Navegação do mapa"})).toHaveCount(0);
@@ -86,7 +84,7 @@ test("exploração por arrasto, zoom, limites, centralização e retorno da miss
   // Wait for the camera transition itself before checking its resulting controls.
   // Software WebGL on emulated phones may need more than an assertion's 5 seconds.
   await page.getByText('Voltando à cidade…',{exact:true}).waitFor({state:'hidden'});
-  await expect(closer).toBeEnabled();await expect(output).toHaveText("100%");
+  await resetMap(page);await expect.poll(zoomPercent).toBe(100);
   await expect(page.getByRole("button",{name:"Analisar: Lixo nas ruas"})).toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   expect(errors).toEqual([]);

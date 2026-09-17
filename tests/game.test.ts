@@ -73,7 +73,12 @@ describe('economia, decisões e descoberta',()=>{
   expect(ProblemManager.decide({...open(),coins:100},'support').coins).toBe(0);
  });
  it('sair sem escolher preserva o saldo e não avança a descoberta',()=>{
-  const s=NarrativeManager.cameraArrived(ProblemManager.leave(open()));expect(s.coins).toBe(1500);expect(s.decisions).toHaveLength(0);expect(s.problemStates.security_01).toBe('HIDDEN');
+  for(const phase of ['FOCUSING','COMMENT','CONTEXT','QUESTION'] as const){
+   const s=NarrativeManager.cameraArrived(ProblemManager.leave({...open(),phase}));
+   expect(s.phase).toBe('OVERVIEW');expect(s.selectedProblem).toBeNull();
+   expect(s.coins).toBe(1500);expect(s.decisions).toHaveLength(0);expect(s.problemStates.security_01).toBe('HIDDEN');
+   expect(s.problemStates.accessibility_01).toBe('AVAILABLE');
+  }
  });
 });
 describe('salvamento desta versão',()=>{

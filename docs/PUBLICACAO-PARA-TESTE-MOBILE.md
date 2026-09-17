@@ -4,11 +4,19 @@
 
 https://emanuelcandido.github.io/Jogo_INOVATECH/
 
-Publicado no GitHub Pages em 16/09/2026, com HTTPS e acesso público sem login. Funciona independentemente deste computador. O GitHub confirmou o estado `built` para a publicação `d8a9f53a8c739477595bec01270d85c31dcb958d`, da branch exclusiva `codex/public-game` no repositório existente.
+Publicado inicialmente no GitHub Pages em 16/09/2026, com HTTPS e acesso público sem login. Funciona independentemente deste computador. O GitHub confirmou o estado `built` para a primeira publicação `d8a9f53a8c739477595bec01270d85c31dcb958d`, da branch exclusiva `codex/public-game` no repositório existente.
 
 A build usa `--base=/Jogo_INOVATECH/`; modelos e imagens em JavaScript usam `publicAsset`, enquanto Vite ajusta HTML e CSS. Build TypeScript/Vite aprovada e nove testes de caminhos e materiais aprovados. No endereço permanente, o teste com toque e viewport 390 × 844 concluiu o tutorial e abriu o mapa: 77 modelos carregados, sem erros ou transbordamento horizontal. Evidências em `.tools/public-preview/github-pages.json` e `github-mobile.png`.
 
 Para atualizar, gerar novamente a build com esse mesmo `base` e publicar somente sua saída na branch `codex/public-game`. O checkout de publicação está em `.tools/github-pages`. A branch `main` não foi alterada por essa publicação. O endereço permanente substitui o túnel temporário abaixo; o Sites não é necessário para mantê-lo funcionando.
+
+**Enviar o código para `main` não atualiza o site.** Na investigação dos diálogos móveis, o HTML público ainda apontava para `index-BfS0xeHk.js` e `index-8elQcyNL.css`, da publicação `517cead`. Esse CSS conservava o retrato de 100 px à direita, mesmo após a restauração no código-fonte. A atualização deve incluir o checkout de publicação e a conferência dos arquivos realmente servidos pelo endereço público.
+
+## Correção dos diálogos móveis — 16/09/2026
+
+A build com prévia de cinco segundos, Impactus grande à esquerda, botão de voltar, entrada animada e proteção contra toque duplo usa `index-g2c6zPUZ.js` e `index-DqlWdL6v.css`. O card de zoom foi removido; gestos e teclado continuam disponíveis. A validação local inclui o cancelamento/reabertura da prévia, ausência de diálogo durante a espera, movimento reduzido, rotação e preservação das moedas. Os testes estão em `tests/e2e/problem-framing.spec.ts`, `choice-input.spec.ts`, `hud.spec.ts` e `navigation.spec.ts`.
+
+Depois de enviar a branch de publicação, aguardar o GitHub Pages e conferir que o HTML remoto aponta para esses mesmos arquivos. Os nomes contêm hashes de conteúdo: uma build antiga no site é uma publicação pendente, não uma falha que deva ser resolvida apagando o progresso do jogador.
 
 ## Primeiro endereço temporário
 

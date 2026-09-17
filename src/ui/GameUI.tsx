@@ -5,11 +5,10 @@ import { story } from "../content/story";
 import { DialogueStage } from "./dialogue/DialogueStage";
 import { QuestPanel } from "./hud/QuestPanel";
 import { SettingsPanel } from "./menus/SettingsPanel";
-import { MapControls } from "./hud/MapControls";
 import {PerformanceReadout} from './hud/PerformanceReadout';
 import { TitleScreen } from './menus/TitleScreen';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
-  const { progress: s, notice } = useGame();
+  const { progress: s, notice, leave } = useGame();
   const [menu, setMenu] = useState(false);
   // The title is presentation state; opening it must never reset a saved game.
   const [showTitle, setShowTitle] = useState(() => s.phase === 'INTRO' && s.introIndex === 0);
@@ -45,10 +44,15 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
         <TitleScreen sceneReady={sceneReady} onPlay={() => setShowTitle(false)} />
       ) : (
         <>
+          {s.selectedProblem && ['FOCUSING', 'COMMENT', 'CONTEXT', 'QUESTION', 'RESULT'].includes(s.phase) && (
+            <button className="back-to-map" onClick={leave} aria-label="Voltar ao mapa">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m10 5-7 7 7 7M3 12h18" /></svg>
+              Voltar
+            </button>
+          )}
           {s.phase === 'OVERVIEW' && <QuestPanel sceneReady={sceneReady} />}
           {s.phase === "OVERVIEW" && (
             <>
-              <MapControls />
               <div className="map-instruction">
                 <span>♧</span>
                 <div>

@@ -106,7 +106,8 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     // the command's elapsed time directly instead of accumulating frame deltas.
     const elapsed = (performance.now() - a.startedAt) / 1000;
     const t = Math.min(elapsed / (reduced ? 0.12 : a.shot.duration), 1);
-    const smooth = t * t * (3 - 2 * t);
+    // Ease both speed and acceleration to zero at each end of the flight.
+    const smooth = t * t * t * (t * (6 * t - 15) + 10);
     camera.position.copy(a.from).lerp(a.destination, smooth);
     target.current.copy(a.fromTarget).lerp(a.destinationTarget, smooth);
     camera.lookAt(target.current);

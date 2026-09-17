@@ -1,5 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import { story } from '../../src/content/story';
+import {resetMap} from './helpers';
 
 async function tap(page: Page, x: number, y: number, touch: boolean) {
   if (touch) await page.touchscreen.tap(x, y);
@@ -67,11 +68,11 @@ test('tocar na tela avança uma fala e preserva menus, gestos e escolhas', async
   await page.locator('[data-choice-id="observe"]').click();
   await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible();
   await tap(page, 6, 115, touch);
-  await page.getByRole('button', { name: 'Centralizar mapa' }).click();
+  await resetMap(page);
 
   // Context and results accept the same gesture; questions still need a choice.
   await page.locator('.marker[data-problem="pollution_01"]').click();
-  await expect(page.getByRole('region', { name: 'Observação do companheiro' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Observação do companheiro' })).toBeVisible({timeout:15000});
   await tap(page, 6, 115, touch);
   await expect(page.getByRole('region', { name: 'Contexto do problema' })).toBeVisible();
   await page.screenshot({ path: info.outputPath('current-context.png'), animations: 'disabled' });
@@ -83,7 +84,7 @@ test('tocar na tela avança uma fala e preserva menus, gestos e escolhas', async
   await page.locator('[data-choice-id="collection"]').click();
   await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible();
   await tap(page, 6, 115, touch);
-  await page.getByRole('button', { name: 'Centralizar mapa' }).click();
+  await resetMap(page);
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data.decisions)).toHaveLength(1);
   expect(errors).toEqual([]);
 });

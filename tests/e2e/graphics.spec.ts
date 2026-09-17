@@ -1,5 +1,6 @@
 import {overview} from '../helpers';
 import {test,expect} from '@playwright/test';
+import {resetMap,cameraZoom} from './helpers';
 import {initialProgress} from '../../src/game/save';
 import {NarrativeManager} from '../../src/game/NarrativeManager';
 
@@ -11,8 +12,9 @@ test('troca qualidade em tempo real, preserva partida e restaura preferências',
  // Current narrative content with missing optional graphics preferences uses defaults.
  const saved={...progress,settings:{quality:'LOW',reducedMotion:true}};
  await page.addInitScript(value=>{if(!localStorage.getItem('ecoquest.save.v1'))localStorage.setItem('ecoquest.save.v1',value);},JSON.stringify({version:1,data:saved}));
- await page.goto('/');
- await page.getByRole('button',{name:'Centralizar mapa'}).click();
+ await page.goto('/?benchmark=1');
+ await resetMap(page);
+ const baseZoom=await cameraZoom(page);
  const canvas=page.locator('canvas');
  await expect(canvas).toHaveAttribute('data-graphics-tier','LOW');
  await canvas.evaluate(c=>c.setAttribute('data-original-canvas','true'));
@@ -44,13 +46,13 @@ test('troca qualidade em tempo real, preserva partida e restaura preferências',
  await expect.poll(()=>canvas.evaluate(c=>(c as HTMLCanvasElement).width),{timeout:30000}).toBeLessThan(before*.7);
  await page.screenshot({path:testInfo.outputPath(`graphics-settings-${testInfo.project.name}.png`)});
  await page.getByRole('button',{name:'Voltar ao jogo'}).click();
- await page.getByRole('button',{name:'Aproximar mapa'}).click();
- await expect(page.getByLabel('Zoom do mapa')).toHaveText('125%');
+ await page.locator('canvas').focus();await page.keyboard.press('+');
+ await expect.poll(async()=>Math.round(await cameraZoom(page)/baseZoom*100)).toBe(125);
  const persisted=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
  expect(persisted.coins).toBe(saved.coins);expect(persisted.decisions).toEqual(saved.decisions);expect(persisted.problemStates).toEqual(saved.problemStates);
  expect(persisted.settings).toMatchObject({quality:'LOW',renderScale:60,shadows:'OFF',ambientAnimation:false,showPerformance:true});
  await page.reload();
- await page.getByRole('button',{name:'Centralizar mapa'}).click();
+ await resetMap(page);
  await page.getByRole('button',{name:'Configurações',exact:true}).click();
  await expect(quality).toHaveValue('LOW');await expect(range).toHaveValue('60');
  await expect(page.getByRole('combobox',{name:'Sombras',exact:true})).toHaveValue('OFF');

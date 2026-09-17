@@ -19,10 +19,12 @@ export const ProblemManager = {
   },
   leave(state: Progress): Progress {
     if (
-      !["COMMENT", "CONTEXT", "QUESTION"].includes(state.phase) ||
+      !["FOCUSING", "COMMENT", "CONTEXT", "QUESTION", "RESULT"].includes(state.phase) ||
       !state.selectedProblem
     )
       return state;
+    // A completed decision is kept when leaving its result screen.
+    if (state.phase === "RESULT") return { ...state, phase: "RETURNING" };
     return {
       ...state,
       problemStates: {

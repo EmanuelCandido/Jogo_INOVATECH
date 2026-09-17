@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { OrthographicCamera, Vector3 } from 'three';
 import { overview } from '../helpers';
 import { problemById } from '../../src/content/problems';
+import {mapReady} from './helpers';
 
 type Pose = { position: number[]; quaternion: number[]; zoom: number };
 type Sample = Pose & { time: number; dialogue: boolean; characterOpacity: number; boxOpacity: number };
@@ -54,7 +55,18 @@ for (const reducedMotion of [false, true]) {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('/?benchmark=1');
-    await expect(page.getByRole('button', { name: 'Centralizar mapa' })).toBeEnabled({ timeout: 60000 });
+    await mapReady(page);
+    await expect(page.locator('.map-controls')).toHaveCount(0);
+    // Cancel one preview and reopen the same mission: its abandoned timer
+    // must never reveal the next dialogue early or change the saved economy.
+    await page.locator('.marker[data-problem="pollution_02"]').click();
+    await expectCenteredProblem(page);
+    await page.getByRole('button', { name: 'Voltar ao mapa', exact: true }).click();
+    await mapReady(page);
+    const cancelled = await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
+    expect(cancelled.coins).toBe(saved.coins);
+    expect(cancelled.decisions).toEqual(saved.decisions);
+    expect(cancelled.problemStates.pollution_02).toBe('AVAILABLE');
     const canvasBefore = await page.locator('canvas').boundingBox();
     await page.evaluate(() => {
       const w = window as unknown as DiagnosticWindow;
@@ -90,7 +102,7 @@ for (const reducedMotion of [false, true]) {
     const settled = flight.find(p => Math.abs(p.zoom - arrived.zoom) < .001 &&
       p.position.every((value, i) => Math.abs(value - arrived.position[i]) < .001))!;
     const revealed = flight.find(p => p.dialogue)!;
-    expect(revealed.time - settled.time).toBeGreaterThanOrEqual(2100);
+    expect(revealed.time - settled.time).toBeGreaterThanOrEqual(4900);
     if (!reducedMotion) {
       expect(new Set(flight.map(p => p.zoom.toFixed(2))).size).toBeGreaterThan(3);
       expect(flight.some(p => p.characterOpacity > 0 && p.characterOpacity < .95)).toBe(true);
@@ -126,8 +138,13 @@ for (const reducedMotion of [false, true]) {
     await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible();
     await expectOriginalPortrait(page);
     await page.screenshot({ path: info.outputPath('mission-result.png') });
-    await page.getByRole('button', { name: 'Voltar à cidade →' }).click();
-    await expect(page.getByRole('button', { name: 'Centralizar mapa' })).toBeEnabled({ timeout: 15000 });
+    const result = await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
+    await page.getByRole('button', { name: 'Voltar ao mapa', exact: true }).click();
+    await mapReady(page);
+    const returned = await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
+    expect(returned.coins).toBe(result.coins);
+    expect(returned.decisions).toEqual(result.decisions);
+    expect(returned.problemStates.pollution_02).toBe(result.problemStates.pollution_02);
     expect(errors).toEqual([]);
   });
 }
