@@ -14,7 +14,7 @@ Para atualizar, gerar novamente a build com esse mesmo `base` e publicar somente
 
 ## Correção dos diálogos móveis — 16/09/2026
 
-A build com prévia de cinco segundos, Impactus grande à esquerda, botão de voltar, entrada animada e proteção contra toque duplo usa `index-g2c6zPUZ.js` e `index-DqlWdL6v.css`. O card de zoom foi removido; gestos e teclado continuam disponíveis. A validação local inclui o cancelamento/reabertura da prévia, ausência de diálogo durante a espera, movimento reduzido, rotação e preservação das moedas. Os testes estão em `tests/e2e/problem-framing.spec.ts`, `choice-input.spec.ts`, `hud.spec.ts` e `navigation.spec.ts`.
+A build ajustada com prévia de 3,5 segundos e retrato aproximadamente 20% menor, alinhado à esquerda conforme a composição do Figma, usa `index-D10WywSE.js` e `index-DYwjYy0k.css`. Ela mantém o botão de voltar, a entrada animada e a proteção contra toque duplo. O card de zoom foi removido; gestos e teclado continuam disponíveis. A validação local inclui o cancelamento/reabertura da prévia, ausência de diálogo durante a espera, movimento reduzido, rotação e preservação das moedas. Os testes estão em `tests/e2e/problem-framing.spec.ts`, `choice-input.spec.ts`, `hud.spec.ts` e `navigation.spec.ts`.
 
 Depois de enviar a branch de publicação, aguardar o GitHub Pages e conferir que o HTML remoto aponta para esses mesmos arquivos. Os nomes contêm hashes de conteúdo: uma build antiga no site é uma publicação pendente, não uma falha que deva ser resolvida apagando o progresso do jogador.
 

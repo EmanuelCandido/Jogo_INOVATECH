@@ -28,7 +28,7 @@ async function expectCenteredProblem(page: Page) {
   }, { timeout: 15000 }).toBeLessThan(.05);
 }
 
-async function expectOriginalPortrait(page: Page) {
+async function expectLeftPortrait(page: Page) {
   const { width, height } = page.viewportSize()!;
   const portrait = (await page.locator('.robot-stage').boundingBox())!;
   const box = (await page.locator('.dialogue-box').boundingBox())!;
@@ -36,14 +36,17 @@ async function expectOriginalPortrait(page: Page) {
     expect(portrait.width).toBeGreaterThan(180);
     expect(portrait.x + portrait.width).toBeLessThan(box.x);
   } else {
-    expect(portrait.width).toBeGreaterThan(width * .7);
-    expect(Math.abs(portrait.x - box.x)).toBeLessThan(2);
+    expect(portrait.width).toBeGreaterThan(width * .6);
+    expect(portrait.width).toBeLessThan(width * .7);
+    expect(portrait.x).toBeGreaterThanOrEqual(0);
+    expect(portrait.x).toBeLessThan(box.x);
+    expect(portrait.x + portrait.width / 2).toBeLessThan(width * .4);
   }
   await expect(page.locator('.robot-stage')).toBeInViewport({ ratio: .99 });
 }
 
 for (const reducedMotion of [false, true]) {
-  test(`preview before the original portrait and dialogue (reduced motion: ${reducedMotion})`, async ({ page, isMobile }, info) => {
+  test(`3.5 second preview before the smaller left portrait (reduced motion: ${reducedMotion})`, async ({ page, isMobile }, info) => {
     test.skip(!isMobile, 'Mobile mission presentation');
     test.setTimeout(120000);
     const saved = overview();
@@ -102,7 +105,8 @@ for (const reducedMotion of [false, true]) {
     const settled = flight.find(p => Math.abs(p.zoom - arrived.zoom) < .001 &&
       p.position.every((value, i) => Math.abs(value - arrived.position[i]) < .001))!;
     const revealed = flight.find(p => p.dialogue)!;
-    expect(revealed.time - settled.time).toBeGreaterThanOrEqual(4900);
+    expect(revealed.time - settled.time).toBeGreaterThanOrEqual(3400);
+    expect(revealed.time - settled.time).toBeLessThan(4200);
     if (!reducedMotion) {
       expect(new Set(flight.map(p => p.zoom.toFixed(2))).size).toBeGreaterThan(3);
       expect(flight.some(p => p.characterOpacity > 0 && p.characterOpacity < .95)).toBe(true);
@@ -112,21 +116,21 @@ for (const reducedMotion of [false, true]) {
         elements.every(el => getComputedStyle(el).animationName === 'none'))).toBe(true);
     }
     expect(await page.locator('canvas').boundingBox()).toEqual(canvasBefore);
-    await expectOriginalPortrait(page);
+    await expectLeftPortrait(page);
     await page.screenshot({ path: info.outputPath('mission-comment.png') });
 
     await page.touchscreen.tap(6, 115);
     await expect(page.getByRole('region', { name: 'Contexto do problema' })).toBeVisible();
     await page.getByRole('button', { name: 'Pensar nas soluções →' }).click();
     await expect(page.locator('.alternative')).toHaveCount(3);
-    await expectOriginalPortrait(page);
+    await expectLeftPortrait(page);
     expect(await cameraPose(page)).toEqual(arrived);
     await page.screenshot({ path: info.outputPath('mission-question.png') });
 
     const portraitSize = page.viewportSize()!;
     await page.setViewportSize({ width: 844, height: 390 });
     await expectCenteredProblem(page);
-    await expectOriginalPortrait(page);
+    await expectLeftPortrait(page);
     for (const choice of await page.locator('.alternative').all()) {
       await choice.scrollIntoViewIfNeeded();
       await expect(choice).toBeInViewport({ ratio: .99 });
@@ -136,7 +140,7 @@ for (const reducedMotion of [false, true]) {
     await expectCenteredProblem(page);
     await page.locator('.alternative').first().click();
     await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible();
-    await expectOriginalPortrait(page);
+    await expectLeftPortrait(page);
     await page.screenshot({ path: info.outputPath('mission-result.png') });
     const result = await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
     await page.getByRole('button', { name: 'Voltar ao mapa', exact: true }).click();
