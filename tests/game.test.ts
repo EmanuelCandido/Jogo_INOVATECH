@@ -82,6 +82,13 @@ describe('economia, decisões e descoberta',()=>{
  });
 });
 describe('salvamento desta versão',()=>{
+ it('migra saves anteriores à loja sem perder moedas e decisões',()=>{
+  const original=ProblemManager.decide(open(),'ramp');
+  const legacy={...original,wardrobe:undefined,dailyMissions:undefined};
+  const restored=decodeSave(JSON.stringify({version:1,data:legacy}));
+  expect(restored.coins).toBe(original.coins);expect(restored.decisions).toEqual(original.decisions);
+  expect(restored.wardrobe.owned).toEqual(['cape-star']);expect(restored.dailyMissions.claimed).toEqual([]);
+ });
  it('restaura resultados sem cobrar novamente',()=>{
   let raw:string|null=null;const adapter:SaveAdapter={read:()=>raw,write:v=>{raw=v;},clear:()=>{raw=null;}};
   const s=ProblemManager.decide(open(),'ramp');saveProgress(adapter,s);expect(loadProgress(adapter).data).toEqual(s);expect(finish(loadProgress(adapter).data).coins).toBe(1350);

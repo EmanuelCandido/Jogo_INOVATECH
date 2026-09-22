@@ -18,6 +18,14 @@ A build ajustada com prévia de 3,5 segundos e retrato aproximadamente 20% menor
 
 Depois de enviar a branch de publicação, aguardar o GitHub Pages e conferir que o HTML remoto aponta para esses mesmos arquivos. Os nomes contêm hashes de conteúdo: uma build antiga no site é uma publicação pendente, não uma falha que deva ser resolvida apagando o progresso do jogador.
 
+## Loja e missões — 21/09/2026
+
+A versão com os novos atalhos e telas do Figma usa `index-DD-gIv7w.js` e `index-CBsqJPHb.css`. Inclui 18 acessórios em três categorias, prévia de combinações, compra com moedas da cidade e visual persistente nas cinco poses do Impactus. Saves anteriores recebem o inventário inicial sem perder a história. A arte e o prompt de limpeza do personagem estão documentados em `assets-source/ui/wardrobe/README.md`.
+
+As missões têm progresso diário, recompensas de resgate único e bônus. O painel mantém o acesso à lista de problemas da cidade. A loja e as missões bloqueiam a interação com o mapa enquanto estão abertas e devolvem o foco ao botão de origem ao fechar. O retrato se adapta à altura disponível sem deformar a imagem; a prévia de 3,5 segundos e a proteção contra toque duplo continuam ativas.
+
+Validação: TypeScript, build com o prefixo do Pages, 35 testes unitários, 18 testes de interface em desktop e dois tamanhos de celular, além dos testes de enquadramento e toque duplo com e sem movimento reduzido. `tests/e2e/wardrobe.spec.ts` cobre compra, saldo exato, combinações, persistência, descarte de prévia, recompensas e teclado; também verifica a loja em paisagem.
+
 ## Primeiro endereço temporário
 
 Disponibilizada em 16/09/2026, com acesso público e sem login:

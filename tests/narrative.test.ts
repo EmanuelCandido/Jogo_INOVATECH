@@ -26,7 +26,7 @@ describe('narrativa e cinco poses do mesmo companheiro',()=>{
  });
  it('usa cinco arquivos distintos e nenhuma imagem do personagem antigo',()=>{
   const c=characters.companion;expect(Object.keys(characters)).toEqual(['companion']);expect(new Set(Object.values(c.poses)).size).toBe(5);
-  expect(c.poses.character_intro).toBe('/assets/ui/figma/impactus.webp');
+  expect(c.poses.character_intro).toBe('/assets/portraits/robot/impactus-clean.webp');
   for(const [pose,url] of Object.entries(c.poses))if(pose!=='character_intro')expect(url).toMatch(/robot\/pose-[2-5]\.webp$/);
   expect(Object.values(dialogueNodes).every(n=>n.characterId==='companion')).toBe(true);
   expect(tutorialQuestion.alternatives.every(a=>a.cost===0)).toBe(true);

@@ -75,7 +75,7 @@ export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneR
       </button>
       {confirmReset ? (
         <div>
-          <p>Apagar o progresso desta partida?</p>
+          <p>Apagar o progresso, as moedas e os acessórios desta partida?</p>
           <button
             className="danger"
             onClick={() => {

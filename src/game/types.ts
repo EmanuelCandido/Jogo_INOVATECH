@@ -1,3 +1,5 @@
+import type { Wardrobe } from './wardrobe';
+import type { DailyMissions } from './dailyMissions';
 export type Vec3 = [number, number, number];
 export type Category =
   "ACCESSIBILITY" | "POLLUTION" | "SECURITY" | "NATURE" | "HEALTH";
@@ -104,4 +106,6 @@ export interface Progress {
   phase: Phase;
   introIndex: number;
   rewarded: string[];
+  wardrobe: Wardrobe;
+  dailyMissions: DailyMissions;
 }

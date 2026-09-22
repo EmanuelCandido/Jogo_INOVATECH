@@ -29,6 +29,9 @@ async function expectCenteredProblem(page: Page) {
 }
 
 async function expectLeftPortrait(page: Page) {
+  await page.locator('.problem-dialogue').evaluate(async el => {
+    await Promise.all(el.getAnimations({ subtree: true }).map(animation => animation.finished));
+  });
   const { width, height } = page.viewportSize()!;
   const portrait = (await page.locator('.robot-stage').boundingBox())!;
   const box = (await page.locator('.dialogue-box').boundingBox())!;
@@ -36,12 +39,17 @@ async function expectLeftPortrait(page: Page) {
     expect(portrait.width).toBeGreaterThan(180);
     expect(portrait.x + portrait.width).toBeLessThan(box.x);
   } else {
-    expect(portrait.width).toBeGreaterThan(width * .6);
+    // Short phones scale the entire portrait to leave room for the choices,
+    // rather than squeezing or clipping its head into a fixed-height frame.
+    const hasChoices = await page.locator('.has-choices').count() > 0;
+    expect(portrait.width).toBeGreaterThan(width * (hasChoices ? .44 : .6));
     expect(portrait.width).toBeLessThan(width * .7);
     expect(portrait.x).toBeGreaterThanOrEqual(0);
     expect(portrait.x).toBeLessThan(box.x);
     expect(portrait.x + portrait.width / 2).toBeLessThan(width * .4);
   }
+  const avatar = (await page.locator('.robot-stage .character-avatar').boundingBox())!;
+  expect(Math.abs(avatar.width - avatar.height)).toBeLessThan(1);
   await expect(page.locator('.robot-stage')).toBeInViewport({ ratio: .99 });
 }
 

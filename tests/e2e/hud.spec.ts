@@ -13,7 +13,7 @@ test('abertura, Impactus e continuação do progresso', async ({ page }, info) =
   await page.keyboard.press('Enter');
   await expect(page.locator('.speaker-plate')).toHaveText('Impactus');
   await expect(page.locator('.dialogue-body')).toContainText('Olá! Vamos transformar nossa cidade em um lugar melhor?');
-  await expect(page.getByAltText('Robô companheiro da jornada')).toHaveJSProperty('naturalWidth', 2508);
+  await expect(page.getByAltText('Robô companheiro da jornada')).toHaveJSProperty('naturalWidth', 768);
   if (info.project.name === 'desktop') {
     // Wide screens use a readable, bottom-aligned panel instead of a scaled phone layout.
     for (const viewport of [{ width: 1440, height: 900 }, { width: 1600, height: 756 }, { width: 1024, height: 600 }]) {

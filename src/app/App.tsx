@@ -28,16 +28,17 @@ export default function App() {
   const settings = useGame((s) => s.progress.settings);
   const selected = useGame((s) => s.progress.selectedProblem);
   const phase = useGame((s) => s.progress.phase);
+  const overlay = useGame((s) => s.overlay);
   return (
     <main
       className={`game ${settings.reducedMotion ? "reduced-motion" : ""} ${selected && phase!=="RETURNING" ? "focused" : ""}`}
     >
-      <div className="world" aria-label="Diorama 3D da Praça do Encontro">
+      <div className="world" inert={Boolean(overlay)} aria-label="Diorama 3D da Praça do Encontro">
         <SceneBoundary>
           <Suspense
             fallback={<div className="loading">Preparando a cidade…</div>}
           >
-            <World onReady={onSceneReady} interactive={sceneReady} />
+            <World onReady={onSceneReady} interactive={sceneReady && !overlay} />
           </Suspense>
         </SceneBoundary>
       </div>

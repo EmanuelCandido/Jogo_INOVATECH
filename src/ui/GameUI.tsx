@@ -4,24 +4,32 @@ import { useGame } from "../stores/gameStore";
 import { story } from "../content/story";
 import { DialogueStage } from "./dialogue/DialogueStage";
 import { QuestPanel } from "./hud/QuestPanel";
+import { JourneyNav } from './hud/JourneyNav';
+import { Shop } from './wardrobe/Shop';
 import { SettingsPanel } from "./menus/SettingsPanel";
 import {PerformanceReadout} from './hud/PerformanceReadout';
 import { TitleScreen } from './menus/TitleScreen';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
-  const { progress: s, notice, leave } = useGame();
+  const { progress: s, notice, leave, overlay, refreshMissions } = useGame();
   const [menu, setMenu] = useState(false);
   // The title is presentation state; opening it must never reset a saved game.
   const [showTitle, setShowTitle] = useState(() => s.phase === 'INTRO' && s.introIndex === 0);
   const showHeader = menu || (!showTitle && !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase));
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      if (useGame.getState().overlay) return;
       if (event.key === 'Escape') { event.preventDefault(); setMenu(open => !open); }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
+  useEffect(() => {
+    const timer=window.setInterval(refreshMissions,60000);
+    return ()=>window.clearInterval(timer);
+  },[refreshMissions]);
   return (
     <div className={`interface${showTitle ? ' on-title' : ''}`}>
+      <div className="game-hud" inert={Boolean(overlay)}>
       {showHeader && <header className="topbar">
         <div className="header-actions">
           {!showTitle && <div className="balance" aria-label={s.coins + " Moedas da Cidade"}>
@@ -50,7 +58,7 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
               Voltar
             </button>
           )}
-          {s.phase === 'OVERVIEW' && <QuestPanel sceneReady={sceneReady} />}
+          {s.phase === 'OVERVIEW' && <JourneyNav />}
           {s.phase === "OVERVIEW" && (
             <>
               <div className="map-instruction">
@@ -80,16 +88,15 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
           )}
         </>
       )}
-      {notice && (
-        <div className="notice" role="alert">
-          {notice}
-        </div>
-      )}
       {!showTitle && s.phase === 'OVERVIEW' && <footer className="footer">
         <span>CADA ESCOLHA DEIXA UMA MARCA.</span>
         <span>{notice ? "○ Verifique o aviso" : "✓ Progresso automático"}</span>
       </footer>}
       <PerformanceReadout/>
+      </div>
+      {overlay==='missions' && <QuestPanel sceneReady={sceneReady}/>}
+      {overlay==='shop' && <Shop/>}
+      {notice && <div className="notice" role="alert">{notice}</div>}
     </div>
   );
 }

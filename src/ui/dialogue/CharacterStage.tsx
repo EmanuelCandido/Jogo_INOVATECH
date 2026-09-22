@@ -1,8 +1,11 @@
 import {useEffect,useState} from 'react';
 import {characters} from '../../content/characters';
 import type {CharacterPose} from '../../game/types';
+import {useGame} from '../../stores/gameStore';
+import {CharacterAvatar} from '../wardrobe/CharacterAvatar';
 export function CharacterStage({characterId,pose}:{characterId:string;pose:CharacterPose}){
  const character=characters[characterId],src=character.poses[pose];
+ const outfit=useGame(state=>state.progress.wardrobe.equipped);
  const [displayed,setDisplayed]=useState({pose,src});
  const [failed,setFailed]=useState(false);
  useEffect(()=>{
@@ -22,6 +25,6 @@ export function CharacterStage({characterId,pose}:{characterId:string;pose:Chara
   Object.values(character.poses).forEach(url=>{const image=new Image();image.src=url;});
  },[character]);
  return <div className="character-stage robot-stage" aria-label={'Personagem: '+character.name} data-pose={displayed.pose}>
-  {!failed?<img src={displayed.src} alt="Robô companheiro da jornada" width="768" height="768" decoding="sync" onError={()=>setFailed(true)}/>:<div className="character-fallback">{character.name}</div>}
+  {!failed?<CharacterAvatar src={displayed.src} pose={displayed.pose} outfit={outfit} onError={()=>setFailed(true)}/>:<div className="character-fallback">{character.name}</div>}
  </div>;
 }

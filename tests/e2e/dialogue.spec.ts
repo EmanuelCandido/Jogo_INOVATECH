@@ -21,8 +21,8 @@ test('Impactus, tutorial com tentativas, teclado e restauração',async({page})=
  test.setTimeout(180000);await page.goto('/');
  await page.getByRole('button',{name:'JOGAR',exact:true}).click();
  const portrait=page.getByAltText('Robô companheiro da jornada');
- await expect(portrait).toBeVisible();await expect(portrait).toHaveJSProperty('naturalWidth', 2508);
- await expectPose(page,'character_intro','/assets/ui/figma/impactus.webp',2508);
+ await expect(portrait).toBeVisible();await expect(portrait).toHaveJSProperty('naturalWidth', 768);
+ await expectPose(page,'character_intro','/assets/portraits/robot/impactus-clean.webp',768);
  await page.getByRole('button',{name:'Continuar →',exact:true}).click();
  await page.reload();await expect(page.locator('.dialogue-body p')).toContainText('À primeira vista');
  for(let i=1;i<7;i++){
@@ -56,10 +56,10 @@ test('pose atrasada não apaga o retrato nem substitui uma pose mais recente',as
  try{
   await page.goto('/');
   await page.getByRole('button',{name:'JOGAR',exact:true}).click();
-  await expectPose(page,'character_intro','/assets/ui/figma/impactus.webp',2508);
+  await expectPose(page,'character_intro','/assets/portraits/robot/impactus-clean.webp',768);
   for(let i=0;i<3;i++)await page.getByRole('button',{name:'Continuar →',exact:true}).click();
   await expect(page.locator('.dialogue-body p')).toHaveText(story.intro[3]);
-  await expectPose(page,'character_intro','/assets/ui/figma/impactus.webp',2508);
+  await expectPose(page,'character_intro','/assets/portraits/robot/impactus-clean.webp',768);
   await page.getByRole('button',{name:'Continuar →',exact:true}).click();
   await expectPose(page,'character_thinking','/assets/portraits/robot/pose-2.webp');
   const response=page.waitForResponse('**/portraits/robot/pose-3.webp');

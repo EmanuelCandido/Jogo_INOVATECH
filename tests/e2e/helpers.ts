@@ -20,10 +20,8 @@ export async function start(page:Page){
  await resetMap(page);
 }
 export async function question(page:Page,id='accessibility_01'){
- // The journey panel can cover an eastern district in the new composition.
- // Use the real collapse control before interacting with a world marker.
- const journey=page.getByRole('button',{name:/NOSSA JORNADA/});
- if(await journey.getAttribute('aria-expanded')==='true')await journey.click();
+ const close=page.getByRole('button',{name:'Fechar missões'});
+ if(await close.isVisible())await close.click();
  await page.locator('.marker[data-problem="'+id+'"]').click();
  await expect(page.getByRole('region',{name:'Observação do companheiro'})).toBeVisible({timeout:15000});
  await page.getByRole('button',{name:'Entender a situação'}).click();

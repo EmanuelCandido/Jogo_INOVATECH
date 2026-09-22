@@ -3,6 +3,8 @@ import { questions,tutorialQuestion } from "../content/questions";
 import { story } from "../content/story";
 import type { Progress } from "./types";
 import {defaultGraphicsSettings,normalizeGraphicsSettings,qualityOptions} from '../config/graphics';
+import { initialWardrobe, normalizeWardrobe } from './wardrobe';
+import { initialDailyMissions, normalizeDailyMissions } from './dailyMissions';
 import {
   dialogueEntry,
   dialogueNodes,
@@ -41,6 +43,8 @@ export function initialProgress(): Progress {
     phase: "INTRO",
     introIndex: 0,
     rewarded: [],
+    wardrobe: initialWardrobe(),
+    dailyMissions: initialDailyMissions(),
   };
 }
 export function decodeSave(raw: string): Progress {
@@ -142,6 +146,8 @@ export function decodeSave(raw: string): Progress {
   if(s.phase==='TUTORIAL_RESULT'&&!s.tutorialAnswerId)throw new Error('Resultado tutorial ausente');
   return {
     ...s,
+    wardrobe: normalizeWardrobe(s.wardrobe),
+    dailyMissions: normalizeDailyMissions(s.dailyMissions),
     settings:normalizeGraphicsSettings(s.settings),
     dialogueNodeId: s.dialogueNodeId ?? legacyIntroNodes[s.introIndex],
   };

@@ -23,8 +23,8 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
   await resetMap(page);
  }
  if(info.project.name==='desktop'){
-  const journey=page.getByRole('button',{name:/NOSSA JORNADA/});if(await journey.getAttribute('aria-expanded')==='false')await journey.click();
-  await expect(page.locator('.balance')).toContainText('150');await expect(page.locator('.quest-body')).toContainText('10 / 10');await expect(page.locator('.marker')).toHaveCount(0);
+  await page.getByRole('button',{name:/^Missões/}).click();
+  await expect(page.locator('.balance')).toContainText('150');await expect(page.locator('.city-quests summary')).toContainText('10/10');await expect(page.locator('.marker')).toHaveCount(0);
  }
  else await expect(page.locator('.marker')).toHaveCount(2);
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
