@@ -132,26 +132,31 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
 .choice-cost .coin { width: calc(24 * var(--hud-u)); height: calc(24 * var(--hud-u)); }
 .result-receipt { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 15px; font-size: 12px; line-height: 1.5; color: #fff0bb; }
 .game:has(.narrative-stage) .quest-panel { display: none; }
-.menu-scrim { position: absolute; inset: 0; pointer-events: auto; background: #0005; z-index: 35; }
+.menu-scrim { position: absolute; inset: 0; display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom)); pointer-events: auto; background: #24153b60; backdrop-filter: blur(5px); z-index: 80; }
 
-.settings { position: absolute; right: 3%; top: 108px; width: min(425px, 94vw); max-height: calc(100dvh - 155px); overflow: auto; padding: 26px; pointer-events: auto; color: #fff; background: linear-gradient(145deg, #40399e, #2e286d); border: 2px solid var(--hud-edge); border-radius: 24px; box-shadow: 0 7px 0 #252060, 0 15px 45px #16163766; z-index: 50; outline: none; }
-.settings h2 { font-size: 22px; margin: 9px 0 23px; }
-.settings label { display: block; font-size: 13px; margin: 17px 0; }
-.settings select { display: block; width: 100%; margin-top: 8px; padding: 12px; color: #fff; background: #322d78; border: 1px solid #9c8dda; border-radius: 10px; }
+.settings { width: min(438px, 100%); max-height: calc(100dvh - max(20px, env(safe-area-inset-top)) - max(20px, env(safe-area-inset-bottom))); overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #d9c3ef transparent; padding: 22px 20px; pointer-events: auto; color: #211a33; background: #fff; border: 1px solid #e2daef; border-radius: 30px; box-shadow: 0 24px 48px #30007e38; outline: none; animation: settings-arrive .36s cubic-bezier(.2,.8,.2,1) both; }
+.settings .eyebrow { color: var(--panel); }
+.settings h2 { font-size: 27px; line-height: 1.15; font-weight: 900; letter-spacing: -.5px; margin: 8px 0 19px; }
+.settings label { display: block; font-size: 13px; font-weight: 700; margin: 17px 0; }
+.settings select { display: block; width: 100%; min-height: 48px; margin-top: 8px; padding: 11px 13px; color: #211a33; background: #f7f5fc; border: 1px solid #dcd2eb; border-radius: 14px; }
 .settings .checkbox { display: flex; align-items: center; gap: 10px; min-height: 44px; }
-.checkbox input { width: 20px; height: 20px; accent-color: #9b86ff; }
-.settings .muted { font-size: 12px; line-height: 1.6; color: #ded8ff; margin: 15px 0; }
-.settings .primary { width: 100%; margin-bottom: 8px; }
+.checkbox input { width: 20px; height: 20px; accent-color: var(--panel); }
+.settings .muted { font-size: 12px; line-height: 1.6; color: #786f8a; margin: 15px 0; }
+.settings .primary { width: 100%; margin-bottom: 8px; color: #fff; }
+.settings .text-button { color: var(--panel); font-weight: 700; }
 .settings-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-.settings-close { min-width: 44px; min-height: 44px; border: 0; background: transparent; font-size: 26px; }
-.graphics-summary, .graphics-measurement { padding: 14px; border: 1px solid #b6a1ff50; border-radius: 12px; background: #ffffff09; }
-.graphics-summary strong, .graphics-measurement strong { font-size: 14px; color: #fff0b8; }
-.graphics-summary p, .graphics-measurement p, .graphics-auto p { font-size: 12px; line-height: 1.55; margin: 7px 0; color: #e1dcf7; }
-.graphics-summary span { font-size: 10px; color: #d3cbee; }
-.graphics-auto { margin: 12px 0; padding-bottom: 8px; border-bottom: 1px solid #ffffff25; }
-.settings .graphics-hint { font-size: 11px; line-height: 1.55; color: #d3cbee; margin: 7px 0 16px; }
-.settings output { float: right; font-variant-numeric: tabular-nums; color: #fff0b8; }
-.settings .graphics-range { width: 100%; height: 26px; accent-color: #ac95ff; cursor: pointer; }
+.settings-close { min-width: 44px; min-height: 44px; border: 0; border-bottom: 3px solid #c6c8cb; border-radius: 50%; color: #5c6570; background: #f1f2f4; font-size: 26px; line-height: 1; }
+.settings-close:hover { background: #e9e4f2; }
+.graphics-summary, .graphics-measurement { padding: 15px; border: 1px solid #e2daef; border-radius: 18px; background: #f1e4ff; }
+.graphics-summary strong, .graphics-measurement strong { font-size: 14px; color: var(--panel); }
+.graphics-summary p, .graphics-measurement p, .graphics-auto p { font-size: 12px; line-height: 1.55; margin: 7px 0; color: #514760; }
+.graphics-summary span { font-size: 10px; color: #786f8a; }
+.graphics-auto { margin: 12px 0; padding-bottom: 8px; border-bottom: 1px solid #ebe4f4; }
+.settings .graphics-hint { font-size: 11px; line-height: 1.55; color: #786f8a; margin: 7px 0 16px; }
+.settings output { float: right; font-variant-numeric: tabular-nums; color: var(--panel); font-weight: 900; }
+.settings .graphics-range { width: 100%; height: 26px; accent-color: var(--panel); cursor: pointer; }
+.settings button:focus-visible, .settings select:focus-visible, .settings input:focus-visible { outline: 3px solid #a254e8; outline-offset: 3px; }
+@keyframes settings-arrive { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .graphics-performance { position: absolute; left: 16px; bottom: 38px; padding: 7px 11px; border: 1px solid #c6b3ff; border-radius: 8px; background: #292268ed; font-size: 11px; pointer-events: none; z-index: 60; }
 .danger { background: #a03763; color: #fff; border: 1px solid #ed92b5; padding: 12px; border-radius: 10px; margin-right: 12px; }
 .footer { position: absolute; bottom: max(15px, env(safe-area-inset-bottom)); left: 3%; right: 3%; display: flex; justify-content: space-between; gap: 12px; color: #fff; font-size: 8px; letter-spacing: 1.1px; text-shadow: 0 1px 4px #151b35, 0 1px 8px #151b35; z-index: 25; }
@@ -189,7 +194,7 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
   .marker, .marker.square { width: 52px; height: 62px; }
   .marker-icon { font-size: 25px; }
   .marker-label { max-width: 135px; font-size: 10px; }
-  .settings { top: 76px; right: 4%; width: 92%; max-height: calc(100dvh - 96px); padding: 23px; }
+  .settings { padding: 20px 16px; }
   .footer { font-size: 6px; letter-spacing: .3px; left: 16px; right: 16px; }
   .notice { font-size: 11px; width: 92%; }
 }
@@ -238,7 +243,7 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
   .choice { padding: 8px 20px; border-radius: 16px; }
   .choice-text, .choice-cost { font-size: 12px; }
   .choice-cost .coin { width: 16px; height: 16px; }
-  .settings { top: 70px; max-height: calc(100dvh - 90px); }
+  .settings { max-height: calc(100dvh - 24px); }
   .quest-panel { top: 80px; max-height: calc(100dvh - 235px); }
 }
 /* Mount this composition only after 3.5 clear seconds at the problem.

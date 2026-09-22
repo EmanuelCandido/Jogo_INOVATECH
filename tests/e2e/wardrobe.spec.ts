@@ -14,7 +14,7 @@ async function seed(page:Page,coins=1500){
 }
 const saved=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
 
-function expectSamePixels(first:Buffer,second:Buffer){
+function expectSamePixels(first:Uint8Array,second:Uint8Array){
   expect(first.length).toBe(second.length);
   let maxDifference=0;
   for(let i=0;i<first.length;i++)maxDifference=Math.max(maxDifference,Math.abs(first[i]-second[i]));

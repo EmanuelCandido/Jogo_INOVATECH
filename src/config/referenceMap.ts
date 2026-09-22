@@ -59,13 +59,15 @@ export const riverSamples=Array.from({length:330},(_,i)=>{const v=84-i*224/329;r
 export const riverCorridors=buildRiverCorridors(riverSamples,riverWidth);
 export const canalSamples=Array.from({length:180},(_,i)=>{const v=160-i*248/179;return [canalU(v),v] as MapPoint;});
 export const shoreLine:MapPoint[]=[[riverU(-70)+riverWidth(-70)/2,-70],[30,-59],[36,-48],[44,-43],[53,-41],[63,-41],[72,-39],[canalU(-34)-4.5,-34]];
+// Exposed coast below the eastern viaduct, from the canal mouth to the open sea.
+export const easternSeaEdge:MapPoint[]=[[canalU(18)+4.5,18],[88,11],[116,6],[146,36]];
 export const beachLine=mapCurve([[27,-55],[35,-48],[44,-43.5],[52,-42],[60,-42],[66,-40.5]],100);
 const riverBank=(side:number,top:number,bottom:number)=>Array.from({length:180},(_,i)=>{const v=top+(bottom-top)*i/179;return [riverU(v)+side*riverWidth(v)/2,v] as MapPoint;});
 const canalBank=(side:number,top:number,bottom:number)=>Array.from({length:130},(_,i)=>{const v=top+(bottom-top)*i/129;return [canalU(v)+side*4.5,v] as MapPoint;});
 export const landOutlines:MapPoint[][]=[
  [[-185,160],...riverBank(-1,160,-140),[-55,-154],[-100,-159],[-185,-162]],
  [...riverBank(1,160,-140),[riverU(-140)+riverWidth(-140)/2+3,-140],[38,-107],[36,-84],...shoreLine.slice(1),...canalBank(-1,-34,160)],
- [...canalBank(1,160,18),[88,11],[116,6],[146,36],[168,105],[185,160]],
+ [...canalBank(1,160,18),...easternSeaEdge.slice(1),[168,105],[185,160]],
 ];
 function naturalTerrainY(u:number,v:number){
  const t=Math.max(0,Math.min(1,(v-84)/22));
@@ -398,10 +400,42 @@ add('prop.pier',52,-49,1.3,frontYaw+Math.PI/2,-.02);
 for(const [u,v,yaw]of [[43,-60,.3],[64,-55,2],[77,-51,-.6],[60,-68,1.1]])add('prop.sailboat',u,v,1.5,yaw,-.5);
 for(const index of [15,35,60,82]){const [u,v]=beachLine[index];if(Math.abs(u-52)>3)add('prop.beach',u,v+1.2,.95,frontYaw+.2);}
 for(const [u,v]of [[-85,63],[-73,73],[-89,87],[32,87],[42,89],[46,82]])add('prop.turbine',u,v,1.7,frontYaw,terrainY(u,v));
-for(let i=0;i<12;i++)add('prop.solarRack',31+(i%3)*3.8,72+Math.floor(i/3)*3.0,1,frontYaw,terrainY(31+(i%3)*3.8,72+Math.floor(i/3)*3.0));
 for(let i=0;i<3;i++)add('prop.pylon',58+i*4,51+i*7,.88,frontYaw,terrainY(58+i*4,51+i*7));
+// Check the complete footprint: a centre-only road test let several racks
+// straddle the industrial access, and tree stumps even sat inside the lane.
+const sceneryFree=(p:Placement,margin=.55)=>{
+ const poly=placementFootprint(p),[u,v]=compositionPoint(p.position[0],p.position[2]);
+ if(poly.some(q=>!onReferenceLand(...q)))return false;
+ if(poly.some(q=>Math.abs(terrainY(...q)-p.position[1])>.32))return false;
+ if([...mapRoads,roadViaduct].some(r=>distanceToRoute(u,v,r)<r.width/2+3&&corridorGap(poly,r.points,r.width)<margin))return false;
+ if([monorail,centralRail].some(r=>distanceToRoute(u,v,r)<r.width/2+3&&corridorGap(poly,r.points,r.width)<.25))return false;
+ if(stationConcourses.some(r=>corridorGap(poly,r.points,r.width)<margin))return false;
+ if([...buildingLots,...publicLots,...stationAccessLots].some(l=>footprintGap(poly,l.footprint)<margin))return false;
+ if(referenceAssets.some(other=>footprintGap(poly,placementFootprint(other))<margin))return false;
+ return true;
+};
+const solarGrid=(du:number,dv:number)=>Array.from({length:12},(_,i)=>{
+ const u=31+du+(i%3)*3.8,v=72+dv+Math.floor(i/3)*3;
+ return placement('prop.solarRack',u,v,1,frontYaw,terrainY(u,v));
+});
+let solarFarm:Placement[]|undefined;
+for(let radius=0;radius<=42&&!solarFarm;radius+=1.25)for(let angle=0;angle<(radius?32:1)&&!solarFarm;angle++){
+ const a=angle*Math.PI/16,candidates=solarGrid(Math.cos(a)*radius,Math.sin(a)*radius);
+ if(candidates.every(p=>sceneryFree(p,.7)))solarFarm=candidates;
+}
+if(!solarFarm)throw new Error('Sem terreno livre para os painéis solares');
+referenceAssets.push(...solarFarm);
 for(const [u,v]of [[9,76],[24,78]])add('prop.excavator',u,v,1.1,frontYaw-.8,terrainY(u,v));
-for(let i=0;i<24;i++){const u=3+(i%6)*4.6,v=74+Math.floor(i/6)*4.3;add('prop.stump',u,v,1.5,0,terrainY(u,v));}
+for(let i=0;i<24;i++){
+ const targetU=3+(i%6)*4.6,targetV=74+Math.floor(i/6)*4.3;
+ let placed=false;
+ for(let radius=0;radius<=30&&!placed;radius+=.75)for(let angle=0;angle<(radius?24:1)&&!placed;angle++){
+  const a=angle*Math.PI/12,u=targetU+Math.cos(a)*radius,v=targetV+Math.sin(a)*radius;
+  const candidate=placement('prop.stump',u,v,1.5,0,terrainY(u,v));
+  if(sceneryFree(candidate,.85)){referenceAssets.push(candidate);placed=true;}
+ }
+ if(!placed)throw new Error('Sem terreno livre para o toco '+i);
+}
 // The eastern lot is a dump. Its scenery belongs to pollution_01 and is
 // rendered by mission state; no static container yard remains here.
 // Service assets use the same road/land checks as the architecture. In
@@ -483,6 +517,8 @@ if(!prepared){
 // Seeded spacing and a shared clearance rule keep roots off paths and buildings.
 let seed=5173;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
 const clearings=[{u:17,v:80,ru:19,rv:10},{u:36,v:78,ru:9,rv:9},{u:81,v:36,ru:12,rv:8},{u:97,v:53,ru:15,rv:17},{u:-47.5,v:-22.5,ru:8,rv:6},{u:-36,v:-21.5,ru:5,rv:5},{u:-51,v:44,ru:6,rv:4},{u:33,v:-19,ru:10,rv:9}];
+const solarRackCenters=referenceAssets.filter(p=>p.asset==='prop.solarRack').map(p=>compositionPoint(p.position[0],p.position[2]));
+const nearSolarFarm=(u:number,v:number)=>solarRackCenters.some(([x,z])=>Math.hypot(u-x,v-z)<4.2);
 if(!prepared){
 for(let v=-78;v<124;v+=1.8)for(let u=-124;u<125;u+=1.85){
  const x=u+(random()-.5)*1.1,z=v+(random()-.5)*1.1;
@@ -493,6 +529,7 @@ for(let v=-78;v<124;v+=1.8)for(let u=-124;u<125;u+=1.85){
  if(industrialAprons.some(a=>contains([x,z],a.footprint)||corridorGap([[x-1,z-1],[x+1,z-1],[x+1,z+1],[x-1,z+1]],a.driveway,3.5)<.3))continue;
  if(pedestrianNetwork.links.some(link=>link.points.some((p,i)=>i>0&&segmentDistance([x,z],link.points[i-1],p)<1.65)))continue;
  if(!onReferenceLand(x,z)||clearings.some(c=>((x-c.u)/c.ru)**2+((z-c.v)/c.rv)**2<1))continue;
+ if(nearSolarFarm(x,z))continue;
  if(missionReservations.some(poly=>contains([x,z],poly)||poly.some((p,i)=>segmentDistance([x,z],p,poly[(i+1)%poly.length])<1)))continue;
  if(buildingLots.some(l=>Math.hypot(x-l.u,z-l.v)<l.radius+1.05||pointInFootprint([x,z],l.footprint)))continue;
  if(stationAccessLots.some(s=>s.footprint.some(p=>Math.hypot(x-p[0],z-p[1])<2)||pointInFootprint([x,z],s.footprint)))continue;
@@ -518,6 +555,7 @@ for(let i=0;referenceTrees.length<5686&&i<40000;i++){
  if(dumpTurnPads.some(pad=>contains([u,v],pad)||pad.some((p,i)=>segmentDistance([u,v],p,pad[(i+1)%pad.length])<2)))continue;
  if(industrialAprons.some(a=>contains([u,v],a.footprint)||corridorGap([[u-1,v-1],[u+1,v-1],[u+1,v+1],[u-1,v+1]],a.driveway,3.5)<.3))continue;
  if(!onReferenceLand(u,v)||clearings.some(c=>((u-c.u)/c.ru)**2+((v-c.v)/c.rv)**2<1.1))continue;
+ if(nearSolarFarm(u,v))continue;
  if(Math.abs(u-riverU(v))<riverWidth(v)/2+5||Math.abs(u-canalU(v))<7)continue;
  if(mapRoads.some(r=>distanceToRoute(u,v,r)<r.width/2+1.7)||[centralRail,monorail,roadViaduct].some(r=>distanceToRoute(u,v,r)<r.width/2+1.5))continue;
  if(buildingLots.some(l=>pointInFootprint([u,v],l.footprint)||l.footprint.some((p,j)=>segmentDistance([u,v],p,l.footprint[(j+1)%4])<1.3)))continue;
@@ -563,7 +601,7 @@ for(let i=0;i<referenceTrees.length;i++){
   if(crownConflict(candidate)||[...mapRoads,dumpDriveway].some(r=>corridorGap(poly,r.points,r.width+1.35)<.3))continue;
   if([...buildingLots,...publicLots,...stationAccessLots].some(l=>polygonGap(poly,l.footprint)<.4)||missionReservations.some(p=>polygonGap(poly,p)<.4)||dumpTurnPads.some(p=>polygonGap(poly,p)<.3))continue;
   if(pedestrianNetwork.links.some(l=>corridorGap(poly,[...l.points,l.sidewalk],1.4)<.3)||riverCorridors.some(c=>corridorGap(poly,c.cycle,c.cycleWidth)<.4||corridorGap(poly,c.walk,c.walkWidth)<.3))continue;
-  if(poly.some(p=>!onReferenceLand(...p))||referenceTrees.some((p,j)=>j!==i&&Math.hypot(p.position[0]-candidate.position[0],p.position[2]-candidate.position[2])<1.8))continue;
+  if(poly.some(p=>!onReferenceLand(...p))||nearSolarFarm(x,z)||referenceTrees.some((p,j)=>j!==i&&Math.hypot(p.position[0]-candidate.position[0],p.position[2]-candidate.position[2])<1.8))continue;
   referenceTrees[i]=candidate;found=true;
  }
  if(!found)throw new Error('Árvore sem posição livre fora dos corredores: '+tree.asset+' '+u+','+v);

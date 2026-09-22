@@ -9,9 +9,19 @@ import {circulationCrossings} from '../src/config/circulationCrossings';
 import {trafficSituation,outsideTrafficSituation} from '../src/config/trafficSituation';
 import {situationVisuals} from '../src/config/situationVisuals';
 import {blocksJunctionMarking} from '../src/config/referenceMap';
+import {corridorGap} from '../src/config/spatial';
 import {Quaternion,Euler} from 'three';
 import type {Placement,Vec3} from '../src/game/types';
 describe('cidade da referência — implantação real',()=>{
+ it('mantém painéis solares e tocos inteiros fora das pistas',()=>{
+  const props=referenceAssets.filter(p=>p.asset==='prop.solarRack'||p.asset==='prop.stump');
+  expect(props.filter(p=>p.asset==='prop.solarRack')).toHaveLength(12);
+  expect(props.filter(p=>p.asset==='prop.stump')).toHaveLength(24);
+  for(const p of props){
+   const poly=placementFootprint(p);
+   for(const road of [...mapRoads,roadViaduct])expect(corridorGap(poly,road.points,road.width),`${p.asset} / ${road.id}`).toBeGreaterThanOrEqual(.54);
+  }
+ });
  it('preserva os veículos da missão em todos os estados e libera as faixas',()=>{
   const a=situationAnchors.pollution_02,anchor:Placement={asset:'',position:worldPoint(...a.point,a.y??0),rotation:[0,a.yaw??0,0]};
   for(const key of ['initial','temporary','solved'] as const){

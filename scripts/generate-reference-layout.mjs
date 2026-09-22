@@ -1,6 +1,6 @@
 import {createServer} from 'vite';
 import {writeFile,readFile} from 'node:fs/promises';
-const server=await createServer({server:{middlewareMode:true},appType:'custom',optimizeDeps:{noDiscovery:true,include:[]}});
+const server=await createServer({configLoader:'runner',server:{middlewareMode:true},appType:'custom',optimizeDeps:{noDiscovery:true,include:[]}});
 try{
  const m=await server.ssrLoadModule('/src/config/referenceMap.ts');
  if(m.pedestrianNetwork.unreachable.length)throw new Error('Unreachable entrances: '+m.pedestrianNetwork.unreachable.join(', '));

@@ -2,7 +2,7 @@ import {sampleLine,lineLength,segmentDistance,corridorGap} from './spatial';
 import {Euler,Quaternion,Vector3} from 'three';
 import type {LandscapeDetail,LandscapeShape} from './landscape';
 import type {Placement,Vec3} from '../game/types';
-import {worldPoint,riverU,riverWidth,terrainY,riverSamples,canalSamples,beachLine,monorail,roadViaduct,centralRail,mapRoads,buildingLots,frontYaw,placement,facing,routeHeight,pedestrianNetwork,onReferenceLand,gradedRotation,compositionPoint,placementFootprint,footprintGap,pointInFootprint,distanceToRoute,railFacilities,stationConcourses,type MapPoint,type MapRoute} from './referenceMap';
+import {worldPoint,riverU,riverWidth,terrainY,riverSamples,canalSamples,beachLine,easternSeaEdge,monorail,roadViaduct,centralRail,mapRoads,buildingLots,frontYaw,placement,facing,routeHeight,pedestrianNetwork,onReferenceLand,gradedRotation,compositionPoint,placementFootprint,footprintGap,pointInFootprint,distanceToRoute,railFacilities,stationConcourses,type MapPoint,type MapRoute} from './referenceMap';
 import {attachmentWorld,layoutFor} from '../assets/modelLayout';
 import {routeFrame} from './routeFrame';
 import {reserveTraffic} from './trafficReservations';
@@ -140,6 +140,19 @@ for(let i=0;i<78;i++){
 for(const [i,[u,v]]of canalSamples.entries()){
  if(v>82||v< -33||i%2)continue;
  for(const side of [-1,1])if(side<0||v>18){riversideAssets.push(placement('prop.rock',u+side*4.55,v,.65+(i%3)*.12,i*.73,-.16));}
+}
+// Continue the existing stone bank around the exposed eastern shoreline. The
+// inland offset leaves the beach open and covers the hard grass-to-sea seam
+// below the viaduct without introducing a new 3D asset.
+for(let section=1;section<easternSeaEdge.length;section++){
+ const [au,av]=easternSeaEdge[section-1],[bu,bv]=easternSeaEdge[section];
+ const du=bu-au,dv=bv-av,length=Math.hypot(du,dv),nx=-dv/length,nv=du/length;
+ const count=Math.ceil(length/.95);
+ for(let i=0;i<=count;i++){
+  const t=i/count,u=au+du*t,v=av+dv*t;
+  riversideAssets.push(placement('prop.rock',u+nx*.18,v+nv*.18,1.28+(i%4)*.09,i*2.19,-.12));
+  if(i%2===0)riversideAssets.push(placement('prop.rock',u+nx*.82,v+nv*.82,.96+(i%3)*.10,i*1.37,.02));
+ }
 }
 for(let i=0;i<30;i++){
  const v=70+i*.5,u=riverU(v),side=i%2?1:-1;
