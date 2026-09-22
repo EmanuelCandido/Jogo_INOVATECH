@@ -32,6 +32,14 @@ A correção usa `index-us2VH2Ly.js` e `index-BBYldPko.css`. Jaquetas e chapéus
 
 Os IDs dos itens e o formato do save permanecem compatíveis com os acessórios já comprados. Os sete WebPs novos ficam em `public/assets/accessories/rendered`, e os fontes/prompts e o processo de recorte estão documentados em `assets-source/ui/wardrobe/README.md`. TypeScript, build e dez testes de interface em desktop/celular aprovados, incluindo os seis chapéus, as seis jaquetas, compra, persistência, remoção e comparação de pixels da capa.
 
+## Encaixe por pose e atalhos à direita — 22/09/2026
+
+Build: `index-CwQf1s4S.js` e `index-6C66uAVE.css`. As jaquetas usam contornos separados de tronco e mangas para acompanhar as cinco poses, com tecido proporcional e mãos à frente. Chapéu maré, boina e boné ocultam as aberturas vazias que devem ser ocupadas pela cabeça. Experimentar um chapéu na loja mantém o tamanho e a posição do corpo.
+
+Missões e Loja ficam à direita, abaixo do cabeçalho, com recuo de área segura no celular. Inventário, preços, compras e formato do save permanecem compatíveis. O diagnóstico das camadas está em `assets-source/ui/wardrobe/README.md`.
+
+Validação: TypeScript e build aprovados; os seis cenários de interface foram verificados em desktop e celular de 360 × 640, incluindo rotação para paisagem. As comparações de imagem mantêm o mesmo estado do aviso de prévia e aceitam somente arredondamento de até 1/255 por canal de cor. Capturas da navegação, seis combinações e diálogos ficam em `test-results`; comparações isoladas ficam em `test-results/fit-regression`.
+
 ## Primeiro endereço temporário
 
 Disponibilizada em 16/09/2026, com acesso público e sem login:

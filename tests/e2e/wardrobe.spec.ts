@@ -14,8 +14,24 @@ async function seed(page:Page,coins=1500){
 }
 const saved=(page:Page)=>page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
 
+function expectSamePixels(first:Buffer,second:Buffer){
+  expect(first.length).toBe(second.length);
+  let maxDifference=0;
+  for(let i=0;i<first.length;i++)maxDifference=Math.max(maxDifference,Math.abs(first[i]-second[i]));
+  // ANGLE may round composited pixels by one 8-bit channel value on a phone.
+  // Keep this strict enough to catch clothing/occlusion or positioning changes.
+  expect(maxDifference).toBeLessThanOrEqual(1);
+}
+
 test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isMobile},info)=>{
   test.setTimeout(180000);await seed(page);await mapReady(page);
+  const navigation=page.getByRole('navigation',{name:'Atividades da cidade'});
+  const navBounds=(await navigation.boundingBox())!;
+  const settingsBounds=(await page.getByRole('button',{name:'Configurações',exact:true}).boundingBox())!;
+  expect(navBounds.x).toBeGreaterThan(page.viewportSize()!.width/2);
+  expect(page.viewportSize()!.width-navBounds.x-navBounds.width).toBeLessThanOrEqual(24);
+  expect(navBounds.y).toBeGreaterThanOrEqual(settingsBounds.y+settingsBounds.height);
+  await page.screenshot({path:info.outputPath('map-right-navigation.png'),animations:'disabled'});
   await page.getByRole('button',{name:'Loja',exact:true}).click();
   const shop=page.getByRole('dialog',{name:'Loja do Impactus'});
   await expect(shop).toBeVisible();
@@ -33,7 +49,7 @@ test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isM
   const expected={cape:'cape-comet',jacket:'jacket-forest',hat:'hat-explorer'};
   expect((await saved(page)).wardrobe.equipped).toEqual(expected);
   const avatar=shop.locator('.character-avatar');
-  await expect(avatar.locator('[data-slot="jacket"] > image').first()).toHaveAttribute('href',/rendered\/jacket-base\.webp$/);
+  await expect(avatar.locator('[data-part="torso"]')).toHaveAttribute('href',/rendered\/jacket-base\.webp$/);
   await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',/rendered\/hat-explorer\.webp$/);
   await expect(avatar).toHaveAttribute('data-cape','cape-comet');await expect(avatar).toHaveAttribute('data-jacket','jacket-forest');await expect(avatar).toHaveAttribute('data-hat','hat-explorer');
   const image=await avatar.locator('img').boundingBox();expect(image!.width/image!.height).toBeCloseTo(1,2);
@@ -99,22 +115,49 @@ test('todas as jaquetas e chapéus carregam, combinam e podem ser retirados',asy
   expect((await saved(page)).coins).toBe(1500);
 });
 
-test('vestir a jaqueta preserva os pixels da capa abaixo das mãos',async({page})=>{
+test('vestir a jaqueta preserva os pixels da capa abaixo das mãos',async({page},info)=>{
   await seed(page);await page.getByRole('button',{name:'Loja',exact:true}).click();
   await page.locator('[data-accessory="cape-comet"]').click();
   await page.getByRole('tab',{name:'Chapéus'}).click();
   await page.locator('[data-accessory="hat-crown"]').click();
   const avatar=page.locator('.shop-avatar .character-avatar');
-  const before=await avatar.screenshot({animations:'disabled'});
+  const before=await avatar.screenshot({animations:'disabled',path:info.outputPath('cape-before.png')});
   await page.getByRole('tab',{name:'Jaquetas'}).click();
   await page.locator('[data-accessory="jacket-forest"]').click();
-  const after=await avatar.screenshot({animations:'disabled'});
+  const after=await avatar.screenshot({animations:'disabled',path:info.outputPath('cape-after.png')});
   const {width,height}=await sharp(before).metadata();
   const top=Math.ceil(height!*.72);
   const region={left:0,top,width:width!,height:height!-top};
   const first=await sharp(before).extract(region).raw().toBuffer();
   const second=await sharp(after).extract(region).raw().toBuffer();
-  expect(first.equals(second)).toBe(true);
+  expectSamePixels(first,second);
+});
+
+test('chapéu maré encaixa na testa e mantém o rosto e o corpo no mesmo tamanho',async({page},info)=>{
+  await seed(page);await page.getByRole('button',{name:'Loja',exact:true}).click();
+  // Reproduce the reported outfit and keep the preview label/compositing state
+  // identical in both captures; only the hat changes.
+  await page.getByRole('tab',{name:'Jaquetas'}).click();
+  await page.locator('[data-accessory="jacket-ocean"]').click();
+  const avatar=page.locator('.shop-avatar .character-avatar');
+  const before=await avatar.screenshot({animations:'disabled',path:info.outputPath('hat-before.png')});
+  const initialBounds=await avatar.locator('.character-base').boundingBox();
+  await page.getByRole('tab',{name:'Chapéus'}).click();
+  await page.locator('[data-accessory="hat-bucket"]').click();
+  const after=await avatar.screenshot({animations:'disabled',path:info.outputPath('hat-after.png')});
+  expect(await avatar.locator('.character-base').boundingBox()).toEqual(initialBounds);
+  const {width,height}=await sharp(before).metadata();
+  // The old empty hat interior covered this part of the helmet. Its rear rim
+  // now sits behind the head; the face and body below the brim stay untouched.
+  const regions=[
+    {left:Math.round(width!*.50),top:Math.round(height!*.287),width:Math.max(1,Math.floor(width!*.045)),height:Math.max(1,Math.floor(height!*.012))},
+    {left:0,top:Math.ceil(height!*.36),width:width!,height:height!-Math.ceil(height!*.36)},
+  ];
+  for(const region of regions){
+    const first=await sharp(before).extract(region).raw().toBuffer();
+    const second=await sharp(after).extract(region).raw().toBuffer();
+    expectSamePixels(first,second);
+  }
 });
 
 test('missões resgatam uma vez e permitem comprar com saldo exato',async({page},info)=>{
