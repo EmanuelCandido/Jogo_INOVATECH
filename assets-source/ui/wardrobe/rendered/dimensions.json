@@ -1,0 +1,37 @@
+{
+  "jacket-base": {
+    "width": 1151,
+    "height": 951,
+    "ratio": 0.8262380538662033
+  },
+  "hat-explorer": {
+    "width": 1205,
+    "height": 770,
+    "ratio": 0.6390041493775933
+  },
+  "hat-artist": {
+    "width": 1141,
+    "height": 692,
+    "ratio": 0.6064855390008764
+  },
+  "hat-bucket": {
+    "width": 1200,
+    "height": 833,
+    "ratio": 0.6941666666666667
+  },
+  "hat-cap": {
+    "width": 1157,
+    "height": 869,
+    "ratio": 0.7510803802938635
+  },
+  "hat-inventor": {
+    "width": 1126,
+    "height": 826,
+    "ratio": 0.7335701598579041
+  },
+  "hat-crown": {
+    "width": 1176,
+    "height": 606,
+    "ratio": 0.5153061224489796
+  }
+}

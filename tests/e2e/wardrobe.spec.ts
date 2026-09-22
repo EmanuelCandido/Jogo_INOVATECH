@@ -1,6 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import { overview } from '../helpers';
 import { mapReady } from './helpers';
+import sharp from 'sharp';
 
 async function seed(page:Page,coins=1500){
   const progress=overview();progress.coins=coins;
@@ -32,6 +33,8 @@ test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isM
   const expected={cape:'cape-comet',jacket:'jacket-forest',hat:'hat-explorer'};
   expect((await saved(page)).wardrobe.equipped).toEqual(expected);
   const avatar=shop.locator('.character-avatar');
+  await expect(avatar.locator('[data-slot="jacket"] > image').first()).toHaveAttribute('href',/rendered\/jacket-base\.webp$/);
+  await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',/rendered\/hat-explorer\.webp$/);
   await expect(avatar).toHaveAttribute('data-cape','cape-comet');await expect(avatar).toHaveAttribute('data-jacket','jacket-forest');await expect(avatar).toHaveAttribute('data-hat','hat-explorer');
   const image=await avatar.locator('img').boundingBox();expect(image!.width/image!.height).toBeCloseTo(1,2);
   await expect(shop.locator('.save-outfit')).toBeInViewport({ratio:1});
@@ -60,6 +63,58 @@ test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isM
   await expect(page.locator('.problem-dialogue .character-avatar')).toHaveAttribute('data-hat','hat-explorer',{timeout:20000});
   await expect(page.locator('.problem-dialogue .character-avatar')).toHaveAttribute('data-jacket','jacket-forest');
   await page.screenshot({path:info.outputPath('dialogue-outfit.png'),animations:'disabled'});
+});
+
+test('todas as jaquetas e chapéus carregam, combinam e podem ser retirados',async({page},info)=>{
+  await seed(page);await page.getByRole('button',{name:'Loja',exact:true}).click();
+  const avatar=page.locator('.shop-avatar .character-avatar');
+  const hats=['explorer','artist','bucket','cap','inventor','crown'];
+  const jackets=['trail','forest','ocean','sun','city','cosmos'];
+  for(let i=0;i<6;i++){
+    await page.getByRole('tab',{name:'Jaquetas'}).click();
+    await page.locator(`[data-accessory="jacket-${jackets[i]}"]`).click();
+    await page.getByRole('tab',{name:'Chapéus'}).click();
+    await page.locator(`[data-accessory="hat-${hats[i]}"]`).click();
+    await expect(avatar).toHaveAttribute('data-jacket',`jacket-${jackets[i]}`);
+    await expect(avatar).toHaveAttribute('data-hat',`hat-${hats[i]}`);
+    const hat=avatar.locator('[data-slot="hat"] image');
+    await expect(hat).toHaveAttribute('href',new RegExp(`rendered/hat-${hats[i]}\\.webp$`));
+    // Validate browser decoding of the actual artwork, not only its label.
+    expect(await avatar.locator('image').evaluateAll(async elements=>{
+      const sources=[...new Set(elements.map(el=>el.getAttribute('href')!).filter(Boolean))];
+      return Promise.all(sources.map(async src=>{const image=new Image();image.src=src;await image.decode();return image.naturalWidth>0;}));
+    })).not.toContain(false);
+    const bounds=await hat.boundingBox(), frame=await avatar.boundingBox();
+    expect(bounds!.y).toBeGreaterThanOrEqual(frame!.y-1);
+    expect(bounds!.x).toBeGreaterThanOrEqual(frame!.x-1);
+    expect(bounds!.x+bounds!.width).toBeLessThanOrEqual(frame!.x+frame!.width+1);
+    await page.screenshot({path:info.outputPath(`rendered-${hats[i]}.png`),animations:'disabled'});
+  }
+  await page.getByRole('button',{name:'Retirar chapéu'}).click();
+  await expect(avatar.locator('[data-slot="hat"]')).toHaveCount(0);
+  await expect(avatar.locator('[data-slot="jacket"]')).toHaveCount(1);
+  await page.getByRole('tab',{name:'Jaquetas'}).click();
+  await page.getByRole('button',{name:'Retirar jaqueta'}).click();
+  await expect(avatar.locator('[data-slot="jacket"]')).toHaveCount(0);
+  expect((await saved(page)).coins).toBe(1500);
+});
+
+test('vestir a jaqueta preserva os pixels da capa abaixo das mãos',async({page})=>{
+  await seed(page);await page.getByRole('button',{name:'Loja',exact:true}).click();
+  await page.locator('[data-accessory="cape-comet"]').click();
+  await page.getByRole('tab',{name:'Chapéus'}).click();
+  await page.locator('[data-accessory="hat-crown"]').click();
+  const avatar=page.locator('.shop-avatar .character-avatar');
+  const before=await avatar.screenshot({animations:'disabled'});
+  await page.getByRole('tab',{name:'Jaquetas'}).click();
+  await page.locator('[data-accessory="jacket-forest"]').click();
+  const after=await avatar.screenshot({animations:'disabled'});
+  const {width,height}=await sharp(before).metadata();
+  const top=Math.ceil(height!*.72);
+  const region={left:0,top,width:width!,height:height!-top};
+  const first=await sharp(before).extract(region).raw().toBuffer();
+  const second=await sharp(after).extract(region).raw().toBuffer();
+  expect(first.equals(second)).toBe(true);
 });
 
 test('missões resgatam uma vez e permitem comprar com saldo exato',async({page},info)=>{

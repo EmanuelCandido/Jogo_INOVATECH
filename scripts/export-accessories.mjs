@@ -5,8 +5,8 @@ import ts from 'typescript';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-// Export the same vector artwork used by the layered avatar, so the catalogue
-// previews and the wearable parts always have a single editable source.
+// Cape thumbnails remain vector artwork. Jackets and hats use the rendered
+// sources prepared by prepare-wearables.mjs and shared by preview/avatar.
 const cache=path.resolve('.tools/accessory-export');
 const output=path.resolve('public/assets/accessories');
 await mkdir(cache,{recursive:true});await mkdir(output,{recursive:true});
@@ -18,8 +18,8 @@ async function load(source,name){
 }
 const {accessories}=await load('src/game/wardrobe.ts','catalogue');
 const {AccessoryArt}=await load('src/ui/wardrobe/AccessoryArt.tsx','art');
-for(const item of accessories){
+for(const item of accessories.filter(item=>item.slot==='cape')){
   const svg=renderToStaticMarkup(React.createElement(AccessoryArt,{item})).replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" ');
   await writeFile(path.join(output,item.id+'.svg'),svg);
 }
-console.log(`Exportados ${accessories.length} acessórios para ${output}`);
+console.log(`Exportadas as seis capas para ${output}`);

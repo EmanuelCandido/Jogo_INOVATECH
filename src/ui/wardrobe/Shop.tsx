@@ -5,6 +5,7 @@ import { useGame } from '../../stores/gameStore';
 import { Coin } from '../hud/QuestPanel';
 import { useDialog } from '../menus/useDialog';
 import { CharacterAvatar } from './CharacterAvatar';
+import { WearablePreview } from './WearableLayers';
 
 export function Shop() {
   const { progress, openOverlay, buy, equip }=useGame();
@@ -39,7 +40,7 @@ export function Shop() {
           <div className="accessory-grid">{items.map(item=>{
             const isOwned=progress.wardrobe.owned.includes(item.id);
             return <button className={`accessory-card${draft[category]===item.id?' selected':''}`} key={item.id} aria-pressed={draft[category]===item.id} aria-label={`${item.name}, ${isOwned?'já adquirido':`${item.price} moedas`}`} data-accessory={item.id} onClick={()=>{setDraft({...draft,[category]:item.id});setMessage('');}}>
-              <span className="accessory-preview"><img className="accessory-art" src={publicAsset(`/assets/accessories/${item.id}.svg`)} alt="" width="180" height="170"/>{!isOwned&&<span className="accessory-lock"><img src={publicAsset('/assets/ui/journey/lock.svg')} alt=""/></span>}</span><strong>{item.name}</strong><span className="accessory-price">{isOwned?<><span aria-hidden="true">✓</span> Seu acessório</>:<><Coin/>{item.price} moedas</>}</span>
+              <span className="accessory-preview"><WearablePreview item={item}/>{!isOwned&&<span className="accessory-lock"><img src={publicAsset('/assets/ui/journey/lock.svg')} alt=""/></span>}</span><strong>{item.name}</strong><span className="accessory-price">{isOwned?<><span aria-hidden="true">✓</span> Seu acessório</>:<><Coin/>{item.price} moedas</>}</span>
             </button>;
           })}</div>
           <div className="outfit-tools">{category!=='cape'&&<button aria-pressed={!selected} onClick={()=>{setDraft({...draft,[category]:null});setMessage('');}}>{category==='jacket'?'Retirar jaqueta':'Retirar chapéu'}</button>}<button onClick={()=>{setDraft(defaultOutfit());setMessage('Visual original na prévia. Salve para confirmar.');}}>Visual original</button></div>

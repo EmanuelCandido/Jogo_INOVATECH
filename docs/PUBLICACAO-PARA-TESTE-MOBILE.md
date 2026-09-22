@@ -26,6 +26,12 @@ As missões têm progresso diário, recompensas de resgate único e bônus. O pa
 
 Validação: TypeScript, build com o prefixo do Pages, 35 testes unitários, 18 testes de interface em desktop e dois tamanhos de celular, além dos testes de enquadramento e toque duplo com e sem movimento reduzido. `tests/e2e/wardrobe.spec.ts` cobre compra, saldo exato, combinações, persistência, descarte de prévia, recompensas e teclado; também verifica a loja em paisagem.
 
+## Correção de encaixe das jaquetas e chapéus
+
+A correção usa `index-us2VH2Ly.js` e `index-BBYldPko.css`. Jaquetas e chapéus passam a usar imagens com volume e iluminação compatíveis com o Impactus, compartilhadas com as miniaturas da loja. O encaixe varia entre as cinco poses; máscaras conservam as mãos/queixo à frente da roupa sem repintar a capa. A composição reserva espaço para os chapéus mais altos.
+
+Os IDs dos itens e o formato do save permanecem compatíveis com os acessórios já comprados. Os sete WebPs novos ficam em `public/assets/accessories/rendered`, e os fontes/prompts e o processo de recorte estão documentados em `assets-source/ui/wardrobe/README.md`. TypeScript, build e dez testes de interface em desktop/celular aprovados, incluindo os seis chapéus, as seis jaquetas, compra, persistência, remoção e comparação de pixels da capa.
+
 ## Primeiro endereço temporário
 
 Disponibilizada em 16/09/2026, com acesso público e sem login:

@@ -2,17 +2,8 @@ import { useId } from 'react';
 import { characters } from '../../content/characters';
 import type { CharacterPose } from '../../game/types';
 import { accessoryById, type Outfit } from '../../game/wardrobe';
-import { Garment, Motif } from './AccessoryArt';
-
-// Anchors are measured in the sprites' 768px coordinate system. Clothing moves
-// with each pose instead of stretching with the dialogue's available height.
-const anchors: Record<CharacterPose, { jacket: string; hat: string }> = {
-  character_intro: { jacket: 'translate(228 276) scale(1.16 1.05)', hat: 'translate(196 -78) scale(1.9 1.35)' },
-  character_thinking: { jacket: 'translate(265 291) rotate(8 90 85) scale(.91 .9)', hat: 'translate(185 -75) scale(1.92 1.4)' },
-  character_alert: { jacket: 'translate(276 280) scale(1 .96)', hat: 'translate(205 -87) scale(1.96 1.4)' },
-  character_success: { jacket: 'translate(268 277) scale(1.04 .97)', hat: 'translate(214 -82) scale(1.9 1.4)' },
-  character_failure: { jacket: 'translate(243 277) rotate(-7 90 85) scale(1.02 .94)', hat: 'translate(203 -90) scale(1.97 1.42)' },
-};
+import { Motif } from './AccessoryArt';
+import { HatLayer, JacketLayer } from './WearableLayers';
 function channel(hex: string, index: number) { return parseInt(hex.slice(1+index*2,3+index*2),16)/255; }
 // Foreground silhouettes keep the cape dye behind hands, armor and legs.
 // The alpha of the source image supplies the outer cloth contour.
@@ -26,7 +17,6 @@ const foreground: Record<CharacterPose,string> = {
 export function CharacterAvatar({ outfit, pose = 'character_intro', src, onError, label = 'Robô companheiro da jornada' }: { outfit: Outfit; pose?: CharacterPose; src?: string; onError?: () => void; label?: string }) {
   const uid=useId().replaceAll(':','');
   const source=src ?? characters.companion.poses[pose];
-  const anchor=anchors[pose];
   const cape=accessoryById[outfit.cape], jacket=outfit.jacket?accessoryById[outfit.jacket]:null, hat=outfit.hat?accessoryById[outfit.hat]:null;
   return <div className="character-avatar" data-cape={outfit.cape} data-jacket={outfit.jacket??'none'} data-hat={outfit.hat??'none'}>
     <img className="character-base" src={source} alt={label} width="768" height="768" onError={onError} decoding="sync"/>
@@ -49,8 +39,8 @@ export function CharacterAvatar({ outfit, pose = 'character_intro', src, onError
         <image href={source} width="768" height="768" preserveAspectRatio="xMidYMid meet" filter={`url(#${uid}-dye)`}/>
         <g opacity=".7"><Motif style={cape.style} color={cape.trim} x={580} y={509} size={22}/>{cape.style===2&&<><Motif style={0} color={cape.trim} x={622} y={530} size={9}/><Motif style={0} color={cape.trim} x={543} y={540} size={7}/></>}</g>
       </g>}
-      {jacket && <g className="wearable-reveal" key={jacket.id} data-slot="jacket" transform={anchor.jacket}><Garment item={jacket} uid={`${uid}-jacket`}/></g>}
-      {hat && <g className="wearable-reveal" key={hat.id} data-slot="hat" transform={anchor.hat}><Garment item={hat} uid={`${uid}-hat`}/></g>}
+      {jacket && <JacketLayer key={jacket.id} item={jacket} pose={pose} source={source} uid={uid}/>}
+      {hat && <HatLayer key={hat.id} item={hat} pose={pose} uid={uid}/>}
     </svg>
   </div>;
 }
