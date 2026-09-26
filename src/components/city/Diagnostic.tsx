@@ -9,7 +9,7 @@ import {ambientInvalidate,cameraInvalidate,staticFrameEnabled} from '../../game/
  * with parts of the frame switched off in turn, so a single screenshot shows
  * where a weak GPU spends its time. Nothing is loaded in ordinary games. */
 interface Variant {id:string;label:string;apply:()=>()=>void;ambient?:boolean;tick?:()=>void}
-interface Row {label:string;fps:number;medianMs:number;worstMs:number;calls:number;triangles:number}
+interface Row {label:string;fps:number;medianMs:number;worstMs:number;cpuMs:number;calls:number;triangles:number}
 const foliage=/^eco\.(leaf|leaflight|oakleaf|mapleleaf|firleaf|flower|petal|bloomshade)$/;
 const settleMs=900,sampleMs=2600;
 
@@ -66,7 +66,9 @@ export default function Diagnostic(){
   const m=motion.current,c=camera as OrthographicCamera;
   c.zoom*=Math.floor(m.frames++/30)%2?1/1.012:1.012;c.updateProjectionMatrix();
  };
- const run=useRef<{variant:number;phase:'settle'|'sample';since:number;frames:number[];last:number;rows:Row[];undo:()=>void}|null>(null);
+ const run=useRef<{variant:number;phase:'settle'|'sample';since:number;frames:number[];cpu:number[];last:number;rows:Row[];undo:()=>void}|null>(null);
+ // Processor time of each frame: every frame callback plus the render.
+ const frameStart=useRef(0);
  const show=useRef<(rows:Row[],status:string)=>void>(()=>{});
  const variants=useRef<Variant[]>([]);
  variants.current=[
@@ -105,7 +107,7 @@ export default function Diagnostic(){
    box.append(head);
    if(rows.length){
     const table=document.createElement('table');table.style.cssText='width:100%;border-collapse:collapse;margin-top:6px;font-variant-numeric:tabular-nums';
-    table.innerHTML='<tr><th style="text-align:left">Teste</th><th>FPS</th><th>ms</th><th>pior</th><th>chamadas</th><th>triângulos</th></tr>'+rows.map(r=>`<tr><td>${r.label}</td><td style="text-align:center">${r.fps.toFixed(1)}</td><td style="text-align:center">${r.medianMs.toFixed(0)}</td><td style="text-align:center">${r.worstMs.toFixed(0)}</td><td style="text-align:center">${r.calls}</td><td style="text-align:center">${(r.triangles/1000).toFixed(0)} mil</td></tr>`).join('');
+    table.innerHTML='<tr><th style="text-align:left">Teste</th><th>FPS</th><th>ms</th><th>pior</th><th>cpu</th><th>chamadas</th><th>triângulos</th></tr>'+rows.map(r=>`<tr><td>${r.label}</td><td style="text-align:center">${r.fps.toFixed(1)}</td><td style="text-align:center">${r.medianMs.toFixed(0)}</td><td style="text-align:center">${r.worstMs.toFixed(0)}</td><td style="text-align:center">${r.cpuMs.toFixed(0)}</td><td style="text-align:center">${r.calls}</td><td style="text-align:center">${(r.triangles/1000).toFixed(0)} mil</td></tr>`).join('');
     box.append(table);
    }
    const line=document.createElement('div');line.style.cssText='margin-top:6px;display:flex;gap:8px;align-items:center';
@@ -113,7 +115,7 @@ export default function Diagnostic(){
    if(!run.current){
     const button=document.createElement('button');button.type='button';button.textContent=rows.length?'Medir de novo':'Medir esta vista';
     button.style.cssText='font:600 13px system-ui,sans-serif;padding:8px 12px;border-radius:8px;border:0;background:#8d4dff;color:#fff';
-    button.onclick=()=>{run.current={variant:0,phase:'settle',since:performance.now(),frames:[],last:0,rows:[],undo:variants.current[0].apply()};render([],'Medindo… não toque na tela.');invalidate();};
+    button.onclick=()=>{run.current={variant:0,phase:'settle',since:performance.now(),frames:[],cpu:[],last:0,rows:[],undo:variants.current[0].apply()};render([],'Medindo… não toque na tela.');invalidate();};
     line.append(button);
    }
    box.append(line);root.append(box);
@@ -130,12 +132,13 @@ export default function Diagnostic(){
   if(variant.tick){variant.tick();cameraInvalidate(invalidate);}
   else if(variant.ambient)ambientInvalidate(invalidate);else invalidate();
   const now=performance.now();
-  if(r.phase==='settle'){if(now-r.since>=settleMs){r.phase='sample';r.since=now;r.frames=[];r.last=now;}return;}
+  if(r.phase==='settle'){if(now-r.since>=settleMs){r.phase='sample';r.since=now;r.frames=[];r.cpu=[];r.last=now;}return;}
   r.frames.push(now-r.last);r.last=now;
   if(now-r.since<sampleMs)return;
   const sorted=[...r.frames].sort((a,b)=>a-b),v=variants.current[r.variant];
   const {calls,triangles}=gl.info.render;
-  r.rows.push({label:v.label,fps:r.frames.length*1000/(now-r.since),medianMs:sorted[sorted.length>>1]??0,worstMs:sorted[sorted.length-1]??0,calls,triangles});
+  const cpu=[...r.cpu].sort((a,b)=>a-b);
+  r.rows.push({label:v.label,fps:r.frames.length*1000/(now-r.since),medianMs:sorted[sorted.length>>1]??0,worstMs:sorted[sorted.length-1]??0,cpuMs:cpu[cpu.length>>1]??0,calls,triangles});
   r.undo();
   if(++r.variant<variants.current.length){
    r.undo=variants.current[r.variant].apply();r.phase='settle';r.since=now;
@@ -145,5 +148,7 @@ export default function Diagnostic(){
    show.current(rows,'Pronto. Tire um print desta tela.');
   }
  },-100);
+ useFrame(()=>{frameStart.current=performance.now();},-1000);
+ useFrame(()=>{const r=run.current;if(r?.phase==='sample')r.cpu.push(performance.now()-frameStart.current);},1000);
  return null;
 }

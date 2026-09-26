@@ -44,7 +44,7 @@ function isAmbient(o:Object3D){
 
 let quiet=false,dirty=true;
 /** Frames drawn completely, from the kept frame, or moved, and why frames were redrawn. */
-export const staticFrameStats={full:0,reused:0,moved:0,strips:0,reasons:{} as Record<string,number>,last:null as unknown};
+export const staticFrameStats={full:0,reused:0,moved:0,strips:0,drawMs:0,moveMs:0,reasons:{} as Record<string,number>,last:null as unknown};
 const reason=(r:string)=>{staticFrameStats.reasons[r]=(staticFrameStats.reasons[r]??0)+1;};
 /** Wrap a demand-mode invalidate: every request marks the kept frame stale,
  * except the ambient animation's and the map navigation's own requests. */
@@ -120,6 +120,31 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
  const whole=(width:number,height:number):Rect=>[0,0,width,height];
  const fullView=(width:number,height:number)=>{frame.viewport.set(0,0,width,height);frame.scissor.set(0,0,width,height);frame.scissorTest=false;};
 
+ /** Screen rectangle → pieces in an image stored with a wrap-around origin:
+  * [screen x, screen y, width, height, stored x, stored y]. */
+ const pieces=(r:Rect,o:readonly number[],width:number,height:number)=>{
+  const split=(x:number,w:number,shift:number,n:number)=>{
+   const at=((x+shift)%n+n)%n;
+   return at+w<=n?[[x,w,at]]:[[x,n-at,at],[x+n-at,w-(n-at),0]];
+  };
+  const out:number[][]=[];
+  for(const [x,w,sx] of split(r[0],r[2],o[0],width))for(const [y,h,sy] of split(r[1],r[3],o[1],height))if(w>0&&h>0)out.push([x,y,w,h,sx,sy]);
+  return out;
+ };
+ // Where screen pixel (0,0) is stored in each plain image. A drag only moves
+ // this origin, so the image is never copied; zoomed images start at (0,0).
+ const origin=[[0,0],[0,0]];
+ /** Copy a screen rectangle of an image stored at origin (0,0) into a wrapped one. */
+ const store=(from:WebGLFramebuffer|null,s:Rect,index:number,r:Rect,width:number,height:number)=>{
+  const out=framebuffer(moved[index]);
+  for(const [x,y,w,h,sx,sy] of pieces(r,origin[index],width,height))blit(from,out,[s[0]+x-r[0],s[1]+y-r[1],w,h],[sx,sy,w,h]);
+ };
+ /** Show a plain image on the canvas. */
+ const show=(index:number,width:number,height:number)=>{
+  const from=framebuffer(moved[index]);
+  for(const [x,y,w,h,sx,sy] of pieces(whole(width,height),origin[index],width,height))blit(from,null,[sx,sy,w,h],[x,y,w,h]);
+ };
+
  /** Draw the view as the previous image moved plus the newly visible strips.
   * Returns false when the move cannot be expressed that way. */
  const move=(scene:Scene,camera:Camera,view:Matrix4,width:number,height:number,draw:(scene:Scene,camera:Camera)=>void)=>{
@@ -128,7 +153,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
   if(!moving){
    // The complete frame on screen becomes the reference.
    blit(resolved(),framebuffer(moved[0]),whole(width,height),whole(width,height));
-   reference=0;base.copy(shown);baseProjection.copy(shownProjection);moving=true;
+   reference=0;origin[0]=[0,0];base.copy(shown);baseProjection.copy(shownProjection);moving=true;
   }
   // Reference NDC → current NDC. Same direction and no perspective: a scale
   // and an offset in x and y, independent of depth.
@@ -140,11 +165,11 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
   if(scale<.4||scale>3)return false;
   // Reference pixel p appears at p·scale + offset (GL pixels, from the bottom).
   const ox=(m[12]+1-scale)*width/2,oy=(m[13]+1-scale)*height/2;
-  let from:Rect,to:Rect,rx=0,ry=0;
+  let from:Rect,to:Rect,rx=0,ry=0,ix=0,iy=0;
   if(pan){
    // Whole pixels: the image is only shifted. The rest of the view is drawn
    // for the camera moved by the same fraction of a pixel.
-   const ix=Math.round(ox),iy=Math.round(oy);rx=ox-ix;ry=oy-iy;
+   ix=Math.round(ox);iy=Math.round(oy);rx=ox-ix;ry=oy-iy;
    const x0=Math.max(0,ix),y0=Math.max(0,iy),x1=Math.min(width,ix+width),y1=Math.min(height,iy+height);
    to=[x0,y0,Math.max(0,x1-x0),Math.max(0,y1-y0)];from=[x0-ix,y0-iy,to[2],to[3]];
   }else{
@@ -157,24 +182,41 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
   const strips=uncovered(width,height,to[0],to[1],to[0]+to[2],to[1]+to[3]);
   const fresh=strips.reduce((a,r)=>a+r[2]*r[3],0)/(width*height);
   if(fresh>maxNewArea)return false;
-  const target=1-reference,out=framebuffer(moved[target]);
-  if(to[2]&&to[3]&&from[2]&&from[3])blit(framebuffer(moved[reference]),out,from,to,!pan);
-  const layers=camera.layers.mask;
+  let target:number;
+  if(pan){
+   // The reference itself: screen pixel p now shows what was at p - i.
+   target=reference;const o=origin[target];
+   o[0]=((o[0]-ix)%width+width)%width;o[1]=((o[1]-iy)%height+height)%height;
+  }else{
+   if(origin[reference][0]||origin[reference][1]){
+    // Scaling needs a plain layout: unwrap the dragged image once.
+    const other=1-reference;origin[other]=[0,0];
+    const src=framebuffer(moved[reference]),out=framebuffer(moved[other]);
+    for(const [x,y,w,h,sx,sy] of pieces(whole(width,height),origin[reference],width,height))blit(src,out,[sx,sy,w,h],[x,y,w,h]);
+    reference=other;
+   }
+   target=1-reference;origin[target]=[0,0];
+   if(to[2]&&to[3]&&from[2]&&from[3])blit(framebuffer(moved[reference]),framebuffer(moved[target]),from,to,true);
+  }
+  const layers=camera.layers.mask,frameWidth=frame.width,frameHeight=frame.height;
   try{
    // Instance culling below may request another frame: that is not a change.
    quiet=true;
    for(const r of strips){
     // Only this rectangle: the camera's view is cut to it, so culling skips
-    // everything outside and each pixel is drawn once.
+    // everything outside and each pixel is drawn once. It is drawn in the
+    // corner of the target, and three resolves only that corner.
     ortho.setViewOffset(width,height,r[0]+rx,height-r[1]-r[3]-ry,r[2],r[3]);
-    frame.viewport.set(r[0],r[1],r[2],r[3]);frame.scissor.set(r[0],r[1],r[2],r[3]);frame.scissorTest=true;
+    frame.viewport.set(0,0,r[2],r[3]);frame.scissor.set(0,0,r[2],r[3]);frame.scissorTest=true;
+    frame.width=r[2];frame.height=r[3];
     gl.setRenderTarget(frame);
-    draw(scene,camera);
-    blit(resolved(),out,r,r);
+    const t=performance.now();draw(scene,camera);staticFrameStats.drawMs+=performance.now()-t;
+    frame.width=frameWidth;frame.height=frameHeight;
+    store(resolved(),[0,0,r[2],r[3]],target,r,width,height);
     staticFrameStats.strips++;
    }
   }finally{
-   quiet=false;
+   quiet=false;frame.width=frameWidth;frame.height=frameHeight;
    if(ortho.view?.enabled)ortho.clearViewOffset();
    camera.layers.mask=layers;fullView(width,height);gl.setRenderTarget(frame);
   }
@@ -188,6 +230,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
   return true;
  };
 
+ const timed=(fn:()=>boolean)=>{const t=performance.now(),r=fn();staticFrameStats.moveMs+=performance.now()-t;return r;};
  return {
   /** `draw` renders the complete scene (it may use a depth prepass). */
   render(scene:Scene,camera:Camera,draw:(scene:Scene,camera:Camera)=>void){
@@ -214,7 +257,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
    dirty=false;
    const reuse=steady&&last.valid&&!moving&&cameraSame&&ambient>0;
    const autoClear=gl.autoClear,layers=camera.layers.mask,previous=gl.getRenderTarget();
-   let presentFrom:WebGLFramebuffer|null=null;
+   let presentFrom:WebGLFramebuffer|null=null,presentMoved=false;
    try{
     gl.setRenderTarget(frame);
     if(reuse){
@@ -225,9 +268,9 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      presentFrom=resolved();
     }else if(steady&&moving&&cameraSame){
      // Still between moves (water ticks): the moved image stays on screen.
-     staticFrameStats.moved++;presentFrom=framebuffer(moved[display]);
-    }else if(movingEnabled&&steady&&(last.valid||moving)&&!cameraSame&&move(scene,camera,cameraView,width,height,draw)){
-     staticFrameStats.moved++;presentFrom=framebuffer(moved[display]);last.valid=false;arm();
+     staticFrameStats.moved++;presentMoved=true;
+    }else if(movingEnabled&&steady&&(last.valid||moving)&&!cameraSame&&timed(()=>move(scene,camera,cameraView,width,height,draw))){
+     staticFrameStats.moved++;presentMoved=true;last.valid=false;arm();
     }else{
      reason(!last.valid&&!moving?'first':requested?'requested':!cameraSame?'camera':shadowRefresh?'shadows':scene.overrideMaterial?'override':'no-water');
      staticFrameStats.full++;
@@ -240,7 +283,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      draw(scene,camera);last.valid=true;shown.copy(cameraView);shownProjection.copy(camera.projectionMatrix);
      presentFrom=resolved();
     }
-    blit(presentFrom,null,whole(width,height),whole(width,height));
+    if(presentMoved)show(display,width,height);else blit(presentFrom,null,whole(width,height),whole(width,height));
    }finally{
     camera.layers.mask=layers;gl.autoClear=autoClear;scene.userData.dynamicPass=false;
     gl.setRenderTarget(previous);
