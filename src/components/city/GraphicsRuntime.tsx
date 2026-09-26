@@ -5,6 +5,7 @@ import {graphicsPixelRatio} from '../../config/graphics';
 import {deviceGraphics,useGraphicsRuntime,useResolvedGraphics} from '../../stores/graphicsStore';
 import {useGame} from '../../stores/gameStore';
 import {frameMetrics} from '../../game/frameMetrics';
+import {measureInvalidate} from '../../game/staticFrame';
 
 /** Short, real rendering samples. Idle time in demand mode is never counted as a slow frame. */
 export function GraphicsRuntime({ready}:{ready:boolean}){
@@ -28,7 +29,10 @@ export function GraphicsRuntime({ready}:{ready:boolean}){
   gl.domElement.dataset.graphicsShadows=String(q.shadowSize);
   useGraphicsRuntime.setState({actualShadowSize:q.shadowSize});
   sample.current={last:0,warmup:5,values:[],done:!ready||loading||!(settings.quality==='AUTO'||settings.showPerformance)};
-  useGraphicsRuntime.setState({measuring:!sample.current.done});invalidate();
+  // The reading measures the frames players see: with the kept city, a still
+  // view redraws only the water. Forcing complete frames here stalled weak
+  // phones for seconds after every gesture.
+  useGraphicsRuntime.setState({measuring:!sample.current.done});measureInvalidate(invalidate);
  },[gl,q.tier,q.shadowSize,q.renderScale,settings.quality,settings.showPerformance,ready,loading,probe,invalidate]);
  useEffect(()=>{
   const wake=()=>{sample.current.last=0;if(!document.hidden)invalidate();};
@@ -56,7 +60,7 @@ export function GraphicsRuntime({ready}:{ready:boolean}){
   if(s.last){if(s.warmup>0)s.warmup--;else s.values.push(now-s.last);}
   s.last=now;
   const elapsed=s.values.reduce((a,b)=>a+b,0);
-  if(s.values.length<24&&(s.values.length<8||elapsed<1500)){invalidate();return;}
+  if(s.values.length<24&&(s.values.length<8||elapsed<1500)){measureInvalidate(invalidate);return;}
   const metrics=frameMetrics(s.values)!,ms=metrics.p50;
   s.done=true;
   useGraphicsRuntime.setState({measuring:false,frameMs:ms,frameP95:metrics.p95,fps:Math.round(metrics.meanFps),drawCalls:gl.info.render.calls,triangles:gl.info.render.triangles,
