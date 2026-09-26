@@ -58,6 +58,14 @@ No Redmi 14C, com sombras: parada 55,7 FPS, arrastando 48,2 FPS (20 ms, 1 faixa 
 
 Uma faixa de 1% da tela custava quase o mesmo que o quadro inteiro de cópias: a imagem inteira era copiada para o outro buffer a cada quadro, e o three resolvia as 4 amostras do alvo inteiro depois de cada faixa. Agora o arrasto só muda a origem da imagem guardada (endereçamento circular: nenhum pixel é copiado; a tela é montada em até 4 cópias na apresentação), e cada faixa é desenhada no canto do alvo com a largura e altura do alvo reduzidas durante o desenho, então só a faixa é resolvida. O zoom desenrola a imagem uma vez quando começa depois de um arrasto. O diagnóstico ganhou a coluna "cpu" (tempo de processador por quadro, mediana) para separar processador de placa de vídeo.
 
+## Quinta medição: o processador limita o arrastar
+
+No Redmi 14C, com sombras: parada 58,4 FPS, arrastando 50,9 FPS com 15 ms de processador por quadro (parado: 4 ms), zoom 59,7. Cada faixa custa cerca de 11 ms de processador no celular, quase independente da largura (percorrer a cena, recortar instâncias, preparar cerca de 100 desenhos). Emanuel também viu cerca de 15% do tempo com mais de 1 milhão de triângulos e FPS baixo, parado ou arrastando.
+
+Esses quadros completos vinham do medidor de "Mostrar desempenho" (`GraphicsRuntime`): até uma vez a cada 12 s, depois de soltar o dedo, ele pedia de 8 a 24 quadros completos só para mostrar o tempo por quadro em Configurações. Agora ele pede quadros sem marcar a cena como alterada (`measureInvalidate`) e mede os quadros que o jogador vê.
+
+Para o arrastar, a imagem guardada tem 64 pixels de folga em volta da tela. Quando falta imagem, as faixas são desenhadas à frente do movimento: duas vezes o deslocamento do quadro, no mínimo 12 pixels. Assim, um arrasto de 6 pixels por quadro desenha uma faixa a cada 3 quadros (10 faixas em 30 quadros), e os outros quadros só deslocam a imagem. O zoom também aproveita a folga. No navegador de testes, arrastos lentos, rápidos e na diagonal ficam alinhados com o quadro completo (só pixels de borda por causa do meio pixel), e o quadro final continua igual.
+
 ## O que falta medir no Redmi 14C
 
 Nada aqui prova 60 fps no celular. É preciso abrir a versão de teste no Redmi 14C, em Alto, com "Mostrar desempenho" ligado, e anotar o FPS parado e arrastando no panorama, no centro e na floresta. Com esses números decidimos a próxima etapa (folhas pré-calculadas, custo das sombras ou da água).
