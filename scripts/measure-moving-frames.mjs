@@ -42,6 +42,6 @@ out.zoomIn=await run(Array.from({length:20},()=>[2,0,1/.985]));await shot('zoomi
 await page.waitForTimeout(1500);await shot('zoomin-settled');
 await page.evaluate(()=>window.ecoBenchmark.draw());await page.waitForTimeout(1500);await shot('zoomin-full');
 out.zoomSettledVsFull=cmp('zoomin-settled','zoomin-full');out.zoominMovingVsFull=cmp('zoomin-moving','zoomin-full',8);
-out.stats=await page.evaluate(()=>{const s=window.ecoBenchmark.staticFrameStats();return {full:s.full,reused:s.reused,moved:s.moved,strips:s.strips,reasons:Object.entries(s.reasons).filter(r=>r[1]<500).map(r=>[r[0].slice(0,110),r[1]]).sort((a,b)=>b[1]-a[1]).slice(0,12)};});
+out.stats=await page.evaluate(()=>{const s=window.ecoBenchmark.staticFrameStats();return {full:s.full,reused:s.reused,moved:s.moved,strips:s.strips,drawMs:s.drawMs,moveMs:s.moveMs,reasons:Object.entries(s.reasons).filter(r=>r[1]<500).map(r=>[r[0].slice(0,110),r[1]]).sort((a,b)=>b[1]-a[1]).slice(0,12)};});
 console.log(JSON.stringify(out,null,1));
 await browser.close();

@@ -52,6 +52,12 @@ Dois ajustes foram necessários: o pedido de quadro que o recorte de instâncias
 
 No navegador de testes (SwiftShader, 630×1400, Alto, com sombras): 30 passos de arrasto sem nenhum quadro completo, cerca de 330 ms por passo contra cerca de 3 s do quadro completo; 20 passos de zoom afastando a cerca de 750 ms; aproximando, cerca de 30 ms. O quadro final depois do gesto difere de um quadro completo novo em 11 pixels de 880 mil, na borda da água, a mesma diferença do redesenho da água parada. `?diagnostico=1` ganhou as linhas "Arrastando" e "Dando zoom". Teste: `node scripts/measure-moving-frames.mjs` com `npx vite preview --port 4175`.
 
+## Quarta medição: arrastar a 48 FPS
+
+No Redmi 14C, com sombras: parada 55,7 FPS, arrastando 48,2 FPS (20 ms, 1 faixa de 6 pixels por quadro), dando zoom 60,3 FPS. No PC com Intel UHD: parada 108, arrastando 64, zoom 75, quadro completo 19.
+
+Uma faixa de 1% da tela custava quase o mesmo que o quadro inteiro de cópias: a imagem inteira era copiada para o outro buffer a cada quadro, e o three resolvia as 4 amostras do alvo inteiro depois de cada faixa. Agora o arrasto só muda a origem da imagem guardada (endereçamento circular: nenhum pixel é copiado; a tela é montada em até 4 cópias na apresentação), e cada faixa é desenhada no canto do alvo com a largura e altura do alvo reduzidas durante o desenho, então só a faixa é resolvida. O zoom desenrola a imagem uma vez quando começa depois de um arrasto. O diagnóstico ganhou a coluna "cpu" (tempo de processador por quadro, mediana) para separar processador de placa de vídeo.
+
 ## O que falta medir no Redmi 14C
 
 Nada aqui prova 60 fps no celular. É preciso abrir a versão de teste no Redmi 14C, em Alto, com "Mostrar desempenho" ligado, e anotar o FPS parado e arrastando no panorama, no centro e na floresta. Com esses números decidimos a próxima etapa (folhas pré-calculadas, custo das sombras ou da água).
