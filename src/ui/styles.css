@@ -155,8 +155,6 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
 .footer > span:last-child { letter-spacing: .1px; }
 .camera-status { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); background: var(--hud-surface); border: 2px solid var(--hud-edge); border-radius: 15px; padding: 14px 25px; font-size: 13px; white-space: nowrap; }
 .notice { position: absolute; left: 50%; bottom: 35px; transform: translateX(-50%); max-width: 90%; padding: 13px 20px; border: 2px solid #cbbffd; border-radius: 15px; color: #302653; background: #fff9db; font-size: 12px; pointer-events: auto; z-index: 70; }
-.loading, .scene-error { position: absolute; inset: 35% 15% auto; padding: 25px; color: #fff; background: #373089; border: 2px solid var(--hud-edge); border-radius: 18px; font-size: 14px; z-index: 5; }
-.scene-error button { display: block; margin-top: 15px; border: 1px solid #a595ff; padding: 10px; border-radius: 8px; background: #5548b8; }
 
 @media (max-width: 999px) and (min-height: 501px) {
   .has-choices { --portrait-space: min(calc(382 * var(--hud-u)), max(126px, calc(80dvh - 384px))); padding-top: max(88px, calc(env(safe-area-inset-top) + 72px)); padding-bottom: max(16px, env(safe-area-inset-bottom)); }

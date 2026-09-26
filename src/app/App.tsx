@@ -1,48 +1,45 @@
 import { Component, lazy, Suspense, useCallback, useState, type ReactNode } from "react";
 import { useGame } from "../stores/gameStore";
 import { GameUI } from "../ui/GameUI";
+import { useLoadingScreen } from "../ui/useLoadingScreen";
 const World = lazy(() => import("./World"));
 class SceneBoundary extends Component<
-  { children: ReactNode },
+  { children: ReactNode; onError: () => void },
   { failed: boolean }
 > {
   state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };
   }
+  componentDidCatch() {
+    this.props.onError();
+  }
   render() {
-    return this.state.failed ? (
-      <div className="scene-error" role="alert">
-        Não foi possível carregar a cena 3D. Verifique o suporte a WebGL e
-        recarregue a página.
-        <button onClick={() => location.reload()}>Tentar novamente</button>
-      </div>
-    ) : (
-      this.props.children
-    );
+    return this.state.failed ? null : this.props.children;
   }
 }
 export default function App() {
   const [sceneReady, setSceneReady] = useState(false);
+  const [failed, setFailed] = useState(false);
   const onSceneReady = useCallback(() => setSceneReady(true), []);
+  const onError = useCallback(() => setFailed(true), []);
   const settings = useGame((s) => s.progress.settings);
   const selected = useGame((s) => s.progress.selectedProblem);
   const phase = useGame((s) => s.progress.phase);
   const overlay = useGame((s) => s.overlay);
+  const revealed = useLoadingScreen(sceneReady, failed, settings.reducedMotion);
   return (
     <main
       className={`game ${settings.reducedMotion ? "reduced-motion" : ""} ${selected && phase!=="RETURNING" ? "focused" : ""}`}
     >
-      <div className="world" inert={Boolean(overlay)} aria-label="Diorama 3D da Praça do Encontro">
-        <SceneBoundary>
-          <Suspense
-            fallback={<div className="loading">Preparando a cidade…</div>}
-          >
-            <World onReady={onSceneReady} interactive={sceneReady && !overlay} />
+      <div className="world" inert={!revealed || Boolean(overlay)} aria-hidden={!revealed} aria-label="Diorama 3D da Praça do Encontro">
+        <SceneBoundary onError={onError}>
+          <Suspense fallback={null}>
+            <World onReady={onSceneReady} interactive={revealed && !overlay} />
           </Suspense>
         </SceneBoundary>
       </div>
-      <GameUI sceneReady={sceneReady} />
+      {revealed && <GameUI sceneReady={sceneReady} />}
     </main>
   );
 }

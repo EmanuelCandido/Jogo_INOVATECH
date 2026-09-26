@@ -12,6 +12,20 @@ Para atualizar, gerar novamente a build com esse mesmo `base` e publicar somente
 
 **Enviar o código para `main` não atualiza o site.** Na investigação dos diálogos móveis, o HTML público ainda apontava para `index-BfS0xeHk.js` e `index-8elQcyNL.css`, da publicação `517cead`. Esse CSS conservava o retrato de 100 px à direita, mesmo após a restauração no código-fonte. A atualização deve incluir o checkout de publicação e a conferência dos arquivos realmente servidos pelo endereço público.
 
+## Abertura e atualização completa — 26/09/2026
+
+O checkout de publicação ainda estava em `e21ac0e` (acessórios), enquanto `main` já continha as correções do mapa e `d76d646` (HUD sem o card e animações das dez situações). A atualização inclui essas mudanças na branch de publicação, além da nova abertura e do favicon. A build usa `index-CZPEIShD.js` e `index-DEWicKVd.css`.
+
+A abertura está no próprio HTML: logo, Impactus flutuando, moeda e barra de atividade aparecem antes do download de React/Three. `useLoadingScreen` mantém essa mesma tela até os modelos decodificarem e a cidade renderizar seus primeiros quadros, com saída de 480 ms. Os controles do jogo só são montados depois; saves restaurados também aguardam. O indicador não inventa uma porcentagem de progresso. Movimento reduzido desativa as animações e a transição; falha no módulo ou na cena oferece um botão nativo para recarregar.
+
+O ícone vetorial do Impactus está em `public/favicon.svg`. `node scripts/generate-favicon.mjs` gera os PNGs de 32 e 180 pixels usados como alternativa e ícone de tela inicial.
+
+Para validar os mesmos caminhos da publicação, gerar a build com `--base=/Jogo_INOVATECH/`, abrir o preview com esse prefixo e definir `ECO_BASE_URL` incluindo `/Jogo_INOVATECH/`. Os testes de abertura e do fluxo completo usam navegação relativa para não escapar desse prefixo. `loading.spec.ts` verifica download lento do módulo e dos modelos, save restaurado, falhas, nova tentativa, acessibilidade e favicon em desktop e celular. `loop.spec.ts` percorre as dez transformações; detalhes em [ANIMACOES-RESOLUCAO.md](ANIMACOES-RESOLUCAO.md).
+
+Após o push do código para `main`, copiar a saída da build para `.tools/github-pages`, conservar `.git` e `.nojekyll`, revisar o diff e enviar `codex/public-game`. Conferir no endereço permanente os hashes do HTML e o carregamento de JavaScript, CSS, favicon e modelos. Publicar o código e conferir apenas o preview local não conclui a atualização do site.
+
+Validação desta build: 52 testes unitários de lógica, narrativa, transformações e percurso de coleta aprovados; dez testes de abertura em desktop/celular aprovados; percurso completo das dez soluções no navegador aprovado; quatro testes de coleta animada, sombras estáveis, pulo e persistência aprovados. Evidências locais em `.tools/startup-tests`, `.tools/startup-loop` e `.tools/startup-resolution`.
+
 ## Correção dos diálogos móveis — 16/09/2026
 
 A build ajustada com prévia de 3,5 segundos e retrato aproximadamente 20% menor, alinhado à esquerda conforme a composição do Figma, usa `index-D10WywSE.js` e `index-DYwjYy0k.css`. Ela mantém o botão de voltar, a entrada animada e a proteção contra toque duplo. O card de zoom foi removido; gestos e teclado continuam disponíveis. A validação local inclui o cancelamento/reabertura da prévia, ausência de diálogo durante a espera, movimento reduzido, rotação e preservação das moedas. Os testes estão em `tests/e2e/problem-framing.spec.ts`, `choice-input.spec.ts`, `hud.spec.ts` e `navigation.spec.ts`.

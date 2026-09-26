@@ -22,7 +22,7 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
   }
   await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible({timeout:20000});
   await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_success');
-  if(i===0){await expect(page.locator('.balance')).toContainText('1.350');await page.reload();await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible();}
+  if(i===0){await expect(page.locator('.balance')).toContainText('1.350');await page.reload();await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible({timeout:60000});}
   await expect(page.getByRole('button',{name:'Voltar à cidade'})).toBeEnabled({timeout:30000});
   if(info.project.name==='desktop')await page.screenshot({path:info.outputPath('situation-'+id+'-solved.png'),animations:'disabled'});
   await page.getByRole('button',{name:'Voltar à cidade'}).click();

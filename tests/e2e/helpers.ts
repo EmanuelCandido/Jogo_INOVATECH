@@ -11,7 +11,7 @@ export async function cameraZoom(page:Page){
  return page.evaluate(()=>(window as unknown as {ecoBenchmark:{cameraState:()=>{zoom:number}}}).ecoBenchmark.cameraState().zoom);
 }
 export async function start(page:Page){
- await page.goto('/');
+ await page.goto('./');
  await page.getByRole('button',{name:'JOGAR',exact:true}).click();
  for(let i=0;i<7;i++)await page.getByRole('button',{name:'Continuar →',exact:true}).click();
  await page.getByRole('button',{name:'Pensar no primeiro passo'}).click();

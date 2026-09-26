@@ -9,7 +9,7 @@ test('recolhe o lixo antes do resultado e preserva a escolha ao recarregar',asyn
  const progress=open(s,'pollution_01');progress.settings={...progress.settings,quality:'HIGH',ambientAnimation:false,reducedMotion:false};
  await page.addInitScript(value=>{if(!sessionStorage.getItem('resolution-seeded')){localStorage.setItem('ecoquest.save.v1',value);sessionStorage.setItem('resolution-seeded','true');}},JSON.stringify({version:1,data:progress}));
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('/');
+ await page.goto('./');
  const choice=page.locator('[data-choice-id="'+questions.waste.alternatives.find(a=>a.effectiveness==='COMPLETE')!.id+'"]');
  await expect(choice).toBeEnabled({timeout:60000});
  // Let the initial framing settle before observing the transformation.
@@ -45,7 +45,7 @@ test('recolhe o lixo antes do resultado e preserva a escolha ao recarregar',asyn
  await page.screenshot({path:info.outputPath('resultado.png')});
  const applied=await saved();expect(applied.decisions).toHaveLength(1);
  await page.reload();
- await expect(page.getByRole('region',{name:'Resultado da decisão'})).toBeVisible();
+ await expect(page.getByRole('region',{name:'Resultado da decisão'})).toBeVisible({timeout:60000});
  await expect(page.locator('.resolution-status')).toHaveCount(0);
  expect((await saved()).coins).toBe(applied.coins);expect((await saved()).decisions).toHaveLength(1);
  expect(errors).toEqual([]);
@@ -56,7 +56,7 @@ test('permite pular a transformação e voltar sem desfazer a decisão',async({p
  const s=overview();s.coins=1500;
  const progress=open(s);progress.settings={...progress.settings,quality:'LOW',reducedMotion:false};
  await page.addInitScript(value=>localStorage.setItem('ecoquest.save.v1',value),JSON.stringify({version:1,data:progress}));
- await page.goto('/');const choice=page.locator('.alternative').first();await expect(choice).toBeEnabled({timeout:60000});
+ await page.goto('./');const choice=page.locator('.alternative').first();await expect(choice).toBeEnabled({timeout:60000});
  await choice.click();await expect(page.locator('.narrative-stage')).toHaveCount(0);
  await page.getByRole('button',{name:'Ver resultado',exact:true}).click();
  await expect(page.getByRole('region',{name:'Resultado da decisão'})).toBeVisible();

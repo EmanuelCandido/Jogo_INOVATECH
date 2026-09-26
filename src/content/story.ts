@@ -13,6 +13,5 @@ export const story={
  ],
  tutorial:{context:'Você acabou de chegar à cidade e percebeu que existem vários problemas espalhados por diferentes regiões.',marker:'Os símbolos indicam situações para investigar. Toque ou clique em um marcador.',costs:'Cada solução possui um custo. Pense no impacto antes de decidir.'},
  results:{COMPLETE:{label:'Uma mudança que fica',icon:'✓'},TEMPORARY:{label:'Um primeiro alívio',icon:'◷'},NONE:{label:'Ainda há um caminho',icon:'↗'}},
- overview:'Observe os sinais no mapa. Novas situações aparecem conforme você investiga a cidade.',
  complete:'As dez situações receberam soluções completas. A cidade mudou com as decisões que você analisou.'
 };
