@@ -5,10 +5,9 @@ import {MeshoptSimplifier} from 'meshoptimizer';
  * The camera is orthographic, so every instance shares one scale on screen:
  * zoom × device pixel ratio pixels per world unit. Each level is a subset of
  * the original triangles, reusing the same vertices, normals and colours; it
- * is drawn only when its error stays below 0.4 pixel. Models,
+ * is drawn only when its error stays below 0.9 pixel (the approved limit is 1). Models,
  * placements and quantities never change, and the shadow pass always uses
  * the full model. No asset file is modified. */
-export const maxErrorPixels=.4;
 const levelErrors=[.004,.008,.016,.032];
 export interface LodLevel {geometry:BufferGeometry;error:number;triangles:number}
 export interface LodEntry {mesh:InstancedMesh;full:BufferGeometry;levels:LodLevel[];worldScale:number;active:BufferGeometry}
@@ -17,6 +16,8 @@ const cache=new WeakMap<BufferGeometry,Promise<{levels:LodLevel[];extent:number}
 const params=typeof location==='undefined'?new URLSearchParams():new URLSearchParams(location.search);
 // Diagnostic switch for comparisons: ?lod=0 keeps every model complete.
 export const lodEnabled=params.get('lod')!=='0';
+// ?lodpx= overrides the threshold for measurements only.
+export const maxErrorPixels=Number(params.get('lodpx'))||.9;
 
 function positionsOf(geometry:BufferGeometry){
  const source=geometry.getAttribute('position'),positions=new Float32Array(source.count*3);

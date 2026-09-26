@@ -17,7 +17,9 @@ import {ResolutionDirector} from '../components/city/ResolutionScene';
 import {lazy,Suspense,useRef} from 'react';
 import type {DirectionalLight} from 'three';
 const Benchmark=lazy(()=>import('../components/city/Benchmark'));
+const Diagnostic=lazy(()=>import('../components/city/Diagnostic'));
 const benchmarking=new URLSearchParams(location.search).get('benchmark')==='1';
+const diagnosing=new URLSearchParams(location.search).get('diagnostico')==='1';
 export default function World({ onReady, interactive }: { onReady: () => void; interactive: boolean }) {
   const q=useResolvedGraphics();
   const sun=useRef<DirectionalLight>(null);
@@ -71,6 +73,7 @@ export default function World({ onReady, interactive }: { onReady: () => void; i
       <ShaderGate/>
       <SceneReady onReady={onReady} />
       {benchmarking&&<Suspense fallback={null}><Benchmark/></Suspense>}
+      {diagnosing&&<Suspense fallback={null}><Diagnostic/></Suspense>}
     </Canvas>
   );
 }
