@@ -9,7 +9,7 @@ const h=Math.hypot(110,145);
 const views=[['overview',3,20,1],['centre',10,28,1.7],['forest',-62,52,1.5],['close',10,28,3.5]].map(([name,u,v,zoom])=>[name,145/h*u-110/h*v,-110/h*u-145/h*v,zoom]);
 const browser=await chromium.launch({executablePath:'/opt/pw-browsers/chromium',args:['--use-angle=swiftshader','--enable-webgl','--ignore-gpu-blocklist']});
 const report={quality,variants:{}};
-for(const [variant,query] of [['full','&lod=0'],['lod','']]){
+for(const [variant,query] of [['full','&lod=0'],['lod',process.env.LOD_QUERY??'']]){
  const context=await browser.newContext({viewport:{width:360,height:800},deviceScaleFactor:2,isMobile:true,hasTouch:true});
  const page=await context.newPage();page.setDefaultTimeout(300000);
  await page.goto(`${url}/?benchmark=1${query}`);await page.waitForFunction(()=>!!window.ecoBenchmark);

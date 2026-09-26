@@ -11,7 +11,7 @@ Aparelho de referência: Redmi 14C (Mali-G52 MC2, tela 720 × 1640). Meta pedida
 | Ruas, calçadas, terreno e água pré-calculados no build | `scripts/generate-city-surfaces.mjs`, `src/components/environment/citySurfaces.ts`, `cityGeometry.ts`, `surfaceAttributes.ts`, `src/assets/geometryPack.ts` | Abertura de 32,5 s para 16,9 s até o botão Jogar; some a tarefa de 12,5 s que congelava a animação |
 | Sombreadores compilados em paralelo antes de mostrar a cidade | `src/components/city/ShaderGate.tsx` | Evita a travada de 5 a 6 s no primeiro desenho quando o navegador tem `KHR_parallel_shader_compile` (o SwiftShader não tem, então não foi medido aqui) |
 | Resolução menor só durante o movimento | `src/components/city/MotionResolution.tsx` | Cerca de metade dos pixels enquanto a câmera se move; o quadro parado volta à resolução total |
-| Modelos repetidos simplificados quando pequenos na tela | `src/game/instanceLod.ts` | Panorama de 2,08 para 1,54 milhão de triângulos; 0,13% dos pixels mudam mais de 24/255 |
+| Modelos repetidos simplificados quando pequenos na tela | `src/game/instanceLod.ts` | Panorama de 2,08 para 1,29 milhão de triângulos a 0,9 pixel ([comparação](performance/lod-09-mobile-high/results.json)); 0,31% dos pixels mudam mais de 24/255 |
 | Contador contínuo de FPS | `src/components/city/LiveFrameRate.tsx`, `src/ui/hud/PerformanceReadout.tsx` | "Mostrar desempenho" passa a mostrar FPS, pior quadro, triângulos, resolução e placa |
 
 ### Superfícies pré-calculadas
@@ -26,9 +26,15 @@ Se o arquivo não puder ser usado, o jogo calcula as superfícies como antes. `n
 
 ### Modelos simplificados
 
-A câmera é ortográfica, então todos os objetos têm a mesma escala na tela: `zoom × DPR` pixels por metro. Para cada modelo com 12 ou mais cópias, o meshoptimizer gera até quatro níveis que reusam os mesmos vértices, normais e cores. O jogo usa o nível mais simples cujo erro medido, multiplicado pela maior escala das cópias, fica abaixo de 0,4 pixel. O passe de sombra sempre usa o modelo completo. Nenhum GLB ou fonte Blender foi alterado. `?lod=0` desliga para comparação.
+A câmera é ortográfica, então todos os objetos têm a mesma escala na tela: `zoom × DPR` pixels por metro. Para cada modelo com 12 ou mais cópias, o meshoptimizer gera até quatro níveis que reusam os mesmos vértices, normais e cores. O jogo usa o nível mais simples cujo erro medido, multiplicado pela maior escala das cópias, fica abaixo de 0,9 pixel (o limite aprovado é 1 pixel; a primeira versão usava 0,4). O passe de sombra sempre usa o modelo completo. Nenhum GLB ou fonte Blender foi alterado. `?lod=0` desliga para comparação.
 
 As copas das árvores já são pequenos icosaedros no limite da simplificação; o ganho veio dos troncos, carros, postes, grades e peças de estrutura. [Comparação](performance/lod-mobile-high/results.json): full × simplificado no panorama, centro, floresta e zoom máximo.
+
+## Primeira medição no Redmi 14C
+
+Emanuel, 26/09, Alto sem sombras: abertura mais curta, mas a animação de carregamento só começou perto do fim; 4 a 6 FPS no panorama e 25 a 30 FPS no zoom máximo. O panorama desenha cerca de 1,5 milhão de triângulos em 900 mil pixels, então a maioria dos triângulos cobre menos de um pixel.
+
+`?diagnostico=1` mostra um botão "Medir esta vista" (`src/components/city/Diagnostic.tsx`). Ele mede a vista atual com partes do quadro desligadas uma por vez (metade da resolução, cores lisas sem luz, sem folhas, sem água, sem modelos repetidos, nada desenhado) e mostra a placa, a resolução, o tempo de abertura e quanto tempo o processador ficou travado durante a abertura. Um print dessa tabela diz se o limite é pixel, sombreamento, triângulos ou processador.
 
 ## O que falta medir no Redmi 14C
 
