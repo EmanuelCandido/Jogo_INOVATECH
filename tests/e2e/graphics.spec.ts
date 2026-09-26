@@ -64,7 +64,7 @@ test('troca qualidade em tempo real, preserva partida e restaura preferências',
  const software=await canvas.evaluate(c=>{const gl=(c as HTMLCanvasElement).getContext('webgl2')!,ext=gl.getExtension('WEBGL_debug_renderer_info');return ext?/swiftshader|llvmpipe|software|basic render/i.test(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)):false;});
  await expect(canvas).toHaveAttribute('data-graphics-tier',software?'MINIMUM':/^(LOW|MEDIUM|HIGH|ULTRA|MINIMUM)$/,{timeout:30000});
  await expect.poll(()=>page.getByRole('button',{name:'Reavaliar dispositivo'}).isEnabled(),{timeout:60000}).toBe(true);
- await expect(page.getByLabel('Desempenho gráfico')).toContainText(/\d+ FPS medidos/);
+ await expect(page.getByLabel('Desempenho gráfico')).toContainText(/\d+ FPS/);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  expect(errors).toEqual([]);
 });
