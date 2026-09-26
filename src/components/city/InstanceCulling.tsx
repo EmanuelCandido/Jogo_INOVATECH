@@ -13,6 +13,8 @@ export function InstanceCulling(){
   // Object.onBeforeRender is too late to update an instance buffer in this frame.
   scene.onBeforeRender=function(...args){
    previous.apply(this,args);
+   // The cached-frame pass only redraws water: instances are already current.
+   if(scene.userData.dynamicPass)return;
    const refresh=gl.shadowMap.enabled&&(gl.shadowMap.needsUpdate||gl.shadowMap.autoUpdate);
    // The shadow pass uploads instances with Three's NEXT frame id. Keep the
    // full buffer AND count for one recovery draw, then compact on a fresh id.

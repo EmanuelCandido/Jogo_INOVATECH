@@ -1,15 +1,16 @@
 import {useEffect} from 'react';
 import {useFrame,useThree} from '@react-three/fiber';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
+import {ambientInvalidate} from '../../game/staticFrame';
 /** Keep demand rendering for still scenes and pause ambient rendering in background tabs. */
 export function AmbientFrames(){
  const {animate}=useResolvedGraphics(),invalidate=useThree(s=>s.invalidate);
  useEffect(()=>{
   if(!animate)return;
-  const wake=()=>{if(!document.hidden)invalidate();};wake();
+  const wake=()=>{if(!document.hidden)ambientInvalidate(invalidate);};wake();
   document.addEventListener('visibilitychange',wake);
   return()=>document.removeEventListener('visibilitychange',wake);
  },[animate,invalidate]);
- useFrame(()=>{if(animate&&!document.hidden)invalidate();});
+ useFrame(()=>{if(animate&&!document.hidden)ambientInvalidate(invalidate);});
  return null;
 }

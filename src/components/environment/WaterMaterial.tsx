@@ -64,5 +64,5 @@ export function WaterMaterial({color,vertexColors=false,pond=false}:{color:strin
    normal=normalize(abs(det)*normal-.038*sign(det)*(dFdx(waterHeight)*rx+dFdy(waterHeight)*ry));
   `);
  },[waterEffects,pond]);
- return <meshStandardMaterial key={`${waterEffects}-${pond}`} color={color} vertexColors={vertexColors} roughness={waterEffects?.36:.45} metalness={.04} onBeforeCompile={compile} customProgramCacheKey={()=>`water-soft-v5-${waterEffects}-${pond}`}/>;
+ return <meshStandardMaterial key={`${waterEffects}-${pond}`} color={color} vertexColors={vertexColors} roughness={waterEffects?.36:.45} metalness={.04} onBeforeCompile={compile} customProgramCacheKey={()=>`water-soft-v5-${waterEffects}-${pond}`} userData={{ambient:true}}/>;
 }

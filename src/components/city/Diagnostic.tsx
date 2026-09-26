@@ -3,11 +3,12 @@ import {useFrame,useThree} from '@react-three/fiber';
 import {Material,MeshBasicMaterial,MeshLambertMaterial,MeshStandardMaterial,type Mesh,type Object3D} from 'three';
 import {useGraphicsRuntime} from '../../stores/graphicsStore';
 import {useShaderGate} from './ShaderGate';
+import {ambientInvalidate,staticFrameEnabled} from '../../game/staticFrame';
 
 /** Opt-in phone diagnostic (?diagnostico=1). One tap measures the current view
  * with parts of the frame switched off in turn, so a single screenshot shows
  * where a weak GPU spends its time. Nothing is loaded in ordinary games. */
-interface Variant {id:string;label:string;apply:()=>()=>void}
+interface Variant {id:string;label:string;apply:()=>()=>void;ambient?:boolean}
 interface Row {label:string;fps:number;medianMs:number;worstMs:number;calls:number;triangles:number}
 const foliage=/^eco\.(leaf|leaflight|oakleaf|mapleleaf|firleaf|flower|petal|bloomshade)$/;
 const settleMs=900,sampleMs=2600;
@@ -56,7 +57,8 @@ export default function Diagnostic(){
  const show=useRef<(rows:Row[],status:string)=>void>(()=>{});
  const variants=useRef<Variant[]>([]);
  variants.current=[
-  {id:'normal',label:'Normal',apply:()=>()=>{}},
+  {id:'normal',label:'Normal (quadro completo)',apply:()=>()=>{}},
+  ...(staticFrameEnabled?[{id:'still',label:'Parada (só a água)',apply:()=>()=>{},ambient:true}]:[]),
   {id:'res',label:'Metade da resolução',apply:()=>{const base=useGraphicsRuntime.getState().pixelRatio;setDpr(base*.5);return()=>setDpr(base);}},
   {id:'basic',label:'Cores lisas (sem luz)',apply:()=>{const m=new MeshBasicMaterial({color:'#9aa89a'}),before=scene.overrideMaterial;scene.overrideMaterial=m;return()=>{scene.overrideMaterial=before;m.dispose();};}},
   {id:'plain',label:'Luz PBR sem acabamentos',apply:()=>swapMaterials(scene,plainStandard)},
@@ -108,7 +110,8 @@ export default function Diagnostic(){
 
  useFrame(()=>{
   const r=run.current;if(!r)return;
-  invalidate();
+  // "Parada" requests frames like the water animation does, reusing the city.
+  if(variants.current[r.variant].ambient)ambientInvalidate(invalidate);else invalidate();
   const now=performance.now();
   if(r.phase==='settle'){if(now-r.since>=settleMs){r.phase='sample';r.since=now;r.frames=[];r.last=now;}return;}
   r.frames.push(now-r.last);r.last=now;
