@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO';
 import {publicLots,mapRoads,buildingLots,pedestrianNetwork,onReferenceLand} from '../src/config/referenceMap';
 import {corridorGap,polygonGap} from '../src/config/spatial';
 
@@ -14,7 +14,7 @@ describe('quarteirão escolar reconstruído',()=>{
   expect(link).toBeDefined();expect(link!.lift).toBe(false);
  });
  it('mantém marcação branca e grama própria nas duas variantes exportadas',async()=>{
-  const io=new NodeIO();
+  const io=modelIO();
   for(const suffix of ['','-low']){
    const doc=await io.read(`public/assets/models/football-field${suffix}.glb`);
    const materials=doc.getRoot().listMaterials();

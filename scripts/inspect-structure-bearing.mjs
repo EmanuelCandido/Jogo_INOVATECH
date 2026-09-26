@@ -1,7 +1,7 @@
 // Read the actual exported deck geometry against the current placed bearings.
 // Reuse the prepared population; the full suite separately checks that snapshot.
 import {createServer} from 'vite';
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO.mjs';
 import {writeFile} from 'node:fs/promises';
 import {BufferGeometry,Float32BufferAttribute,Mesh,MeshBasicMaterial,DoubleSide,Matrix4,Vector3,Quaternion,Euler,Raycaster,Box3} from 'three';
 const server=await createServer({server:{middlewareMode:true},appType:'custom',optimizeDeps:{noDiscovery:true,include:[]},plugins:[{
@@ -14,7 +14,7 @@ try{
  const {polygon}=await server.ssrLoadModule('/src/components/environment/referenceGeometry.ts');
  const {stationSlabThickness}=await server.ssrLoadModule('/src/config/stationPerimeters.ts');
  const {assetRegistry}=await server.ssrLoadModule('/src/assets/registry.ts');
- const doc=await new NodeIO().read('public'+assetRegistry['prop.roadDeck'].url),source=[];
+ const doc=await modelIO().read('public'+assetRegistry['prop.roadDeck'].url),source=[];
  for(const node of doc.getRoot().listNodes())for(const primitive of node.getMesh()?.listPrimitives()??[]){
   const p=primitive.getAttribute('POSITION'),indices=primitive.getIndices();
   const g=new BufferGeometry().setAttribute('position',new Float32BufferAttribute(p.getArray(),3));

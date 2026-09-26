@@ -1,10 +1,10 @@
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 
 const source=process.argv[2]??'depth-order-desktop',stage=process.argv[3]??'compatible-batches-inventory';
 if(![source,stage].every(s=>/^[a-z0-9][a-z0-9_-]*$/i.test(s)))throw new Error('Nome inválido');
 const reference=JSON.parse(await readFile(`docs/performance/${source}/results.json`,'utf8'));
-const io=new NodeIO(),models=[];let primitives=0,eligible=0;
+const io=modelIO(),models=[];let primitives=0,eligible=0;
 for(const url of reference.baseline.modelUrls){
  const name=url.split('/').at(-1);if(!/^[\w-]+\.glb$/.test(name))throw new Error('Modelo inválido');
  const doc=await io.read(`public/assets/models/${name}`),root=doc.getRoot(),groups=new Map();

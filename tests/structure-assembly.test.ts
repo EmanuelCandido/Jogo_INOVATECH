@@ -3,7 +3,7 @@ import {attachmentWorld,layoutFor} from '../src/assets/modelLayout';
 import {structuralSupports,roadStructures} from '../src/config/roadStructures';
 import {stationSlabThickness} from '../src/config/stationPerimeters';
 import type {Placement} from '../src/game/types';
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO';
 import {assetRegistry} from '../src/assets/registry';
 import {BufferGeometry,Float32BufferAttribute,Mesh,MeshBasicMaterial,DoubleSide,Matrix4,Vector3,Raycaster,Box3} from 'three';
 
@@ -33,7 +33,7 @@ it('assenta as lajes das plataformas sobre seus aparelhos de apoio',()=>{
 
 it('assenta os dois aparelhos de cada apoio na malha exportada das vigas, inclusive nos cruzamentos rebaixados',async()=>{
  const asset=assetRegistry['prop.roadDeck'];if(asset.kind!=='glb')throw new Error('Tabuleiro sem modelo GLB');
- const doc=await new NodeIO().read('public'+asset.url),source:BufferGeometry[]=[];
+ const doc=await modelIO().read('public'+asset.url),source:BufferGeometry[]=[];
  const material=new MeshBasicMaterial({side:DoubleSide});
  try{
   for(const node of doc.getRoot().listNodes())for(const primitive of node.getMesh()?.listPrimitives()??[]){

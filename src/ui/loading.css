@@ -1,5 +1,5 @@
 /* Loaded directly by index.html so the opening never waits for React or Three. */
-@font-face { font-family: "Exo 2"; font-style: normal; font-weight: 100 900; font-display: swap; src: url('/assets/fonts/exo-2-variable.ttf') format('truetype'); }
+@font-face { font-family: "Exo 2"; font-style: normal; font-weight: 100 900; font-display: swap; src: url('/assets/fonts/exo-2-variable.woff2') format('woff2'); }
 .game-loading { position: fixed; z-index: 1000; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; padding: max(24px, env(safe-area-inset-top)) 24px max(50px, env(safe-area-inset-bottom)); overflow: auto; color: #251b38; background: radial-gradient(ellipse at 50% 42%, #ece0ff 0%, #f7f5fc 55%); font-family: "Exo 2", sans-serif; text-align: center; opacity: 1; transition: opacity .48s ease, visibility .48s; }
 .game-loading[hidden] { display: none; }
 .loading-content { display: flex; flex-direction: column; align-items: center; width: min(100%, 400px); }

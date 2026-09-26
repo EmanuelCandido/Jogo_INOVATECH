@@ -1,6 +1,6 @@
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO.mjs';
 import {readdir,writeFile,stat} from 'node:fs/promises';
-const io=new NodeIO(),report=[];
+const io=modelIO(),report=[];
 for(const name of (await readdir('public/assets/models')).filter(x=>x.endsWith('.glb'))){
   const file=`public/assets/models/${name}`,doc=await io.read(file);
   let vertices=0,triangles=0,primitives=0;

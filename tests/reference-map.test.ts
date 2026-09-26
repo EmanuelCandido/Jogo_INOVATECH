@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO';
 import {assetRegistry} from '../src/assets/registry';
 import {modelUrl,attachmentWorld} from '../src/assets/modelLayout';
 import {buildingLots,referenceAssets,referenceTrees,referenceTraffic,mapRoads,roadViaduct,roadTerminals,placementFootprint,pointInFootprint,footprintGap,onReferenceLand,bridges,riverU,riverWidth,situationAnchors,worldPoint,compositionPoint,distanceToRoute,centralRail,monorail,railStops,railFacilities,routeHeight,riverCorridors,roadHeightAt} from '../src/config/referenceMap';
@@ -108,7 +108,7 @@ describe('cidade da referência — implantação real',()=>{
    const a=assetRegistry[p.asset];expect(a,p.asset).toBeDefined();if(a.kind==='glb'){urls.add(a.url);urls.add(modelUrl(a,'LOW'));}
    expect([...p.position,...p.scale??[]].every(Number.isFinite)).toBe(true);
   }
-  const io=new NodeIO();for(const url of urls)expect((await io.read('public'+url)).getRoot().listMeshes().length,url).toBeGreaterThan(0);
+  const io=modelIO();for(const url of urls)expect((await io.read('public'+url)).getRoot().listMeshes().length,url).toBeGreaterThan(0);
  });
  it('mantém os edifícios fora dos canais, das vias e uns dos outros',()=>{
   for(const [i,l]of buildingLots.entries()){

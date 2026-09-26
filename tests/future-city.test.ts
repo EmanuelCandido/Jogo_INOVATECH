@@ -1,5 +1,6 @@
 import {describe,it,expect} from 'vitest';
-import {NodeIO,getBounds} from '@gltf-transform/core';
+import {getBounds} from '@gltf-transform/core';
+import {modelIO} from './modelIO';
 import {Box3,Vector3,Euler} from 'three';
 import {modelUrl,modelLayouts,attachmentWorld,layoutFor} from '../src/assets/modelLayout';
 import {assetRegistry} from '../src/assets/registry';
@@ -11,7 +12,7 @@ import {situationVisuals} from '../src/config/situationVisuals';
 import {situationClearings} from '../src/config/situationSites';
 import lodModels from '../assets-source/model-lods.json';
 
-const io=new NodeIO();
+const io=modelIO();
 describe('arquitetura futurista, variantes e implantação',()=>{
  it('carrega somente a variante apropriada e mantém origens e envelopes',async()=>{
   let fullBytes=0,lowBytes=0,fullTriangles=0,lowTriangles=0;

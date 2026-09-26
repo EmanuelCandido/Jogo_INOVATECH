@@ -1,7 +1,8 @@
-import { NodeIO,getBounds } from "@gltf-transform/core";
+import { getBounds } from "@gltf-transform/core";
 import { dedup, prune, weld } from "@gltf-transform/functions";
 import { readdir, mkdir, stat, writeFile,readFile } from "node:fs/promises";
-const io = new NodeIO();
+import { compressModel, modelIO } from "./modelIO.mjs";
+const io = modelIO();
 const metadataPath='assets-source/model-attachments.json';
 const metadata=JSON.parse(await readFile(metadataPath,'utf8'));
 async function writeModel(path,binary){
@@ -37,12 +38,14 @@ for (const name of await readdir("assets-source/raw")) {
     }
   }
   await doc.transform(weld(), dedup(), prune());
+  const bounds=getBounds(doc.getRoot().listScenes()[0]);
+  await compressModel(doc);
   const binary=await io.writeBinary(doc),existing=await readFile(output).catch(()=>null);
   // Avoid rewriting unchanged files while OneDrive or Vite is reading them.
   if(!existing||!existing.equals(Buffer.from(binary)))await writeModel(output,binary);
   if(!name.endsWith('-low.glb')){
     const key=name.replace('.glb','');
-    metadata[key]={...metadata[key],bounds:getBounds(doc.getRoot().listScenes()[0])};
+    metadata[key]={...metadata[key],bounds};
   }
   report.push({
     name,

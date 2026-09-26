@@ -6,7 +6,7 @@ import {attachmentWorld} from '../src/assets/modelLayout';
 import {contains,corridorGap,polygonGap,sampleLine,lineLength} from '../src/config/spatial';
 import {referenceDump} from '../src/config/referenceDetails';
 import {situationVisuals} from '../src/config/situationVisuals';
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO';
 import {serviceTurns} from '../src/config/truckManeuvers';
 import {industrialPaving} from '../src/config/industrialPaving';
 import {referenceFurniture,dumpTurnPads} from '../src/config/referenceMap';
@@ -122,7 +122,7 @@ describe('lixão no lugar do depósito fictício',()=>{
   expect(distanceToRoute(...dumpDriveway.points[0],mapRoads.find(r=>r.id==='acesso-carga')!)).toBeLessThan(.0001);
  });
  it('exporta o modelo de entulho nas duas variantes usadas pelo jogo',async()=>{
-  const io=new NodeIO();
+  const io=modelIO();
   for(const suffix of ['','-low']){
    const doc=await io.read(`public/assets/models/industrial-waste${suffix}.glb`);
    expect(doc.getRoot().listMeshes().length).toBeGreaterThan(0);

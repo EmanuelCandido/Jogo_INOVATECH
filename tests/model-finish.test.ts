@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {NodeIO} from '@gltf-transform/core';
+import {modelIO} from './modelIO';
 import {Box3,Euler,Matrix4,Triangle,Vector3} from 'three';
 import {terrainHeight,mountainBounds,riverCenter,riverHalfWidth} from '../src/config/terrain';
 import {roadPlacements} from '../src/config/infrastructure';
@@ -9,7 +9,7 @@ import {assetRegistry} from '../src/assets/registry';
 import {cityDecorations} from '../src/config/cityDetails';
 
 async function trianglesInPassage(file:string,passage:Box3){
- const doc=await new NodeIO().read(`public/assets/models/${file}.glb`),hits:string[]=[];
+ const doc=await modelIO().read(`public/assets/models/${file}.glb`),hits:string[]=[];
  for(const node of doc.getRoot().listNodes()){
   const world=new Matrix4().fromArray(node.getWorldMatrix());
   for(const primitive of node.getMesh()?.listPrimitives()??[]){

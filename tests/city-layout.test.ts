@@ -1,5 +1,6 @@
 import { describe,expect,it } from "vitest";
-import { NodeIO,getBounds } from "@gltf-transform/core";
+import { getBounds } from "@gltf-transform/core";
+import { modelIO } from "./modelIO";
 import { cityLots,districtBuildings,districtProps,forest,lotPaving } from "../src/config/districts";
 import { infrastructure,streets,roadPlacements } from "../src/config/infrastructure";
 import {coastRoadSamples,coastRoadCurve} from '../src/config/coastalRoad';
@@ -14,7 +15,7 @@ import {gardenBeds,gardenWalks,gardenSites,landscapeAssets,landscapeDetails} fro
 
 describe("implantação da cidade",()=>{
   it("mantém os edifícios reais dentro dos lotes e fora das pistas",async()=>{
-    const io=new NodeIO();const bounds=new Map<string,Awaited<ReturnType<typeof getBounds>>>();
+    const io=modelIO();const bounds=new Map<string,Awaited<ReturnType<typeof getBounds>>>();
     const footprints:{name:string;x:number;z:number;halfX:number;halfZ:number}[]=[];
     for(const lot of cityLots){
       const b=lot.building,a=assetRegistry[b.asset];expect(a.kind).toBe("glb");if(a.kind!=="glb")continue;
