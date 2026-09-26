@@ -1,7 +1,8 @@
 import {useEffect,useRef} from 'react';
 import {useFrame,useThree} from '@react-three/fiber';
-import {MeshBasicMaterial,type Material,type Mesh,type Object3D} from 'three';
+import {Material,MeshBasicMaterial,MeshLambertMaterial,MeshStandardMaterial,type Mesh,type Object3D} from 'three';
 import {useGraphicsRuntime} from '../../stores/graphicsStore';
+import {useShaderGate} from './ShaderGate';
 
 /** Opt-in phone diagnostic (?diagnostico=1). One tap measures the current view
  * with parts of the frame switched off in turn, so a single screenshot shows
@@ -19,6 +20,34 @@ function hideWhere(root:Object3D,test:(o:Object3D)=>boolean){
  root.traverse(o=>{if(o.visible&&(o as Mesh).isMesh&&test(o)){o.visible=false;hidden.push(o);}});
  return()=>hidden.forEach(o=>{o.visible=true;});
 }
+/** Swap every standard material for a replacement (cached per material). */
+function swapMaterials(root:Object3D,make:(m:MeshStandardMaterial)=>Material|null){
+ const made=new Map<Material,Material|null>(),restore:Array<()=>void>=[];
+ const swap=(m:Material)=>{
+  if(!(m instanceof MeshStandardMaterial))return m;
+  if(!made.has(m))made.set(m,make(m));
+  return made.get(m)??m;
+ };
+ root.traverse(o=>{
+  const mesh=o as Mesh;if(!mesh.isMesh)return;
+  const before=mesh.material;
+  mesh.material=Array.isArray(before)?before.map(swap):swap(before);
+  restore.push(()=>{mesh.material=before;});
+ });
+ return()=>{restore.forEach(fn=>fn());made.forEach(m=>m?.dispose());};
+}
+const custom=(m:Material)=>m.onBeforeCompile!==Material.prototype.onBeforeCompile;
+/** Same PBR light, without the procedural finishes (noise, leaves, water). */
+function plainStandard(m:MeshStandardMaterial){
+ if(!custom(m))return null;
+ const c=new MeshStandardMaterial();c.copy(m);
+ c.onBeforeCompile=Material.prototype.onBeforeCompile;c.customProgramCacheKey=Material.prototype.customProgramCacheKey;
+ return c;
+}
+/** Lambert light without finishes: the cheapest lit shading three offers. */
+function lambert(m:MeshStandardMaterial){
+ return new MeshLambertMaterial({color:m.color,map:m.map,vertexColors:m.vertexColors,side:m.side,transparent:m.transparent,opacity:m.opacity,alphaTest:m.alphaTest,depthWrite:m.depthWrite,emissive:m.emissive,emissiveIntensity:m.emissiveIntensity});
+}
 const isWater=(m:Material)=>m.customProgramCacheKey().startsWith('water-');
 
 export default function Diagnostic(){
@@ -30,6 +59,8 @@ export default function Diagnostic(){
   {id:'normal',label:'Normal',apply:()=>()=>{}},
   {id:'res',label:'Metade da resolução',apply:()=>{const base=useGraphicsRuntime.getState().pixelRatio;setDpr(base*.5);return()=>setDpr(base);}},
   {id:'basic',label:'Cores lisas (sem luz)',apply:()=>{const m=new MeshBasicMaterial({color:'#9aa89a'}),before=scene.overrideMaterial;scene.overrideMaterial=m;return()=>{scene.overrideMaterial=before;m.dispose();};}},
+  {id:'plain',label:'Luz PBR sem acabamentos',apply:()=>swapMaterials(scene,plainStandard)},
+  {id:'lambert',label:'Luz simples sem acabamentos',apply:()=>swapMaterials(scene,lambert)},
   {id:'leaves',label:'Sem folhas',apply:()=>hideWhere(scene,o=>materials(o).some(m=>foliage.test(m.name)))},
   {id:'water',label:'Sem água',apply:()=>hideWhere(scene,o=>materials(o).some(isWater))},
   {id:'models',label:'Sem modelos repetidos',apply:()=>hideWhere(scene,o=>'isInstancedMesh' in o||'isBatchedMesh' in o)},
@@ -52,7 +83,8 @@ export default function Diagnostic(){
    root.innerHTML='';
    const box=document.createElement('div');box.style.cssText='background:#1d1330e6;border-radius:10px;padding:8px 10px;pointer-events:auto;max-width:520px;margin:0 auto';
    const head=document.createElement('div');
-   head.textContent=`${gpu} · ${gl.domElement.width}×${gl.domElement.height} · sombras ${gl.shadowMap.enabled?'ligadas':'desligadas'} · abertura ${(opening/1000).toFixed(1)} s · travadas ${(total/1000).toFixed(1)} s (maior ${(longest/1000).toFixed(1)} s)`;
+   const gate=useShaderGate.getState(),programs=gl.info.programs?.length??0;
+   head.textContent=`${gpu} · ${gl.domElement.width}×${gl.domElement.height} · sombras ${gl.shadowMap.enabled?'ligadas':'desligadas'} · abertura ${(opening/1000).toFixed(1)} s · travadas ${(total/1000).toFixed(1)} s (maior ${(longest/1000).toFixed(1)} s) · ${programs} programas · compilação paralela ${gl.extensions.has('KHR_parallel_shader_compile')?`sim (${((gate.compileMs??0)/1000).toFixed(1)} s)`:'não'}`;
    box.append(head);
    if(rows.length){
     const table=document.createElement('table');table.style.cssText='width:100%;border-collapse:collapse;margin-top:6px;font-variant-numeric:tabular-nums';
