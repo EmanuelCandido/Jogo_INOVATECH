@@ -81,8 +81,11 @@ export function createStaticFrame(gl:WebGLRenderer){
    }
    camera.updateMatrixWorld();
    const cameraSame=sameCamera(camera);
-   const reuse=last.valid&&!dirty&&cameraSame&&ambient>0&&!gl.shadowMap.needsUpdate&&!scene.overrideMaterial;
-   if(!reuse)reason(!last.valid?'first':dirty?'requested':!cameraSame?'camera':!ambient?'no-water':gl.shadowMap.needsUpdate?'shadows':'override');
+   // Three leaves needsUpdate set while shadows are off; only a live shadow
+   // map needs a complete frame.
+   const shadowRefresh=gl.shadowMap.enabled&&(gl.shadowMap.needsUpdate||gl.shadowMap.autoUpdate);
+   const reuse=last.valid&&!dirty&&cameraSame&&ambient>0&&!shadowRefresh&&!scene.overrideMaterial;
+   if(!reuse)reason(!last.valid?'first':dirty?'requested':!cameraSame?'camera':!ambient?'no-water':shadowRefresh?'shadows':'override');
    if(reuse)staticFrameStats.reused++;else staticFrameStats.full++;
    dirty=false;
    const autoClear=gl.autoClear,layers=camera.layers.mask,previous=gl.getRenderTarget();
