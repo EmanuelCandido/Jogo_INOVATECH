@@ -21,6 +21,7 @@ import {skipEmptyLeafTones} from '../../game/leafMaskExperiment';
 import {riversideAssets} from '../../config/referenceDetails';
 import {preparationActivity,preparationSnapshot} from '../../game/resourcePreparation';
 import {startShaderWarmup,warmupRoots,wholeShaderWarmup} from '../../game/shaderWarmup';
+import {ambientInvalidate,staticFrameStats} from '../../game/staticFrame';
 
 /** Opt-in diagnostic bridge. Not loaded in ordinary games. No synchronous GPU waits. */
 export default function Benchmark(){
@@ -144,6 +145,9 @@ export default function Benchmark(){
     return {calls:gl.info.render.calls,triangles:gl.info.render.triangles,geometries:gl.info.memory.geometries,textures:gl.info.memory.textures,programs:gl.info.programs?.length,meshes,instances,materials:materials.size,sourceBytes,width:gl.domElement.width,height:gl.domElement.height,pixelRatio:gl.getPixelRatio(),settings,resolvedGraphics:resolveGraphics(settings,useGraphicsRuntime.getState().automatic),modelUrls:[...modelUrls].sort(),camera:{position:camera.position.toArray(),zoom:(camera as OrthographicCamera).zoom}};
    },
    draw(){invalidate();},
+   /** A frame requested like the water animation's (reuses the kept city frame). */
+   ambientDraw(){ambientInvalidate(invalidate);},
+   staticFrameStats(){return JSON.parse(JSON.stringify(staticFrameStats));},
    /** Largest triangle contributors in the last frame's scene state (diagnostic). */
    triangleBreakdown(limit=25){
     const rows:{name:string;material:string;model:string;instances:number;triangles:number}[]=[];

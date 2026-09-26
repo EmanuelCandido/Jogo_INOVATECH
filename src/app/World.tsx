@@ -15,6 +15,7 @@ import {ShaderGate} from '../components/city/ShaderGate';
 import {LiveFrameRate} from '../components/city/LiveFrameRate';
 import {ResolutionDirector} from '../components/city/ResolutionScene';
 import {lazy,Suspense,useRef} from 'react';
+import {staticFrameEnabled,trackInvalidate} from '../game/staticFrame';
 import type {DirectionalLight} from 'three';
 const Benchmark=lazy(()=>import('../components/city/Benchmark'));
 const Diagnostic=lazy(()=>import('../components/city/Diagnostic'));
@@ -36,9 +37,11 @@ export default function World({ onReady, interactive }: { onReady: () => void; i
         near: 0.1,
         far: 850,
       }}
-      gl={{ antialias: true, alpha: false }}
-      onCreated={({ gl }) => {
+      gl={{ antialias: !staticFrameEnabled, alpha: false }}
+      onCreated={({ gl, set, invalidate }) => {
         gl.setClearColor("#dcebee", 1);
+        // Frames requested by anything but the water animation redraw the city.
+        if (staticFrameEnabled) set({ invalidate: trackInvalidate(invalidate) });
       }}
     >
       <hemisphereLight args={["#e4f1ff", "#b1ad94", 1.25]} />

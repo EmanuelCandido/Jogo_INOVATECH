@@ -36,6 +36,12 @@ Emanuel, 26/09, Alto sem sombras: abertura mais curta, mas a animação de carre
 
 `?diagnostico=1` mostra um botão "Medir esta vista" (`src/components/city/Diagnostic.tsx`). Ele mede a vista atual com partes do quadro desligadas uma por vez (metade da resolução, cores lisas sem luz, sem folhas, sem água, sem modelos repetidos, nada desenhado) e mostra a placa, a resolução, o tempo de abertura e quanto tempo o processador ficou travado durante a abertura. Um print dessa tabela diz se o limite é pixel, sombreamento, triângulos ou processador.
 
+## Segunda medição e cidade parada guardada
+
+Diagnóstico no Redmi 14C (Alto, sem sombras, panorama): 149 ms por quadro completo; 83 ms com a luz PBR sem os acabamentos procedurais; 46 ms com luz simples sem acabamentos; 17 ms com cores lisas. Abertura de 42,5 s para 18,1 s depois da poda exata das contas de distância (`src/config/spatial.ts`, `roadProfiles.ts`, `referenceMap.ts`; os 140 valores de `src/config` ficam idênticos). O celular não tem compilação paralela de sombreadores (28 programas).
+
+Com a câmera parada, só a água e a espuma da praia mudam. `src/game/staticFrame.ts` guarda o último quadro completo num alvo com 4 amostras por pixel, como o antisserrilhado do canvas, e a cada quadro redesenha só os materiais marcados com `userData.ambient` (7 desenhos em vez de cerca de 440). A água opaca é redesenhada no lugar: cada amostra passa no teste de profundidade só onde a água era a superfície mais próxima. No navegador de testes, o quadro guardado e o quadro completo são idênticos (0 pixels diferentes), e 12 redesenhos com o relógio da água parado mudam 6 pixels em 1,15 milhão em no máximo 1/255. Qualquer outro pedido de quadro, mudança de câmera, tamanho, sombra ou transição desenha a cidade inteira de novo. `?cache=0` volta ao caminho antigo.
+
 ## O que falta medir no Redmi 14C
 
 Nada aqui prova 60 fps no celular. É preciso abrir a versão de teste no Redmi 14C, em Alto, com "Mostrar desempenho" ligado, e anotar o FPS parado e arrastando no panorama, no centro e na floresta. Com esses números decidimos a próxima etapa (folhas pré-calculadas, custo das sombras ou da água).

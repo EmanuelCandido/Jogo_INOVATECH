@@ -41,6 +41,6 @@ export function Beach({surface}:{surface?:BufferGeometry}){
   `);
  },[]);
  return <mesh name='beach-swash' geometry={geometry} receiveShadow>
-  <meshStandardMaterial color='#f0dba5' side={2} transparent depthWrite={false} onBeforeCompile={compile} customProgramCacheKey={()=>'sand-swash-v3'} userData={{swashTime:time.current}}/>
+  <meshStandardMaterial color='#f0dba5' side={2} transparent depthWrite={false} onBeforeCompile={compile} customProgramCacheKey={()=>'sand-swash-v3'} userData={{swashTime:time.current,ambient:true}}/>
  </mesh>;
 }
