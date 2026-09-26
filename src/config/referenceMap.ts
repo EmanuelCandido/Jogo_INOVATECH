@@ -462,7 +462,11 @@ for(const [i,p]of referenceAssets.entries()){
 }
 
 }
-export function distanceToRoute(u:number,v:number,r:MapRoute){let min=Infinity;for(let i=1;i<r.points.length;i++){const [ax,ay]=r.points[i-1],[bx,by]=r.points[i],dx=bx-ax,dy=by-ay,t=Math.max(0,Math.min(1,((u-ax)*dx+(v-ay)*dy)/(dx*dx+dy*dy)));min=Math.min(min,Math.hypot(u-ax-t*dx,v-ay-t*dy));}return min;}
+export function distanceToRoute(u:number,v:number,r:MapRoute){let min=Infinity;for(let i=1;i<r.points.length;i++){const [ax,ay]=r.points[i-1],[bx,by]=r.points[i],dx=bx-ax,dy=by-ay;
+ // Skip a segment whose box is already farther than the minimum (exact result).
+ const ex=Math.max(0,Math.min(ax,bx)-u,u-Math.max(ax,bx)),ey=Math.max(0,Math.min(ay,by)-v,v-Math.max(ay,by));
+ if(dx*dx+dy*dy>0&&ex*ex+ey*ey>min*min*(1+1e-9)+1e-12)continue;
+ const t=Math.max(0,Math.min(1,((u-ax)*dx+(v-ay)*dy)/(dx*dx+dy*dy)));min=Math.min(min,Math.hypot(u-ax-t*dx,v-ay-t*dy));}return min;}
 export function onReferenceLand(u:number,v:number){
  if(v< -140||u< -120||u>145)return false;
  if(Math.abs(u-riverU(v))<riverWidth(v)/2+.4||Math.abs(u-canalU(v))<4.9)return false;

@@ -80,10 +80,19 @@ export function buildRoadProfiles(roads:ProfileRoad[],requiredHeight:(road:Profi
 }
 
 export function heightAlongRoad(road:ProfileRoad,heights:readonly number[],p:Point){
- let distance=Infinity,height=0;
- for(let i=1;i<road.points.length;i++){
-  const a=road.points[i-1],b=road.points[i],dx=b[0]-a[0],dy=b[1]-a[1],t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy||1))),d=Math.hypot(p[0]-a[0]-dx*t,p[1]-a[1]-dy*t);
-  if(d<distance){distance=d;height=heights[i-1]*(1-t)+heights[i]*t;}
+ const points=road.points;
+ // Squared distance from p to a segment's box: a bound the segment cannot beat.
+ const bound=(i:number)=>{const a=points[i-1],b=points[i],x=Math.max(0,Math.min(a[0],b[0])-p[0],p[0]-Math.max(a[0],b[0])),y=Math.max(0,Math.min(a[1],b[1])-p[1],p[1]-Math.max(a[1],b[1]));return x*x+y*y;};
+ let first=1,firstBound=Infinity;
+ for(let i=1;i<points.length;i++){const d=bound(i);if(d<firstBound){firstBound=d;first=i;}}
+ // Nearest box first so distant segments skip the exact test. Ties still go
+ // to the lowest index, as in a plain scan, so the height is unchanged.
+ let distance=Infinity,height=0,best=0;
+ for(let k=0;k<points.length-1;k++){
+  const i=k===0?first:k<first?k:k+1;
+  if(k&&bound(i)>distance*distance*(1+1e-9)+1e-12)continue;
+  const a=points[i-1],b=points[i],dx=b[0]-a[0],dy=b[1]-a[1],t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy||1))),d=Math.hypot(p[0]-a[0]-dx*t,p[1]-a[1]-dy*t);
+  if(d<distance||(d===distance&&i<best)){distance=d;best=i;height=heights[i-1]*(1-t)+heights[i]*t;}
  }
  return {distance,height};
 }

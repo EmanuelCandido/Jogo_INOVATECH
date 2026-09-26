@@ -24,7 +24,7 @@ export function DepthPrepass(){
  useEffect(()=>()=>{pausePreparation(gl.domElement,frame,false);frame.dispose();},[gl,frame]);
  // Own only the final render; animation/navigation keep their existing frame order.
  useFrame(()=>{
-  // Hidden under the loading screen while the first shaders compile.
+  // Nothing is drawn under the loading screen until the city is complete.
   if(shaderGatePending())return;
   if(!calibrationTrial){frame.render(scene,camera);return;}
   const p=previous.current;
