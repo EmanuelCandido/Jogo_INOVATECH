@@ -12,6 +12,10 @@ Para atualizar, gerar novamente a build com esse mesmo `base` e publicar somente
 
 **Enviar o código para `main` não atualiza o site.** Na investigação dos diálogos móveis, o HTML público ainda apontava para `index-BfS0xeHk.js` e `index-8elQcyNL.css`, da publicação `517cead`. Esse CSS conservava o retrato de 100 px à direita, mesmo após a restauração no código-fonte. A atualização deve incluir o checkout de publicação e a conferência dos arquivos realmente servidos pelo endereço público.
 
+## Download menor — 26/09/2026
+
+Build: `index-CS78cOVS.js` e `index-BfOwccbo.css`. Os modelos usam `EXT_meshopt_compression` (29,3 MB → 12,1 MB no total), com posições em float para preservar os shaders de folhagem, grama e acabamento; `npm run assets:compress` comprime GLBs recém-exportados e `assets:optimize` já aplica a compressão. A moeda passou de 1254 px/800 KB para 256 px/18 KB e as fontes usam WOFF2 (470 KB → 160 KB). Na abertura, o navegador baixa 7,4 MB em vez de 13,4 MB; capturas da cidade antes/depois diferem no máximo 23/255 em pixels isolados, sem diferença visível.
+
 ## Abertura e atualização completa — 26/09/2026
 
 O checkout de publicação ainda estava em `e21ac0e` (acessórios), enquanto `main` já continha as correções do mapa e `d76d646` (HUD sem o card e animações das dez situações). A atualização inclui essas mudanças na branch de publicação, além da nova abertura e do favicon. A build usa `index-CZPEIShD.js` e `index-DEWicKVd.css`.
