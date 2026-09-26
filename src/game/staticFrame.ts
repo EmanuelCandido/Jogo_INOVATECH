@@ -1,10 +1,10 @@
-import {SRGBColorSpace,Vector2,WebGLRenderTarget,type Camera,type Material,type Mesh,type Object3D,type Scene,type WebGLRenderer} from 'three';
+import {Matrix4,SRGBColorSpace,Vector2,WebGLRenderTarget,type Camera,type Material,type Mesh,type Object3D,type OrthographicCamera,type Scene,type WebGLRenderer} from 'three';
 
 /** The city is static except for water and surf. With the camera still, the
  * last complete frame is kept and only those animated surfaces are drawn
  * again over it, every frame: the still image is the same, at a fraction of
- * the cost. Anything else that changes (camera, scene, size, shadows,
- * transitions) draws a new complete frame.
+ * the cost. Anything else that changes (scene, size, shadows, transitions)
+ * draws a new complete frame.
  *
  * The frame lives in one multisampled target (4 samples, like the canvas'
  * own antialiasing) that persists between frames, and is copied to a canvas
@@ -12,12 +12,28 @@ import {SRGBColorSpace,Vector2,WebGLRenderTarget,type Camera,type Material,type 
  * the depth test exactly where water was the nearest surface, so edges keep
  * their samples. The surf and river mouths blend over that fresh water. The
  * target is flagged like an XR target so three applies the same tone mapping
- * and sRGB output as on screen, with the same shader programs. */
+ * and sRGB output as on screen, with the same shader programs.
+ *
+ * While the map is dragged or zoomed, the camera looks in one fixed direction
+ * without perspective, so the new view is the previous image shifted (drag)
+ * or scaled (zoom). The previous image is moved on the GPU and only the strips
+ * that come into view are drawn. A drag is shifted by whole pixels, so the
+ * image stays sharp; the camera is drawn up to half a pixel from its exact
+ * place. The water waits, and a complete frame is drawn as soon as the finger
+ * leaves the screen, so every still image is the same as before. */
 const params=typeof location==='undefined'?new URLSearchParams():new URLSearchParams(location.search);
 // ?cache=0 draws every frame completely, as before. Benchmarks keep their
 // established path unless they ask for this one.
 export const staticFrameEnabled=params.get('cache')!=='0'&&(params.get('benchmark')!=='1'||params.get('cache')==='1');
+// ?mover=0 keeps the still-frame cache but draws every moving frame completely.
+const movingEnabled=params.get('mover')!=='0';
 const ambientLayer=31,debug=params.has('cacheDebug');
+/** Time without camera motion, with no finger on the map, before the sharp frame. */
+const settleMs=180;
+/** Share of the screen drawn anew above which a moving frame is drawn completely. */
+const maxNewArea=.6;
+/** Share of new area above which a zoomed frame becomes the next reference. */
+const rebaseArea=.25;
 
 /** Materials animated by the ambient clock (water, surf) carry userData.ambient. */
 export const isAmbientMaterial=(m:Material)=>m.userData.ambient===true;
@@ -26,23 +42,40 @@ function isAmbient(o:Object3D){
  return !!(o as Mesh).isMesh&&!!m&&(Array.isArray(m)?m.some(isAmbientMaterial):isAmbientMaterial(m));
 }
 
-let ambientRequest=false,dirty=true;
-/** Frames drawn completely or from the kept frame, and why frames were redrawn. */
-export const staticFrameStats={full:0,reused:0,reasons:{} as Record<string,number>};
+let quiet=false,dirty=true;
+/** Frames drawn completely, from the kept frame, or moved, and why frames were redrawn. */
+export const staticFrameStats={full:0,reused:0,moved:0,strips:0,reasons:{} as Record<string,number>,last:null as unknown};
 const reason=(r:string)=>{staticFrameStats.reasons[r]=(staticFrameStats.reasons[r]??0)+1;};
 /** Wrap a demand-mode invalidate: every request marks the kept frame stale,
- * except the ambient animation's own requests. */
+ * except the ambient animation's and the map navigation's own requests. */
 export function trackInvalidate<T extends (...args:never[])=>void>(invalidate:T):T{
  return ((...args:never[])=>{
-  if(!ambientRequest){dirty=true;if(debug)reason(new Error().stack?.split('\n').slice(2,5).map(l=>l.trim()).join(' < ')??'?');}
+  if(!quiet){dirty=true;if(debug)reason(new Error().stack?.split('\n').slice(2,5).map(l=>l.trim()).join(' < ')??'?');}
   invalidate(...args);
  }) as T;
 }
+function quietly(invalidate:()=>void){quiet=true;try{invalidate();}finally{quiet=false;}}
 /** Request a frame for the ambient animation only. */
-export function ambientInvalidate(invalidate:()=>void){ambientRequest=true;try{invalidate();}finally{ambientRequest=false;}}
+export const ambientInvalidate=quietly;
+/** Request a frame for a camera move only (map drag, zoom, keys). */
+export const cameraInvalidate=quietly;
 export function markStaticFrameDirty(){dirty=true;}
+/** Whether something besides the camera and water changed since the last frame. */
+export const staticFrameDirty=()=>dirty;
 
-export function createStaticFrame(gl:WebGLRenderer){
+type Rect=[x:number,y:number,width:number,height:number];
+/** The screen minus one covered rectangle: up to four rectangles. */
+function uncovered(width:number,height:number,x0:number,y0:number,x1:number,y1:number):Rect[]{
+ if(x1<=x0||y1<=y0)return [[0,0,width,height]];
+ const out:Rect[]=[];
+ if(x0>0)out.push([0,0,x0,height]);
+ if(x1<width)out.push([x1,0,width-x1,height]);
+ if(y0>0)out.push([x0,0,x1-x0,y0]);
+ if(y1<height)out.push([x0,y1,x1-x0,height-y1]);
+ return out;
+}
+
+export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
  const context=gl.getContext() as WebGL2RenderingContext;
  const frame=new WebGLRenderTarget(1,1,{samples:Math.min(4,gl.capabilities.maxSamples),depthBuffer:true,stencilBuffer:false});
  frame.texture.colorSpace=SRGBColorSpace;frame.resolveDepthBuffer=false;
@@ -53,20 +86,108 @@ export function createStaticFrame(gl:WebGLRenderer){
  (frame as unknown as {isXRRenderTarget:boolean}).isXRRenderTarget=true;
  // Real multisampled buffers, which keep their samples between frames.
  (gl.properties.get(frame) as {__useRenderToTexture?:boolean}).__useRenderToTexture=false;
- const size=new Vector2(),last={world:new Float64Array(16),projection:new Float64Array(16),width:0,height:0,valid:false};
- let ambient=0;
- const sameCamera=(camera:Camera)=>{
-  const w=camera.matrixWorld.elements,p=camera.projectionMatrix.elements;let same=true;
-  for(let i=0;i<16;i++){if(last.world[i]!==w[i]||last.projection[i]!==p[i])same=false;last.world[i]=w[i];last.projection[i]=p[i];}
-  return same;
+ // Two plain images for moving frames: the reference and the one being built.
+ const moved=[0,1].map(()=>{
+  const t=new WebGLRenderTarget(1,1,{samples:0,depthBuffer:false,stencilBuffer:false});
+  t.texture.internalFormat='RGBA8';t.texture.generateMipmaps=false;
+  return t;
+ });
+ const framebuffer=(t:WebGLRenderTarget)=>{gl.initRenderTarget(t);return (gl.properties.get(t) as {__webglFramebuffer?:WebGLFramebuffer}).__webglFramebuffer??null;};
+ const size=new Vector2(),last={width:0,height:0,valid:false};
+ // Projection × view of the camera at the previous frame, of the image on
+ // screen, and of the moving reference image.
+ const cameraView=new Matrix4(),shown=new Matrix4(),shownProjection=new Matrix4(),base=new Matrix4(),baseProjection=new Matrix4(),mapping=new Matrix4(),scratch=new Matrix4();
+ // Moving state: which plain image is the reference, which is on screen.
+ let ambient=0,moving=false,reference=0,display=0,settle:ReturnType<typeof setTimeout>|undefined;
+ const arm=()=>{
+  clearTimeout(settle);
+  settle=setTimeout(()=>{
+   // Keep moving frames while a finger is still on the map.
+   if(gl.domElement.classList.contains('dragging')){arm();return;}
+   dirty=true;requestFrame();
+  },settleMs);
  };
- const present=(width:number,height:number)=>{
-  // Rendering resolved the samples into the target's texture; copy it out.
-  const resolved=(gl.properties.get(frame) as {__webglFramebuffer?:WebGLFramebuffer}).__webglFramebuffer??null;
-  gl.state.bindFramebuffer(context.READ_FRAMEBUFFER,resolved);gl.state.bindFramebuffer(context.DRAW_FRAMEBUFFER,null);
+ const blit=(from:WebGLFramebuffer|null,to:WebGLFramebuffer|null,s:Rect,d:Rect,linear=false)=>{
+  // Three's binding cache does not follow READ_FRAMEBUFFER when it binds
+  // FRAMEBUFFER, so both are also bound directly.
+  gl.state.bindFramebuffer(context.READ_FRAMEBUFFER,from);gl.state.bindFramebuffer(context.DRAW_FRAMEBUFFER,to);
+  context.bindFramebuffer(context.READ_FRAMEBUFFER,from);context.bindFramebuffer(context.DRAW_FRAMEBUFFER,to);
   gl.state.setScissorTest(false);gl.state.buffers.color.setMask(true);
-  context.blitFramebuffer(0,0,width,height,0,0,width,height,context.COLOR_BUFFER_BIT,context.NEAREST);
+  context.blitFramebuffer(s[0],s[1],s[0]+s[2],s[1]+s[3],d[0],d[1],d[0]+d[2],d[1]+d[3],context.COLOR_BUFFER_BIT,linear?context.LINEAR:context.NEAREST);
  };
+ // Rendering resolved the samples into the target's texture.
+ const resolved=()=>(gl.properties.get(frame) as {__webglFramebuffer?:WebGLFramebuffer}).__webglFramebuffer??null;
+ const whole=(width:number,height:number):Rect=>[0,0,width,height];
+ const fullView=(width:number,height:number)=>{frame.viewport.set(0,0,width,height);frame.scissor.set(0,0,width,height);frame.scissorTest=false;};
+
+ /** Draw the view as the previous image moved plus the newly visible strips.
+  * Returns false when the move cannot be expressed that way. */
+ const move=(scene:Scene,camera:Camera,view:Matrix4,width:number,height:number,draw:(scene:Scene,camera:Camera)=>void)=>{
+  const ortho=camera as OrthographicCamera;
+  if(!ortho.isOrthographicCamera||ortho.view?.enabled)return false;
+  if(!moving){
+   // The complete frame on screen becomes the reference.
+   blit(resolved(),framebuffer(moved[0]),whole(width,height),whole(width,height));
+   reference=0;base.copy(shown);baseProjection.copy(shownProjection);moving=true;
+  }
+  // Reference NDC → current NDC. Same direction and no perspective: a scale
+  // and an offset in x and y, independent of depth.
+  const m=mapping.multiplyMatrices(view,scratch.copy(base).invert()).elements;
+  const straight=Math.abs(m[1])+Math.abs(m[2])+Math.abs(m[3])+Math.abs(m[4])+Math.abs(m[6])+Math.abs(m[7])+Math.abs(m[8])+Math.abs(m[9])<1e-6&&Math.abs(m[15]-1)<1e-9;
+  if(!straight||Math.abs(m[0]-m[5])>1e-6*m[0])return false;
+  const pan=ortho.projectionMatrix.equals(baseProjection);
+  const scale=pan?1:m[0];
+  if(scale<.4||scale>3)return false;
+  // Reference pixel p appears at p·scale + offset (GL pixels, from the bottom).
+  const ox=(m[12]+1-scale)*width/2,oy=(m[13]+1-scale)*height/2;
+  let from:Rect,to:Rect,rx=0,ry=0;
+  if(pan){
+   // Whole pixels: the image is only shifted. The rest of the view is drawn
+   // for the camera moved by the same fraction of a pixel.
+   const ix=Math.round(ox),iy=Math.round(oy);rx=ox-ix;ry=oy-iy;
+   const x0=Math.max(0,ix),y0=Math.max(0,iy),x1=Math.min(width,ix+width),y1=Math.min(height,iy+height);
+   to=[x0,y0,Math.max(0,x1-x0),Math.max(0,y1-y0)];from=[x0-ix,y0-iy,to[2],to[3]];
+  }else{
+   const x0=Math.max(0,Math.round(ox)),y0=Math.max(0,Math.round(oy)),x1=Math.min(width,Math.round(ox+scale*width)),y1=Math.min(height,Math.round(oy+scale*height));
+   to=[x0,y0,Math.max(0,x1-x0),Math.max(0,y1-y0)];
+   const sx0=Math.max(0,Math.round((x0-ox)/scale)),sy0=Math.max(0,Math.round((y0-oy)/scale)),sx1=Math.min(width,Math.round((x1-ox)/scale)),sy1=Math.min(height,Math.round((y1-oy)/scale));
+   from=[sx0,sy0,Math.max(0,sx1-sx0),Math.max(0,sy1-sy0)];
+  }
+  if(debug)staticFrameStats.last={scale,ox,oy,from,to};
+  const strips=uncovered(width,height,to[0],to[1],to[0]+to[2],to[1]+to[3]);
+  const fresh=strips.reduce((a,r)=>a+r[2]*r[3],0)/(width*height);
+  if(fresh>maxNewArea)return false;
+  const target=1-reference,out=framebuffer(moved[target]);
+  if(to[2]&&to[3]&&from[2]&&from[3])blit(framebuffer(moved[reference]),out,from,to,!pan);
+  const layers=camera.layers.mask;
+  try{
+   // Instance culling below may request another frame: that is not a change.
+   quiet=true;
+   for(const r of strips){
+    // Only this rectangle: the camera's view is cut to it, so culling skips
+    // everything outside and each pixel is drawn once.
+    ortho.setViewOffset(width,height,r[0]+rx,height-r[1]-r[3]-ry,r[2],r[3]);
+    frame.viewport.set(r[0],r[1],r[2],r[3]);frame.scissor.set(r[0],r[1],r[2],r[3]);frame.scissorTest=true;
+    gl.setRenderTarget(frame);
+    draw(scene,camera);
+    blit(resolved(),out,r,r);
+    staticFrameStats.strips++;
+   }
+  }finally{
+   quiet=false;
+   if(ortho.view?.enabled)ortho.clearViewOffset();
+   camera.layers.mask=layers;fullView(width,height);gl.setRenderTarget(frame);
+  }
+  // Drawn camera: moved by the fraction of a pixel that was rounded away.
+  shown.copy(view);shownProjection.copy(ortho.projectionMatrix);
+  if(rx||ry)shown.premultiply(scratch.makeTranslation(-2*rx/width,-2*ry/height,0));
+  display=target;
+  // A drag is exact, so it is the next reference; a zoom becomes one once
+  // enough of it was drawn anew.
+  if(pan||fresh>rebaseArea){reference=target;base.copy(shown);baseProjection.copy(ortho.projectionMatrix);}
+  return true;
+ };
+
  return {
   /** `draw` renders the complete scene (it may use a depth prepass). */
   render(scene:Scene,camera:Camera,draw:(scene:Scene,camera:Camera)=>void){
@@ -75,40 +196,56 @@ export function createStaticFrame(gl:WebGLRenderer){
    if(width!==last.width||height!==last.height){
     // Grow only: moving at a lower resolution uses a corner of the same
     // buffers instead of reallocating them at every start and stop.
-    if(width>frame.width||height>frame.height)frame.setSize(Math.max(width,frame.width),Math.max(height,frame.height));
-    frame.viewport.set(0,0,width,height);frame.scissor.set(0,0,width,height);
-    last.width=width;last.height=height;last.valid=false;
+    if(width>frame.width||height>frame.height){
+     const w=Math.max(width,frame.width),h=Math.max(height,frame.height);
+     frame.setSize(w,h);for(const t of moved)t.setSize(w,h);
+    }
+    last.width=width;last.height=height;last.valid=false;moving=false;
    }
+   fullView(width,height);
    camera.updateMatrixWorld();
-   const cameraSame=sameCamera(camera);
+   const view=scratch.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);
+   const cameraSame=view.equals(cameraView);cameraView.copy(view);
    // Three leaves needsUpdate set while shadows are off; only a live shadow
    // map needs a complete frame.
    const shadowRefresh=gl.shadowMap.enabled&&(gl.shadowMap.needsUpdate||gl.shadowMap.autoUpdate);
-   const reuse=last.valid&&!dirty&&cameraSame&&ambient>0&&!shadowRefresh&&!scene.overrideMaterial;
-   if(!reuse)reason(!last.valid?'first':dirty?'requested':!cameraSame?'camera':!ambient?'no-water':shadowRefresh?'shadows':'override');
-   if(reuse)staticFrameStats.reused++;else staticFrameStats.full++;
+   const requested=dirty,steady=!requested&&!shadowRefresh&&!scene.overrideMaterial;
+   // Requests made while this frame is drawn are for the next one.
    dirty=false;
+   const reuse=steady&&last.valid&&!moving&&cameraSame&&ambient>0;
    const autoClear=gl.autoClear,layers=camera.layers.mask,previous=gl.getRenderTarget();
+   let presentFrom:WebGLFramebuffer|null=null;
    try{
     gl.setRenderTarget(frame);
     if(reuse){
+     staticFrameStats.reused++;
      // Only the animated surfaces, in three's usual order: opaque, then blended.
      gl.autoClear=false;camera.layers.set(ambientLayer);scene.userData.dynamicPass=true;
      gl.render(scene,camera);
+     presentFrom=resolved();
+    }else if(steady&&moving&&cameraSame){
+     // Still between moves (water ticks): the moved image stays on screen.
+     staticFrameStats.moved++;presentFrom=framebuffer(moved[display]);
+    }else if(movingEnabled&&steady&&(last.valid||moving)&&!cameraSame&&move(scene,camera,cameraView,width,height,draw)){
+     staticFrameStats.moved++;presentFrom=framebuffer(moved[display]);last.valid=false;arm();
     }else{
+     reason(!last.valid&&!moving?'first':requested?'requested':!cameraSame?'camera':shadowRefresh?'shadows':scene.overrideMaterial?'override':'no-water');
+     staticFrameStats.full++;
+     clearTimeout(settle);moving=false;
      ambient=0;
      scene.traverse(o=>{
       if((o as {isLight?:boolean}).isLight)o.layers.enable(ambientLayer);
       else if(isAmbient(o)){o.layers.enable(ambientLayer);ambient++;}
      });
-     draw(scene,camera);last.valid=true;
+     draw(scene,camera);last.valid=true;shown.copy(cameraView);shownProjection.copy(camera.projectionMatrix);
+     presentFrom=resolved();
     }
-    present(width,height);
+    blit(presentFrom,null,whole(width,height),whole(width,height));
    }finally{
     camera.layers.mask=layers;gl.autoClear=autoClear;scene.userData.dynamicPass=false;
     gl.setRenderTarget(previous);
    }
   },
-  dispose(){frame.dispose();},
+  dispose(){clearTimeout(settle);frame.dispose();for(const t of moved)t.dispose();},
  };
 }

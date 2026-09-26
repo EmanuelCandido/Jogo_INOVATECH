@@ -1,14 +1,14 @@
 import {useEffect,useRef} from 'react';
 import {useFrame,useThree} from '@react-three/fiber';
-import {Material,MeshBasicMaterial,MeshLambertMaterial,MeshStandardMaterial,type Mesh,type Object3D} from 'three';
+import {Material,MeshBasicMaterial,MeshLambertMaterial,MeshStandardMaterial,Vector3,type Mesh,type Object3D,type OrthographicCamera} from 'three';
 import {useGraphicsRuntime} from '../../stores/graphicsStore';
 import {useShaderGate} from './ShaderGate';
-import {ambientInvalidate,staticFrameEnabled} from '../../game/staticFrame';
+import {ambientInvalidate,cameraInvalidate,staticFrameEnabled} from '../../game/staticFrame';
 
 /** Opt-in phone diagnostic (?diagnostico=1). One tap measures the current view
  * with parts of the frame switched off in turn, so a single screenshot shows
  * where a weak GPU spends its time. Nothing is loaded in ordinary games. */
-interface Variant {id:string;label:string;apply:()=>()=>void;ambient?:boolean}
+interface Variant {id:string;label:string;apply:()=>()=>void;ambient?:boolean;tick?:()=>void}
 interface Row {label:string;fps:number;medianMs:number;worstMs:number;calls:number;triangles:number}
 const foliage=/^eco\.(leaf|leaflight|oakleaf|mapleleaf|firleaf|flower|petal|bloomshade)$/;
 const settleMs=900,sampleMs=2600;
@@ -52,13 +52,28 @@ function lambert(m:MeshStandardMaterial){
 const isWater=(m:Material)=>m.customProgramCacheKey().startsWith('water-');
 
 export default function Diagnostic(){
- const {gl,scene,setDpr,invalidate}=useThree();
+ const {gl,scene,camera,setDpr,invalidate}=useThree();
+ // Camera motion like a finger on the map, back and forth around the view.
+ const motion=useRef({frames:0,position:new Vector3(),zoom:1,axis:new Vector3()});
+ const hold=()=>{const m=motion.current,c=camera as OrthographicCamera;m.frames=0;m.position.copy(c.position);m.zoom=c.zoom;return()=>{c.position.copy(m.position);c.zoom=m.zoom;c.updateProjectionMatrix();c.updateMatrixWorld();};};
+ const drag=()=>{
+  const m=motion.current,c=camera as OrthographicCamera;
+  // 6 screen pixels per frame, turning around every 40 frames.
+  const step=6*(c.right-c.left)/c.zoom/gl.domElement.width*(Math.floor(m.frames++/40)%2?-1:1);
+  c.position.addScaledVector(m.axis.setFromMatrixColumn(c.matrixWorld,0),step);c.updateMatrixWorld();
+ };
+ const pinch=()=>{
+  const m=motion.current,c=camera as OrthographicCamera;
+  c.zoom*=Math.floor(m.frames++/30)%2?1/1.012:1.012;c.updateProjectionMatrix();
+ };
  const run=useRef<{variant:number;phase:'settle'|'sample';since:number;frames:number[];last:number;rows:Row[];undo:()=>void}|null>(null);
  const show=useRef<(rows:Row[],status:string)=>void>(()=>{});
  const variants=useRef<Variant[]>([]);
  variants.current=[
   {id:'normal',label:'Normal (quadro completo)',apply:()=>()=>{}},
   ...(staticFrameEnabled?[{id:'still',label:'Parada (só a água)',apply:()=>()=>{},ambient:true}]:[]),
+  {id:'drag',label:'Arrastando',apply:hold,tick:drag},
+  {id:'zoom',label:'Dando zoom',apply:hold,tick:pinch},
   {id:'res',label:'Metade da resolução',apply:()=>{const base=useGraphicsRuntime.getState().pixelRatio;setDpr(base*.5);return()=>setDpr(base);}},
   {id:'basic',label:'Cores lisas (sem luz)',apply:()=>{const m=new MeshBasicMaterial({color:'#9aa89a'}),before=scene.overrideMaterial;scene.overrideMaterial=m;return()=>{scene.overrideMaterial=before;m.dispose();};}},
   {id:'plain',label:'Luz PBR sem acabamentos',apply:()=>swapMaterials(scene,plainStandard)},
@@ -111,7 +126,9 @@ export default function Diagnostic(){
  useFrame(()=>{
   const r=run.current;if(!r)return;
   // "Parada" requests frames like the water animation does, reusing the city.
-  if(variants.current[r.variant].ambient)ambientInvalidate(invalidate);else invalidate();
+  const variant=variants.current[r.variant];
+  if(variant.tick){variant.tick();cameraInvalidate(invalidate);}
+  else if(variant.ambient)ambientInvalidate(invalidate);else invalidate();
   const now=performance.now();
   if(r.phase==='settle'){if(now-r.since>=settleMs){r.phase='sample';r.since=now;r.frames=[];r.last=now;}return;}
   r.frames.push(now-r.last);r.last=now;

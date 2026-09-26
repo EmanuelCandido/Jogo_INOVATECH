@@ -1,6 +1,6 @@
 import {useEffect,useRef} from 'react';
 import {useFrame,useThree} from '@react-three/fiber';
-import {BatchedMesh,Matrix4,OrthographicCamera,Mesh,LessDepth} from 'three';
+import {BatchedMesh,Matrix4,OrthographicCamera,Mesh,LessDepth,Vector3} from 'three';
 import {instanceVisibility} from '../../game/instanceVisibility';
 import {situationPreloadStatus} from './SituationLayers';
 import {useProgress} from '@react-three/drei';
@@ -21,7 +21,7 @@ import {skipEmptyLeafTones} from '../../game/leafMaskExperiment';
 import {riversideAssets} from '../../config/referenceDetails';
 import {preparationActivity,preparationSnapshot} from '../../game/resourcePreparation';
 import {startShaderWarmup,warmupRoots,wholeShaderWarmup} from '../../game/shaderWarmup';
-import {ambientInvalidate,staticFrameStats} from '../../game/staticFrame';
+import {ambientInvalidate,cameraInvalidate,staticFrameStats} from '../../game/staticFrame';
 
 /** Opt-in diagnostic bridge. Not loaded in ordinary games. No synchronous GPU waits. */
 export default function Benchmark(){
@@ -147,6 +147,14 @@ export default function Benchmark(){
    draw(){invalidate();},
    /** A frame requested like the water animation's (reuses the kept city frame). */
    ambientDraw(){ambientInvalidate(invalidate);},
+   /** Move like the map navigation: on the ground plane, in screen pixels, and zoom. */
+   cameraStep(right:number,up:number,zoom=1){
+    const c=camera as OrthographicCamera,pixel=(c.right-c.left)/c.zoom/gl.domElement.width;
+    const x=new Vector3().setFromMatrixColumn(c.matrixWorld,0).setY(0).normalize(),y=new Vector3().setFromMatrixColumn(c.matrixWorld,1).setY(0).normalize();
+    c.position.addScaledVector(x,right*pixel).addScaledVector(y,up*pixel);
+    if(zoom!==1){c.zoom*=zoom;c.updateProjectionMatrix();}
+    c.updateMatrixWorld();cameraInvalidate(invalidate);
+   },
    staticFrameStats(){return JSON.parse(JSON.stringify(staticFrameStats));},
    /** Largest triangle contributors in the last frame's scene state (diagnostic). */
    triangleBreakdown(limit=25){

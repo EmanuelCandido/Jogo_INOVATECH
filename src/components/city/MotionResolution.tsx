@@ -2,6 +2,7 @@ import {useEffect,useRef} from 'react';
 import {useFrame,useThree} from '@react-three/fiber';
 import {Matrix4} from 'three';
 import {useGraphicsRuntime} from '../../stores/graphicsStore';
+import {staticFrameDirty,staticFrameEnabled} from '../../game/staticFrame';
 
 const params=new URLSearchParams(location.search);
 // Benchmarks lock the resolution unless the route opts into this behaviour.
@@ -31,13 +32,15 @@ export function MotionResolution(){
   s.world.copy(camera.matrixWorld);s.projection.copy(camera.projectionMatrix);s.primed=true;
   if(moved){
    s.last=now;
-   if(!s.moving){s.moving=true;setDpr(base*motionScale);}
+   // Map drags and zooms move the kept image instead (staticFrame); only
+   // camera flights that redraw the whole city use fewer pixels.
+   if(!s.moving&&!(staticFrameEnabled&&!staticFrameDirty())){s.moving=true;setDpr(base*motionScale);}
   }else if(s.moving&&now-s.last>=settleMs){
    s.moving=false;setDpr(base);invalidate();
   }
   // Demand rendering: keep ticking until the camera has settled, then draw
   // one sharp frame at the full resolution.
-  if(s.moving||moved)invalidate();
+  if(s.moving)invalidate();
  },-95);
  return null;
 }
