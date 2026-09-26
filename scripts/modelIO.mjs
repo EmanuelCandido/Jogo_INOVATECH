@@ -14,7 +14,6 @@ export function modelIO(){
  * Normals use 12-bit precision and vertex colours are already 8-bit.
  */
 export async function compressModel(doc){
- if(doc.getRoot().listExtensionsUsed().some(e=>e.extensionName===EXTMeshoptCompression.EXTENSION_NAME))return;
  await doc.transform(
   reorder({encoder:MeshoptEncoder,target:'size'}),
   quantize({pattern:/^(NORMAL|COLOR_0)$/,quantizeNormal:12,quantizeColor:8}),
