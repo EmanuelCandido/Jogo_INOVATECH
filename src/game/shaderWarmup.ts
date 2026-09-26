@@ -1,5 +1,5 @@
 import {type Camera,type Object3D,type Scene,type WebGLRenderer} from 'three';
-import {cancelPreparation,preparationActivity,schedulePreparation} from './resourcePreparation';
+import {cancelPreparation,optionalQuietMs,preparationActivity,schedulePreparation} from './resourcePreparation';
 
 const compiling=new WeakMap<WebGLRenderer,Promise<Object3D>>();
 export function shaderCompilationPending(gl:WebGLRenderer){return compiling.has(gl);}
@@ -33,6 +33,6 @@ export function startShaderWarmup(gl:WebGLRenderer,scene:Scene,camera:Camera,can
   }
   if(index<roots.length)return true;
   roots.length=0;if(!job.stats.cancelled)invalidate();return false;
- },()=>!compiling.has(gl)&&!activity.busy()&&canRun(),600,0);
+ },()=>!compiling.has(gl)&&activity.idleFor(optionalQuietMs)&&canRun(),600,0);
  const cancel=job.cancel;job.cancel=()=>{roots.length=0;cancel();};return job;
 }

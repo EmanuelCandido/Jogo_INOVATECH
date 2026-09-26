@@ -11,7 +11,7 @@ import {preloadAsset} from '../Asset';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {situationAnchors} from '../../config/referenceMap';
 import {useThree} from '@react-three/fiber';
-import {preparationActivity,schedulePreparation} from '../../game/resourcePreparation';
+import {optionalQuietMs,preparationActivity,schedulePreparation} from '../../game/resourcePreparation';
 export const situationPreloadStatus={pending:false};
 export function SituationLayers({interactive}:{interactive:boolean}){
  const gl=useThree(s=>s.gl);
@@ -25,7 +25,7 @@ export function SituationLayers({interactive}:{interactive:boolean}){
    // Visible loads and interaction have priority; retain every future outcome.
    if(index<ids.length)preloadAsset(ids[index++],tier);
    const more=index<ids.length;if(!more)situationPreloadStatus.pending=false;return more;
-  },()=>!document.hidden&&!activity.busy()&&!useProgress.getState().active,500);
+  },()=>!document.hidden&&activity.idleFor(optionalQuietMs)&&!useProgress.getState().active,500);
   return()=>{job.cancel();situationPreloadStatus.pending=false;};
  },[tier,gl]);
  return <group name="Situações da cidade">

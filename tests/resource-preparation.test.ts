@@ -20,6 +20,13 @@ describe('prioridade da navegação na preparação opcional',()=>{
   activity.release(keyboard);time+=499;expect(activity.busy()).toBe(true);time++;expect(activity.busy()).toBe(false);
   activity.touch();expect(activity.busy()).toBe(true);
  });
+ it('só considera ocioso depois de uma pausa real, sem gesto segurado',()=>{
+  let time=0;const activity=createPreparationActivity(()=>time),pointer={};
+  expect(activity.idleFor(2500)).toBe(true);activity.touch();
+  time=2499;expect(activity.idleFor(2500)).toBe(false);time=2500;expect(activity.idleFor(2500)).toBe(true);
+  activity.hold(pointer);time=10000;expect(activity.idleFor(2500)).toBe(false);
+  activity.release(pointer);time=11000;expect(activity.idleFor(2500)).toBe(false);time=12500;expect(activity.idleFor(2500)).toBe(true);
+ });
  it('não inicia trabalho durante interação, mesmo quando o callback de idle expira',async()=>{
   let busy=true;const step=vi.fn(()=>false),job=schedulePreparation({},'test',step,()=>!busy,0);
   await tick(0,0,true);await tick(80,0,true);expect(step).not.toHaveBeenCalled();expect(job.stats.deferred).toBe(2);
