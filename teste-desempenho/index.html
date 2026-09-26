@@ -11,7 +11,7 @@
     <link rel="preload" href="/Jogo_INOVATECH/teste-desempenho/assets/fonts/exo-2-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/Jogo_INOVATECH/teste-desempenho/assets/ui/figma/logo.svg" as="image" />
     <title>Eco City! · Uma cidade, novas possibilidades</title>
-    <script type="module" crossorigin src="/Jogo_INOVATECH/teste-desempenho/assets/index-dX3i-htN.js"></script>
+    <script type="module" crossorigin src="/Jogo_INOVATECH/teste-desempenho/assets/index-DVVd0sFp.js"></script>
     <link rel="stylesheet" crossorigin href="/Jogo_INOVATECH/teste-desempenho/assets/index-D0XYXNRq.css">
   </head>
   <body>
@@ -72,6 +72,13 @@
       <p class="loading-signature">CADA ESCOLHA DEIXA UMA MARCA.</p>
     </section>
     <div id="root"></div>
+    <script>
+      // ?diagnostico=1 only: main-thread stalls during the opening, for the phone report.
+      if (/[?&]diagnostico=1/.test(location.search) && window.PerformanceObserver) {
+        window.ecoLongTasks = [];
+        try { new PerformanceObserver(function (list) { list.getEntries().forEach(function (e) { window.ecoLongTasks.push({ start: e.startTime, duration: e.duration }); }); }).observe({ type: 'longtask', buffered: true }); } catch (e) {}
+      }
+    </script>
     <script>
       // A failed game bundle cannot mount React's error boundary.
       window.addEventListener('error', function (event) {
