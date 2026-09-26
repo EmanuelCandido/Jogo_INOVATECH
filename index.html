@@ -4,13 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#5d01c7" />
+    <meta name="application-name" content="Eco City!" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Jogo_INOVATECH/favicon-32.png" />
+    <link rel="icon" type="image/svg+xml" href="/Jogo_INOVATECH/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Jogo_INOVATECH/apple-touch-icon.png" />
     <link rel="preload" href="/Jogo_INOVATECH/assets/fonts/exo-2-variable.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/Jogo_INOVATECH/assets/portraits/robot/impactus-clean.webp" as="image" />
+    <link rel="preload" href="/Jogo_INOVATECH/assets/ui/figma/logo.svg" as="image" />
     <title>Eco City! · Uma cidade, novas possibilidades</title>
-    <script type="module" crossorigin src="/Jogo_INOVATECH/assets/index-CwQf1s4S.js"></script>
-    <link rel="stylesheet" crossorigin href="/Jogo_INOVATECH/assets/index-6C66uAVE.css">
+    <script type="module" crossorigin src="/Jogo_INOVATECH/assets/index-CZPEIShD.js"></script>
+    <link rel="stylesheet" crossorigin href="/Jogo_INOVATECH/assets/index-DEWicKVd.css">
   </head>
   <body>
+    <!-- Visible before the game bundle downloads. React keeps this same screen
+         until the models have decoded and the first city frames have rendered. -->
+    <section id="game-loading" class="game-loading" aria-label="Carregamento de Eco City" aria-busy="true" data-state="loading">
+      <div class="loading-content">
+        <img class="loading-logo" src="/Jogo_INOVATECH/assets/ui/figma/logo.svg" width="454" height="315" alt="Eco City!" />
+        <div class="loading-hero" aria-hidden="true">
+          <div class="loading-orbit"></div>
+          <span class="loading-spark loading-spark-one">✦</span>
+          <span class="loading-spark loading-spark-two">✦</span>
+          <img class="loading-coin" src="/Jogo_INOVATECH/assets/ui/figma/coin.webp" width="64" height="64" alt="" />
+          <div class="loading-shadow"></div>
+          <img class="loading-impactus" src="/Jogo_INOVATECH/assets/portraits/robot/impactus-clean.webp" width="768" height="768" alt="" />
+        </div>
+        <div class="loading-copy">
+          <p class="loading-title" role="status" aria-live="polite">Preparando a cidade…</p>
+          <p class="loading-caption">Sua próxima boa ideia começa aqui.</p>
+          <div class="loading-track" role="progressbar" aria-label="Carregando o jogo" aria-valuetext="Carregamento em andamento"><span></span></div>
+          <p class="loading-error" role="alert">Não foi possível carregar o jogo. Verifique sua conexão e o suporte a WebGL do navegador.</p>
+          <button class="loading-retry" type="button" onclick="window.location.reload()">Tentar novamente</button>
+        </div>
+      </div>
+      <p class="loading-signature">CADA ESCOLHA DEIXA UMA MARCA.</p>
+    </section>
     <div id="root"></div>
+    <script>
+      // A failed game bundle cannot mount React's error boundary.
+      window.addEventListener('error', function (event) {
+        if (event.target instanceof HTMLScriptElement && event.target.type === 'module') {
+          var screen = document.getElementById('game-loading');
+          screen.dataset.state = 'error';
+          screen.setAttribute('aria-busy', 'false');
+        }
+      }, true);
+    </script>
+    <noscript><style>.loading-copy { display: none; }</style><p class="loading-no-script">Ative o JavaScript no navegador para jogar Eco City.</p></noscript>
   </body>
 </html>
