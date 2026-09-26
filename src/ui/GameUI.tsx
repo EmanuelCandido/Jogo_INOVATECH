@@ -10,8 +10,9 @@ import { TitleScreen } from './menus/TitleScreen';
 import { Balance } from './hud/Balance';
 import { HudControl, HudIcon } from './hud/HudControl';
 import { useOverlayPresence } from './menus/useOverlayPresence';
+import { gameAudio } from '../audio/gameAudio';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
-  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution } = useGame();
+  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics } = useGame();
   const [menu, setMenu] = useState(false);
   const layer=useOverlayPresence(overlay??(menu?'settings':null),s.settings.reducedMotion);
   // The title is presentation state; opening it must never reset a saved game.
@@ -35,6 +36,14 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
       {showHeader && <header className="topbar">
         <div className="header-actions">
           {!showTitle && <Balance coins={s.coins}/>}
+          <HudControl
+            icon={s.settings.muted ? 'muted' : 'sound'}
+            label={s.settings.muted ? 'Ativar sons' : 'Desativar sons'}
+            className="icon-button sound-toggle"
+            aria-pressed={!s.settings.muted}
+            data-sfx="none"
+            onClick={() => { graphics({ muted: !s.settings.muted }); if (s.settings.muted) window.setTimeout(() => gameAudio.play('toggle-on'), 80); }}
+          />
           <HudControl
             icon="settings"
             label="Configurações"

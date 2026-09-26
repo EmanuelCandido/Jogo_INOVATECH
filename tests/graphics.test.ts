@@ -14,7 +14,7 @@ describe('qualidade gráfica e compatibilidade',()=>{
   const legacy={...s,settings:{quality:'HIGH',reducedMotion:true}};
   const restored=decodeSave(JSON.stringify({version:1,data:legacy}));
   expect(restored.coins).toBe(735);expect(restored.problemStates).toEqual(s.problemStates);
-  expect(restored.settings).toEqual({quality:'HIGH',reducedMotion:true,renderScale:100,shadows:'PRESET',ambientAnimation:true,showPerformance:false});
+  expect(restored.settings).toEqual({quality:'HIGH',reducedMotion:true,renderScale:100,shadows:'PRESET',ambientAnimation:true,showPerformance:false,musicVolume:60,sfxVolume:80,muted:false});
  });
  it('salva e restaura todos os perfis, limitando valores inválidos nas novas opções',()=>{
   for(const quality of ['AUTO',...graphicsTiers] as const){
@@ -23,6 +23,8 @@ describe('qualidade gráfica e compatibilidade',()=>{
   }
   const s=initialProgress(),data={...s,settings:{...s.settings,renderScale:999,shadows:'invalid',ambientAnimation:'yes'}};
   expect(decodeSave(JSON.stringify({version:1,data})).settings).toMatchObject({renderScale:150,shadows:'PRESET',ambientAnimation:true});
+  const sound={...s,settings:{...s.settings,musicVolume:180,sfxVolume:-4,muted:'sim'}};
+  expect(decodeSave(JSON.stringify({version:1,data:sound})).settings).toMatchObject({musicVolume:100,sfxVolume:0,muted:false});
  });
  it('respeita escolhas manuais, sombras independentes e redução de movimento',()=>{
   const settings={...initialProgress().settings,quality:'ULTRA' as const,shadows:'OFF' as const,reducedMotion:true};

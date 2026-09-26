@@ -7,6 +7,7 @@ import { HudControl, HudIcon } from '../hud/HudControl';
 import { useDialog } from '../menus/useDialog';
 import { CharacterAvatar } from './CharacterAvatar';
 import { WearablePreview } from './WearableLayers';
+import { reduced, sparkleBurst } from '../effects/burst';
 
 export function Shop() {
   const { progress, openOverlay, buy, equip }=useGame();
@@ -14,6 +15,9 @@ export function Shop() {
   const [category,setCategory]=useState<AccessorySlot>('cape');
   const [message,setMessage]=useState('');
   const [confirmExit,setConfirmExit]=useState(false);
+  // The catalogue waits for the opening shutter only on arrival, not on tab changes.
+  const [arriving,setArriving]=useState(true);
+  useEffect(()=>{const timer=window.setTimeout(()=>setArriving(false),1400);return ()=>window.clearTimeout(timer);},[]);
   const backButton=useRef<HTMLButtonElement>(null);
   const wasConfirming=useRef(false);
   useEffect(()=>{
@@ -29,9 +33,9 @@ export function Shop() {
   const unowned=accessoryCategories.map(({id})=>draft[id]).filter((id):id is string=>!!id&&!progress.wardrobe.owned.includes(id));
   const items=accessories.filter(item=>item.slot===category);
   const categoryName=accessoryCategories.find(item=>item.id===category)!.label;
-  const purchaseAction=!owned&&selected&&<button className="buy-accessory" disabled={progress.coins<selected.price} onClick={()=>{if(buy(selected.id))setMessage(`${selected.name} agora é seu! Salve para usar na cidade.`);}}>{progress.coins<selected.price?`Faltam ${selected.price-progress.coins} moedas`:<><Coin/> Comprar por {selected.price}</>}</button>;
+  const purchaseAction=!owned&&selected&&<button className="buy-accessory" disabled={progress.coins<selected.price} onClick={()=>{if(buy(selected.id)){setMessage(`${selected.name} agora é seu! Salve para usar na cidade.`);const card=document.querySelector(`[data-accessory="${selected.id}"]`);if(card&&!reduced()){sparkleBurst(card,10);card.animate([{scale:'1',rotate:'0deg'},{scale:'1.08',rotate:'-3deg'},{scale:'.97',rotate:'2deg'},{scale:'1',rotate:'0deg'}],{duration:520,easing:'ease-out'});}}}}>{progress.coins<selected.price?`Faltam ${selected.price-progress.coins} moedas`:<><Coin/> Comprar por {selected.price}</>}</button>;
   function changeCategory(next:AccessorySlot){setCategory(next);setMessage('');}
-  return <section ref={panel} className="shop-screen" role="dialog" aria-modal="true" aria-labelledby="shop-heading" tabIndex={-1}>
+  return <section ref={panel} className={`shop-screen${arriving?' is-arriving':''}`} role="dialog" aria-modal="true" aria-labelledby="shop-heading" tabIndex={-1}>
     <div className="shop-layout" inert={confirmExit}>
       <header className="shop-topbar"><div className="shop-navigation"><HudControl ref={backButton} icon="back" className="shop-back" onClick={close} label="Voltar ao mapa"/><div><span className="panel-eyebrow">SEU ESTILO</span><h2 id="shop-heading">Loja do Impactus</h2></div></div><Balance coins={progress.coins} className="shop-balance"/></header>
       <div className="shop-showcase"><div className="avatar-glow"/><div className="avatar-shadow"/><div className="shop-avatar"><CharacterAvatar outfit={draft} label="Prévia do visual do Impactus"/></div><span className="avatar-name"><i/>Impactus</span>{dirty&&<span className="preview-tag">Experimentando</span>}</div>
@@ -55,7 +59,7 @@ export function Shop() {
         </div>
         <div className="accessory-detail"><p>{selected?.description??'A armadura original também faz parte do seu estilo.'}</p></div>
         <p className="shop-note">Combine uma capa, uma jaqueta e um chapéu. As compras usam as moedas da cidade.</p>
-      </div><footer className={`shop-save${purchaseAction?' has-purchase':''}`}><div className="shop-message" role="status">{message|| (unowned.length?`Compre ${unowned.length===1?'o acessório selecionado':'os acessórios selecionados'} para salvar.`:'')}</div>{purchaseAction}<button className="save-outfit" disabled={unowned.length>0} onClick={()=>{if(equip(draft))setMessage('Visual salvo! O Impactus já pode usar essa combinação na cidade.');}}><HudIcon name={!dirty&&message.startsWith('Visual salvo')?'check':'sparkles'}/>{!dirty&&message.startsWith('Visual salvo')?'VISUAL SALVO':'SALVAR VISUAL'}</button></footer></div>
+      </div><footer className={`shop-save${purchaseAction?' has-purchase':''}`}><div className="shop-message" role="status">{message|| (unowned.length?`Compre ${unowned.length===1?'o acessório selecionado':'os acessórios selecionados'} para salvar.`:'')}</div>{purchaseAction}<button className="save-outfit" disabled={unowned.length>0} onClick={()=>{if(equip(draft)){setMessage('Visual salvo! O Impactus já pode usar essa combinação na cidade.');const avatar=document.querySelector('.shop-avatar');if(avatar&&!reduced()){sparkleBurst(avatar,16);avatar.animate([{scale:'1'},{scale:'1.06'},{scale:'1'}],{duration:450,easing:'cubic-bezier(.3,1.6,.5,1)'});}}}}><HudIcon name={!dirty&&message.startsWith('Visual salvo')?'check':'sparkles'}/>{!dirty&&message.startsWith('Visual salvo')?'VISUAL SALVO':'SALVAR VISUAL'}</button></footer></div>
     </div>
     {confirmExit&&<div className="shop-exit-scrim"><div className="shop-exit" role="alertdialog" aria-labelledby="exit-title"><h3 id="exit-title">Sair da prévia?</h3><p>As compras continuam suas. O visual que você está experimentando ainda não foi salvo.</p><button className="save-outfit" autoFocus onClick={()=>setConfirmExit(false)}>Continuar experimentando</button><button className="discard-outfit" onClick={()=>openOverlay(null)}>Sair sem salvar</button></div></div>}
   </section>;

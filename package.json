@@ -15,6 +15,7 @@
     "test:rendering": "node scripts/verify-rendering.mjs",
     "assets:optimize": "node scripts/optimize-assets.mjs",
     "assets:compress": "node scripts/compress-models.mjs",
+    "audio:render": "node scripts/render-audio.mjs",
     "assets:build": "powershell -ExecutionPolicy Bypass -File scripts/build-assets.ps1",
     "prebuild": "node scripts/generate-reference-layout.mjs",
     "predev": "node scripts/generate-reference-layout.mjs"

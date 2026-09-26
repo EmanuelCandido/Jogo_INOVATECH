@@ -13,15 +13,20 @@ export const graphicsPresets:Record<GraphicsTier,GraphicsProfile>={
  ULTRA:{label:'Ultra',description:'Toda a vegetação, maior presença urbana, jardins nos telhados e acabamentos extras.',pixelRatio:2,maxPixels:6500000,shadowSize:4096,forestDensity:1,undergrowth:1,flowers:1,traffic:1,visitors:1,cityDetail:2,waterEffects:true,smoothGeometry:true},
 };
 export const qualityOptions:Quality[]=['AUTO',...graphicsTiers];
-export const defaultGraphicsSettings={renderScale:100,shadows:'PRESET',ambientAnimation:true,showPerformance:false} as const;
+export const defaultGraphicsSettings={renderScale:100,shadows:'PRESET',ambientAnimation:true,showPerformance:false,musicVolume:60,sfxVolume:80,muted:false} as const;
 /** Explicit benchmark reference; never changes the player's chosen settings. */
-export const maximumGraphicsSettings={quality:'ULTRA',renderScale:150,shadows:'PRESET',ambientAnimation:true,reducedMotion:false,showPerformance:false} as const satisfies GameSettings;
+export const maximumGraphicsSettings={quality:'ULTRA',renderScale:150,shadows:'PRESET',ambientAnimation:true,reducedMotion:false,showPerformance:false,musicVolume:60,sfxVolume:80,muted:false} as const satisfies GameSettings;
 export function normalizeGraphicsSettings(settings:Partial<GameSettings>):GameSettings{
  return {...defaultGraphicsSettings,quality:'AUTO',reducedMotion:false,...settings,
   renderScale:typeof settings.renderScale==='number'&&Number.isFinite(settings.renderScale)?Math.max(60,Math.min(150,Math.round(settings.renderScale/5)*5)):100,
   shadows:['PRESET','OFF','SOFT','DETAILED'].includes(settings.shadows??'')?settings.shadows!:'PRESET',
   ambientAnimation:typeof settings.ambientAnimation==='boolean'?settings.ambientAnimation:true,
-  showPerformance:typeof settings.showPerformance==='boolean'?settings.showPerformance:false};
+  showPerformance:typeof settings.showPerformance==='boolean'?settings.showPerformance:false,
+  musicVolume:volume(settings.musicVolume,defaultGraphicsSettings.musicVolume),sfxVolume:volume(settings.sfxVolume,defaultGraphicsSettings.sfxVolume),
+  muted:settings.muted===true};
+}
+function volume(value:unknown,fallback:number){
+ return typeof value==='number'&&Number.isFinite(value)?Math.max(0,Math.min(100,Math.round(value))):fallback;
 }
 export function resolveGraphics(settings:GameSettings,automatic:GraphicsTier){
  const tier=settings.quality==='AUTO'?automatic:settings.quality,p=graphicsPresets[tier];

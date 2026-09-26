@@ -1,0 +1,85 @@
+/* Presentation motion layered over the base styles. Everything here is
+ * decorative; `.reduced-motion` and prefers-reduced-motion switch it off.
+ * Entrances fill backwards only, so finished elements return to their plain,
+ * uncomposited styles. */
+
+/* Coin and spark particles (src/ui/effects/burst.ts). */
+.fx-layer { position: fixed; inset: 0; z-index: 2000; pointer-events: none; overflow: hidden; }
+.fx-coin { position: absolute; left: 0; top: 0; width: 26px; height: 26px; filter: drop-shadow(0 3px 3px #3a137033); will-change: transform; }
+.fx-spark { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 2px; box-shadow: 0 0 8px currentColor; will-change: transform; }
+
+/* Title: the logo floats and the play button glows with a moving shine.
+ * Idle loops on controls never move their box: automation and players need
+ * a stable target, so they animate shadows and pseudo-elements only. */
+.title-screen h1 { animation: title-float 4.5s ease-in-out infinite; }
+.play-button { overflow: hidden; }
+.play-button:enabled { animation: play-glow 2.4s ease-in-out infinite; }
+.play-button:enabled::after { content: ''; position: absolute; top: -20%; bottom: -20%; left: 0; width: 38%; background: linear-gradient(100deg, #fff0, #ffffff70, #fff0); transform: translateX(-160%) skewX(-18deg); animation: play-shine 3.2s ease-in-out 1s infinite; pointer-events: none; }
+
+/* HUD: shortcuts bob gently, the balance coin flips when coins change. */
+.journey-badge img { animation: badge-bob 3.4s ease-in-out infinite; }
+.journey-badge:nth-child(2) img { animation-delay: -1.7s; }
+.journey-badge:hover img { animation-play-state: paused; transform: translateY(-4px) rotate(-4deg) scale(1.05); }
+.balance:has(.balance-change) .coin img { animation: coin-flip .7s cubic-bezier(.3, 1.4, .5, 1); }
+.notice { animation: notice-in .5s cubic-bezier(.3, 1.5, .5, 1) backwards; }
+.sound-toggle .hud-icon { transition: transform .3s var(--hud-ease); }
+.sound-toggle:active .hud-icon { transform: scale(.8); }
+
+/* Missions: the panel unfolds out of a circle that opens from the shortcut. */
+.hud-overlay[data-state=open] .journey-scrim { animation: mission-reveal .55s cubic-bezier(.3, .8, .3, 1) backwards; }
+.hud-overlay[data-state=open] .mission-modal { transform-origin: 50% 0; animation: mission-unfold .7s cubic-bezier(.2, 1.25, .4, 1) .08s backwards; }
+.hud-overlay[data-state=open] .mission-heading h2 { animation: hud-row .5s var(--hud-ease) .3s backwards; }
+.daily-medal { animation: medal-in .8s cubic-bezier(.3, 1.6, .5, 1) .35s backwards, medal-glow 2.8s ease-in-out 1.2s infinite; }
+.mission-modal progress::-webkit-progress-value { transform-origin: 0 50%; animation: bar-fill 1s cubic-bezier(.3, .8, .3, 1) .45s backwards; }
+.mission-modal progress::-moz-progress-bar { transform-origin: 0 50%; animation: bar-fill 1s cubic-bezier(.3, .8, .3, 1) .45s backwards; }
+.daily-mission { animation: mission-card .55s cubic-bezier(.2, 1.2, .4, 1) backwards; }
+.daily-mission:nth-of-type(1) { animation-delay: .28s; }
+.daily-mission:nth-of-type(2) { animation-delay: .36s; }
+.daily-mission:nth-of-type(3) { animation-delay: .44s; }
+.daily-mission:nth-of-type(4) { animation-delay: .52s; }
+.claim-button:enabled { animation: claim-ready 1.6s ease-in-out 1s infinite; }
+.bonus-button:enabled { position: relative; overflow: hidden; }
+.bonus-button:enabled::after { content: ''; position: absolute; inset: -20% auto -20% 0; width: 30%; background: linear-gradient(100deg, #fff0, #ffffffaa, #fff0); transform: translateX(-150%) skewX(-18deg); animation: play-shine 2.2s ease-in-out .8s infinite; pointer-events: none; }
+.city-quests[open] .city-quest { animation: hud-row .4s var(--hud-ease) backwards; }
+.city-quests[open] .city-quest:nth-of-type(2) { animation-delay: .04s; }
+.city-quests[open] .city-quest:nth-of-type(3) { animation-delay: .08s; }
+.city-quests[open] .city-quest:nth-of-type(4) { animation-delay: .12s; }
+.city-quests[open] .city-quest:nth-of-type(n+5) { animation-delay: .16s; }
+
+/* Shop: a striped shutter rolls up over the showcase, the spotlight turns on
+ * and the catalogue pops in piece by piece. The showcase settles completely:
+ * outfit previews are compared pixel by pixel. */
+.hud-overlay[data-state=open] .shop-screen::after { content: 'LOJA ABERTA'; position: absolute; inset: 0; z-index: 50; display: grid; place-items: center; color: #fff; font: 900 clamp(20px, 5vw, 34px) "Exo 2", sans-serif; letter-spacing: 6px; text-shadow: 0 3px 0 #3a0680; background: repeating-linear-gradient(180deg, #7414dc 0 22px, #5d01c7 22px 26px, #6a0bd4 26px 48px); box-shadow: 0 10px 30px #2d0b5a55; pointer-events: none; transform: translateY(-104%); animation: shutter-up .75s cubic-bezier(.7, 0, .25, 1) .22s backwards; }
+.shop-showcase::before { content: ''; position: absolute; z-index: -2; width: min(460px, 110%); aspect-ratio: 1; border-radius: 50%; background: repeating-conic-gradient(from 0deg, #b98cff40 0 9deg, #fff0 9deg 22deg); mask: radial-gradient(circle, #000 20%, #0000 68%); animation: rays-in 1.2s cubic-bezier(.2, .8, .3, 1) .7s backwards; }
+.hud-overlay[data-state=open] .shop-avatar { animation: avatar-land .9s cubic-bezier(.2, 1.35, .4, 1) .55s backwards; }
+.hud-overlay[data-state=open] .avatar-name { animation: hud-row .5s var(--hud-ease) .9s backwards; }
+.hud-overlay[data-state=open] .shop-topbar { animation: shop-drop .6s cubic-bezier(.2, 1.3, .4, 1) .7s backwards; }
+.accessory-card { animation: card-pop .5s cubic-bezier(.3, 1.5, .5, 1) var(--card-delay, 0s) backwards; }
+.is-arriving .accessory-card { animation-delay: calc(.85s + var(--card-delay, 0s)); }
+.accessory-card:nth-child(1) { --card-delay: 0.05s; }
+.accessory-card:nth-child(2) { --card-delay: 0.10s; }
+.accessory-card:nth-child(3) { --card-delay: 0.15s; }
+.accessory-card:nth-child(4) { --card-delay: 0.20s; }
+.accessory-card:nth-child(5) { --card-delay: 0.25s; }
+.accessory-card:nth-child(6) { --card-delay: 0.30s; }
+.accessory-card:hover .accessory-preview { transform: translateY(-3px) rotate(-2deg); transition: transform .25s var(--hud-ease); }
+.buy-accessory:enabled { animation: claim-ready 1.8s ease-in-out .6s infinite; }
+
+@keyframes title-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@keyframes play-glow { 0%, 100% { filter: drop-shadow(0 0 0 #ffd35c00); } 50% { filter: drop-shadow(0 0 14px #ffd35caa); } }
+@keyframes play-shine { 0%, 55% { transform: translateX(-160%) skewX(-18deg); } 85%, 100% { transform: translateX(360%) skewX(-18deg); } }
+@keyframes badge-bob { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -5px; rotate: 2deg; } }
+@keyframes coin-flip { from { transform: rotateY(0) scale(1); } 50% { transform: rotateY(180deg) scale(1.2); } to { transform: rotateY(360deg) scale(1); } }
+@keyframes notice-in { from { opacity: 0; translate: 0 24px; scale: .9; } to { opacity: 1; translate: 0 0; scale: 1; } }
+@keyframes mission-reveal { from { clip-path: circle(0 at calc(100% - 76px) 150px); } to { clip-path: circle(160% at calc(100% - 76px) 150px); } }
+@keyframes mission-unfold { from { opacity: 0; transform: perspective(900px) rotateX(-70deg) translateY(-24px); } 60% { opacity: 1; } to { opacity: 1; transform: perspective(900px) rotateX(0) translateY(0); } }
+@keyframes medal-in { from { opacity: 0; transform: scale(0) rotate(-200deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+@keyframes medal-glow { 0%, 100% { box-shadow: 0 0 0 0 #c792ff00; } 50% { box-shadow: 0 0 0 7px #c792ff33; } }
+@keyframes bar-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes mission-card { from { opacity: 0; translate: 40px 0; rotate: 2deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
+@keyframes claim-ready { 0%, 100% { outline: 0 solid #25b98a00; outline-offset: 0; } 50% { outline: 6px solid #25b98a2e; outline-offset: 1px; } }
+@keyframes shutter-up { from { transform: translateY(0); } to { transform: translateY(-104%); } }
+@keyframes rays-in { from { opacity: 0; scale: .4; rotate: -40deg; } to { opacity: 1; scale: 1; rotate: 0deg; } }
+@keyframes avatar-land { from { opacity: 0; translate: 0 -60px; } 70% { opacity: 1; translate: 0 6px; } to { opacity: 1; translate: 0 0; } }
+@keyframes shop-drop { from { opacity: 0; translate: 0 -30px; } to { opacity: 1; translate: 0 0; } }
+@keyframes card-pop { from { opacity: 0; scale: .6; translate: 0 14px; } to { opacity: 1; scale: 1; translate: 0 0; } }

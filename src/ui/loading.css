@@ -4,15 +4,34 @@
 .game-loading[hidden] { display: none; }
 .loading-content { display: flex; flex-direction: column; align-items: center; width: min(100%, 400px); }
 .loading-logo { display: block; width: clamp(130px, 21dvh, 186px); height: auto; margin: 0 0 10px; }
-.loading-hero { position: relative; width: min(78vw, 34dvh, 310px); aspect-ratio: 1; margin: 6px 0 28px; isolation: isolate; }
-.loading-impactus { position: relative; display: block; width: 100%; height: auto; filter: drop-shadow(0 7px 6px #5504b51c); animation: loading-float 3.2s ease-in-out infinite; }
-.loading-shadow { position: absolute; width: 55%; height: 7%; left: 22.5%; bottom: -2%; border-radius: 50%; background: #4a1c8a26; filter: blur(6px); animation: loading-shadow 3.2s ease-in-out infinite; }
-.loading-orbit { position: absolute; z-index: -1; inset: 1% -9% -1%; border: 1px solid #ab78e930; border-radius: 50%; transform: rotate(-20deg); }
-.loading-orbit::after { content: ''; position: absolute; inset: 13% -8%; border: 1px solid #ab78e918; border-radius: 50%; transform: rotate(40deg); }
-.loading-spark { position: absolute; color: #8a40da; font-size: 29px; animation: loading-spark 2.8s ease-in-out infinite; }
-.loading-spark-one { top: 7%; left: 0; }
-.loading-spark-two { bottom: 8%; right: -4%; font-size: 20px; color: #b694df; animation-delay: -1.4s; }
-.loading-coin { position: absolute; top: 24%; right: -9%; width: 16%; height: auto; transform: rotate(12deg); animation: loading-token 3.2s ease-in-out infinite; }
+.loading-hero { position: relative; width: min(88vw, 430px, 62dvh); aspect-ratio: 5 / 3; margin: 4px 0 24px; isolation: isolate; }
+.loading-city svg { display: block; width: 100%; height: 100%; overflow: visible; border-radius: 28px; box-shadow: 0 18px 40px -18px #5d01c74d, 0 0 0 1px #ffffffb3 inset; }
+.loading-city svg * { transform-box: view-box; }
+.loading-building { transform-box: fill-box; transform-origin: 50% 100%; animation: loading-rise .75s cubic-bezier(.22, 1.35, .4, 1) calc(.25s + var(--i) * .13s) both; }
+.loading-window { fill: #fffaf0; opacity: .9; animation: loading-light 4.2s ease-in-out calc(1.8s + var(--w) * .45s) infinite; }
+.loading-solar { fill: #3552c9; animation: loading-glint 3.4s ease-in-out 2.2s infinite; }
+.loading-tree, .loading-crane { transform-box: fill-box; transform-origin: 50% 100%; }
+.loading-tree { animation: loading-pop .5s cubic-bezier(.3, 1.6, .5, 1) calc(1.5s + var(--t) * .09s) both; }
+.loading-tree > g { transform-box: fill-box; transform-origin: 50% 100%; animation: loading-sway 3.6s ease-in-out calc(var(--t) * -.4s) infinite; }
+.loading-sun { transform-box: fill-box; transform-origin: 50% 50%; animation: loading-sunrise 1.4s cubic-bezier(.2, .8, .2, 1) both, loading-glow 4s ease-in-out 1.4s infinite; }
+.loading-cloud { animation: loading-drift 34s linear var(--d) infinite; }
+.loading-birds { animation: loading-birds 13s linear 1s infinite; }
+.loading-blades { animation: loading-spin 2.8s linear infinite; }
+.loading-blades-slow { animation-duration: 3.9s; }
+.loading-crane { animation: loading-pop .5s cubic-bezier(.3, 1.6, .5, 1) .9s both; }
+.loading-crane-arm { transform-origin: 0 0; animation: loading-swing 5s ease-in-out 1.4s infinite; }
+.loading-hook { animation: loading-hook 2.5s ease-in-out infinite; }
+.loading-lane { animation: loading-lane .9s linear infinite; }
+.loading-car-one { animation: loading-drive-right 5.6s linear .6s infinite both; }
+.loading-bus { animation: loading-drive-left 8.5s linear 2.2s infinite both; }
+.loading-bike { animation: loading-ride 11s linear 1.2s infinite both; }
+.loading-spark { opacity: 0; transform: translate(var(--x), var(--y)); animation: loading-twinkle 2.6s ease-in-out calc(2.4s + var(--s) * .85s) infinite; }
+.loading-car-one { transform: translate(128px, 216px); }
+.loading-bus { transform: translate(300px, 235px) scaleX(-1); }
+.loading-bike { transform: translate(64px, 199px); }
+.loading-birds { transform: translate(110px, 56px); }
+.loading-cloud { transform: translate(calc(var(--c) * 140px + 40px), var(--y)); }
+.loading-caption.loading-tip { animation: loading-tip .45s ease-out both; }
 .loading-copy { width: 100%; }
 .loading-title { margin: 0; color: #41058a; font-size: clamp(20px, 4.8vw, 26px); line-height: 1.25; font-weight: 850; }
 .loading-caption { margin: 10px 0 22px; color: #796a8d; font-size: 14px; line-height: 1.5; }
@@ -28,10 +47,24 @@
 .game-loading[data-state="error"] .loading-retry { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 25px; margin-top: 20px; border: 1px solid #ac5aff; border-radius: 17px; color: #fff; font: 750 16px "Exo 2", sans-serif; background: linear-gradient(165deg, #861bf0, #5900b8); box-shadow: inset 0 2px 0 #ffffff55, 0 4px 0 #380776; cursor: pointer; touch-action: manipulation; }
 .loading-retry:focus-visible { outline: 3px solid #b176ee; outline-offset: 5px; }
 .loading-retry:active { translate: 0 2px; }
-@keyframes loading-float { 0%, 100% { transform: translateY(3px) rotate(-1deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
-@keyframes loading-shadow { 0%, 100% { transform: scale(1); opacity: .8; } 50% { transform: scale(.85); opacity: .45; } }
-@keyframes loading-token { 0%, 100% { transform: translateY(0) rotate(12deg); } 50% { transform: translateY(-10px) rotate(-8deg); } }
-@keyframes loading-spark { 0%, 100% { opacity: .4; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.1); } }
+@keyframes loading-rise { 0% { transform: scaleY(0); } 70% { transform: scaleY(1.06); } 100% { transform: scaleY(1); } }
+@keyframes loading-light { 0%, 55%, 100% { fill: #fffaf0; } 65%, 90% { fill: #ffd95e; } }
+@keyframes loading-glint { 0%, 70%, 100% { fill: #3552c9; } 80% { fill: #9fc0ff; } }
+@keyframes loading-pop { from { opacity: 0; translate: 0 6px; scale: .2; } to { opacity: 1; translate: 0 0; scale: 1; } }
+@keyframes loading-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes loading-sunrise { from { opacity: 0; transform: translateY(46px) scale(.7); } to { opacity: 1; transform: none; } }
+@keyframes loading-glow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes loading-drift { from { transform: translate(-70px, var(--y)); } to { transform: translate(470px, var(--y)); } }
+@keyframes loading-birds { from { transform: translate(-40px, 70px); } 50% { transform: translate(200px, 50px); } to { transform: translate(440px, 64px); } }
+@keyframes loading-spin { to { transform: rotate(360deg); } }
+@keyframes loading-swing { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(6deg); } }
+@keyframes loading-hook { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+@keyframes loading-lane { to { stroke-dashoffset: -26; } }
+@keyframes loading-drive-right { from { transform: translate(-40px, 216px); } to { transform: translate(440px, 216px); } }
+@keyframes loading-drive-left { from { transform: translate(450px, 235px) scaleX(-1); } to { transform: translate(-50px, 235px) scaleX(-1); } }
+@keyframes loading-ride { from { transform: translate(-30px, 199px); } to { transform: translate(430px, 199px); } }
+@keyframes loading-twinkle { 0%, 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(.3) rotate(0); } 50% { opacity: 1; transform: translate(var(--x), var(--y)) scale(1) rotate(45deg); } }
+@keyframes loading-tip { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes loading-energy { 0% { transform: translateX(-105%); } 100% { transform: translateX(345%); } }
 .game-loading[data-reduced-motion="true"], .game-loading[data-reduced-motion="true"] * { animation: none; transition: none; }
 .game-loading[data-reduced-motion="true"] .loading-track span { width: 60%; }
@@ -40,15 +73,15 @@
   .loading-track span { width: 60%; }
 }
 @media (max-height: 520px) and (min-width: 600px) {
-  .loading-content { position: relative; width: min(90vw, 640px); padding-left: 240px; box-sizing: border-box; }
+  .loading-content { position: relative; width: min(92vw, 700px); padding-left: 330px; box-sizing: border-box; }
   .loading-logo { width: 135px; margin-bottom: 14px; }
-  .loading-hero { position: absolute; width: 205px; left: 0; top: 15px; margin: 0; }
+  .loading-hero { position: absolute; width: 310px; left: 0; top: 50%; translate: 0 -50%; margin: 0; }
   .loading-title { font-size: 22px; }
 }
 @media (max-height: 580px) and (max-width: 599px) {
   .game-loading { padding-top: 15px; padding-bottom: 35px; }
   .loading-logo { width: 105px; margin-bottom: 0; }
-  .loading-hero { width: min(52vw, 29dvh); margin-bottom: 18px; }
+  .loading-hero { width: min(80vw, 48dvh); margin-bottom: 18px; }
   .loading-caption { margin: 6px 0 14px; }
   .loading-signature { bottom: 10px; font-size: 8px; }
 }

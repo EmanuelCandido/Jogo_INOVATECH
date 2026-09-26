@@ -60,7 +60,7 @@ test('tocar na tela avança uma fala e preserva menus, gestos e escolhas', async
   await tap(page, 6, 115, touch);
   await expect(page.locator('.alternative')).toHaveCount(3);
   await page.getByRole('button', { name: 'Configurações', exact: true }).click();
-  await page.getByRole('heading', { name: 'Gráficos e desempenho' }).click();
+  await page.getByRole('heading', { name: 'Som e gráficos' }).click();
   await tap(page, 6, 115, touch);
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data.phase)).toBe('TUTORIAL_QUESTION');
   await page.getByRole('button', { name: 'Fechar configurações' }).click();

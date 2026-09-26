@@ -13,9 +13,11 @@ test("abertura animada aparece antes do código do jogo e carrega o favicon", as
     await expect(screen).toBeVisible();
     await expect(screen.getByRole("progressbar")).toBeVisible();
     await expect(page.locator("#root")).toBeEmpty();
-    await expect(page.locator('.loading-impactus')).toHaveJSProperty('complete', true);
-    expect(await page.locator('.loading-impactus').evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
-    expect(await page.locator('.loading-impactus').evaluate(el => getComputedStyle(el).animationName)).toBe('loading-float');
+    // The opening is a self-contained SVG city: nothing to download before it animates.
+    await expect(page.locator('.loading-city svg')).toBeVisible();
+    expect(await page.locator('.loading-building').count()).toBeGreaterThan(5);
+    expect(await page.locator('.loading-building').first().evaluate(el => getComputedStyle(el).animationName)).toBe('loading-rise');
+    expect(await page.locator('.loading-blades').first().evaluate(el => getComputedStyle(el).animationName)).toBe('loading-spin');
     const favicon = await page.locator('link[rel="icon"][type="image/svg+xml"]').getAttribute('href');
     const icon = await page.request.get(new URL(favicon!, page.url()).href);
     expect(icon.ok()).toBe(true);
@@ -88,7 +90,8 @@ test("abertura respeita movimento reduzido", async ({ page }) => {
   try {
     await page.goto('./', { waitUntil: 'commit' });
     await expect(page.locator('#game-loading')).toBeVisible();
-    expect(await page.locator('.loading-impactus').evaluate(el => getComputedStyle(el).animationName)).toBe('none');
+    expect(await page.locator('.loading-building').first().evaluate(el => getComputedStyle(el).animationName)).toBe('none');
+    expect(await page.locator('.loading-car').first().evaluate(el => getComputedStyle(el).animationName)).toBe('none');
     expect(await page.locator('.loading-track span').evaluate(el => getComputedStyle(el).animationName)).toBe('none');
     release();
     await expect(page.getByRole('button', { name: 'JOGAR', exact: true })).toBeVisible({ timeout: 60000 });

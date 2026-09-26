@@ -5,6 +5,7 @@ import {graphicsPresets,graphicsTiers} from '../../config/graphics';
 import {recheckGraphics,useGraphicsRuntime,useResolvedGraphics} from '../../stores/graphicsStore';
 import { useDialog } from './useDialog';
 import { HudControl } from '../hud/HudControl';
+import { gameAudio } from '../../audio/gameAudio';
 export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneReady: boolean }) {
   const { progress: s, graphics, reset, leave } = useGame();
   const q=useResolvedGraphics(),runtime=useGraphicsRuntime();
@@ -20,9 +21,17 @@ export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneR
       ref={panel}
       tabIndex={-1}
     >
-      <header className="settings-heading"><div><span className="panel-eyebrow">DO SEU JEITO</span><h2>Gráficos e desempenho</h2></div><HudControl className="settings-close" icon="close" tone="quiet" label="Fechar configurações" onClick={close}/></header>
+      <header className="settings-heading"><div><span className="panel-eyebrow">DO SEU JEITO</span><h2>Som e gráficos</h2></div><HudControl className="settings-close" icon="close" tone="quiet" label="Fechar configurações" onClick={close}/></header>
       <div className="settings-scroll">
       {s.phase === 'QUESTION' && <button className="primary" disabled={!sceneReady} onClick={() => { leave(); close(); }}>Decidir depois · voltar ao mapa</button>}
+      <fieldset className="sound-settings">
+        <legend>Som</legend>
+        <label className="checkbox"><input type="checkbox" checked={!s.settings.muted} onChange={e=>graphics({muted:!e.target.checked})}/>Sons ativados</label>
+        <label htmlFor="music-volume">Música <output>{s.settings.musicVolume}%</output></label>
+        <input id="music-volume" className="graphics-range" type="range" min="0" max="100" step="5" value={s.settings.musicVolume} disabled={s.settings.muted} onChange={e=>graphics({musicVolume:Number(e.target.value)})}/>
+        <label htmlFor="sfx-volume">Efeitos <output>{s.settings.sfxVolume}%</output></label>
+        <input id="sfx-volume" className="graphics-range" type="range" min="0" max="100" step="5" value={s.settings.sfxVolume} disabled={s.settings.muted} onChange={e=>graphics({sfxVolume:Number(e.target.value)})} onPointerUp={()=>gameAudio.play('coin')} onKeyUp={()=>gameAudio.play('tap')}/>
+      </fieldset>
       <label>
         Qualidade gráfica
         <select

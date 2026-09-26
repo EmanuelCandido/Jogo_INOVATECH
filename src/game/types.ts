@@ -32,6 +32,11 @@ export interface GameSettings {
   shadows: "PRESET" | "OFF" | "SOFT" | "DETAILED";
   ambientAnimation: boolean;
   showPerformance: boolean;
+  /** 0 to 100. */
+  musicVolume: number;
+  /** 0 to 100. */
+  sfxVolume: number;
+  muted: boolean;
 }
 export interface CameraShot {
   position: Vec3;

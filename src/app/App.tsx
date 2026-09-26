@@ -2,6 +2,7 @@ import { Component, lazy, Suspense, useCallback, useState, type ReactNode } from
 import { useGame } from "../stores/gameStore";
 import { GameUI } from "../ui/GameUI";
 import { useLoadingScreen } from "../ui/useLoadingScreen";
+import { useGameAudio } from "../audio/useGameAudio";
 const World = lazy(() => import("./World"));
 class SceneBoundary extends Component<
   { children: ReactNode; onError: () => void },
@@ -28,6 +29,7 @@ export default function App() {
   const phase = useGame((s) => s.progress.phase);
   const overlay = useGame((s) => s.overlay);
   const revealed = useLoadingScreen(sceneReady, failed, settings.reducedMotion);
+  useGameAudio(revealed);
   return (
     <main
       className={`game ${settings.reducedMotion ? "reduced-motion" : ""} ${selected && phase!=="RETURNING" ? "focused" : ""}`}

@@ -4,7 +4,7 @@ import { claimMission, dailyMissionList, giveEnergy, initialDailyMissions, norma
 import type { Progress } from '../src/game/types';
 
 const now=new Date(2026,8,21,12);
-const fixture=():Progress=>({contentVersion:2,coins:1500,currentChapter:'chapter_01',problemStates:{a:'AVAILABLE',b:'AVAILABLE'},decisions:[],tutorialCompleted:true,settings:{quality:'LOW',reducedMotion:true,renderScale:100,shadows:'OFF',ambientAnimation:false,showPerformance:false},selectedProblem:null,phase:'OVERVIEW',introIndex:0,rewarded:[],wardrobe:initialWardrobe(),dailyMissions:initialDailyMissions(now)});
+const fixture=():Progress=>({contentVersion:2,coins:1500,currentChapter:'chapter_01',problemStates:{a:'AVAILABLE',b:'AVAILABLE'},decisions:[],tutorialCompleted:true,settings:{quality:'LOW',reducedMotion:true,renderScale:100,shadows:'OFF',ambientAnimation:false,showPerformance:false,musicVolume:60,sfxVolume:80,muted:false},selectedProblem:null,phase:'OVERVIEW',introIndex:0,rewarded:[],wardrobe:initialWardrobe(),dailyMissions:initialDailyMissions(now)});
 describe('compras e combinações de acessórios',()=>{
   it('compra uma única vez, permite saldo exato e rejeita saldo insuficiente sem mutação',()=>{
     const base=fixture();base.coins=80;

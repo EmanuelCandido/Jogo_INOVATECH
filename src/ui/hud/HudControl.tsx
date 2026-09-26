@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react';
 
-export type HudIconName = 'back' | 'forward' | 'close' | 'settings' | 'check' | 'lock' | 'sparkles' | 'pin' | 'energy' | 'chat';
+export type HudIconName = 'back' | 'forward' | 'close' | 'settings' | 'check' | 'lock' | 'sparkles' | 'pin' | 'energy' | 'chat' | 'sound' | 'muted';
 
 const paths: Record<HudIconName, ReactNode> = {
   back: <path d="m10 5-7 7 7 7M3 12h18"/>,
@@ -13,6 +13,8 @@ const paths: Record<HudIconName, ReactNode> = {
   pin: <><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></>,
   energy: <path d="m13 2-9 12h7l-1 8 10-13h-8Z"/>,
   chat: <path d="M21 11.5a9 9 0 0 1-9 9 10 10 0 0 1-4-.9L3 21l1.4-5A9 9 0 1 1 21 11.5Z"/>,
+  sound: <><path d="M4 9.5h3.5L12 5v14l-4.5-4.5H4Z"/><path d="M15.5 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></>,
+  muted: <><path d="M4 9.5h3.5L12 5v14l-4.5-4.5H4Z"/><path d="m16 9.5 5 5m0-5-5 5"/></>,
 };
 
 export function HudIcon({ name, className='' }: { name: HudIconName; className?: string }) {

@@ -49,8 +49,6 @@
 .mission-feedback:not(:empty) { border-top: 1px solid #e9e2f1; margin-top: 10px; animation: hud-row .24s var(--hud-ease); }
 .shop-introduction, .shop-topbar, .shop-save { animation: hud-row .45s .06s var(--hud-ease) backwards; }
 .accessory-card { animation: hud-row .3s var(--hud-ease) backwards; }
-.accessory-card:nth-child(2), .accessory-card:nth-child(5) { animation-delay: .025s; }
-.accessory-card:nth-child(3), .accessory-card:nth-child(6) { animation-delay: .05s; }
 .accessory-selected { position: absolute; left: 5px; top: 5px; display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%; color: white; background: var(--panel); box-shadow: 0 2px 5px #30007e33; animation: hud-check .24s var(--hud-ease); }
 .accessory-selected .hud-icon { width: 14px; height: 14px; stroke-width: 3; }
 .accessory-lock .hud-icon { width: 12px; height: 12px; color: #fff; }
