@@ -3,7 +3,7 @@ import {useFrame,useThree} from '@react-three/fiber';
 import {Material,MeshBasicMaterial,MeshLambertMaterial,MeshStandardMaterial,Vector3,type Mesh,type Object3D,type OrthographicCamera} from 'three';
 import {useGraphicsRuntime} from '../../stores/graphicsStore';
 import {useShaderGate} from './ShaderGate';
-import {ambientInvalidate,cameraInvalidate,staticFrameEnabled} from '../../game/staticFrame';
+import {ambientInvalidate,cameraInvalidate,frameLog,staticFrameEnabled} from '../../game/staticFrame';
 
 /** Opt-in phone diagnostic (?diagnostico=1). One tap measures the current view
  * with parts of the frame switched off in turn, so a single screenshot shows
@@ -69,6 +69,8 @@ export default function Diagnostic(){
  const run=useRef<{variant:number;phase:'settle'|'sample';since:number;frames:number[];cpu:number[];last:number;rows:Row[];undo:()=>void}|null>(null);
  // Processor time of each frame: every frame callback plus the render.
  const frameStart=useRef(0);
+ // Slow frames while playing: how long, what kind of frame, what asked for it.
+ const slow=useRef<{at:number;ms:number;cpu:number;text:string}[]>([]),previous=useRef<{start:number;cpu:number;text:string}|null>(null),shown=useRef({rows:[] as Row[],status:'',count:0,at:0});
  const show=useRef<(rows:Row[],status:string)=>void>(()=>{});
  const variants=useRef<Variant[]>([]);
  variants.current=[
@@ -118,7 +120,20 @@ export default function Diagnostic(){
     button.onclick=()=>{run.current={variant:0,phase:'settle',since:performance.now(),frames:[],cpu:[],last:0,rows:[],undo:variants.current[0].apply()};render([],'Medindo… não toque na tela.');invalidate();};
     line.append(button);
    }
-   box.append(line);root.append(box);
+   box.append(line);
+   const recent=slow.current.slice(-8).reverse();
+   if(!run.current){
+    const list=document.createElement('div');list.style.cssText='margin-top:6px;font-variant-numeric:tabular-nums;word-break:break-all';
+    const since=(at:number)=>`${((performance.now()-at)/1000).toFixed(0)} s atrás`;
+    const tasks=(window.ecoLongTasks??[]).filter(t=>t.start>opening&&t.duration>=80).slice(-4).reverse();
+    list.textContent='';
+    const title=document.createElement('div');title.style.fontWeight='600';title.textContent=`Quadros lentos jogando (${slow.current.length}):`;list.append(title);
+    for(const f of recent){const d=document.createElement('div');d.textContent=`${since(f.at)} · ${f.ms.toFixed(0)} ms (cpu ${f.cpu.toFixed(0)}) · ${f.text}`;list.append(d);}
+    if(tasks.length){const d=document.createElement('div');d.textContent='Travadas: '+tasks.map(t=>`${since(t.start)} ${t.duration.toFixed(0)} ms`).join(' · ');list.append(d);}
+    box.append(list);
+   }
+   root.append(box);
+   shown.current={rows,status,count:slow.current.length,at:performance.now()};
   };
   show.current=render;
   render([],'Deixe a cidade parada na vista que quer medir e toque no botão.');
@@ -148,7 +163,23 @@ export default function Diagnostic(){
    show.current(rows,'Pronto. Tire um print desta tela.');
   }
  },-100);
- useFrame(()=>{frameStart.current=performance.now();},-1000);
- useFrame(()=>{const r=run.current;if(r?.phase==='sample')r.cpu.push(performance.now()-frameStart.current);},1000);
+ useFrame(()=>{
+  const now=performance.now(),p=previous.current;
+  // A frame that ended well after it began, but not an idle pause between
+  // demand frames: record it with what that frame was.
+  if(p&&!run.current&&now-p.start>=40&&now-p.start<2000){
+   slow.current.push({at:now,ms:now-p.start,cpu:p.cpu,text:p.text});
+   if(slow.current.length>200)slow.current.shift();
+  }
+  frameStart.current=now;
+  const s=shown.current;
+  if(!run.current&&s.count!==slow.current.length&&now-s.at>1000)show.current(s.rows,s.status);
+ },-1000);
+ useFrame(()=>{
+  const now=performance.now(),r=run.current,cpu=now-frameStart.current;
+  if(r?.phase==='sample')r.cpu.push(cpu);
+  const f=frameLog[frameLog.length-1];
+  previous.current={start:frameStart.current,cpu,text:f?`${f.kind}${f.strips?` ${f.strips} faixa${f.strips>1?'s':''}`:''}${f.cause?` · ${f.cause}`:''}`:''};
+ },1000);
  return null;
 }

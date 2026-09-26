@@ -28,6 +28,8 @@ export const staticFrameEnabled=params.get('cache')!=='0'&&(params.get('benchmar
 // ?mover=0 keeps the still-frame cache but draws every moving frame completely.
 const movingEnabled=params.get('mover')!=='0';
 const ambientLayer=31,debug=params.has('cacheDebug');
+// The phone diagnostic (?diagnostico=1) lists what made each slow frame.
+const trace=debug||params.get('diagnostico')==='1';
 /** Time without camera motion, with no finger on the map, before the sharp frame. */
 const settleMs=180;
 /** Share of the screen drawn anew above which a moving frame is drawn completely. */
@@ -45,7 +47,11 @@ function isAmbient(o:Object3D){
  return !!(o as Mesh).isMesh&&!!m&&(Array.isArray(m)?m.some(isAmbientMaterial):isAmbientMaterial(m));
 }
 
-let quiet=false,dirty=true;
+let quiet=false,dirty=true,cause='';
+/** Where a request came from: file:line:column of the first callers. */
+const caller=()=>(new Error().stack??'').split('\n').slice(3,6).map(l=>(l.match(/([^/\s(]+:\d+:\d+)\)?\s*$/)?.[1]??l.trim())).join(' < ');
+/** The last frames: complete, moved, still (water only) or held, and why. */
+export const frameLog:{at:number;kind:'completo'|'movendo'|'parado'|'mantido';cause:string;strips:number}[]=[];
 /** Frames drawn completely, from the kept frame, or moved, and why frames were redrawn. */
 export const staticFrameStats={full:0,reused:0,moved:0,strips:0,drawMs:0,moveMs:0,reasons:{} as Record<string,number>,last:null as unknown};
 // ?cacheDebug exposes the counters for measurements in ordinary games.
@@ -55,7 +61,10 @@ const reason=(r:string)=>{staticFrameStats.reasons[r]=(staticFrameStats.reasons[
  * except the ambient animation's and the map navigation's own requests. */
 export function trackInvalidate<T extends (...args:never[])=>void>(invalidate:T):T{
  return ((...args:never[])=>{
-  if(!quiet){dirty=true;if(debug)reason(new Error().stack?.split('\n').slice(2,5).map(l=>l.trim()).join(' < ')??'?');}
+  if(!quiet){
+   if(trace&&!dirty)cause=caller();
+   dirty=true;if(debug)reason(caller());
+  }
   invalidate(...args);
  }) as T;
 }
@@ -66,7 +75,7 @@ export const ambientInvalidate=quietly;
 export const cameraInvalidate=quietly;
 /** Request a frame to measure what is on screen, without redrawing the city. */
 export const measureInvalidate=quietly;
-export function markStaticFrameDirty(){dirty=true;}
+export function markStaticFrameDirty(){if(trace&&!dirty)cause=caller();dirty=true;}
 /** Whether something besides the camera and water changed since the last frame. */
 export const staticFrameDirty=()=>dirty;
 
@@ -278,9 +287,10 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
    // Three leaves needsUpdate set while shadows are off; only a live shadow
    // map needs a complete frame.
    const shadowRefresh=gl.shadowMap.enabled&&(gl.shadowMap.needsUpdate||gl.shadowMap.autoUpdate);
-   const requested=dirty,steady=!requested&&!shadowRefresh&&!scene.overrideMaterial;
+   const requested=dirty,requestCause=cause,strips0=staticFrameStats.strips,steady=!requested&&!shadowRefresh&&!scene.overrideMaterial;
    // Requests made while this frame is drawn are for the next one.
-   dirty=false;
+   dirty=false;cause='';
+   const log=(kind:typeof frameLog[number]['kind'],why='')=>{if(!trace)return;frameLog.push({at:performance.now(),kind,cause:why,strips:0});if(frameLog.length>60)frameLog.shift();};
    const reuse=steady&&last.valid&&!moving&&cameraSame&&ambient>0;
    const autoClear=gl.autoClear,layers=camera.layers.mask,previous=gl.getRenderTarget();
    let presentFrom:WebGLFramebuffer|null=null,presentMoved=false;
@@ -291,19 +301,19 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
     frame.width=width;frame.height=height;
     gl.setRenderTarget(frame);
     if(reuse){
-     staticFrameStats.reused++;
+     staticFrameStats.reused++;log('parado');
      // Only the animated surfaces, in three's usual order: opaque, then blended.
      gl.autoClear=false;camera.layers.set(ambientLayer);scene.userData.dynamicPass=true;
      gl.render(scene,camera);
      presentFrom=resolved();
     }else if(steady&&moving&&cameraSame){
      // Still between moves (water ticks): the moved image stays on screen.
-     staticFrameStats.moved++;presentMoved=true;
+     staticFrameStats.moved++;presentMoved=true;log('mantido');
     }else if(movingEnabled&&steady&&(last.valid||moving)&&!cameraSame&&timed(()=>move(scene,camera,cameraView,width,height,draw))){
-     staticFrameStats.moved++;presentMoved=true;last.valid=false;arm();
+     staticFrameStats.moved++;presentMoved=true;last.valid=false;arm();log('movendo');
     }else{
      reason(!last.valid&&!moving?'first':requested?'requested':!cameraSame?'camera':shadowRefresh?'shadows':scene.overrideMaterial?'override':'no-water');
-     staticFrameStats.full++;
+     staticFrameStats.full++;log('completo',requested?requestCause:!last.valid&&!moving?'primeiro':!cameraSame?'câmera':shadowRefresh?'sombra':'outro');
      clearTimeout(settle);moving=false;
      ambient=0;
      scene.traverse(o=>{
@@ -314,6 +324,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      presentFrom=resolved();
     }
     if(presentMoved)show(display,width,height);else blit(presentFrom,null,whole(width,height),whole(width,height));
+    if(trace&&frameLog.length)frameLog[frameLog.length-1].strips=staticFrameStats.strips-strips0;
    }finally{
     camera.layers.mask=layers;gl.autoClear=autoClear;scene.userData.dynamicPass=false;
     frame.width=frameWidth;frame.height=frameHeight;
