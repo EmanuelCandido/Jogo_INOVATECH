@@ -41,5 +41,5 @@ export function ReferenceWater({channel=false,polluted=false,fall=false,mouth=-6
    normal=normalize(abs(det)*normal-.003*sign(det)*(dFdx(height)*rx+dFdy(height)*ry));
   `);
  },[channel,fall,waterEffects,mouth]);
- return <meshStandardMaterial ref={material} color={fall?'#70cddc':polluted||restoration?'#477b7b':channel?'#27b6d0':'#168eaf'} transparent={channel} depthWrite={!channel} roughness={.76} metalness={0} side={2} onBeforeCompile={compile} customProgramCacheKey={()=>`valley-water-3-${channel}-${fall}-${waterEffects}-${mouth}`}/>;
+ return <meshStandardMaterial ref={material} color={fall?'#70cddc':polluted||restoration?'#477b7b':channel?'#27b6d0':'#168eaf'} transparent={channel} depthWrite={!channel} roughness={.76} metalness={0} side={2} onBeforeCompile={compile} customProgramCacheKey={()=>`valley-water-3-${channel}-${fall}-${waterEffects}-${mouth}`} userData={{ambient:true}}/>;
 }

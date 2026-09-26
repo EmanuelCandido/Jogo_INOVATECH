@@ -1,0 +1,48 @@
+{
+  "stage": "baseline-mobile-high",
+  "quality": "HIGH",
+  "date": "2026-09-26T17:19:59.380Z",
+  "benchReady": 31518,
+  "sceneReady": 72790,
+  "results": [
+    {
+      "name": "overview",
+      "calls": 440,
+      "triangles": 2083011,
+      "width": 630,
+      "height": 1400,
+      "zoom": 7.244135788289891,
+      "tier": "HIGH"
+    },
+    {
+      "name": "centre",
+      "calls": 397,
+      "triangles": 1285863,
+      "width": 630,
+      "height": 1400,
+      "zoom": 12,
+      "frameP50": 12.399999999906868,
+      "tier": "HIGH"
+    },
+    {
+      "name": "forest",
+      "calls": 294,
+      "triangles": 1044910,
+      "width": 630,
+      "height": 1400,
+      "zoom": 11,
+      "frameP50": 18.400000000023283,
+      "tier": "HIGH"
+    },
+    {
+      "name": "river",
+      "calls": 278,
+      "triangles": 1194110,
+      "width": 630,
+      "height": 1400,
+      "zoom": 10,
+      "tier": "HIGH"
+    }
+  ],
+  "errors": []
+}

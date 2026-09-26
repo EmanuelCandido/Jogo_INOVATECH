@@ -10,11 +10,17 @@ import { ShadowCache } from "../components/city/ShadowCache";
 import {InstanceCulling} from '../components/city/InstanceCulling';
 import {ShaderWarmup} from '../components/city/ShaderWarmup';
 import {DepthPrepass} from '../components/city/DepthPrepass';
+import {MotionResolution} from '../components/city/MotionResolution';
+import {ShaderGate} from '../components/city/ShaderGate';
+import {LiveFrameRate} from '../components/city/LiveFrameRate';
 import {ResolutionDirector} from '../components/city/ResolutionScene';
 import {lazy,Suspense,useRef} from 'react';
+import {staticFrameEnabled,trackInvalidate} from '../game/staticFrame';
 import type {DirectionalLight} from 'three';
 const Benchmark=lazy(()=>import('../components/city/Benchmark'));
+const Diagnostic=lazy(()=>import('../components/city/Diagnostic'));
 const benchmarking=new URLSearchParams(location.search).get('benchmark')==='1';
+const diagnosing=new URLSearchParams(location.search).get('diagnostico')==='1';
 export default function World({ onReady, interactive }: { onReady: () => void; interactive: boolean }) {
   const q=useResolvedGraphics();
   const sun=useRef<DirectionalLight>(null);
@@ -31,9 +37,11 @@ export default function World({ onReady, interactive }: { onReady: () => void; i
         near: 0.1,
         far: 850,
       }}
-      gl={{ antialias: true, alpha: false }}
-      onCreated={({ gl }) => {
+      gl={{ antialias: !staticFrameEnabled, alpha: false }}
+      onCreated={({ gl, set, invalidate }) => {
         gl.setClearColor("#dcebee", 1);
+        // Frames requested by anything but the water animation redraw the city.
+        if (staticFrameEnabled) set({ invalidate: trackInvalidate(invalidate) });
       }}
     >
       <hemisphereLight args={["#e4f1ff", "#b1ad94", 1.25]} />
@@ -57,14 +65,18 @@ export default function World({ onReady, interactive }: { onReady: () => void; i
       <CameraRig interactive={interactive} />
       <ResolutionDirector interactive={interactive}/>
       <GraphicsRuntime ready={interactive}/>
+      <MotionResolution/>
+      <LiveFrameRate/>
       <AmbientFrames/>
       <City interactive={interactive} />
       <ShadowCache light={sun}/>
       <InstanceCulling/>
       <DepthPrepass/>
       <ShaderWarmup ready={interactive}/>
+      <ShaderGate/>
       <SceneReady onReady={onReady} />
       {benchmarking&&<Suspense fallback={null}><Benchmark/></Suspense>}
+      {diagnosing&&<Suspense fallback={null}><Diagnostic/></Suspense>}
     </Canvas>
   );
 }

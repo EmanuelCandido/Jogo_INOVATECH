@@ -17,12 +17,14 @@
     "assets:compress": "node scripts/compress-models.mjs",
     "audio:render": "node scripts/render-audio.mjs",
     "assets:build": "powershell -ExecutionPolicy Bypass -File scripts/build-assets.ps1",
-    "prebuild": "node scripts/generate-reference-layout.mjs",
-    "predev": "node scripts/generate-reference-layout.mjs"
+    "prebuild": "node scripts/generate-reference-layout.mjs && node scripts/generate-city-surfaces.mjs",
+    "predev": "node scripts/generate-reference-layout.mjs && node scripts/generate-city-surfaces.mjs",
+    "surfaces:build": "node scripts/generate-city-surfaces.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.0",
     "@react-three/fiber": "^9.3.0",
+    "meshoptimizer": "^1.3.0",
     "polygon-clipping": "0.15.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -38,7 +40,6 @@
     "@types/react-dom": "^19.1.0",
     "@types/three": "^0.180.0",
     "@vitejs/plugin-react": "^5.0.0",
-    "meshoptimizer": "^1.3.0",
     "sharp": "^0.35.4",
     "typescript": "~5.9.2",
     "vite": "^7.1.0",

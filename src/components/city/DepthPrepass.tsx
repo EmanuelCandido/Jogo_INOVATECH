@@ -1,5 +1,5 @@
-import {useEffect,useLayoutEffect,useRef} from 'react';
-import {useFrame,useThree} from '@react-three/fiber';
+import {useEffect,useLayoutEffect,useMemo,useRef} from 'react';
+import {useFrame,useStore,useThree} from '@react-three/fiber';
 import {useProgress} from '@react-three/drei';
 import {Matrix4} from 'three';
 import {depthFrameRenderer} from '../../game/depthPrepass';
@@ -7,6 +7,8 @@ import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {pausePreparation,preparationActivity,preparationPending,preparationRunning} from '../../game/resourcePreparation';
 import {useGame} from '../../stores/gameStore';
 import {shaderCompilationPending} from '../../game/shaderWarmup';
+import {shaderGatePending} from './ShaderGate';
+import {createStaticFrame,markStaticFrameDirty,staticFrameEnabled} from '../../game/staticFrame';
 
 // Candidate deferred while weak-device GPU work has priority. Ordinary games
 // retain the verified Ultra path; calibration requires an explicit audit URL.
@@ -21,9 +23,22 @@ export function DepthPrepass(){
   pausePreparation(gl.domElement,frame,false);frame.automatic=calibrationTrial;frame.selection.reset();frame.enabled=q.tier==='ULTRA'&&(!calibrationTrial||frame.selection.preferred);invalidate();
  },[gl,frame,q.tier,q.renderScale,q.shadowSize,size.width,size.height,invalidate]);
  useEffect(()=>()=>{pausePreparation(gl.domElement,frame,false);frame.dispose();},[gl,frame]);
+ const cached=useMemo(()=>staticFrameEnabled?createStaticFrame(gl):null,[gl]);
+ useEffect(()=>()=>cached?.dispose(),[cached]);
+ // Any change to the renderer's store (size, pixel ratio, camera) redraws the city.
+ const store=useStore();
+ useEffect(()=>store.subscribe(markStaticFrameDirty),[store]);
+ const draw=(s:typeof scene,c:typeof camera)=>{
+  if(!cached){frame.render(s,c);return;}
+  // Mission transitions animate colours inside useFrame without requesting frames.
+  if(useGame.getState().resolution)markStaticFrameDirty();
+  cached.render(s,c,(a,b)=>frame.render(a,b));
+ };
  // Own only the final render; animation/navigation keep their existing frame order.
  useFrame(()=>{
-  if(!calibrationTrial){frame.render(scene,camera);return;}
+  // Nothing is drawn under the loading screen until the city is complete.
+  if(shaderGatePending())return;
+  if(!calibrationTrial){draw(scene,camera);return;}
   const p=previous.current;
   if(p.width!==gl.domElement.width||p.height!==gl.domElement.height){
    p.width=gl.domElement.width;p.height=gl.domElement.height;frame.selection.reset();
@@ -46,7 +61,7 @@ export function DepthPrepass(){
    if(eligible&&!frame.selection.complete)invalidate();
   }else pausePreparation(gl.domElement,frame,false);
   if(frame.selection.complete)pausePreparation(gl.domElement,frame,false);
-  frame.render(scene,camera);
+  draw(scene,camera);
  },1);
  return null;
 }

@@ -72,6 +72,13 @@
     </section>
     <div id="root"></div>
     <script>
+      // ?diagnostico=1 only: main-thread stalls during the opening, for the phone report.
+      if (/[?&]diagnostico=1/.test(location.search) && window.PerformanceObserver) {
+        window.ecoLongTasks = [];
+        try { new PerformanceObserver(function (list) { list.getEntries().forEach(function (e) { window.ecoLongTasks.push({ start: e.startTime, duration: e.duration }); }); }).observe({ type: 'longtask', buffered: true }); } catch (e) {}
+      }
+    </script>
+    <script>
       // A failed game bundle cannot mount React's error boundary.
       window.addEventListener('error', function (event) {
         if (event.target instanceof HTMLScriptElement && event.target.type === 'module') {

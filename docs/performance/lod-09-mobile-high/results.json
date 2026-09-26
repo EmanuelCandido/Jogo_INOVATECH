@@ -1,0 +1,221 @@
+{
+  "quality": "HIGH",
+  "variants": {
+    "full": {
+      "overview": {
+        "calls": 440,
+        "triangles": 2083028,
+        "pixelRatio": 1.75,
+        "zoom": 7.244135788289891
+      },
+      "centre": {
+        "calls": 397,
+        "triangles": 1238514,
+        "pixelRatio": 1.75,
+        "zoom": 12.315030840092815
+      },
+      "forest": {
+        "calls": 296,
+        "triangles": 1060871,
+        "pixelRatio": 1.75,
+        "zoom": 10.866203682434836
+      },
+      "close": {
+        "calls": 205,
+        "triangles": 548288,
+        "pixelRatio": 1.75,
+        "zoom": 25.35447525901462
+      }
+    },
+    "lod": {
+      "overview": {
+        "calls": 440,
+        "triangles": 1290460,
+        "pixelRatio": 1.75,
+        "zoom": 7.244135788289891,
+        "top": [
+          {
+            "name": "",
+            "material": "",
+            "model": "",
+            "instances": 1,
+            "triangles": 192226
+          },
+          {
+            "name": "",
+            "material": "eco.oakleaf",
+            "model": "/assets/models/tree-oak.glb",
+            "instances": 164,
+            "triangles": 52480
+          },
+          {
+            "name": "",
+            "material": "eco.trunk",
+            "model": "/assets/models/tree-oak.glb",
+            "instances": 160,
+            "triangles": 45760
+          },
+          {
+            "name": "",
+            "material": "",
+            "model": "",
+            "instances": 1,
+            "triangles": 40924
+          },
+          {
+            "name": "details-box",
+            "material": "",
+            "model": "",
+            "instances": 378,
+            "triangles": 40824
+          },
+          {
+            "name": "details-leaf",
+            "material": "",
+            "model": "",
+            "instances": 211,
+            "triangles": 35448
+          },
+          {
+            "name": "",
+            "material": "eco.leaflight",
+            "model": "/assets/models/tree-oak.glb",
+            "instances": 156,
+            "triangles": 33696
+          },
+          {
+            "name": "",
+            "material": "eco.roofdeck",
+            "model": "/assets/models/road-deck-module.glb",
+            "instances": 298,
+            "triangles": 30992
+          },
+          {
+            "name": "",
+            "material": "",
+            "model": "",
+            "instances": 1,
+            "triangles": 25787
+          },
+          {
+            "name": "",
+            "material": "eco.leaf",
+            "model": "/assets/models/tree-thicket.glb",
+            "instances": 68,
+            "triangles": 21760
+          },
+          {
+            "name": "details-cylinder",
+            "material": "",
+            "model": "",
+            "instances": 527,
+            "triangles": 21080
+          },
+          {
+            "name": "",
+            "material": "eco.white",
+            "model": "/assets/models/house-cream.glb",
+            "instances": 4,
+            "triangles": 19408
+          },
+          {
+            "name": "details-leaf",
+            "material": "",
+            "model": "",
+            "instances": 111,
+            "triangles": 18648
+          },
+          {
+            "name": "",
+            "material": "eco.firleaf",
+            "model": "/assets/models/tree-fir.glb",
+            "instances": 99,
+            "triangles": 17622
+          },
+          {
+            "name": "",
+            "material": "eco.teal",
+            "model": "/assets/models/townhouse-sage.glb",
+            "instances": 2,
+            "triangles": 17216
+          },
+          {
+            "name": "",
+            "material": "eco.leaflight",
+            "model": "/assets/models/tree-birch.glb",
+            "instances": 43,
+            "triangles": 17200
+          },
+          {
+            "name": "",
+            "material": "eco.white",
+            "model": "/assets/models/house-terrace.glb",
+            "instances": 3,
+            "triangles": 16500
+          },
+          {
+            "name": "",
+            "material": "eco.flower",
+            "model": "/assets/models/tree-blossom.glb",
+            "instances": 36,
+            "triangles": 14400
+          },
+          {
+            "name": "",
+            "material": "eco.stone",
+            "model": "/assets/models/road-deck-module.glb",
+            "instances": 299,
+            "triangles": 14352
+          },
+          {
+            "name": "",
+            "material": "eco.white",
+            "model": "/assets/models/townhouse-sage.glb",
+            "instances": 2,
+            "triangles": 13992
+          }
+        ]
+      },
+      "centre": {
+        "calls": 397,
+        "triangles": 792990,
+        "pixelRatio": 1.75,
+        "zoom": 12.315030840092815
+      },
+      "forest": {
+        "calls": 296,
+        "triangles": 828307,
+        "pixelRatio": 1.75,
+        "zoom": 10.866203682434836
+      },
+      "close": {
+        "calls": 205,
+        "triangles": 476489,
+        "pixelRatio": 1.75,
+        "zoom": 25.35447525901462
+      }
+    }
+  },
+  "diff": {
+    "overview": {
+      "over": 3534,
+      "share": 0.307,
+      "meanAbs": 0.269
+    },
+    "centre": {
+      "over": 4474,
+      "share": 0.388,
+      "meanAbs": 0.306
+    },
+    "forest": {
+      "over": 1711,
+      "share": 0.149,
+      "meanAbs": 0.13
+    },
+    "close": {
+      "over": 1170,
+      "share": 0.102,
+      "meanAbs": 0.08
+    }
+  }
+}
