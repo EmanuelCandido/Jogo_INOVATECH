@@ -66,6 +66,14 @@ Esses quadros completos vinham do medidor de "Mostrar desempenho" (`GraphicsRunt
 
 Para o arrastar, a imagem guardada tem 64 pixels de folga em volta da tela. Quando falta imagem, as faixas são desenhadas à frente do movimento: duas vezes o deslocamento do quadro, no mínimo 12 pixels. Assim, um arrasto de 6 pixels por quadro desenha uma faixa a cada 3 quadros (10 faixas em 30 quadros), e os outros quadros só deslocam a imagem. O zoom também aproveita a folga. No navegador de testes, arrastos lentos, rápidos e na diagonal ficam alinhados com o quadro completo (só pixels de borda por causa do meio pixel), e o quadro final continua igual.
 
+## Sexta medição: quedas entre um arrasto e outro
+
+No Redmi 14C, com sombras: arrastando 58,7 FPS, parada 52,6, zoom 48,3, mas o FPS ainda caía em alguns momentos só no celular. A lista "Quadros lentos jogando" mostrou faixas e quadros parados com 60 a 210 ms de processador e travadas de 80 a 240 ms, além de quadros completos pedidos pelo `SceneReady`.
+
+A causa era o preparo em segundo plano das próximas missões: baixar e decodificar os modelos dos resultados futuros e compilar seus sombreadores. Ele esperava só 500 ms sem gesto, então rodava na pausa entre dois arrastos. O Redmi 14C não compila sombreadores em paralelo, e cada modelo ou sombreador trava a tela de 100 a 250 ms. Cada modelo carregado ainda fazia o `SceneReady` pedir um quadro completo, embora esses modelos não estejam na cena.
+
+Agora esse preparo opcional só começa depois de 2,5 s sem tocar na tela e sem gesto segurado (`optionalQuietMs`), e o `SceneReady` pede quadro só no primeiro sinal de pronto. No navegador de testes, 8 arrastos com 0,9 s de pausa entre eles tiveram só os 8 quadros completos de fim de gesto, e o preparo começou cerca de 2,5 s depois do último toque.
+
 ## O que falta medir no Redmi 14C
 
 Nada aqui prova 60 fps no celular. É preciso abrir a versão de teste no Redmi 14C, em Alto, com "Mostrar desempenho" ligado, e anotar o FPS parado e arrastando no panorama, no centro e na floresta. Com esses números decidimos a próxima etapa (folhas pré-calculadas, custo das sombras ou da água).

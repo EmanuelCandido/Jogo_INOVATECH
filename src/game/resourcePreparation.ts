@@ -2,8 +2,15 @@
  * when no new pointer/key event arrives; release starts a short quiet period. */
 export function createPreparationActivity(now=()=>performance.now()){
  const holds=new Set<object>();let last=-Infinity;
- return {touch(){last=now();},hold(owner:object){holds.add(owner);last=now();},release(owner:object){if(holds.delete(owner))last=now();},busy(){return holds.size>0||now()-last<500;}};
+ return {touch(){last=now();},hold(owner:object){holds.add(owner);last=now();},release(owner:object){if(holds.delete(owner))last=now();},busy(){return holds.size>0||now()-last<500;},
+  /** No gesture held and none for `ms`. */
+  idleFor(ms:number){return holds.size===0&&now()-last>=ms;}};
 }
+/** Quiet time before optional downloads and shader compiles for future scenes.
+ * One unit can block a weak phone for 100–250 ms (no parallel compilation,
+ * model decoding on the main thread), so it waits for a real pause instead of
+ * the gap between two drags. */
+export const optionalQuietMs=2500;
 const activities=new WeakMap<object,ReturnType<typeof createPreparationActivity>>();
 export function preparationActivity(target:object){
  let activity=activities.get(target);if(!activity){activity=createPreparationActivity();activities.set(target,activity);}return activity;
