@@ -23,10 +23,11 @@ export function DepthPrepass(){
   pausePreparation(gl.domElement,frame,false);frame.automatic=calibrationTrial;frame.selection.reset();frame.enabled=q.tier==='ULTRA'&&(!calibrationTrial||frame.selection.preferred);invalidate();
  },[gl,frame,q.tier,q.renderScale,q.shadowSize,size.width,size.height,invalidate]);
  useEffect(()=>()=>{pausePreparation(gl.domElement,frame,false);frame.dispose();},[gl,frame]);
- const cached=useMemo(()=>staticFrameEnabled?createStaticFrame(gl):null,[gl]);
+ const store=useStore();
+ // The sharp frame after a move is requested like any other change.
+ const cached=useMemo(()=>staticFrameEnabled?createStaticFrame(gl,()=>store.getState().invalidate()):null,[gl,store]);
  useEffect(()=>()=>cached?.dispose(),[cached]);
  // Any change to the renderer's store (size, pixel ratio, camera) redraws the city.
- const store=useStore();
  useEffect(()=>store.subscribe(markStaticFrameDirty),[store]);
  const draw=(s:typeof scene,c:typeof camera)=>{
   if(!cached){frame.render(s,c);return;}

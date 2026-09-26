@@ -2,6 +2,7 @@ import {useLayoutEffect} from 'react';
 import {useThree} from '@react-three/fiber';
 import {instanceVisibility} from '../../game/instanceVisibility';
 import {applyInstanceLod} from '../../game/instanceLod';
+import {cameraInvalidate} from '../../game/staticFrame';
 import type {OrthographicCamera} from 'three';
 
 export function InstanceCulling(){
@@ -33,7 +34,10 @@ export function InstanceCulling(){
    }
    // One complete draw on shadow-refresh frames preserves off-screen casters.
    // Resume camera compaction after the recovery draw, including demand mode.
-   if((refresh&&!gl.shadowMap.autoUpdate)||recovering||compacted)invalidate();
+   if((refresh&&!gl.shadowMap.autoUpdate)||recovering)invalidate();
+   // A new camera selection is already drawn in this frame. The follow-up
+   // frame only makes sure it is uploaded; the image itself did not change.
+   else if(compacted)cameraInvalidate(invalidate);
   };
   return()=>{scene.onBeforeRender=previous;};
  },[scene,gl,invalidate]);

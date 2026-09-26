@@ -6,6 +6,7 @@ import { clampTarget, clampZoom, mapFootprint } from "./mapNavigation";
 import { overview } from "../config/world";
 import {frameTask} from './frameTask';
 import {preparationActivity} from './resourcePreparation';
+import {cameraInvalidate} from './staticFrame';
 
 const arrowDirections:Record<string,readonly [number,number]>={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,1],ArrowDown:[0,-1]};
 const discreteKeys:Record<string,MapCommand>={'+':'in','=':'in','-':'out',Home:'reset'};
@@ -23,12 +24,12 @@ export function useMapNavigation(enabled: boolean, baseZoom: number, target: Ref
     const [x,z]=clampTarget(target.current.x+delta.x,target.current.z+delta.z,mapFootprint(cam.zoom,cam.right-cam.left,cam.top-cam.bottom));
     const shift=scratch.current.shift.set(x-target.current.x,0,z-target.current.z);
     if(shift.lengthSq()>0)activity.touch();
-    camera.position.add(shift);target.current.add(shift);invalidate();
+    camera.position.add(shift);target.current.add(shift);cameraInvalidate(invalidate);
   },[camera,cam,target,invalidate,activity]);
   const zoom=useCallback((factor:number)=>{
     activity.touch();
     cam.zoom=baseZoom*clampZoom(cam.zoom/baseZoom*factor);
-    cam.updateProjectionMatrix();move(scratch.current.zero);report(cam.zoom/baseZoom,true);invalidate();
+    cam.updateProjectionMatrix();move(scratch.current.zero);report(cam.zoom/baseZoom,true);cameraInvalidate(invalidate);
   },[cam,baseZoom,report,invalidate,move,activity]);
   const pan=useCallback((x:number,y:number,distance:number)=>{
     const s=scratch.current;
@@ -46,7 +47,7 @@ export function useMapNavigation(enabled: boolean, baseZoom: number, target: Ref
     let x=0,y=0;
     for(const key of held.current){const direction=arrowDirections[key];x+=direction[0];y+=direction[1];}
     if(x||y)pan(x,y,30*seconds);
-    invalidate();
+    cameraInvalidate(invalidate);
   },-1);
   useEffect(()=>{report(enabled?cam.zoom/baseZoom:1,enabled);},[enabled,baseZoom,cam,report]);
   useEffect(()=>{
@@ -93,7 +94,7 @@ export function useMapNavigation(enabled: boolean, baseZoom: number, target: Ref
         e.preventDefault();
         if(e.repeat||held.current.has(e.key))return;
         updates.flush();if(!held.current.size)lastKeyFrame.current=performance.now();
-        held.current.add(e.key);activity.hold(held.current);pan(direction[0],direction[1],2.5);invalidate();return;
+        held.current.add(e.key);activity.hold(held.current);pan(direction[0],direction[1],2.5);cameraInvalidate(invalidate);return;
       }
       const command=discreteKeys[e.key];
       if(command){e.preventDefault();updates.flush();useMap.getState().send(command);}
