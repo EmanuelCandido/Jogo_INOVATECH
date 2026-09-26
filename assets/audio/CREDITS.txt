@@ -1,0 +1,9 @@
+Eco City — áudio
+
+music/theme.mp3, music/ambience.mp3, music/jingle.mp3
+  Trilha original do projeto, sintetizada com Web Audio a partir de
+  assets-source/audio/compose.js (npm run audio:render). Sem amostras de terceiros.
+
+sfx/*.mp3
+  UI SFX (https://uisfx.com), pacotes "organic" e "rubber".
+  Áudio sob CC0-1.0; biblioteca sob licença MIT (UISFX-LICENSE.txt).
