@@ -3,29 +3,23 @@ import {useEffect} from 'react';
 import {Html,useProgress} from '@react-three/drei';
 import {problems,categories} from '../../content/problems';
 import {useGame} from '../../stores/gameStore';
-import {situationVisuals,type VisualKey} from '../../config/situationVisuals';
-import {AssetBatch} from './AssetBatch';
+import {situationVisuals} from '../../config/situationVisuals';
+import {SituationScene,dumpCollectionTarget} from './ResolutionScene';
+import {situationVisualKey} from '../../game/situationState';
+export {situationVisualKey} from '../../game/situationState';
 import {preloadAsset} from '../Asset';
-import {DetailInstances} from '../environment/Landscape';
-import type {Progress} from '../../game/types';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {situationAnchors} from '../../config/referenceMap';
 import {useThree} from '@react-three/fiber';
 import {preparationActivity,schedulePreparation} from '../../game/resourcePreparation';
 export const situationPreloadStatus={pending:false};
-export function situationVisualKey(s:Progress,id:string):VisualKey{
- const state=s.problemStates[id];
- if(state==='SOLVED')return 'solved';
- if(state==='TEMPORARILY_SOLVED'||(state==='ACTIVE'&&s.decisions.findLast(d=>d.problemId===id)?.effectiveness==='TEMPORARY'))return 'temporary';
- return 'initial';
-}
 export function SituationLayers({interactive}:{interactive:boolean}){
  const gl=useThree(s=>s.gl);
  const {tier}=useResolvedGraphics();
  const s=useGame(v=>v.progress),select=useGame(v=>v.select),revisit=useGame(v=>v.revisit);
  useEffect(()=>{
   situationPreloadStatus.pending=true;
-  const ids=[...new Set(Object.values(situationVisuals).flatMap(states=>Object.values(states).flatMap(v=>v.assets.map(a=>a.asset))))];
+  const ids=[...new Set(['prop.cleanupTruck',...Object.values(situationVisuals).flatMap(states=>Object.values(states).flatMap(v=>v.assets.map(a=>a.asset)))])];
   let index=0;const activity=preparationActivity(gl.domElement);
   const job=schedulePreparation(gl.domElement,'models',()=>{
    // Visible loads and interaction have priority; retain every future outcome.
@@ -36,9 +30,9 @@ export function SituationLayers({interactive}:{interactive:boolean}){
  },[tier,gl]);
  return <group name="Situações da cidade">
   {problems.map(p=>{
-   const state=s.problemStates[p.id],key=situationVisualKey(s,p.id),v=p.id==='pollution_02'?trafficSituation[key]:situationVisuals[p.id][key],category=categories[p.category];
+   const state=s.problemStates[p.id],key=situationVisualKey(s,p.id),states=p.id==='pollution_02'?trafficSituation:situationVisuals[p.id],category=categories[p.category];
    return <group key={p.id} name={p.id} userData={{problem:p.id,state,visualState:key}}>
-    <group position={p.worldPosition} rotation={[0,situationAnchors[p.id].yaw??0,0]}><AssetBatch placements={v.assets}/><DetailInstances details={v.details}/></group>
+    <group position={p.worldPosition} rotation={[0,situationAnchors[p.id].yaw??0,0]}><SituationScene problemId={p.id} states={states} collection={p.id==='pollution_01'?dumpCollectionTarget:undefined}/></group>
     {s.phase==='OVERVIEW'&&['AVAILABLE','TEMPORARILY_SOLVED'].includes(state)&&<Html position={p.markerPosition} center zIndexRange={[20,10]}>
      <button className={'marker '+category.shape} style={{'--marker-color':category.color} as React.CSSProperties}
       onClick={()=>state==='TEMPORARILY_SOLVED'?revisit(p.id):select(p.id)} disabled={!interactive} aria-label={'Analisar: '+p.title} data-problem={p.id} data-visual-state={key}>

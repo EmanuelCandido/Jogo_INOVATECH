@@ -1,11 +1,19 @@
-import {useMemo} from 'react';
+import {useMemo,useRef} from 'react';
 import type {MeshStandardMaterial} from 'three';
+import {Color} from 'three';
+import {useFrame} from '@react-three/fiber';
+import {useGame} from '../../stores/gameStore';
+import {resolutionEase,resolutionRange} from '../../game/resolution';
 import {useAmbientTime} from '../../game/useAmbientTime';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 
 /** No coastline constants from the former map: channel UVs provide real banks. */
 export function ReferenceWater({channel=false,polluted=false,fall=false,mouth=-65}:{channel?:boolean;polluted?:boolean;fall?:boolean;mouth?:number}){
  const {animate,waterEffects}=useResolvedGraphics(),time=useAmbientTime(animate);
+ const material=useRef<MeshStandardMaterial>(null);
+ const restoration=useGame(s=>mouth===-27&&s.resolution?.problemId==='health_01'?s.resolution:null);
+ const waterColors=useMemo(()=>({dirty:new Color('#477b7b'),clean:new Color('#27b6d0')}),[]);
+ useFrame(()=>{if(restoration&&material.current)material.current.color.copy(waterColors.dirty).lerp(waterColors.clean,restoration.to==='solved'?resolutionEase(resolutionRange(restoration.clock.value,.35,.88)):0);});
  const compile=useMemo(()=>(s:Parameters<MeshStandardMaterial['onBeforeCompile']>[0])=>{
   s.uniforms.valleyTime=time.current;
   s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 riverPoint;varying vec2 riverUV;').replace('#include <begin_vertex>','#include <begin_vertex>\nriverPoint=position;riverUV=uv;');
@@ -33,5 +41,5 @@ export function ReferenceWater({channel=false,polluted=false,fall=false,mouth=-6
    normal=normalize(abs(det)*normal-.003*sign(det)*(dFdx(height)*rx+dFdy(height)*ry));
   `);
  },[channel,fall,waterEffects,mouth]);
- return <meshStandardMaterial color={fall?'#70cddc':polluted?'#477b7b':channel?'#27b6d0':'#168eaf'} transparent={channel} depthWrite={!channel} roughness={.76} metalness={0} side={2} onBeforeCompile={compile} customProgramCacheKey={()=>`valley-water-3-${channel}-${fall}-${waterEffects}-${mouth}`}/>;
+ return <meshStandardMaterial ref={material} color={fall?'#70cddc':polluted||restoration?'#477b7b':channel?'#27b6d0':'#168eaf'} transparent={channel} depthWrite={!channel} roughness={.76} metalness={0} side={2} onBeforeCompile={compile} customProgramCacheKey={()=>`valley-water-3-${channel}-${fall}-${waterEffects}-${mouth}`}/>;
 }

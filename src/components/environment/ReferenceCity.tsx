@@ -8,10 +8,14 @@ import {industrialServiceFloor} from '../../config/industrialPaving';
 import {crossingApproachSurfaces,crossingSidewalks,crossingViaductSidewalks} from '../../config/crossingApproaches';
 import {circulationCrossings} from '../../config/circulationCrossings';
 import {stationGuardrails,stationPassengerFloors,stationSlabThickness} from '../../config/stationPerimeters';
-import {dumpSite,dumpScenery} from '../../config/dumpSite';
-import {situationVisualKey} from '../city/SituationLayers';
+import {dumpSite} from '../../config/dumpSite';
+import {situationVisualKey} from '../../game/situationState';
+import {SituationScene,CleanupTruck,dumpVisuals,dumpCollectionTarget} from '../city/ResolutionScene';
+import {resolutionEase,resolutionRange} from '../../game/resolution';
+import type {SituationVisual,VisualKey} from '../../config/situationVisuals';
 import {worldPoint,frontYaw,dumpDriveway,roadHeightAt,industrialAprons,streetLayout,atRoadJunction,riverCorridors,stationConcourses} from '../../config/referenceMap';
 import {useEffect,useMemo} from 'react';
+import {useFrame} from '@react-three/fiber';
 import {BufferGeometry,Color} from 'three';
 import {lineLength} from '../../config/spatial';
 import {roadHeightSampler} from '../../config/roadProfiles';
@@ -117,21 +121,31 @@ function createSurfaces(){
 }
 // This alias keeps geometry construction independent of React render state.
 import {terrainY as importHeight} from '../../config/referenceMap';
+const forestObjects=referenceAssets.filter(p=>p.asset==='prop.stump'||(p.asset==='prop.excavator'&&compositionPoint(p.position[0],p.position[2])[0]<40&&compositionPoint(p.position[0],p.position[2])[1]>65));
+const permanentAssets=referenceAssets.filter(p=>!forestObjects.includes(p));
+const forestInitial:SituationVisual={assets:forestObjects,details:[]};
+const forestVisuals:Record<VisualKey,SituationVisual>={initial:forestInitial,temporary:forestInitial,solved:{assets:forestObjects.filter(p=>p.asset==='prop.stump').map(p=>({...p,asset:'tree.oak',scale:[1,1,1]})),details:[]}};
+const smokeInitial:SituationVisual={assets:[],details:industrialSmoke()};
+const smokeVisuals:Record<VisualKey,SituationVisual>={initial:smokeInitial,temporary:smokeInitial,solved:{assets:[],details:industrialSmoke(true)}};
+const litterInitial:SituationVisual={assets:[],details:referenceLitter};
+const litterVisuals:Record<VisualKey,SituationVisual>={initial:litterInitial,temporary:litterInitial,solved:{assets:[],details:[]}};
 export function ReferenceCity(){
  const q=useResolvedGraphics(),surfaces=useMemo(createSurfaces,[]);
- const cleanAir=useGame(s=>s.progress.problemStates.health_02==='SOLVED'),cleanRiver=useGame(s=>s.progress.problemStates.health_01==='SOLVED');
+ const cleanRiver=useGame(s=>s.progress.problemStates.health_01==='SOLVED');
  const regrown=useGame(s=>s.progress.problemStates.nature_01==='SOLVED'),dumpStage=useGame(s=>situationVisualKey(s.progress,'pollution_01'));
- const assets=useMemo(()=>referenceAssets.filter(p=>{const [u,v]=compositionPoint(p.position[0],p.position[2]);return !(regrown&&p.asset==='prop.excavator'&&u<40&&v>65);}).map(p=>regrown&&p.asset==='prop.stump'?{...p,asset:'tree.oak',scale:[1,1,1] as [number,number,number]}:p),[regrown]);
+ const forestResolution=useGame(s=>s.resolution?.problemId==='nature_01'?s.resolution:null);
  const originalLandColors=useMemo(()=>new Float32Array(surfaces.land.getAttribute('color').array),[surfaces]);
- useEffect(()=>{const positions=surfaces.land.getAttribute('position'),colors=surfaces.land.getAttribute('color');
+ const recoveredLandColors=useMemo(()=>{const positions=surfaces.land.getAttribute('position'),recovered=new Float32Array(originalLandColors);
   for(let i=0;i<positions.count;i++){const [u,v]=compositionPoint(positions.getX(i),positions.getZ(i)),clearing=((u-17)/19)**2+((v-80)/11)**2;
-   const c=new Color().fromArray(originalLandColors,i*3);if(regrown)c.lerp(new Color('#92bd66'),Math.max(0,Math.min(1,(1.08-clearing)*5)));colors.setXYZ(i,c.r,c.g,c.b);
-  }colors.needsUpdate=true;
- },[regrown,surfaces,originalLandColors]);
+   const c=new Color().fromArray(originalLandColors,i*3);c.lerp(new Color('#92bd66'),Math.max(0,Math.min(1,(1.08-clearing)*5)));c.toArray(recovered,i*3);
+  }return recovered;
+ },[surfaces,originalLandColors]);
+ const applyLand=(amount:number)=>{const colors=surfaces.land.getAttribute('color');for(let i=0;i<originalLandColors.length;i++)colors.array[i]=originalLandColors[i]+(recoveredLandColors[i]-originalLandColors[i])*amount;colors.needsUpdate=true;};
+ useEffect(()=>{applyLand(forestResolution?0:regrown?1:0);},[regrown,forestResolution,surfaces,recoveredLandColors]);
+ useFrame(()=>{if(forestResolution)applyLand(forestResolution.to==='solved'?resolutionEase(resolutionRange(forestResolution.clock.value,.4,.88)):0);});
  const trees=useMemo(()=>referenceTrees.filter((_,i)=>keepDetail(i,q.forestDensity)),[q.forestDensity]);
  const traffic=useMemo(()=>[...referenceTraffic.filter(outsideTrafficSituation),...viaductTraffic].filter((_,i)=>keepDetail(i,q.traffic)),[q.traffic]);
  const visitors=useMemo(()=>referenceVisitorGroups.filter((_,i)=>keepDetail(i,q.visitors)).flat(),[q.visitors]);
- const smoke=useMemo(()=>industrialSmoke(cleanAir),[cleanAir]);
  const furnishing=useMemo(()=>[...referenceFurniture,...riversideAssets],[]);
  useEffect(()=>()=>{for(const [key,g]of Object.entries(surfaces))if(key!=='beach')g.dispose();},[surfaces]);
  return <group name='Cidade do vale — composição da referência'>
@@ -147,7 +161,8 @@ export function ReferenceCity(){
   <mesh geometry={surfaces.dumpAccess} receiveShadow><Surface id='asphalt.default'/></mesh>
   <mesh geometry={surfaces.service} receiveShadow><meshStandardMaterial color='#a2a599' roughness={1} side={2} onBeforeCompile={surfaceShader('concrete')}/></mesh>
   <mesh geometry={surfaces.safety} receiveShadow><meshStandardMaterial color='#ebc55b' roughness={1} side={2}/></mesh>
-  <group name='Lixão ambiental' userData={{stage:dumpStage}} position={worldPoint(...dumpSite.centre)} rotation={[0,frontYaw,0]}><AssetBatch placements={dumpScenery[dumpStage]}/></group>
+  <group name='Lixão ambiental' userData={{stage:dumpStage}} position={worldPoint(...dumpSite.centre)} rotation={[0,frontYaw,0]}><SituationScene problemId="pollution_01" states={dumpVisuals} collection={dumpCollectionTarget}/></group>
+  <CleanupTruck/>
   <mesh geometry={surfaces.walks} receiveShadow><Surface id='sidewalk.default'/></mesh>
   <mesh geometry={surfaces.sidewalks} receiveShadow><Surface id='sidewalk.default'/></mesh>
   <mesh geometry={surfaces.roads} receiveShadow><Surface id='asphalt.default'/></mesh>
@@ -157,12 +172,12 @@ export function ReferenceCity(){
   <mesh geometry={surfaces.edging} castShadow receiveShadow><meshStandardMaterial color='#d6d7be' side={2} onBeforeCompile={surfaceShader('concrete')}/></mesh>
   <mesh geometry={surfaces.railDeck} castShadow receiveShadow><Surface id='sidewalk.default'/></mesh>
   <mesh geometry={surfaces.railMetal} receiveShadow><meshStandardMaterial color='#65808a' metalness={.5} roughness={.4} side={2}/></mesh>
-  <AssetBatch placements={assets}/><AssetBatch placements={traffic}/>
+  <AssetBatch placements={permanentAssets}/><SituationScene problemId="nature_01" states={forestVisuals}/><AssetBatch placements={traffic}/>
   <AssetBatch placements={roadStructures}/>
   <AssetBatch placements={stationGuardrails}/>
   <TransportSigns/>
   <AssetBatch placements={furnishing}/><AssetBatch placements={trees} castShadow={q.shadows}/>
-  <DetailInstances details={referenceDetails}/><DetailInstances details={visitors}/><DetailInstances details={smoke}/>
-  {!cleanRiver&&<DetailInstances details={referenceLitter}/>}
+  <DetailInstances details={referenceDetails}/><DetailInstances details={visitors}/><SituationScene problemId="health_02" states={smokeVisuals}/>
+  <SituationScene problemId="health_01" states={litterVisuals}/>
  </group>;
 }

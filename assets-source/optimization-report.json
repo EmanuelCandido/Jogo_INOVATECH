@@ -684,24 +684,6 @@
     "meshes": 3
   },
   {
-    "name": "waste-bin.glb",
-    "before": 56500,
-    "after": 39108,
-    "meshes": 7
-  },
-  {
-    "name": "waste-partial.glb",
-    "before": 77748,
-    "after": 58448,
-    "meshes": 6
-  },
-  {
-    "name": "waste-pile.glb",
-    "before": 184972,
-    "after": 136944,
-    "meshes": 7
-  },
-  {
     "name": "water-treatment.glb",
     "before": 193556,
     "after": 129520,
@@ -912,18 +894,6 @@
     "meshes": 10
   },
   {
-    "name": "industrial-waste-low.glb",
-    "before": 110036,
-    "after": 80700,
-    "meshes": 6
-  },
-  {
-    "name": "industrial-waste.glb",
-    "before": 157180,
-    "after": 114700,
-    "meshes": 6
-  },
-  {
     "name": "industrial-works-low.glb",
     "before": 265744,
     "after": 186912,
@@ -1006,5 +976,65 @@
     "before": 12132,
     "after": 9080,
     "meshes": 1
+  },
+  {
+    "name": "cleanup-truck-low.glb",
+    "before": 82876,
+    "after": 61380,
+    "meshes": 9
+  },
+  {
+    "name": "cleanup-truck.glb",
+    "before": 84988,
+    "after": 62916,
+    "meshes": 9
+  },
+  {
+    "name": "waste-bin-low.glb",
+    "before": 34212,
+    "after": 26316,
+    "meshes": 5
+  },
+  {
+    "name": "waste-bin.glb",
+    "before": 35268,
+    "after": 27084,
+    "meshes": 5
+  },
+  {
+    "name": "waste-partial-low.glb",
+    "before": 50160,
+    "after": 38940,
+    "meshes": 6
+  },
+  {
+    "name": "waste-partial.glb",
+    "before": 72156,
+    "after": 56000,
+    "meshes": 6
+  },
+  {
+    "name": "waste-pile-low.glb",
+    "before": 115636,
+    "after": 87556,
+    "meshes": 9
+  },
+  {
+    "name": "waste-pile.glb",
+    "before": 164524,
+    "after": 125776,
+    "meshes": 9
+  },
+  {
+    "name": "industrial-waste-low.glb",
+    "before": 99984,
+    "after": 74064,
+    "meshes": 6
+  },
+  {
+    "name": "industrial-waste.glb",
+    "before": 140480,
+    "after": 103756,
+    "meshes": 6
   }
 ]

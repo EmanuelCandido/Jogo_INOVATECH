@@ -38,7 +38,7 @@ for (const reducedMotion of [false, true]) {
     expect(await read()).toMatchObject({phase: 'QUESTION', coins: saved.coins, decisions: []});
     if (isMobile) await first.tap();
     else { await first.focus(); await page.keyboard.press('Enter'); }
-    await expect(page.getByRole('region', {name: 'Resultado da decisão'})).toBeVisible();
+    await expect(page.getByRole('region', {name: 'Resultado da decisão'})).toBeVisible({timeout:20000});
     expect((await read()).decisions).toHaveLength(1);
   });
 }

@@ -11,7 +11,7 @@ import {CharacterStage} from './CharacterStage';
 import {ChoiceList} from '../choices/ChoiceList';
 import type {CharacterPose} from '../../game/types';
 export function DialogueStage({sceneReady}:{sceneReady:boolean}){
- const {progress:s,next,narrativeChoice,choose}=useGame(),panel=useRef<HTMLElement>(null);
+ const {progress:s,next,narrativeChoice,choose,resolution}=useGame(),panel=useRef<HTMLElement>(null);
  const tap=useRef<{id:number;x:number;y:number}|null>(null);
  const discardClick=useRef(false);
  const node=introNode(s),p=s.selectedProblem?problemById[s.selectedProblem]:null;
@@ -33,7 +33,8 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
   const image=new Image();image.src=character.poses[p.characterPose];
   void image.decode().catch(()=>{});
  },[s.phase,p,character]);
- useEffect(()=>{panel.current?.focus({preventScroll:true});panel.current?.scrollTo(0,0);},[s.phase,s.dialogueNodeId,s.selectedProblem]);
+ useEffect(()=>{panel.current?.focus({preventScroll:true});panel.current?.scrollTo(0,0);},[s.phase,s.dialogueNodeId,s.selectedProblem,resolution]);
+ if(resolution)return null;
  if(!['INTRO','COMMENT','CONTEXT','QUESTION','RESULT','TUTORIAL_QUESTION','TUTORIAL_RESULT'].includes(s.phase))return null;
  const advanceLabel=s.phase==='INTRO'?node.actionLabel:s.phase==='COMMENT'?'Entender a situação':s.phase==='CONTEXT'?dialogueCopy.contextAction:s.phase==='TUTORIAL_RESULT'?(answer?.effectiveness==='COMPLETE'?'Investigar a cidade':'Tentar novamente'):dialogueCopy.resultAction;
  return <div className={'narrative-stage '+(p?'problem-dialogue ':'')+(s.phase==='COMMENT'?'problem-arrival ':'')+(isQuestion?'has-choices ':'')+(result?'has-result ':'')+(canContinue?'can-continue':'')}

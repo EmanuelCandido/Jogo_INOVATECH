@@ -45,7 +45,8 @@ test('pergunta, custos e alternativas acessíveis sobre a cidade', async ({ page
   await expect(choices.first()).toBeEnabled({ timeout: 45000 });
   const menu = page.getByRole('button', { name: 'Configurações', exact: true });
   expect((await menu.boundingBox())!.width).toBeGreaterThanOrEqual(48);
-  expect(await menu.evaluate(el => parseFloat(getComputedStyle(el, '::before').width))).toBeGreaterThanOrEqual(48);
+  await expect(menu.locator('img')).toHaveCount(0);
+  expect(await menu.evaluate(el => getComputedStyle(el).backgroundImage)).toContain('gradient');
   expect((await page.locator('.balance').boundingBox())!.height).toBeGreaterThanOrEqual(44);
   expect((await page.locator('.balance .coin').boundingBox())!.width).toBeGreaterThanOrEqual(48);
   expect(await page.locator('.balance b').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(20);

@@ -85,6 +85,8 @@ from reference_landmarks import models as reference_landmarks
 asset_models.update(reference_landmarks(globals()))
 from industrial_waste import models as industrial_waste_models
 asset_models.update(industrial_waste_models(globals()))
+from waste_cleanup import models as waste_cleanup_models
+asset_models.update(waste_cleanup_models(globals()))
 from industrial_access import models as industrial_access_models
 asset_models.update(industrial_access_models(globals()))
 from road_structures import models as road_structure_models

@@ -1,0 +1,81 @@
+:root {
+  --hud-ease: cubic-bezier(.22, 1, .36, 1);
+  --hud-violet: linear-gradient(165deg, #861bf0 0%, #6504cb 58%, #5205ad 100%);
+  --hud-shadow: 0 4px 0 #380776, 0 8px 18px #210d4430;
+  --hud-light: #f7f5fc;
+}
+
+.hud-icon { display: block; flex-shrink: 0; width: 24px; height: 24px; pointer-events: none; }
+.hud-control { position: relative; display: grid; place-items: center; flex-shrink: 0; width: var(--control-size, 48px); height: var(--control-size, 48px); min-width: 44px; min-height: 44px; padding: 0; border: 1px solid #b26aff70; border-radius: 17px; color: #fff; background: var(--hud-violet); box-shadow: inset 0 2px 0 #ffffff55, var(--hud-shadow); transition: translate .18s var(--hud-ease), box-shadow .18s, filter .18s; }
+.hud-control .hud-icon { transition: transform .24s var(--hud-ease); }
+.hud-control-quiet { color: #70667e; background: linear-gradient(#f6f3fa, #eee8f5); border-color: #e4dceb; box-shadow: inset 0 2px 0 #fff, 0 3px 0 #d5ccdf; }
+.hud-control:active:enabled { translate: 0 3px; box-shadow: inset 0 1px 0 #ffffff33, 0 1px 0 #380776; }
+.hud-control-quiet:active:enabled { box-shadow: inset 0 1px 0 #fff, 0 1px 0 #d5ccdf; }
+.hud-control:disabled { opacity: .5; }
+.hud-control:focus-visible { outline: 3px solid #c792ff; outline-offset: 5px; }
+.panel-eyebrow { display: block; margin-bottom: 5px; color: #8c62ad; font-size: 9px; font-weight: 800; letter-spacing: 1.6px; line-height: 1.4; }
+.icon-button { --control-size: 56px; border-radius: 50%; }
+.round-close, .settings-close { --control-size: 44px; border-radius: 50%; }
+.mission-go { --control-size: 46px; border-radius: 14px; }
+.mission-symbol .hud-icon { width: 27px; height: 27px; }
+.mission-symbol.energy-idle, .is-done .mission-symbol { color: #fff; }
+.claim-button { display: inline-flex; align-items: center; justify-content: center; gap: 3px; min-height: 44px; }
+.claim-button .hud-icon { width: 15px; height: 15px; }
+
+.balance { background: var(--hud-violet); border: 1px solid #b26aff80; border-radius: 20px; box-shadow: inset 0 2px 0 #ffffff55, var(--hud-shadow); }
+.balance-value { display: block; animation: hud-number .35s var(--hud-ease); }
+.balance-change { position: absolute; z-index: 2; right: 12px; top: calc(100% + 7px); padding: 4px 9px; border: 1px solid #9be2c3; border-radius: 99px; color: #126e50; background: #e7fff1; box-shadow: 0 3px 8px #2311371a; font-size: 12px; font-weight: 900; pointer-events: none; animation: hud-delta 1.4s ease-out both; }
+.balance-change.is-spending { color: #774913; background: #fff2cf; border-color: #f2d990; }
+.header-actions { animation: hud-from-top .5s var(--hud-ease) both; }
+.journey-badge { animation: hud-from-right .5s var(--hud-ease) backwards; }
+.journey-badge:nth-child(2) { animation-delay: .08s; }
+.journey-badge-alert { animation: hud-reward .65s .4s var(--hud-ease) 2; }
+.back-to-map { background: var(--hud-violet); box-shadow: inset 0 2px 0 #ffffff44, 0 4px 12px #25045226; }
+.resolution-status { position: absolute; right: max(20px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); }
+.resolution-skip { display: flex; align-items: center; gap: 9px; min-height: 44px; padding: 10px 16px; border: 1px solid #ffffff65; border-radius: 99px; color: #fff; background: #331354db; box-shadow: 0 4px 16px #25113c33; font-size: 12px; font-weight: 700; animation: hud-row .3s ease-out; }
+.resolution-skip .hud-icon { width: 18px; height: 18px; }
+.primary, .save-outfit, .buy-accessory, .claim-button, .bonus-button { transition: translate .18s var(--hud-ease), box-shadow .18s, filter .18s, background .18s; }
+.primary:active:enabled, .buy-accessory:active:enabled, .claim-button:active:enabled, .bonus-button:active:enabled { translate: 0 2px; filter: brightness(.97); }
+
+.hud-overlay, .hud-overlay-content { position: absolute; inset: 0; z-index: 80; pointer-events: auto; }
+.hud-overlay[data-state=closing] .journey-scrim, .hud-overlay[data-state=closing] .menu-scrim { animation: hud-scrim-leave .18s ease-in both; }
+.hud-overlay[data-state=closing] .mission-modal, .hud-overlay[data-state=closing] .settings { animation: hud-panel-leave .18s ease-in both; }
+.hud-overlay[data-state=closing] .shop-screen { animation: hud-shop-leave .18s ease-in both; }
+.menu-scrim { animation: reveal .2s ease-out; }
+.daily-mission { animation: hud-row .42s var(--hud-ease) backwards; }
+.daily-mission:nth-of-type(2) { animation-delay: .045s; }
+.daily-mission:nth-of-type(3) { animation-delay: .09s; }
+.daily-mission:nth-of-type(4) { animation-delay: .135s; }
+.mission-feedback:not(:empty) { border-top: 1px solid #e9e2f1; margin-top: 10px; animation: hud-row .24s var(--hud-ease); }
+.shop-introduction, .shop-topbar, .shop-save { animation: hud-row .45s .06s var(--hud-ease) backwards; }
+.accessory-card { animation: hud-row .3s var(--hud-ease) backwards; }
+.accessory-card:nth-child(2), .accessory-card:nth-child(5) { animation-delay: .025s; }
+.accessory-card:nth-child(3), .accessory-card:nth-child(6) { animation-delay: .05s; }
+.accessory-selected { position: absolute; left: 5px; top: 5px; display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%; color: white; background: var(--panel); box-shadow: 0 2px 5px #30007e33; animation: hud-check .24s var(--hud-ease); }
+.accessory-selected .hud-icon { width: 14px; height: 14px; stroke-width: 3; }
+.accessory-lock .hud-icon { width: 12px; height: 12px; color: #fff; }
+.accessory-price .hud-icon { width: 13px; height: 13px; }
+.save-outfit { display: flex; align-items: center; justify-content: center; gap: 9px; background: var(--hud-violet); border-bottom-width: 4px; box-shadow: inset 0 2px 0 #ffffff55, 0 5px 12px #6b08ba18; }
+.save-outfit .hud-icon { width: 20px; height: 20px; }
+
+@media (hover: hover) {
+  .hud-control:hover:enabled { translate: 0 -2px; filter: brightness(1.08); }
+  .hud-control-quiet:hover:enabled { color: var(--panel); }
+  .shop-back:hover .hud-icon { transform: translateX(-2px); }
+  .mission-go:hover .hud-icon { transform: translateX(2px); }
+  .icon-button:hover .hud-icon { transform: rotate(-8deg); }
+  .journey-badge:hover { transform: translateY(-4px); }
+  .journey-badge:hover img { transform: rotate(-4deg) translateY(-2px); }
+  .accessory-card:hover { translate: 0 -2px; box-shadow: 0 6px 15px #30007e15; }
+}
+@media (max-width: 650px) { .icon-button { --control-size: 48px; } }
+@keyframes hud-number { from { opacity: .4; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes hud-delta { 0% { opacity: 0; transform: translateY(-5px); } 15%, 75% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(5px); } }
+@keyframes hud-from-top { from { opacity: 0; translate: 0 -14px; } to { opacity: 1; translate: 0 0; } }
+@keyframes hud-from-right { from { opacity: 0; translate: 20px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes hud-row { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+@keyframes hud-reward { 0%, 100% { transform: scale(1); } 35% { transform: scale(1.14) rotate(6deg); } 65% { transform: scale(.97); } }
+@keyframes hud-check { from { opacity: .4; transform: scale(.65); } to { opacity: 1; transform: scale(1); } }
+@keyframes hud-scrim-leave { to { background-color: #24153b00; backdrop-filter: blur(0); } }
+@keyframes hud-panel-leave { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(14px) scale(.99); } }
+@keyframes hud-shop-leave { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(22px); } }

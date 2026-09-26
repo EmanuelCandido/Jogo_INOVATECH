@@ -14,7 +14,13 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
   const p=problems.find(p=>p.id===id)!,a=questions[p.questionId].alternatives.find(a=>a.effectiveness==='COMPLETE')!;
   await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_thinking');
   await page.locator('[data-choice-id="'+a.id+'"]').click();
-  await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible();
+  await expect(page.locator('.resolution-status')).toBeVisible();
+  await expect(page.locator('.narrative-stage')).toHaveCount(0);
+  if(info.project.name==='desktop'){
+   await page.waitForTimeout(2200);
+   await page.screenshot({path:info.outputPath('situation-'+id+'-transforming.png')});
+  }
+  await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible({timeout:20000});
   await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_success');
   if(i===0){await expect(page.locator('.balance')).toContainText('1.350');await page.reload();await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible();}
   await expect(page.getByRole('button',{name:'Voltar à cidade'})).toBeEnabled({timeout:30000});
@@ -33,7 +39,7 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
 });
 test('temporário, reavaliação, nenhuma melhoria e recursos insuficientes',async({page})=>{
  test.setTimeout(180000);await start(page);await question(page);
- await page.locator('[data-choice-id="support"]').click();await expect(page.locator('[data-effectiveness="TEMPORARY"]')).toBeVisible();
+ await page.locator('[data-choice-id="support"]').click();await expect(page.locator('[data-effectiveness="TEMPORARY"]')).toBeVisible({timeout:20000});
  await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_failure');
  await page.getByRole('button',{name:'Voltar à cidade'}).click();
  await expect(page.locator('[data-problem="accessibility_01"]')).toHaveAttribute('data-visual-state','temporary');

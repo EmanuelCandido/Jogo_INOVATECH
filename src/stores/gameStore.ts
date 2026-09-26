@@ -11,10 +11,13 @@ import type { GameSettings, Progress, Quality } from "../game/types";
 import {normalizeGraphicsSettings} from '../config/graphics';
 import { buyAccessory, equipOutfit, type Outfit } from '../game/wardrobe';
 import { claimMission, giveEnergy, refreshDaily, trackDailyActivity, type DailyMissionId } from '../game/dailyMissions';
+import {createResolution,type Resolution} from '../game/resolution';
 interface Store {
   progress: Progress;
   notice: string | null;
   overlay: 'missions' | 'shop' | null;
+  resolution: Resolution | null;
+  finishResolution: (sequence:number) => void;
   openOverlay: (overlay: 'missions' | 'shop' | null) => void;
   buy: (id: string) => boolean;
   equip: (outfit: Outfit) => boolean;
@@ -34,7 +37,7 @@ interface Store {
 }
 const loaded = loadProgress(browserSave);
 export const useGame = create<Store>((set, get) => {
-  function commit(progress: Progress) {
+  function commit(progress: Progress, presentation:Partial<Pick<Store,'resolution'|'overlay'>>={}) {
     if (progress === get().progress) return;
     progress = trackDailyActivity(get().progress, progress);
     let notice: string | null = null;
@@ -44,12 +47,14 @@ export const useGame = create<Store>((set, get) => {
       notice =
         "O navegador não permitiu salvar. Seu progresso está disponível apenas nesta sessão.";
     }
-    set({ progress, notice });
+    set({ progress, notice, ...presentation });
   }
   return {
     progress: loaded.data,
     notice: loaded.warning,
     overlay: null,
+    resolution: null,
+    finishResolution: sequence => { if(get().resolution?.sequence===sequence)set({resolution:null}); },
     openOverlay: (overlay) => {
       if (overlay && get().progress.phase !== 'OVERVIEW') return;
       commit(refreshDaily(get().progress));
@@ -68,21 +73,23 @@ export const useGame = create<Store>((set, get) => {
     refreshMissions: () => commit(refreshDaily(get().progress)),
     select: (id) => commit(ProblemManager.select(get().progress, id)),
     revisit: (id) => commit(ProblemManager.revisit(get().progress, id)),
-    leave: () => commit(ProblemManager.leave(get().progress)),
+    leave: () => commit(ProblemManager.leave(get().progress),{resolution:null}),
     choose: (id) => {
       try {
-        commit(ProblemManager.decide(get().progress, id));
+        const before=get().progress,after=ProblemManager.decide(before,id);
+        const reduced=before.settings.reducedMotion||(typeof matchMedia!=='undefined'&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+        commit(after,{resolution:createResolution(before,after,reduced)});
       } catch (error) {
         set({ notice: (error as Error).message });
       }
     },
-    next: () => commit(NarrativeManager.next(get().progress)),
+    next: () => { if(!get().resolution)commit(NarrativeManager.next(get().progress)); },
     narrativeChoice: (id) =>
       commit(NarrativeManager.choose(get().progress, id)),
     cameraArrived: () => commit(NarrativeManager.cameraArrived(get().progress)),
     settings: (quality, reducedMotion) =>
       commit({ ...get().progress, settings: { ...get().progress.settings, quality, reducedMotion } }),
     graphics: (patch) => commit({...get().progress,settings:normalizeGraphicsSettings({...get().progress.settings,...patch})}),
-    reset: () => { commit(initialProgress()); set({ overlay: null }); },
+    reset: () => commit(initialProgress(),{overlay:null,resolution:null}),
   };
 });

@@ -10,6 +10,7 @@
   "central-station",
   "city-bus",
   "civic",
+  "cleanup-truck",
   "corner-cafe",
   "court",
   "delivery-truck",
@@ -62,5 +63,8 @@
   "tree-oak",
   "tree-palm",
   "tree-rooftop",
-  "tree-thicket"
+  "tree-thicket",
+  "waste-bin",
+  "waste-partial",
+  "waste-pile"
 ]

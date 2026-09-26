@@ -191,5 +191,5 @@ test('teclado fica na tela aberta e Escape devolve o foco',async({page})=>{
   await page.getByRole('tab',{name:'Capas'}).focus();await page.keyboard.press('ArrowRight');
   await expect(page.getByRole('tab',{name:'Jaquetas'})).toBeFocused();
   await page.keyboard.press('Escape');await expect(trigger).toBeFocused();
-  await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.getByRole('region',{name:'Configurações'})).toHaveCount(0);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
 });

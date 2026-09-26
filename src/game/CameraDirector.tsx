@@ -26,8 +26,9 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
   const phase = useGame((s) => s.progress.phase);
   const introView=useGame(s=>s.progress.phase==='INTRO'?introNode(s.progress).view:'city');
   const selected = useGame((s) => s.progress.selectedProblem);
-  // Context/question/result share one shot. Returning and overview also share
-  // one shot, so entering the overview must not start a second camera flight.
+  const resultView=phase==='RESULT';
+  // Context and question share one shot; results may widen it for the work.
+  // Returning and overview share a shot to avoid a second camera flight.
   const shotId=selected && phase!=="RETURNING" ? selected : introView==='city'?'city':'intro_'+introView;
   const reduced = useGame((s) => s.progress.settings.reducedMotion);
   const arrived = useGame((s) => s.cameraArrived);
@@ -59,7 +60,16 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
   useEffect(() => {
     setMoving(true);
     const intro=shotId.startsWith('intro_'),shift=introView==='west'?[-16,0,8]:[-18,0,-26];
-    const shot = shotId==="city" ? CameraDirector.focusCity() : intro?{...overview,position:overview.position.map((v,i)=>v+shift[i]) as [number,number,number],target:overview.target.map((v,i)=>v+shift[i]) as [number,number,number],zoom:overview.zoom*1.22}:CameraDirector.focusProblem(shotId);
+    let shot = shotId==="city" ? CameraDirector.focusCity() : intro?{...overview,position:overview.position.map((v,i)=>v+shift[i]) as [number,number,number],target:overview.target.map((v,i)=>v+shift[i]) as [number,number,number],zoom:overview.zoom*1.22}:CameraDirector.focusProblem(shotId);
+    if(shotId==='security_01'){
+      // Look over the foreground crowns so the animals' path stays visible.
+      const [x,y,z]=shot.target;shot={...shot,position:[x+11,y+30,z+15]};
+    }
+    if(resultView&&shotId!=='city'&&!intro){
+      const wide:Record<string,number>={pollution_01:size.width<1000?24:32,nature_01:32,health_01:40,health_02:28};
+      shot={...shot,zoom:wide[shotId]??shot.zoom,duration:.75};
+      if(shotId==='health_02')shot={...shot,position:[shot.position[0],shot.position[1]+6,shot.position[2]],target:[shot.target[0],shot.target[1]+6,shot.target[2]]};
+    }
     const responsive = shotId==='city'||intro
       ? {...shot,zoom:shot.zoom*mapFit(size.width,size.height)}
       : frameProblemShot(shot,size.width,size.height);
@@ -81,7 +91,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
       destinationTarget: new Vector3(...responsive.target),
     };
     invalidate();
-  }, [camera, shotId, size.width, size.height, reduced, invalidate,introView]);
+  }, [camera, shotId, size.width, size.height, reduced, invalidate,introView,resultView]);
   useEffect(() => {
     if (moving || !interactive || phase !== 'FOCUSING') return;
     // Keep the completed shot clear before mounting the dialogue. No frames

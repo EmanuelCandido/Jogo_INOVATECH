@@ -82,16 +82,16 @@ describe('lixão no lugar do depósito fictício',()=>{
   const gate=dumpDriveway.points.length-2,a=dumpDriveway.points[gate-1],b=dumpDriveway.points[gate];
   expect(Math.abs(Math.atan2(b[1]-a[1],b[0]-a[0]))).toBeLessThan(.02);
  });
- it('permite entrar, manobrar e sair com o caminhão inteiro em todos os estados',()=>{
+ it.each([['prop.truck',1],['prop.cleanupTruck',1.3]] as const)('permite entrar, manobrar e sair com %s inteiro em todos os estados',(asset,size)=>{
   expect(dumpManeuver[0].point).toEqual(dumpSite.gate);expect(dumpManeuver.at(-1)!.point).toEqual(dumpSite.gate);
   expect(dumpManeuver[0].heading).toEqual([1,0]);expect(dumpManeuver.at(-1)!.heading).toEqual([-1,0]);
   const anchor=placement('waste.pile',...dumpSite.centre,1,frontYaw);
   for(const key of ['initial','temporary','solved'] as const)for(const p of [...dumpScenery[key],...situationVisuals.pollution_01[key].assets]){
    const world=attachmentWorld(anchor,p.position),poly=placementFootprint({...p,position:world,rotation:[0,frontYaw+(p.rotation?.[1]??0),0]});
-   for(const sample of dumpManeuver){const truck=placement('prop.truck',...sample.point,1,facing(...sample.heading));expect(polygonGap(poly,placementFootprint(truck)),`${key}:${p.position}`).toBeGreaterThan(.25);}
+   for(const sample of dumpManeuver){const truck=placement(asset,...sample.point,size,facing(...sample.heading));expect(polygonGap(poly,placementFootprint(truck)),`${key}:${p.position}`).toBeGreaterThan(.25);}
   }
   for(const sample of dumpManeuver){
-   const poly=placementFootprint(placement('prop.truck',...sample.point,1,facing(...sample.heading)));
+   const poly=placementFootprint(placement(asset,...sample.point,size,facing(...sample.heading)));
    for(const point of poly)expect(onReferenceLand(...point)).toBe(true);
    for(const lot of buildingLots)expect(polygonGap(poly,lot.footprint),lot.id).toBeGreaterThan(.25);
    // The part outside the lot is the reserved entrance, not a shortcut over grass.

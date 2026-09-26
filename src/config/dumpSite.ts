@@ -10,6 +10,8 @@ export const dumpSite={
  turning:[95,33] as Point,
 };
 export type DumpStage='initial'|'temporary'|'solved';
+// Rear hopper of the truck parked at composition (99,33), in the lot's local frame.
+export const dumpCollectionTarget:[number,number,number]=[-1.4,1.1,9];
 // A single truck enters eastbound, turns around the disposal area and returns
 // westbound through the same gate. Tangents agree at the circular joins.
 export const dumpManeuver:{point:Point;heading:Point}[]=[];

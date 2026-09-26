@@ -10,6 +10,7 @@ import { ShadowCache } from "../components/city/ShadowCache";
 import {InstanceCulling} from '../components/city/InstanceCulling';
 import {ShaderWarmup} from '../components/city/ShaderWarmup';
 import {DepthPrepass} from '../components/city/DepthPrepass';
+import {ResolutionDirector} from '../components/city/ResolutionScene';
 import {lazy,Suspense,useRef} from 'react';
 import type {DirectionalLight} from 'three';
 const Benchmark=lazy(()=>import('../components/city/Benchmark'));
@@ -54,6 +55,7 @@ export default function World({ onReady, interactive }: { onReady: () => void; i
         shadow-radius={2.5}
       />
       <CameraRig interactive={interactive} />
+      <ResolutionDirector interactive={interactive}/>
       <GraphicsRuntime ready={interactive}/>
       <AmbientFrames/>
       <City interactive={interactive} />

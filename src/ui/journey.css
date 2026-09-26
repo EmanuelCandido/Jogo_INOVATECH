@@ -2,19 +2,16 @@
 .game-hud { position: absolute; inset: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .journey-nav { position: absolute; top: max(96px, calc(env(safe-area-inset-top) + 78px)); right: max(22px, env(safe-area-inset-right)); z-index: 25; display: flex; flex-direction: column; gap: 6px; }
-.journey-badge { position: relative; width: 108px; height: 120px; border: 0; background: none; padding: 0; transition: transform .2s cubic-bezier(.2,.8,.2,1), filter .2s; }
-.journey-badge img { position: absolute; top: 0; left: 3%; display: block; width: 94%; height: 84%; object-fit: contain; }
-.journey-badge-disc { position: absolute; top: 18%; left: 10%; width: 78%; aspect-ratio: 1; border: 4px solid #f9e4c5; border-radius: 50%; background: var(--panel); }
-.journey-badge-label { position: absolute; top: 66%; left: 0; width: 100%; height: 32%; display: grid; place-items: center; border-radius: 17px; color: var(--panel); background: #f8e5c6; box-shadow: inset 0 5px 6px #fff4, inset 0 -5px 6px #b9a47f, 0 5px 4px #0004; font-size: 18px; font-weight: 800; }
+.journey-badge { position: relative; width: 108px; height: 120px; border: 0; border-radius: 20px; background: none; padding: 0; transition: transform .2s cubic-bezier(.2,.8,.2,1), filter .2s; }
+.journey-badge img { position: absolute; top: 0; left: 3%; display: block; width: 94%; height: 84%; object-fit: contain; transition: transform .3s var(--hud-ease); pointer-events: none; }
+.journey-badge-disc { position: absolute; top: 18%; left: 10%; width: 78%; aspect-ratio: 1; border: 3px solid #f9e4c5; border-radius: 50%; background: var(--hud-violet); box-shadow: 0 6px 12px #30007e26; }
+.journey-badge-label { position: absolute; top: 66%; left: 0; width: 100%; height: 32%; display: grid; place-items: center; border: 1px solid #fff4d6; border-bottom: 3px solid #ceb27f; border-radius: 15px; color: #5907b1; background: linear-gradient(#fff7e2, #f2ddb4); box-shadow: inset 0 2px 0 #fff, 0 5px 10px #2a104632; font-size: 17px; font-weight: 900; }
 .journey-badge-alert { position: absolute; top: 2%; right: 0; width: 32%; height: 29%; display: grid; place-items: center; border-radius: 50%; border-bottom: 3px solid #b62435; background: linear-gradient(#ff6a78,#e3223b); color: white; font-size: 24px; font-weight: 800; box-shadow: 0 2px 4px #6d102e33; }
-.journey-badge:hover { transform: translateY(-4px) rotate(-2deg); filter: brightness(1.05); }
 .journey-badge:active { transform: translateY(2px) scale(.96); }
 .journey-scrim { position: absolute; inset: 0; z-index: 80; display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom)); background: #24153b60; backdrop-filter: blur(5px); pointer-events: auto; animation: reveal .2s ease-out; }
 .mission-modal { --journey-text: #211a33; --journey-muted: #786f8a; width: min(438px, 100%); max-height: calc(100dvh - max(20px, env(safe-area-inset-top)) - max(20px, env(safe-area-inset-bottom))); display: flex; flex-direction: column; padding: 20px 18px 12px; border: 1px solid #e2daef; border-radius: 30px; background: #fff; color: var(--journey-text); box-shadow: 0 24px 48px #30007e38; outline: none; animation: journey-enter .36s cubic-bezier(.2,.8,.2,1) both; }
 .mission-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 17px; flex-shrink: 0; }
 .mission-heading h2 { font-size: 28px; line-height: 1.15; font-weight: 900; letter-spacing: -.6px; }
-.round-close { border: 0; width: 44px; height: 48px; padding: 0; flex-shrink: 0; background: none; }
-.round-close img { width: 100%; height: 100%; object-fit: contain; }
 .mission-scroll { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #d9c3ef transparent; padding: 1px 1px 5px; min-height: 0; }
 .daily-summary { display: flex; align-items: center; gap: 13px; border-radius: 20px; padding: 13px; background: #f1e4ff; }
 .daily-medal { display: grid; place-items: center; flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border-bottom: 4px solid var(--ink); background: var(--panel); color: #fff; font-size: 25px; }
@@ -36,10 +33,8 @@
 .daily-mission { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #e2daef; border-radius: 20px; background: white; transition: background .3s, border-color .3s; }
 .daily-mission.is-done { background: #e8f8f3; border-color: #bceadd; }
 .mission-symbol { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; background: #f1e4ff; flex-shrink: 0; color: var(--panel); font-size: 30px; }
-.mission-symbol img { display: block; width: 28px; height: 28px; object-fit: contain; }
 .mission-symbol.energy-idle { background: var(--panel); }
 .is-done .mission-symbol { background: #25b98a; color: #fff; animation: mission-complete .4s ease-out; }
-.is-done .mission-symbol img { filter: brightness(0) invert(1); }
 .mission-copy { flex: 1; min-width: 0; }
 .mission-title { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 7px; }
 .mission-title h3 { color: var(--journey-text); font-size: 15px; line-height: 1.2; font-weight: 900; }
@@ -52,9 +47,6 @@
 .is-done progress::-webkit-progress-value { background: #25b98a; }
 .is-done progress::-moz-progress-bar { background: #25b98a; }
 .is-done progress::-webkit-progress-bar { background: #c9ede3; }
-.mission-go { width: 46px; height: 48px; border: 0; border-bottom: 4px solid #c0c0c0; border-radius: 13px; background: #eee; flex-shrink: 0; display: grid; place-items: center; }
-.mission-go img { width: 26px; height: 26px; transform: rotate(-90deg); }
-.mission-go:hover { background: #e5def0; }
 .claim-button { min-width: 93px; min-height: 40px; border: 0; border-bottom: 4px solid #40963d; border-radius: 24px; padding: 9px 12px; color: #fff; background: #55b752; font-weight: 900; font-size: 12px; }
 .claim-button:disabled { background: #d7eee5; border-color: #c0dfd0; color: #3b7560; font-size: 10px; }
 .bonus-button { width: 100%; min-height: 44px; margin-top: 14px; border: 0; border-bottom: 4px solid #cdab57; border-radius: 16px; background: #ffe6a0; color: #694714; font-weight: 800; }
@@ -80,10 +72,12 @@
 .wearable-reveal { animation: reveal .25s ease-out both; }
 .shop-screen { position: absolute; inset: 0; z-index: 85; background: #f7f5fc; color: #211a33; pointer-events: auto; outline: none; animation: shop-arrive .35s cubic-bezier(.2,.8,.2,1) both; }
 .shop-layout { height: 100%; display: grid; grid-template-rows: auto minmax(160px, 32dvh) minmax(0, 1fr); }
-.shop-topbar { display: flex; align-items: center; justify-content: space-between; padding: max(14px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 8px max(18px, env(safe-area-inset-left)); gap: 20px; }
-.shop-back { display: grid; place-items: center; width: 44px; height: 44px; border: 0; padding: 3px; background: transparent; }
-.shop-back img { display: block; width: 34px; height: 37px; object-fit: contain; }
-.shop-balance { color: #fff; min-width: 116px; min-height: 36px; border-bottom-width: 3px; padding: 5px 15px 5px 24px; border-radius: 13px; }
+.shop-topbar { display: flex; align-items: center; justify-content: space-between; padding: max(16px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 12px max(18px, env(safe-area-inset-left)); gap: 24px; }
+.shop-navigation { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.shop-navigation h2 { margin: 0; font-size: 17px; line-height: 1.15; font-weight: 900; letter-spacing: -.3px; }
+.shop-navigation .panel-eyebrow { font-size: 8px; margin-bottom: 3px; }
+.shop-back { --control-size: 44px; }
+.shop-balance { color: #fff; flex-shrink: 0; min-width: 96px; min-height: 38px; padding: 5px 12px 5px 23px; border-radius: 13px; }
 .shop-balance b { font-size: 19px; }
 .shop-balance .coin { width: 40px; height: 40px; left: -15px; }
 .shop-showcase { position: relative; display: flex; align-items: center; justify-content: center; min-height: 0; isolation: isolate; }
@@ -96,18 +90,20 @@
 .avatar-name i { width: 7px; height: 7px; background: #25b98a; border-radius: 50%; }
 .preview-tag { position: absolute; bottom: 13px; right: 20px; border-radius: 99px; background: #f1e4ff; color: var(--panel); padding: 6px 9px; font-size: 10px; font-weight: 700; animation: reveal .2s; }
 .shop-catalogue { position: relative; display: flex; flex-direction: column; min-height: 0; border-radius: 28px 28px 0 0; background: #fff; box-shadow: 0 -5px 25px #39226708; padding: 0 18px; }
-.shop-catalogue-scroll { padding: 16px 1px 6px; min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #d9c3ef transparent; }
+.shop-catalogue-header { position: relative; flex-shrink: 0; padding: 16px 1px 4px; border-bottom: 1px solid #f0eaf6; }
+.shop-catalogue-scroll { padding: 10px 2px 6px; min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #d9c3ef transparent; scroll-padding: 8px; }
 .shop-introduction h3 { margin: 0; font-size: 23px; font-weight: 800; }
 .shop-introduction p { margin-top: 2px; font-size: 11px; color: #786f8a; }
-.accessory-tabs { display: flex; align-items: center; gap: 7px; margin: 7px 0 10px; }
-.accessory-tabs button { min-height: 36px; padding: 7px 14px; border: 0; border-bottom: 2px solid #c0c0c0; border-radius: 99px; background: #eee; color: #586570; font-size: 12px; font-weight: 700; transition: background .16s, color .16s; }
-.accessory-tabs [aria-selected=true] { color: #fff; background: var(--panel); border-color: var(--ink); }
+.accessory-tabs { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; padding: 4px; border-radius: 99px; background: #f2edf7; margin: 10px 0; }
+.accessory-tabs::before { content: ''; position: absolute; z-index: -1; left: 4px; top: 4px; bottom: 4px; width: calc((100% - 8px) / 3); border-radius: 99px; background: var(--hud-violet); box-shadow: inset 0 1px 0 #ffffff45, 0 3px 7px #6706bd26; transform: translateX(calc(var(--tab-index) * 100%)); transition: transform .28s var(--hud-ease); }
+.accessory-tabs button { min-height: 40px; min-width: 0; padding: 8px 9px; border: 0; border-radius: 99px; background: transparent; color: #766787; font-size: 12px; font-weight: 800; transition: color .2s; }
+.accessory-tabs [aria-selected=true] { color: #fff; }
 .collection-heading { display: flex; align-items: center; justify-content: space-between; margin: 4px 0 9px; gap: 8px; font-size: 12px; }
 .collection-heading span { font-size: 11px; color: var(--panel); font-weight: 700; }
 .accessory-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
-.accessory-card { position: relative; display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 7px; border: 0; border-bottom: 2px solid #c0c0c0; border-radius: 11px; background: #eee; color: #211a33; text-align: left; transition: background .16s, box-shadow .16s, transform .16s; }
-.accessory-card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px #30007e18; }
-.accessory-card.selected { background: var(--panel); color: #fff; border-color: var(--ink); }
+.accessory-card { position: relative; display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 7px; border: 1px solid #e7dff0; border-bottom: 3px solid #ddd2e8; border-radius: 15px; background: #f8f5fc; color: #211a33; text-align: left; transition: background .18s, box-shadow .18s, translate .18s, scale .18s; }
+.accessory-card:active { scale: .97; }
+.accessory-card.selected { background: var(--hud-violet); color: #fff; border-color: #7723cf; border-bottom-color: var(--ink); box-shadow: 0 4px 12px #730ec926; }
 .accessory-preview { display: grid; place-items: center; position: relative; width: 100%; aspect-ratio: 1.2; max-height: 92px; border: 1px solid #e2daef; border-radius: 12px; background: radial-gradient(ellipse at 50% 65%,#f3eaff,#fff 70%); }
 .accessory-art { display: block; width: 90%; height: 100%; max-height: 90px; object-fit: contain; filter: drop-shadow(0 3px 2px #2b134033); }
 .accessory-card strong { font-size: 11px; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
@@ -115,9 +111,8 @@
 .accessory-price .coin { width: 12px; height: 12px; }
 .selected .accessory-price { color: #fff; }
 .accessory-lock { position: absolute; top: 4px; right: 4px; width: 19px; height: 19px; border-radius: 50%; display: grid; place-items: center; background: #52495fc9; }
-.accessory-lock img { width: 11px; height: 11px; }
 .outfit-tools { display: flex; justify-content: flex-end; gap: 12px; margin-top: 5px; }
-.outfit-tools button { min-height: 38px; border: 0; background: none; color: var(--panel); padding: 6px 2px; font-size: 11px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.outfit-tools button { min-height: 44px; border: 0; background: none; color: var(--panel); padding: 6px 2px; font-size: 11px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .outfit-tools button[aria-pressed=true] { color: #786f8a; text-decoration: none; }
 .accessory-detail { display: flex; flex-direction: column; gap: 9px; padding: 8px 0; }
 .accessory-detail p { font-size: 12px; line-height: 1.5; color: #625775; }
@@ -125,7 +120,7 @@
 .buy-accessory .coin { width: 20px; height: 20px; }
 .buy-accessory:disabled { color: #736977; background: #eeebf0; border-color: #d3ccda; }
 .shop-note { font-size: 10px; line-height: 1.5; color: #786f8a; padding: 3px 0 4px; }
-.shop-save { position: relative; flex-shrink: 0; padding: 6px 0 max(14px, env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid #f2edf7; }
+.shop-save { position: relative; flex-shrink: 0; padding: 10px 0 max(14px, env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid #eee6f5; box-shadow: 0 -8px 16px #fff; }
 .shop-save .buy-accessory { width: 100%; margin-bottom: 7px; }
 .shop-message { font-size: 11px; line-height: 1.4; color: var(--panel); text-align: center; }
 .shop-message:not(:empty) { padding: 1px 0 7px; }
@@ -157,10 +152,22 @@
   .mission-title h3 { font-size: 13px; }
   .mission-title { flex-wrap: wrap; gap: 4px; }
   .claim-button { min-width: 78px; padding: 8px; font-size: 10px; }
-  .mission-go { width: 40px; }
+  .shop-navigation { gap: 8px; }
+  .shop-navigation h2 { font-size: 14px; }
+  .shop-topbar { padding-right: 16px; padding-left: 16px; gap: 22px; }
   .daily-summary-line { font-size: 13px; }
   .shop-catalogue { padding: 0 14px; }
   .accessory-card { padding: 5px; }
+}
+@media (max-width: 759px) and (max-height: 740px) and (orientation: portrait) {
+  .shop-layout { grid-template-rows: auto minmax(136px,26dvh) minmax(0,1fr); }
+  .shop-catalogue-header { padding-top: 12px; }
+  .shop-introduction h3 { font-size: 21px; }
+  .shop-save.has-purchase { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 8px 0 max(10px, env(safe-area-inset-bottom)); }
+  .shop-save .shop-message { grid-column: 1/-1; }
+  .shop-save.has-purchase .buy-accessory { margin-bottom: 0; min-height: 48px; font-size: 11px; }
+  .shop-save.has-purchase .save-outfit { min-height: 48px; font-size: 13px; padding: 8px; gap: 5px; }
+  .shop-save.has-purchase .save-outfit .hud-icon { width: 17px; }
 }
 @media (max-width: 420px) {
   .is-done .mission-title { flex-wrap: wrap; gap: 4px; }
@@ -176,7 +183,8 @@
   .avatar-name { bottom: 30px; }
   .preview-tag { bottom: 31px; }
   .shop-catalogue { grid-column: 2; grid-row: 2; border-radius: 28px; box-shadow: 0 12px 44px #39226710; padding: 0 24px; }
-  .shop-catalogue-scroll { padding-top: 24px; }
+  .shop-catalogue-header { padding-top: 24px; }
+  .shop-catalogue-scroll { padding-top: 12px; }
   .shop-introduction h3 { font-size: 28px; }
   .accessory-tabs { margin-top: 12px; }
   .accessory-tabs button { min-height: 40px; }
@@ -188,13 +196,25 @@
   .shop-save { padding-bottom: 18px; }
 }
 @media (orientation: landscape) and (max-height: 500px) {
-  .shop-layout { padding: 0 14px 10px; gap: 0 14px; grid-template-columns: 1fr minmax(340px, 56%); }
-  .shop-topbar { padding: 7px 0; }
+  .shop-layout { padding: 0 14px 10px; gap: 0 14px; grid-template-columns: minmax(0,1fr) minmax(290px, 56%); }
+  .shop-topbar { grid-column: 1; grid-row: 1; padding: 7px 0; gap: 20px; }
+  .shop-navigation { gap: 8px; }
+  .shop-navigation h2 { font-size: 14px; }
+  .shop-navigation .panel-eyebrow { display: none; }
   .shop-avatar { width: auto; height: 100%; }
-  .shop-catalogue { padding: 0 14px; }
-  .shop-catalogue-scroll { padding-top: 12px; }
+  .shop-catalogue { grid-row: 1/-1; margin-top: 7px; padding: 0 14px; }
+  .shop-catalogue-header { padding-top: 6px; }
+  .shop-catalogue-scroll { padding-top: 6px; }
+  .shop-introduction { display: none; }
+  .accessory-tabs { margin: 6px 0; }
+  .accessory-tabs button { min-height: 36px; padding: 6px; }
+  .accessory-preview { max-height: 62px; }
+  .accessory-art { max-height: 60px; }
   .avatar-name, .preview-tag { bottom: 4px; }
-  .shop-save { padding-bottom: 8px; }
+  .shop-save { padding: 7px 0 8px; }
+  .shop-save.has-purchase { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .shop-save .shop-message { grid-column: 1/-1; padding-bottom: 3px; font-size: 10px; }
+  .shop-save .buy-accessory { margin-bottom: 0; min-height: 44px; font-size: 11px; }
   .save-outfit { min-height: 44px; font-size: 14px; padding: 8px; border-bottom-width: 5px; }
   .journey-nav { flex-direction: row; top: 78px; }
   .journey-badge { width: 70px; height: 78px; }

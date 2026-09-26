@@ -82,7 +82,7 @@ test('tocar na tela avança uma fala e preserva menus, gestos e escolhas', async
   await tap(page, 6, 115, touch);
   await expect(page.locator('.alternative')).toHaveCount(3);
   await page.locator('[data-choice-id="collection"]').click();
-  await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible({timeout:20000});
   await tap(page, 6, 115, touch);
   await resetMap(page);
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data.decisions)).toHaveLength(1);

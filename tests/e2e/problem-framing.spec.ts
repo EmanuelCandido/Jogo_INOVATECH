@@ -147,7 +147,7 @@ for (const reducedMotion of [false, true]) {
     await page.setViewportSize(portraitSize);
     await expectCenteredProblem(page);
     await page.locator('.alternative').first().click();
-    await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Resultado da decisão' })).toBeVisible({timeout:20000});
     await expectLeftPortrait(page);
     await page.screenshot({ path: info.outputPath('mission-result.png') });
     const result = await page.evaluate(() => JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);

@@ -23,6 +23,7 @@ export type ModelAsset =
   | { kind: "glb"; url: string }
   | { kind: "box"; material: string };
 export const assetRegistry: Record<string, ModelAsset> = {
+  'prop.cleanupTruck': {kind:'glb',url:'/assets/models/cleanup-truck.glb'},
   'prop.liftShaft': {kind:'glb',url:'/assets/models/station-lift-shaft.glb'},
   'prop.liftLanding': {kind:'glb',url:'/assets/models/station-lift-landing.glb'},
   'prop.solarRack': {kind:'glb',url:'/assets/models/solar-rack.glb'},

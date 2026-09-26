@@ -1,26 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useGame } from "../../stores/gameStore";
 import type { GameSettings,Quality } from "../../game/types";
 import {graphicsPresets,graphicsTiers} from '../../config/graphics';
 import {recheckGraphics,useGraphicsRuntime,useResolvedGraphics} from '../../stores/graphicsStore';
+import { useDialog } from './useDialog';
+import { HudControl } from '../hud/HudControl';
 export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneReady: boolean }) {
   const { progress: s, graphics, reset, leave } = useGame();
   const q=useResolvedGraphics(),runtime=useGraphicsRuntime();
   const [confirmReset, setConfirmReset] = useState(false);
-  const panel = useRef<HTMLElement>(null);
+  const panel = useDialog(close);
   const setMenu = (_: boolean) => close();
-  useEffect(() => {
-    panel.current?.focus();
-  }, []);
   return (
     <section
       className="settings panel"
       aria-label="Configurações"
+      role="dialog"
+      aria-modal="true"
       ref={panel}
       tabIndex={-1}
     >
-      <div className="eyebrow">DO SEU JEITO</div>
-      <div className="settings-heading"><h2>Gráficos e desempenho</h2><button className="settings-close" aria-label="Fechar configurações" onClick={close}>×</button></div>
+      <header className="settings-heading"><div><span className="panel-eyebrow">DO SEU JEITO</span><h2>Gráficos e desempenho</h2></div><HudControl className="settings-close" icon="close" tone="quiet" label="Fechar configurações" onClick={close}/></header>
+      <div className="settings-scroll">
       {s.phase === 'QUESTION' && <button className="primary" disabled={!sceneReady} onClick={() => { leave(); close(); }}>Decidir depois · voltar ao mapa</button>}
       <label>
         Qualidade gráfica
@@ -98,6 +99,7 @@ export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneR
           Recomeçar a história
         </button>
       )}
+      </div>
     </section>
   );
 }

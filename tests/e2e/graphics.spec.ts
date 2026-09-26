@@ -25,7 +25,7 @@ test('troca qualidade em tempo real, preserva partida e restaura preferências',
   await quality.selectOption(tier);
   await expect(canvas).toHaveAttribute('data-graphics-tier',tier,{timeout:30000});
   await expect(canvas).toHaveAttribute('data-original-canvas','true');
-  await expect(page.getByRole('region',{name:'Configurações'})).toBeVisible();
+  await expect(page.getByRole('dialog',{name:'Configurações'})).toBeVisible();
  }
  // LOW uses one rendered pixel per CSS pixel at 100%; wait for the drawing
  // buffer as well as the label before measuring (Canvas commits asynchronously).
