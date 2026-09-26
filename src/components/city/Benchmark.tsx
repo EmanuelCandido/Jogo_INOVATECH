@@ -144,6 +144,18 @@ export default function Benchmark(){
     return {calls:gl.info.render.calls,triangles:gl.info.render.triangles,geometries:gl.info.memory.geometries,textures:gl.info.memory.textures,programs:gl.info.programs?.length,meshes,instances,materials:materials.size,sourceBytes,width:gl.domElement.width,height:gl.domElement.height,pixelRatio:gl.getPixelRatio(),settings,resolvedGraphics:resolveGraphics(settings,useGraphicsRuntime.getState().automatic),modelUrls:[...modelUrls].sort(),camera:{position:camera.position.toArray(),zoom:(camera as OrthographicCamera).zoom}};
    },
    draw(){invalidate();},
+   /** Largest triangle contributors in the last frame's scene state (diagnostic). */
+   triangleBreakdown(limit=25){
+    const rows:{name:string;material:string;model:string;instances:number;triangles:number}[]=[];
+    scene.traverse(o=>{
+     const m=o as unknown as {isMesh?:boolean;visible:boolean;geometry:import('three').BufferGeometry;count?:number;isInstancedMesh?:boolean;material:{name?:string}|{name?:string}[]};
+     if(!m.isMesh||!o.visible)return;
+     const g=m.geometry,per=(g.index?g.index.count:g.getAttribute('position')?.count??0)/3,instances=m.isInstancedMesh?m.count!:1;
+     let model='';for(let p:import('three').Object3D|null=o;p;p=p.parent)if(p.userData.modelUrl){model=p.userData.modelUrl;break;}
+     rows.push({name:o.name,material:(Array.isArray(m.material)?m.material[0]:m.material)?.name??'',model,instances,triangles:per*instances});
+    });
+    return rows.sort((a,b)=>b.triangles-a.triangles).slice(0,limit);
+   },
    renderPath(){return {...frameRenderer.selection.snapshot(),enabled:frameRenderer.enabled,automatic:frameRenderer.automatic};},
    automaticDepthPrepass(recalibrate=true){
     if(state.current.active||profiling)throw new Error('Pare a amostra antes de calibrar');

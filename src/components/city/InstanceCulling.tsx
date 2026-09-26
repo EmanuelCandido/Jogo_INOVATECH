@@ -1,6 +1,8 @@
 import {useLayoutEffect} from 'react';
 import {useThree} from '@react-three/fiber';
 import {instanceVisibility} from '../../game/instanceVisibility';
+import {applyInstanceLod} from '../../game/instanceLod';
+import type {OrthographicCamera} from 'three';
 
 export function InstanceCulling(){
  const {scene,gl,invalidate}=useThree();
@@ -20,6 +22,8 @@ export function InstanceCulling(){
    const recovering=shadowRecovery&&!refresh;
    shadowRecovery=refresh;
    let compacted=false;
+   const camera=args[2] as OrthographicCamera;
+   if(camera.isOrthographicCamera)applyInstanceLod(camera.zoom*gl.getPixelRatio(),refresh||recovering);
    for(const entry of instanceVisibility){
     const before=entry.updates;
     if(scene.userData.benchmarkDisableCulling||(preserveCasters&&entry.mesh.castShadow))entry.restore();else entry.select(args[2]);
