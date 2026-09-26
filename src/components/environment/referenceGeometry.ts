@@ -6,11 +6,18 @@ import {mergeSurfaceGeometry as merged} from '../../assets/mergeSurfaceGeometry'
 export {merged};
 import {worldPoint,terrainY,riverU,riverWidth,canalU,riverSamples,canalSamples,landOutlines,reservoirOutline,type MapPoint} from '../../config/referenceMap';
 
+/** Terrain tint at a map point and height. Also used to rebuild the colours of
+ * the precomputed terrain instead of downloading them. */
+export function landColor(u:number,v:number,y:number):[number,number,number]{
+ const tone=.018*Math.sin(u*.18+v*.21)+.015*Math.cos(u*.37-v*.15),color=new Color('#92bd66').lerp(new Color('#889887'),Math.max(0,Math.min(.85,(y-4)/22)));color.offsetHSL(0,0,tone);
+ const clearing=((u-17)/19)**2+((v-80)/11)**2;color.lerp(new Color('#b58b54'),Math.max(0,Math.min(1,(1.08-clearing)*5)));
+ return color.toArray() as [number,number,number];
+}
 export function polygon(points:MapPoint[],height:number|((u:number,v:number)=>number)=0,land=false,holes:MapPoint[][]=[],maxEdge:number|((a:MapPoint,b:MapPoint)=>number)=land?2.8:Infinity){
  const shape=new Shape(points.map(([x,y])=>new Vector2(x,y)));shape.closePath();for(const hole of holes){const path=new Path(hole.map(([x,y])=>new Vector2(x,y)));path.closePath();shape.holes.push(path);}const source=new ShapeGeometry(shape);
  const pos=source.attributes.position,idx=source.index!,vertices:number[]=[],colors:number[]=[],uvs:number[]=[],surfacePoints:MapPoint[]=[];
  const improve=!land&&maxEdge!==Infinity;
- const add=(p:MapPoint)=>{const y=typeof height==='number'?height:height(...p);vertices.push(...worldPoint(...p,y));uvs.push(...p);if(land){const tone=.018*Math.sin(p[0]*.18+p[1]*.21)+.015*Math.cos(p[0]*.37-p[1]*.15),color=new Color('#92bd66').lerp(new Color('#889887'),Math.max(0,Math.min(.85,(y-4)/22)));color.offsetHSL(0,0,tone);const clearing=((p[0]-17)/19)**2+((p[1]-80)/11)**2;color.lerp(new Color('#b58b54'),Math.max(0,Math.min(1,(1.08-clearing)*5)));colors.push(...color.toArray());}};
+ const add=(p:MapPoint)=>{const y=typeof height==='number'?height:height(...p);vertices.push(...worldPoint(...p,y));uvs.push(...p);if(land)colors.push(...landColor(p[0],p[1],y));};
  const triangle=(a:MapPoint,b:MapPoint,c:MapPoint,depth=0)=>{
   if(improve){surfacePoints.push(a,b,c);return;}
   const ab=Math.hypot(a[0]-b[0],a[1]-b[1]),bc=Math.hypot(b[0]-c[0],b[1]-c[1]),ca=Math.hypot(c[0]-a[0],c[1]-a[1]);

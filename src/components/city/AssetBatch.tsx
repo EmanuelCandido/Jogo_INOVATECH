@@ -9,6 +9,9 @@ import {modelUrl} from '../../assets/modelLayout';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {finishFoliage} from '../../assets/foliageMaterial';
 import {optimizeInstances} from '../../game/instanceVisibility';
+import {registerInstanceLod} from '../../game/instanceLod';
+// Repeated models are where simplified distant detail pays off.
+const lodMinimumInstances=12;
 import {shareModelMaterials} from '../../assets/sharedMaterials';
 function PrimitiveInstances({
   mesh,
@@ -33,11 +36,12 @@ function PrimitiveInstances({
       ref.current!.setMatrixAt(i, matrix);
     });
     ref.current!.instanceMatrix.needsUpdate = true;
+    const lod=placements.length>=lodMinimumInstances?registerInstanceLod(ref.current!,mesh.geometry,new Float32Array(ref.current!.instanceMatrix.array)):()=>{};
     const dispose=optimizeInstances(ref.current!,placements.length);
     // A new outcome can finish loading after the scene's last requested frame.
     gl.shadowMap.needsUpdate=true;
     invalidate();
-    return dispose;
+    return ()=>{lod();dispose();};
   }, [mesh, placements,gl,invalidate]);
   return (
     <instancedMesh

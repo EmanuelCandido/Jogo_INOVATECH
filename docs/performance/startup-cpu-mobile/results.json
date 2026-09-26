@@ -1,0 +1,757 @@
+{
+  "date": "2026-09-26T17:52:29.757Z",
+  "errors": [],
+  "profileOverhead": true,
+  "readyMs": 16947.899999999907,
+  "longTasks": [
+    {
+      "start": 210.60000000009313,
+      "duration": 1006
+    },
+    {
+      "start": 1295.8999999999069,
+      "duration": 6405
+    },
+    {
+      "start": 7796,
+      "duration": 249
+    },
+    {
+      "start": 8073.200000000186,
+      "duration": 307
+    },
+    {
+      "start": 8685.200000000186,
+      "duration": 337
+    },
+    {
+      "start": 9022.899999999907,
+      "duration": 3601
+    },
+    {
+      "start": 12663.600000000093,
+      "duration": 57
+    },
+    {
+      "start": 12724,
+      "duration": 1358
+    },
+    {
+      "start": 14171,
+      "duration": 143
+    },
+    {
+      "start": 14314.100000000093,
+      "duration": 1766
+    },
+    {
+      "start": 16081.100000000093,
+      "duration": 204
+    }
+  ],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "application": [
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/components/city/DepthPrepass.tsx",
+        "line": 26,
+        "column": 10,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 6734.064999999991
+    },
+    {
+      "function": "render",
+      "source": {
+        "source": "../../../src/game/depthPrepass.ts",
+        "line": 89,
+        "column": 118,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 6704.7259999999915
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/roadStructures.ts",
+        "line": 36,
+        "column": 48,
+        "name": null
+      },
+      "selfMs": 14.838,
+      "totalMs": 888.6670000000001
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/trafficSituation.ts",
+        "line": 44,
+        "column": 99,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 875.6809999999999
+    },
+    {
+      "function": "oL",
+      "source": {
+        "source": "../../../src/config/trafficReservations.ts",
+        "line": 2,
+        "column": 16,
+        "name": "reserveTraffic"
+      },
+      "selfMs": 1.19,
+      "totalMs": 874.568
+    },
+    {
+      "function": "ct",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 29,
+        "column": 16,
+        "name": "corridorGap"
+      },
+      "selfMs": 51.70600000000002,
+      "totalMs": 850.3480000000004
+    },
+    {
+      "function": "Eh",
+      "source": {
+        "source": "../../../src/config/roadStructures.ts",
+        "line": 19,
+        "column": 19,
+        "name": "poly"
+      },
+      "selfMs": 6.114,
+      "totalMs": 804.3159999999998
+    },
+    {
+      "function": "r",
+      "source": {
+        "source": "../../../src/config/roadGuardrails.ts",
+        "line": 17,
+        "column": 14,
+        "name": "p"
+      },
+      "selfMs": 23.455000000000002,
+      "totalMs": 787.3960000000012
+    },
+    {
+      "function": "y",
+      "source": {
+        "source": "../../../src/config/trafficReservations.ts",
+        "line": 20,
+        "column": 14,
+        "name": null
+      },
+      "selfMs": 1.156,
+      "totalMs": 776.8719999999998
+    },
+    {
+      "function": "h",
+      "source": {
+        "source": "../../../src/config/trafficReservations.ts",
+        "line": 6,
+        "column": 11,
+        "name": "choices"
+      },
+      "selfMs": 0,
+      "totalMs": 768.8219999999998
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/trafficSituation.ts",
+        "line": 46,
+        "column": 34,
+        "name": "p"
+      },
+      "selfMs": 2.2140000000000004,
+      "totalMs": 756.9369999999998
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/roadStructures.ts",
+        "line": 55,
+        "column": 22,
+        "name": "other"
+      },
+      "selfMs": 7.122,
+      "totalMs": 749.0370000000011
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/roadGuardrails.ts",
+        "line": 22,
+        "column": 16,
+        "name": "other"
+      },
+      "selfMs": 15.713,
+      "totalMs": 704.8600000000014
+    },
+    {
+      "function": "ct",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 29,
+        "column": 16,
+        "name": "corridorGap"
+      },
+      "selfMs": 36.690000000000005,
+      "totalMs": 694.5210000000008
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/roadStructures.ts",
+        "line": 19,
+        "column": 52,
+        "name": null
+      },
+      "selfMs": 5.998,
+      "totalMs": 589.6730000000002
+    },
+    {
+      "function": "ct",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 29,
+        "column": 16,
+        "name": "corridorGap"
+      },
+      "selfMs": 30.018,
+      "totalMs": 583.6750000000004
+    },
+    {
+      "function": "ei",
+      "source": {
+        "source": "../../../src/config/landscape.ts",
+        "line": 33,
+        "column": 9,
+        "name": "bed"
+      },
+      "selfMs": 5.582000000000001,
+      "totalMs": 572.5110000000003
+    },
+    {
+      "function": "qc",
+      "source": {
+        "source": "../../../src/config/landscape.ts",
+        "line": 26,
+        "column": 9,
+        "name": "free"
+      },
+      "selfMs": 10.745000000000001,
+      "totalMs": 531.0310000000003
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/landscape.ts",
+        "line": 38,
+        "column": 32,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 531.0310000000003
+    },
+    {
+      "function": "z9",
+      "source": {
+        "source": "../../../src/config/districts.ts",
+        "line": 94,
+        "column": 16,
+        "name": "plantingSpace"
+      },
+      "selfMs": 186.23599999999996,
+      "totalMs": 503.97600000000034
+    },
+    {
+      "function": "Xt",
+      "source": {
+        "source": "../../../src/config/referenceMap.ts",
+        "line": 180,
+        "column": 16,
+        "name": "roadHeightAt"
+      },
+      "selfMs": 4.452,
+      "totalMs": 459.86000000000007
+    },
+    {
+      "function": "xv",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 82,
+        "column": 16,
+        "name": "heightAlongRoad"
+      },
+      "selfMs": 449.5720000000001,
+      "totalMs": 449.5720000000001
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 439.53500000000054,
+      "totalMs": 439.53500000000054
+    },
+    {
+      "function": "iL",
+      "source": {
+        "source": "../../../src/config/junctionCrossings.ts",
+        "line": 6,
+        "column": 16,
+        "name": "buildJunctionCrossings"
+      },
+      "selfMs": 1.4149999999999998,
+      "totalMs": 382.90099999999995
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/junctionCrossings.ts",
+        "line": 23,
+        "column": 18,
+        "name": "other"
+      },
+      "selfMs": 8.622,
+      "totalMs": 378.87699999999995
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 372.437,
+      "totalMs": 372.437
+    },
+    {
+      "function": "Bh",
+      "source": {
+        "source": "../../../src/config/trafficSituation.ts",
+        "line": 43,
+        "column": 15,
+        "name": null
+      },
+      "selfMs": 12.128000000000002,
+      "totalMs": 370.908
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/trafficSituation.ts",
+        "line": 48,
+        "column": 46,
+        "name": null
+      },
+      "selfMs": 0,
+      "totalMs": 370.908
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 342.9550000000001,
+      "totalMs": 342.9550000000001
+    },
+    {
+      "function": "s2",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 13,
+        "column": 16,
+        "name": "contains"
+      },
+      "selfMs": 63.175999999999995,
+      "totalMs": 324.69199999999995
+    },
+    {
+      "function": "ct",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 29,
+        "column": 16,
+        "name": "corridorGap"
+      },
+      "selfMs": 17.639,
+      "totalMs": 305.6899999999998
+    },
+    {
+      "function": "Ck",
+      "source": {
+        "source": "../../../src/components/environment/ReferenceCity.tsx",
+        "line": 38,
+        "column": 16,
+        "name": "ReferenceCity"
+      },
+      "selfMs": 1.146,
+      "totalMs": 282.624
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 261.516,
+      "totalMs": 261.516
+    },
+    {
+      "function": "s2",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 13,
+        "column": 16,
+        "name": "contains"
+      },
+      "selfMs": 48.57800000000002,
+      "totalMs": 261.3900000000002
+    },
+    {
+      "function": "Dt",
+      "source": {
+        "source": "../../../src/config/referenceMap.ts",
+        "line": 465,
+        "column": 16,
+        "name": "distanceToRoute"
+      },
+      "selfMs": 228.13100000000009,
+      "totalMs": 228.13100000000009
+    }
+  ],
+  "self": [
+    {
+      "function": "L",
+      "source": {
+        "source": "../../../node_modules/three/build/three.module.js",
+        "line": 6491,
+        "column": 10,
+        "name": "onFirstUse"
+      },
+      "selfMs": 6448.482999999976,
+      "totalMs": 6462.623999999975
+    },
+    {
+      "function": "(idle)",
+      "source": null,
+      "selfMs": 655.3160000000001,
+      "totalMs": 655.3160000000001
+    },
+    {
+      "function": "(garbage collector)",
+      "source": null,
+      "selfMs": 481.3109999999996,
+      "totalMs": 481.3109999999996
+    },
+    {
+      "function": "xv",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 82,
+        "column": 16,
+        "name": "heightAlongRoad"
+      },
+      "selfMs": 449.5720000000001,
+      "totalMs": 449.5720000000001
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 439.53500000000054,
+      "totalMs": 439.53500000000054
+    },
+    {
+      "function": "(program)",
+      "source": null,
+      "selfMs": 396.7040000000001,
+      "totalMs": 396.7040000000001
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 372.437,
+      "totalMs": 372.437
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 342.9550000000001,
+      "totalMs": 342.9550000000001
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 261.516,
+      "totalMs": 261.516
+    },
+    {
+      "function": "Dt",
+      "source": {
+        "source": "../../../src/config/referenceMap.ts",
+        "line": 465,
+        "column": 16,
+        "name": "distanceToRoute"
+      },
+      "selfMs": 228.13100000000009,
+      "totalMs": 228.13100000000009
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 212.812,
+      "totalMs": 212.812
+    },
+    {
+      "function": "xR",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 10,
+        "column": 16,
+        "name": "buildRoadProfiles"
+      },
+      "selfMs": 204.84100000000004,
+      "totalMs": 214.3700000000001
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/components/city/Benchmark.tsx",
+        "line": 30,
+        "column": 11,
+        "name": null
+      },
+      "selfMs": 201.771,
+      "totalMs": 201.771
+    },
+    {
+      "function": "E1",
+      "source": {
+        "source": "../../../node_modules/three/build/three.module.js",
+        "line": 15176,
+        "column": 11,
+        "name": "getContext"
+      },
+      "selfMs": 194.95700000000005,
+      "totalMs": 194.95700000000005
+    },
+    {
+      "function": "z9",
+      "source": {
+        "source": "../../../src/config/districts.ts",
+        "line": 94,
+        "column": 16,
+        "name": "plantingSpace"
+      },
+      "selfMs": 186.23599999999996,
+      "totalMs": 503.97600000000034
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 179.83900000000006,
+      "totalMs": 179.83900000000006
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 159.865,
+      "totalMs": 159.865
+    },
+    {
+      "function": "wasm-function[1]",
+      "source": null,
+      "selfMs": 143.45999999999992,
+      "totalMs": 155.21399999999994
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 105.34599999999996,
+      "totalMs": 105.34599999999996
+    },
+    {
+      "function": "Y3",
+      "source": {
+        "source": "../../../src/assets/modelLayout.ts",
+        "line": 21,
+        "column": 16,
+        "name": "attachmentWorld"
+      },
+      "selfMs": 101.00600000000003,
+      "totalMs": 108.98500000000003
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 100.58600000000001,
+      "totalMs": 100.58600000000001
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/terrain.ts",
+        "line": 25,
+        "column": 23,
+        "name": "points"
+      },
+      "selfMs": 98.27600000000001,
+      "totalMs": 98.27600000000001
+    },
+    {
+      "function": "",
+      "source": {
+        "source": "../../../src/config/districts.ts",
+        "line": 99,
+        "column": 25,
+        "name": "p"
+      },
+      "selfMs": 97.08199999999997,
+      "totalMs": 97.08199999999997
+    },
+    {
+      "function": "",
+      "source": {
+        "source": null,
+        "line": null,
+        "column": null,
+        "name": null
+      },
+      "selfMs": 92.28999999999999,
+      "totalMs": 6048.435999999977
+    },
+    {
+      "function": "z9",
+      "source": {
+        "source": "../../../src/config/districts.ts",
+        "line": 94,
+        "column": 16,
+        "name": "plantingSpace"
+      },
+      "selfMs": 85.85599999999998,
+      "totalMs": 206.54100000000008
+    },
+    {
+      "function": "$0",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 9,
+        "column": 16,
+        "name": "segmentDistance"
+      },
+      "selfMs": 82.30400000000002,
+      "totalMs": 82.30400000000002
+    },
+    {
+      "function": "BD",
+      "source": {
+        "source": "../../../src/config/roadProfiles.ts",
+        "line": 93,
+        "column": 16,
+        "name": "roadHeightSampler"
+      },
+      "selfMs": 73.00500000000001,
+      "totalMs": 74.20100000000001
+    },
+    {
+      "function": "Y2",
+      "source": {
+        "source": "../../../src/config/spatial.ts",
+        "line": 22,
+        "column": 16,
+        "name": "polygonGap"
+      },
+      "selfMs": 71.901,
+      "totalMs": 214.73299999999998
+    },
+    {
+      "function": "DC.setSize",
+      "source": {
+        "source": "../../../node_modules/three/build/three.module.js",
+        "line": 15460,
+        "column": 17,
+        "name": null
+      },
+      "selfMs": 69.86899999999997,
+      "totalMs": 69.86899999999997
+    },
+    {
+      "function": "Ha",
+      "source": {
+        "source": "../../../src/config/terrain.ts",
+        "line": 35,
+        "column": 16,
+        "name": "terrainHeight"
+      },
+      "selfMs": 66.62100000000001,
+      "totalMs": 88.21900000000001
+    }
+  ],
+  "bundles": [
+    "index-F37cXEly.js",
+    "World-yuw_A1LE.js",
+    "Benchmark-Bj_G9WNQ.js"
+  ]
+}

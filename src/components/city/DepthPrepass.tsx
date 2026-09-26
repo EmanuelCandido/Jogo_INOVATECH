@@ -7,6 +7,7 @@ import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {pausePreparation,preparationActivity,preparationPending,preparationRunning} from '../../game/resourcePreparation';
 import {useGame} from '../../stores/gameStore';
 import {shaderCompilationPending} from '../../game/shaderWarmup';
+import {shaderGatePending} from './ShaderGate';
 
 // Candidate deferred while weak-device GPU work has priority. Ordinary games
 // retain the verified Ultra path; calibration requires an explicit audit URL.
@@ -23,6 +24,8 @@ export function DepthPrepass(){
  useEffect(()=>()=>{pausePreparation(gl.domElement,frame,false);frame.dispose();},[gl,frame]);
  // Own only the final render; animation/navigation keep their existing frame order.
  useFrame(()=>{
+  // Hidden under the loading screen while the first shaders compile.
+  if(shaderGatePending())return;
   if(!calibrationTrial){frame.render(scene,camera);return;}
   const p=previous.current;
   if(p.width!==gl.domElement.width||p.height!==gl.domElement.height){

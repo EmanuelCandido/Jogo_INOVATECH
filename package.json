@@ -17,8 +17,9 @@
     "assets:compress": "node scripts/compress-models.mjs",
     "audio:render": "node scripts/render-audio.mjs",
     "assets:build": "powershell -ExecutionPolicy Bypass -File scripts/build-assets.ps1",
-    "prebuild": "node scripts/generate-reference-layout.mjs",
-    "predev": "node scripts/generate-reference-layout.mjs"
+    "prebuild": "node scripts/generate-reference-layout.mjs && node scripts/generate-city-surfaces.mjs",
+    "predev": "node scripts/generate-reference-layout.mjs && node scripts/generate-city-surfaces.mjs",
+    "surfaces:build": "node scripts/generate-city-surfaces.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.0",
