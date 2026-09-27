@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { accessories, buyAccessory, defaultOutfit, equipOutfit, initialWardrobe, normalizeWardrobe } from '../src/game/wardrobe';
+import { accessories, accessoryCollections, buyAccessory, defaultOutfit, equipOutfit, initialWardrobe, normalizeWardrobe, purchaseOutfit, quoteOutfit } from '../src/game/wardrobe';
 import { claimMission, dailyMissionList, giveEnergy, initialDailyMissions, normalizeDailyMissions, trackDailyActivity } from '../src/game/dailyMissions';
 import type { Progress } from '../src/game/types';
 
@@ -15,8 +15,8 @@ describe('compras e combinações de acessórios',()=>{
     expect(bought.wardrobe.owned).toEqual(['cape-star','cape-comet']);
     expect(()=>buyAccessory(base,'missing')).toThrow('não encontrado');
   });
-  it('aceita todas as 294 combinações e retira peças sem afetar as outras categorias',()=>{
-    const base=fixture();base.wardrobe.owned=accessories.map(a=>a.id);
+  it('aceita todas as combinações entre peças novas e antigas e permite retirar peças',()=>{
+    const base=fixture();base.wardrobe=normalizeWardrobe({owned:accessories.map(a=>a.id)});
     const capes=accessories.filter(a=>a.slot==='cape').map(a=>a.id);
     const jackets=[null,...accessories.filter(a=>a.slot==='jacket').map(a=>a.id)];
     const hats=[null,...accessories.filter(a=>a.slot==='hat').map(a=>a.id)];
@@ -33,6 +33,47 @@ describe('compras e combinações de acessórios',()=>{
     expect(base.wardrobe).toEqual(initialWardrobe());
     expect(normalizeWardrobe({owned:['unknown','cape-star'],equipped:{cape:'unknown',hat:'cape-star'}})).toEqual(initialWardrobe());
     expect(normalizeWardrobe(undefined)).toEqual(initialWardrobe());
+  });
+  it('experimenta sem cobrar e compra a coleção inteira em uma única transação',()=>{
+    const base=fixture(),outfit=accessoryCollections[0].outfit;
+    const quote=quoteOutfit(base.wardrobe,outfit);
+    expect(quote.total).toBe(540);expect(quote.items).toHaveLength(3);
+    expect(base.wardrobe).toEqual(initialWardrobe());expect(base.coins).toBe(1500);
+    const bought=purchaseOutfit({...base,coins:540},outfit);
+    expect(bought.coins).toBe(0);expect(bought.wardrobe.equipped).toEqual(outfit);
+    expect(bought.wardrobe.owned).toEqual(['cape-star','pack-solar','vest-solar','head-solar']);
+    expect(purchaseOutfit(bought,outfit)).toBe(bought);
+  });
+  it('cobra só peças novas ao completar uma coleção ou misturar coleções',()=>{
+    const base=buyAccessory(fixture(),'vest-garden');
+    expect(quoteOutfit(base.wardrobe,accessoryCollections[1].outfit).total).toBe(330);
+    const mixed={cape:'pack-repair',jacket:'vest-garden',hat:'head-solar'};
+    const bought=purchaseOutfit(base,mixed);
+    expect(base.coins-bought.coins).toBe(370);
+    expect(bought.wardrobe.owned.filter(id=>id==='vest-garden')).toHaveLength(1);
+    const removed=purchaseOutfit(bought,{...mixed,jacket:null,hat:null});
+    expect(removed.coins).toBe(bought.coins);
+    expect(removed.wardrobe.equipped).toEqual({...mixed,jacket:null,hat:null});
+    expect(normalizeWardrobe(JSON.parse(JSON.stringify(bought.wardrobe)))).toEqual(bought.wardrobe);
+  });
+  it('rejeita a compra inteira se faltar saldo ou a última peça for inválida',()=>{
+    const base=fixture();base.coins=539;
+    const snapshot=JSON.stringify(base);
+    expect(()=>purchaseOutfit(base,accessoryCollections[0].outfit)).toThrow('Faltam 1 moedas');
+    for(const hat of ['missing','vest-solar','constructor','__proto__']){
+      expect(()=>purchaseOutfit(base,{...accessoryCollections[0].outfit,hat})).toThrow('inválida');
+    }
+    expect(JSON.stringify(base)).toBe(snapshot);
+  });
+  it('preserva e mistura compras antigas sem custo extra',()=>{
+    const legacy=buyAccessory(buyAccessory(fixture(),'jacket-ocean'),'hat-bucket');
+    const restored={...legacy,wardrobe:normalizeWardrobe(legacy.wardrobe)};
+    const outfit={cape:'pack-garden',jacket:'jacket-ocean',hat:'hat-bucket'};
+    const bought=purchaseOutfit(restored,outfit);
+    expect(legacy.coins-bought.coins).toBe(220);
+    expect(bought.wardrobe.equipped).toEqual(outfit);
+    expect(bought.wardrobe.owned).toContain('jacket-ocean');
+    expect(bought.wardrobe.owned).toContain('hat-bucket');
   });
 });
 describe('missões diárias',()=>{

@@ -9,7 +9,7 @@ import { ProblemManager } from "../game/ProblemManager";
 import { NarrativeManager } from "../game/NarrativeManager";
 import type { GameSettings, Progress, Quality } from "../game/types";
 import {normalizeGraphicsSettings} from '../config/graphics';
-import { buyAccessory, equipOutfit, type Outfit } from '../game/wardrobe';
+import { buyAccessory, equipOutfit, purchaseOutfit, type Outfit } from '../game/wardrobe';
 import { claimMission, giveEnergy, refreshDaily, trackDailyActivity, type DailyMissionId } from '../game/dailyMissions';
 import {createResolution,type Resolution} from '../game/resolution';
 interface Store {
@@ -21,6 +21,7 @@ interface Store {
   openOverlay: (overlay: 'missions' | 'shop' | null) => void;
   buy: (id: string) => boolean;
   equip: (outfit: Outfit) => boolean;
+  purchaseLook: (outfit: Outfit) => boolean;
   energize: () => void;
   claim: (id: DailyMissionId | 'bonus') => void;
   refreshMissions: () => void;
@@ -67,6 +68,10 @@ export const useGame = create<Store>((set, get) => {
     equip: (outfit) => {
       try { commit(equipOutfit(get().progress, outfit)); return true; }
       catch (error) { set({ notice: (error as Error).message }); return false; }
+    },
+    purchaseLook: outfit => {
+      try { commit(purchaseOutfit(get().progress, outfit)); return true; }
+      catch(error) { set({notice:(error as Error).message}); return false; }
     },
     energize: () => commit(giveEnergy(get().progress)),
     claim: (id) => commit(claimMission(get().progress, id)),

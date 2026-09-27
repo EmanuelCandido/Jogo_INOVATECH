@@ -2,6 +2,8 @@ import { useId } from 'react';
 import type { Accessory } from '../../game/wardrobe';
 import type { CharacterPose } from '../../game/types';
 import { publicAsset } from '../../assets/publicAsset';
+import {FittedClothing} from './FittedClothing';
+import {FittedBackpack, FittedHeadwear, FittedStraps} from './FittedGear';
 
 // Landmarks in the original 768px sprites. Torso, sleeves and foreground hands
 // follow each pose independently; product-photo sleeves cannot follow the arms.
@@ -61,6 +63,7 @@ export const hatShapes: Record<string, { width: number; ratio: number; bottom: n
 };
 
 export const wearableSource = (id: string) => publicAsset(`/assets/accessories/rendered/${id}.webp`);
+export const urbanSource = (art: string) => publicAsset(`/assets/accessories/urban/${art}.webp`);
 
 // The product photos include the INSIDE of empty garments. On the avatar the
 // helmet/arms occupy those openings and occlude their rear edges.
@@ -86,29 +89,7 @@ export function JacketTint({ item, id, armor = false }: { item: Accessory; id: s
 }
 
 export function JacketLayer({ item, pose, source, uid }: { item: Accessory; pose: CharacterPose; source: string; uid: string }) {
-  const { chest: [x, y, width, height, angle], head: [headX, headY], front, torso, sleeves, cuffs } = wearablePoses[pose];
-  const fitted = { href: wearableSource('jacket-base'), x, y, width, height, preserveAspectRatio: 'xMidYMid meet', transform: `rotate(${angle} ${x + width / 2} ${y + height / 2})` };
-  return <g data-slot="jacket" className="wearable-reveal" key={item.id}>
-    <defs>
-      <JacketTint item={item} id={`${uid}-jacket-dye`}/>
-      <JacketTint item={item} id={`${uid}-sleeve-dye`} armor/>
-      <clipPath id={`${uid}-jacket-torso`}><path d={torso}/></clipPath>
-      <clipPath id={`${uid}-jacket-sleeves`}><path d={sleeves}/></clipPath>
-      <clipPath id={`${uid}-jacket-front`}>
-        <ellipse cx={headX} cy={151 + headY} rx="191" ry="154"/>
-        <path d={front}/>
-      </clipPath>
-      <clipPath id={`${uid}-jacket-footprint`}><path d={torso}/><path d={sleeves}/></clipPath>
-    </defs>
-    <g clipPath={`url(#${uid}-jacket-torso)`}>
-      <image data-part="torso" {...fitted} filter={`url(#${uid}-jacket-dye)`}/>
-    </g>
-    <image href={source} width="768" height="768" filter={`url(#${uid}-sleeve-dye)`} clipPath={`url(#${uid}-jacket-sleeves)`}/>
-    <path d={cuffs} fill="none" stroke={item.trim} strokeWidth="3" strokeLinecap="round" opacity=".65" clipPath={`url(#${uid}-jacket-sleeves)`}/>
-    <g clipPath={`url(#${uid}-jacket-footprint)`}>
-      <image href={source} width="768" height="768" preserveAspectRatio="xMidYMid meet" clipPath={`url(#${uid}-jacket-front)`}/>
-    </g>
-  </g>;
+  return <FittedClothing item={item} pose={pose} source={source} uid={uid} front={wearablePoses[pose].front}/>;
 }
 
 export function hatPlacement(id: string, pose: CharacterPose) {
@@ -119,6 +100,7 @@ export function hatPlacement(id: string, pose: CharacterPose) {
 }
 
 export function HatLayer({ item, pose, uid }: { item: Accessory; pose: CharacterPose; uid: string }) {
+  if(item.collection)return <FittedHeadwear item={item} pose={pose} uid={uid}/>;
   const p = hatPlacement(item.id, pose);
   const front = hatFrontEdges[item.id];
   return <g data-slot="hat" className="wearable-reveal" key={item.id}>
@@ -134,9 +116,22 @@ export function HatLayer({ item, pose, uid }: { item: Accessory; pose: Character
 
 export function WearablePreview({ item }: { item: Accessory }) {
   const uid = useId().replaceAll(':', '');
+  if(item.collection&&item.slot!=='jacket'){
+    const part=item.slot==='hat'?'head':'back';
+    const frame=part==='back'?'437 237 125 243':item.collection==='garden'?'180 0 390 245':item.collection==='solar'?'228 16 322 260':'235 30 289 119';
+    return <svg className="accessory-art" viewBox={frame} width="180" height="170" aria-hidden="true"><image href={publicAsset(`/assets/accessories/fitted/${item.collection}-${part}.webp`)} width="768" height="768"/></svg>;
+  }
+  if(item.art)return <img className="accessory-art" src={urbanSource(item.art)} alt="" width="640" height="640" loading="lazy" decoding="async"/>;
   if (item.slot !== 'jacket') return <img className="accessory-art" src={item.slot === 'hat' ? wearableSource(item.id) : publicAsset(`/assets/accessories/${item.id}.svg`)} alt="" width="180" height="170"/>;
   return <svg className="accessory-art" viewBox="0 0 180 170" width="180" height="170" aria-hidden="true">
     <defs><JacketTint item={item} id={`${uid}-preview`}/></defs>
     <image href={wearableSource('jacket-base')} x="6" y="12" width="168" height="146" preserveAspectRatio="xMidYMid meet" filter={`url(#${uid}-preview)`}/>
   </svg>;
+}
+
+export function BackpackLayer({item,pose}:{item:Accessory;pose:CharacterPose}){
+  return <FittedBackpack item={item} pose={pose}/>;
+}
+export function BackpackStraps({item,pose}:{item:Accessory;pose:CharacterPose}){
+  return <FittedStraps item={item} pose={pose}/>;
 }
