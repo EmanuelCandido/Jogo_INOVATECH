@@ -178,6 +178,12 @@
   .fitting-controls { margin-top: -10px; }
   .collection-card { min-height: 170px; }
   .collection-avatar { width: min(48%, 145px); }
+  .atelier-shop .shop-catalogue-scroll { padding-top: 8px; scroll-padding: 8px; }
+  .catalogue-kicker { margin-bottom: 7px; font-size: 10px; }
+  .atelier-shop .accessory-card { padding: 6px; gap: 4px; }
+  .atelier-shop .accessory-preview { height: 58px; aspect-ratio: auto; }
+  .atelier-shop .piece-collection { font-size: 7px; }
+  .atelier-shop .accessory-card strong { font-size: 10px; }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   .atelier-shop .shop-layout { padding: 0 14px 10px; gap: 0 18px; grid-template-columns: minmax(0, 1fr) minmax(310px, 54%); }

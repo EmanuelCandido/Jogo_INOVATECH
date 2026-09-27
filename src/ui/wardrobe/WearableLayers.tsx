@@ -4,6 +4,8 @@ import type { CharacterPose } from '../../game/types';
 import { publicAsset } from '../../assets/publicAsset';
 import {FittedClothing} from './FittedClothing';
 import {FittedBackpack, FittedHeadwear, FittedStraps} from './FittedGear';
+import {ClassicHat,classicSource} from './ClassicGear';
+import {classicHats} from './classicArtwork';
 
 // Landmarks in the original 768px sprites. Torso, sleeves and foreground hands
 // follow each pose independently; product-photo sleeves cannot follow the arms.
@@ -52,26 +54,8 @@ export const wearablePoses: Record<CharacterPose, {
   },
 };
 
-// Aspect ratios measured in rendered/dimensions.json by prepare-wearables.mjs.
-export const hatShapes: Record<string, { width: number; ratio: number; bottom: number }> = {
-  'hat-explorer': { width: 369, ratio: .639004, bottom: 163 },
-  'hat-artist': { width: 340, ratio: .606486, bottom: 141 },
-  'hat-bucket': { width: 351, ratio: .694167, bottom: 171 },
-  'hat-cap': { width: 341, ratio: .751080, bottom: 166 },
-  'hat-inventor': { width: 354, ratio: .733570, bottom: 157 },
-  'hat-crown': { width: 311, ratio: .515306, bottom: 111 },
-};
-
 export const wearableSource = (id: string) => publicAsset(`/assets/accessories/rendered/${id}.webp`);
 export const urbanSource = (art: string) => publicAsset(`/assets/accessories/urban/${art}.webp`);
-
-// The product photos include the INSIDE of empty garments. On the avatar the
-// helmet/arms occupy those openings and occlude their rear edges.
-const hatFrontEdges: Partial<Record<string, string>> = {
-  'hat-bucket': 'M12 293Q47 237 120 181L162 57Q172 23 222 12C311 -4 430 8 496 51Q519 64 521 103L553 243Q607 303 634 382C516 354 392 339 271 302C144 263 48 253 12 293Z',
-  'hat-artist': 'M0 0H640V388H501C442 342 340 316 215 300C122 286 72 294 64 313H0Z',
-  'hat-cap': 'M0 0H640V406L607 401C591 403 572 410 550 417L513 424C469 481 447 483 407 469L154 400L133 390L82 425C29 463 0 455 0 414Z',
-};
 
 export function JacketTint({ item, id, armor = false }: { item: Accessory; id: string; armor?: boolean }) {
   const channel = (hex: string, i: number) => parseInt(hex.slice(1 + i * 2, 3 + i * 2), 16) / 255;
@@ -92,26 +76,9 @@ export function JacketLayer({ item, pose, source, uid }: { item: Accessory; pose
   return <FittedClothing item={item} pose={pose} source={source} uid={uid} front={wearablePoses[pose].front}/>;
 }
 
-export function hatPlacement(id: string, pose: CharacterPose) {
-  const { width, ratio, bottom } = hatShapes[id];
-  const [center, dy, angle] = wearablePoses[pose].head;
-  const height = width * ratio;
-  return { x: center - width / 2, y: bottom + dy - height, width, height, angle, center, bottom: bottom + dy };
-}
-
 export function HatLayer({ item, pose, uid }: { item: Accessory; pose: CharacterPose; uid: string }) {
   if(item.collection)return <FittedHeadwear item={item} pose={pose} uid={uid}/>;
-  const p = hatPlacement(item.id, pose);
-  const front = hatFrontEdges[item.id];
-  return <g data-slot="hat" className="wearable-reveal" key={item.id}>
-    <defs>
-      <filter id={`${uid}-hat-contact`} x="-.1" y="-.1" width="1.2" height="1.3"><feDropShadow dx="0" dy="3" stdDeviation="2" floodColor="#22162d" floodOpacity=".28"/></filter>
-      {front && <clipPath id={`${uid}-hat-front`}><path d={front} transform={`translate(${p.x} ${p.y}) scale(${p.width / 640})`}/></clipPath>}
-    </defs>
-    <g transform={`rotate(${p.angle} ${p.center} ${p.bottom})`} filter={`url(#${uid}-hat-contact)`}>
-      <image href={wearableSource(item.id)} x={p.x} y={p.y} width={p.width} height={p.height} preserveAspectRatio="xMidYMid meet" clipPath={front ? `url(#${uid}-hat-front)` : undefined}/>
-    </g>
-  </g>;
+  return <ClassicHat item={item} pose={pose} uid={uid}/>;
 }
 
 export function WearablePreview({ item }: { item: Accessory }) {
@@ -122,7 +89,7 @@ export function WearablePreview({ item }: { item: Accessory }) {
     return <svg className="accessory-art" viewBox={frame} width="180" height="170" aria-hidden="true"><image href={publicAsset(`/assets/accessories/fitted/${item.collection}-${part}.webp`)} width="768" height="768"/></svg>;
   }
   if(item.art)return <img className="accessory-art" src={urbanSource(item.art)} alt="" width="640" height="640" loading="lazy" decoding="async"/>;
-  if (item.slot !== 'jacket') return <img className="accessory-art" src={item.slot === 'hat' ? wearableSource(item.id) : publicAsset(`/assets/accessories/${item.id}.svg`)} alt="" width="180" height="170"/>;
+  if (item.slot !== 'jacket') return <svg className="accessory-art" viewBox={item.slot==='hat'?classicHats[item.id].frame:'110 270 630 325'} width="180" height="170" aria-hidden="true"><image href={classicSource(item.id)} width="768" height="768"/></svg>;
   return <svg className="accessory-art" viewBox="0 0 180 170" width="180" height="170" aria-hidden="true">
     <defs><JacketTint item={item} id={`${uid}-preview`}/></defs>
     <image href={wearableSource('jacket-base')} x="6" y="12" width="168" height="146" preserveAspectRatio="xMidYMid meet" filter={`url(#${uid}-preview)`}/>

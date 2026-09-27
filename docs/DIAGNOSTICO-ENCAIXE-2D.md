@@ -53,6 +53,12 @@ O colete de oficina editado sobre o próprio Impactus é um exemplo do processo 
 - Os cards de mochilas e acessórios de cabeça usam as próprias camadas vestidas; as descrições refletem a arte final.
 - Cada posição continua independente. Tirar a mochila restaura a capa clássica; trocar o chapéu não troca a mochila nem o traje. As compras antigas permanecem no armário.
 
+### Extensão às peças clássicas
+
+Os seis chapéus antigos também foram ilustrados vestidos, com extração do contorno interno da aba e sombra de contato. `ClassicGear.tsx` aplica o registro de cabeça usado nas coleções, e `classicArtwork.ts` preserva as medidas e recortes de cada arte. A regra de CSS que diminuía o corpo ao equipar um chapéu foi removida.
+
+As capas agora usam camadas de tecido completas, com desenhos próprios ligados aos temas da cidade. O corpo sem a capa original fica na frente do tecido; não existe mais recoloração por canal de cor nem símbolo flutuante sobre a capa. Os fontes e pedidos completos dessa etapa estão em `assets-source/ui/wardrobe/classic-v2`.
+
 ## Verificação reproduzível
 
 `tests/wardrobe-silhouettes.test.ts` verifica coordenadas reais dos fragmentos de capa, preservação de pontos dos membros e transparência das exportações. `wardrobe-fitting.test.ts` verifica o registro 2D; `wardrobe.test.ts` verifica compras e persistência. Os testes de navegador cobrem mistura entre coleções, compra, recarga, diálogo, peças antigas e teclado. Esses testes complementam a inspeção ampliada das cinco poses; não substituem a avaliação visual.

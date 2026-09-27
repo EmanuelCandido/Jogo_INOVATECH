@@ -32,7 +32,7 @@ export function Shop(){
   const close=()=>{if(confirmExit)setConfirmExit(false);else if(dirty)setConfirmExit(true);else openOverlay(null);};
   const panel=useDialog(close);
   const selected=draft[category]?accessoryById[draft[category]!]:null;
-  const items=accessories.filter(item=>item.slot===category&&(view==='owned'?progress.wardrobe.owned.includes(item.id):Boolean(item.collection)));
+  const items=accessories.filter(item=>item.slot===category&&(view==='owned'?progress.wardrobe.owned.includes(item.id):Boolean(item.collection)||item.slot!=='jacket'));
   useEffect(()=>{
     if(wasConfirming.current&&!confirmExit)backButton.current?.focus({preventScroll:true});
     wasConfirming.current=confirmExit;

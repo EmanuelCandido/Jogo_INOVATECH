@@ -165,11 +165,11 @@ test('chapéu maré encaixa na testa e mantém o rosto e o corpo no mesmo tamanh
   const after=await avatar.screenshot({animations:'disabled',path:info.outputPath('hat-after.png')});
   expect(await avatar.locator('.character-base').boundingBox()).toEqual(initialBounds);
   const {width,height}=await sharp(before).metadata();
-  // The old empty hat interior covered this part of the helmet. Its rear rim
-  // now sits behind the head; the face and body below the brim stay untouched.
+  // The fitted brim now legitimately covers the upper forehead. Protect the
+  // cyan expression and lower face, plus the whole body below the neck.
   const regions=[
-    {left:Math.round(width!*.50),top:Math.round(height!*.287),width:Math.max(1,Math.floor(width!*.045)),height:Math.max(1,Math.floor(height!*.012))},
-    {left:0,top:Math.ceil(height!*.36),width:width!,height:height!-Math.ceil(height!*.36)},
+    {left:Math.round(width!*.445),top:Math.round(height!*.375),width:Math.max(1,Math.floor(width!*.17)),height:Math.max(1,Math.floor(height!*.064))},
+    {left:0,top:Math.ceil(height!*.48),width:width!,height:height!-Math.ceil(height!*.48)},
   ];
   for(const region of regions){
     const first=await sharp(before).extract(region).raw().toBuffer();
@@ -213,4 +213,44 @@ test('teclado fica na tela aberta e Escape devolve o foco',async({page})=>{
   await expect(page.getByRole('tab',{name:'Peças',exact:true})).toBeFocused();
   await page.keyboard.press('Escape');await expect(trigger).toBeFocused();
   await expect(page.getByRole('dialog')).toHaveCount(0);
+});
+
+test('capas e chapéus clássicos têm artes vestidas, misturam com as coleções e conservam compras antigas',async({page},info)=>{
+  test.setTimeout(150000);
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await seed(page,1500,true);
+  await page.getByRole('button',{name:'Loja',exact:true}).click();
+  const avatar=page.locator('.shop-avatar .character-avatar');
+  const originalBounds=await avatar.locator('.character-base').boundingBox();
+  await page.getByRole('tab',{name:'Peças',exact:true}).click();
+  await page.getByRole('button',{name:'Capas e mochilas',exact:true}).click();
+  for(const cape of accessories.filter(a=>a.slot==='cape'&&!a.collection)){
+    await page.locator('[data-accessory="'+cape.id+'"]').click();
+    await expect(avatar.locator('[data-slot="cape"]')).toHaveAttribute('data-fitting','complete-rear-cloth');
+    await expect(avatar.locator('[data-slot="cape"] image')).toHaveAttribute('href',new RegExp('classic-v2/'+cape.id+'.webp$'));
+    await expect(avatar.locator('[data-slot="backpack"]')).toHaveCount(0);
+  }
+  await page.getByRole('button',{name:'Cabeça',exact:true}).click();
+  for(const hat of accessories.filter(a=>a.slot==='hat'&&!a.collection)){
+    await page.locator('[data-accessory="'+hat.id+'"]').click();
+    await expect(avatar.locator('[data-slot="hat"]')).toHaveAttribute('data-fitting','worn-silhouette');
+    await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',new RegExp('classic-v2/'+hat.id+'.webp$'));
+    expect(await avatar.locator('.character-base').boundingBox()).toEqual(originalBounds);
+  }
+  await page.getByRole('button',{name:'Trajes',exact:true}).click();
+  await page.locator('[data-accessory="vest-garden"]').click();
+  // Only the new garment is charged. The redesigned cape and crown are still owned.
+  await expect(page.getByRole('button',{name:'Comprar e usar',exact:true})).toBeInViewport({ratio:1});
+  await page.getByRole('button',{name:'Comprar e usar',exact:true}).click();
+  const progress=await saved(page);
+  expect(progress.coins).toBe(1360);
+  expect(progress.wardrobe.equipped).toEqual({cape:'cape-legend',jacket:'vest-garden',hat:'hat-crown'});
+  expect(progress.wardrobe.owned).toHaveLength(19);
+  await page.screenshot({path:info.outputPath('classic-outfit.png'),animations:'disabled'});
+  await page.getByRole('button',{name:'Voltar ao mapa',exact:true}).click();
+  await page.reload();
+  await page.getByRole('button',{name:'Loja',exact:true}).click();
+  await expect(avatar).toHaveAttribute('data-hat','hat-crown');
+  await expect(avatar).toHaveAttribute('data-cape','cape-legend');
+  expect((await saved(page)).coins).toBe(1360);
 });
