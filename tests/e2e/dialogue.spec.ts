@@ -37,7 +37,7 @@ test('Impactus, tutorial com tentativas, teclado e restauração',async({page})=
  await page.getByRole('button',{name:'Pensar no primeiro passo'}).click();
  for(const id of ['rush','ignore']){
   await page.locator('[data-choice-id="'+id+'"]').click();await expectPose(page,'character_failure','/assets/portraits/robot/pose-5.webp');
-  await expect(page.locator('.balance')).toContainText('1.500');await page.getByRole('button',{name:'Tentar novamente'}).click();
+  await expect(page.locator('.balance')).toContainText('100');await page.getByRole('button',{name:'Tentar novamente'}).click();
   await expectPose(page,'character_thinking','/assets/portraits/robot/pose-2.webp');
  }
  await page.locator('[data-choice-id="observe"]').click();await expectPose(page,'character_success','/assets/portraits/robot/pose-4.webp');

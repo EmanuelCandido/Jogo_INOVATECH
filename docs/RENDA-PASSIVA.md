@@ -1,9 +1,47 @@
-# Renda passiva dos problemas resolvidos
+# Economia de moedas
 
-Cada situação resolvida continua rendendo moedas para a cidade enquanto o jogo
-está aberto. O saldo mostra a renda atual logo abaixo do valor (`+6/min`).
+Valores em `src/content/balance.ts` (início e soluções), `src/game/dailyMissions.ts`
+(missões do dia) e `src/game/passiveIncome.ts` (renda passiva). Os limites abaixo
+são conferidos em `tests/game.test.ts`, `tests/wardrobe.test.ts` e
+`tests/passive-income.test.ts`.
 
-## Valores
+## Início e soluções
+
+Uma cidade nova começa com **100 moedas**. Toda escolha da primeira situação cabe
+nesse valor.
+
+| Faixa de custo | Solução completa | Temporária | Nenhuma melhoria |
+| --- | --- | --- | --- |
+| Padrão | 80 | 40 | 90 |
+| Comunitária | 70 | 45 | 100 |
+
+- A solução completa devolve **100 moedas** de recompensa (uma vez por situação).
+  Cada uma deixa de 20 a 30 moedas a mais para a próxima.
+- Resolver as 10 situações por completo custa 750 e devolve 1.000: a primeira partida
+  termina com cerca de 350 moedas, antes das missões e da renda passiva.
+- Ignorar o problema continua sendo a escolha mais cara, e a temporária a mais barata.
+  Quem escolhe a temporária no começo precisa de uma missão do dia (energia, +20) ou
+  de alguns minutos de renda para pagar a solução completa.
+- Saves antigos mantêm o saldo que já tinham; só cidades novas começam com 100.
+
+## Missões do dia
+
+Na ordem em que um dia de jogo chega a elas:
+
+| Missão | Meta | Recompensa |
+| --- | --- | --- |
+| Dar energia ao Impactus | 1 | 20 |
+| Conhecer uma emoção | 1 | 30 |
+| Explorar a cidade | 3 lugares | 50 |
+| Cuidar da cidade | 1 solução completa | 80 |
+| Baú bônus (todas resgatadas) | | 70 |
+
+Total: **250 moedas por dia**, pouco mais que uma peça média da loja.
+
+## Renda passiva
+
+Cada situação resolvida continua rendendo moedas enquanto o jogo está aberto. O saldo
+mostra a renda atual logo abaixo do valor (`+6/min`).
 
 | Estado do problema | Moedas por minuto |
 | --- | --- |
@@ -18,19 +56,15 @@ está aberto. O saldo mostra a renda atual logo abaixo do valor (`+6/min`).
 
 ## A conta
 
-Referências do jogo: começa com 1.500 moedas, cada solução completa dá 100 de
-recompensa e custa de 220 a 400; a loja tem 27 peças que somam 4.730 moedas
-(de 80 a 300, média de 175).
+A loja tem 27 peças que somam 4.730 moedas (de 80 a 300, média de 175).
 
-- **Não rende demais.** A recompensa de 100 moedas de uma solução leva 50 minutos
-  para ser ganha de novo só com a renda passiva. Resolver novas situações continua
-  sendo o jeito mais rápido de ganhar moedas.
-- **Não rende de menos.** Com 5 situações resolvidas (10/min), uma sessão de 30
-  minutos rende cerca de 300 moedas, quase duas peças médias da loja.
-- **A cidade inteira resolvida** (10 situações, 20/min, 1.200 por hora) compra uma
-  peça média a cada 9 minutos, mas a loja inteira só depois de umas 4 horas de jogo.
+- **Não rende demais.** A recompensa de 100 moedas de uma solução leva 50 minutos para
+  ser ganha de novo só com a renda passiva, então resolver novas situações continua
+  sendo o jeito mais rápido de ganhar moedas. A loja inteira leva várias horas de jogo.
+- **Não rende de menos.** Uma primeira partida de uns 30 minutos termina com perto de
+  900 moedas: 350 das soluções, 250 das missões do dia e cerca de 300 de renda. Isso
+  compra umas 5 peças.
+- **A cidade inteira resolvida** (20 por minuto, 1.200 por hora) compra uma peça média
+  a cada 9 minutos.
 - **O limite de 60 minutos fora do jogo** evita que deixar o jogo fechado por dias
   compre a loja inteira de uma vez.
-
-Os valores ficam em `src/game/passiveIncome.ts` e os limites acima são conferidos
-em `tests/passive-income.test.ts`.

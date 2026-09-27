@@ -35,12 +35,14 @@ describe('dez situações ligadas à cidade',()=>{
  });
 });
 describe('economia, decisões e descoberta',()=>{
+ // Flows that are about states, not budget, get enough coins for any choice.
+ const rich=()=>({...overview(),coins:1000});
  it.each(problems.map(p=>[p.id]))('%s aplica cada alternativa pelo ID, com custo, recompensa e cenário corretos',(id)=>{
   const p=problems.find(p=>p.id===id)!;
   for(const a of questions[p.questionId].alternatives){
    const base=overview();base.problemStates[id]='AVAILABLE';
    const s=ProblemManager.decide(open(base,id),a.id);
-   expect(s.coins).toBe(1500-a.cost+(a.effectiveness==='COMPLETE'?100:0));expect(s.problemStates[id]).toBe(a.resultState);
+   expect(s.coins).toBe(100-a.cost+(a.effectiveness==='COMPLETE'?100:0));expect(s.problemStates[id]).toBe(a.resultState);
    expect(s.decisions.at(-1)!.effectiveness).toBe(a.effectiveness);expect(ProblemManager.decide(s,a.id)).toBe(s);
    expect(decodeSave(JSON.stringify({version:1,data:s}))).toEqual(s);
   }
@@ -53,16 +55,16 @@ describe('economia, decisões e descoberta',()=>{
    s=finish(ProblemManager.decide(open(s,p.id),a.id));
    expect(problems.filter(p=>s.problemStates[p.id]!=='HIDDEN').length).toBe(Math.min(10,2+Math.floor(s.decisions.length/2)*2));
   }
-  expect(s.coins).toBe(150);expect(s.decisions).toHaveLength(10);expect(s.rewarded).toHaveLength(10);
+  expect(s.coins).toBe(350);expect(s.decisions).toHaveLength(10);expect(s.rewarded).toHaveLength(10);
  });
  it('repetir o mesmo problema não revela grupos antes da hora',()=>{
-  let s=finish(ProblemManager.decide(open(),'support'));
+  let s=finish(ProblemManager.decide(open(rich()),'support'));
   expect(s.problemStates.security_01).toBe('HIDDEN');
   s=ProblemManager.revisit(s,'accessibility_01');s=NarrativeManager.next(NarrativeManager.next(NarrativeManager.cameraArrived(s)));
   s=finish(ProblemManager.decide(s,'campaign'));expect(s.problemStates.security_01).toBe('HIDDEN');
  });
  it('mantém reavaliação e recorrência do temporário sem recompensas repetidas',()=>{
-  let s=finish(ProblemManager.decide(open(),'support'));
+  let s=finish(ProblemManager.decide(open(rich()),'support'));
   expect(ProblemManager.revisit(s,'accessibility_01').phase).toBe('FOCUSING');
   s=finish(ProblemManager.decide(open(s,'pollution_01'),'collection'));
   expect(s.problemStates.accessibility_01).toBe('AVAILABLE');
@@ -70,13 +72,13 @@ describe('economia, decisões e descoberta',()=>{
  });
  it('saldo insuficiente não altera nada; saldo exato é permitido',()=>{
   const s={...open(),coins:50};expect(()=>ProblemManager.decide(s,'ramp')).toThrow('Moedas insuficientes');expect(s.coins).toBe(50);
-  expect(ProblemManager.decide({...open(),coins:100},'support').coins).toBe(0);
+  expect(ProblemManager.decide({...open(),coins:40},'support').coins).toBe(0);
  });
  it('sair sem escolher preserva o saldo e não avança a descoberta',()=>{
   for(const phase of ['FOCUSING','COMMENT','CONTEXT','QUESTION'] as const){
    const s=NarrativeManager.cameraArrived(ProblemManager.leave({...open(),phase}));
    expect(s.phase).toBe('OVERVIEW');expect(s.selectedProblem).toBeNull();
-   expect(s.coins).toBe(1500);expect(s.decisions).toHaveLength(0);expect(s.problemStates.security_01).toBe('HIDDEN');
+   expect(s.coins).toBe(100);expect(s.decisions).toHaveLength(0);expect(s.problemStates.security_01).toBe('HIDDEN');
    expect(s.problemStates.accessibility_01).toBe('AVAILABLE');
   }
  });
@@ -91,7 +93,7 @@ describe('salvamento desta versão',()=>{
  });
  it('restaura resultados sem cobrar novamente',()=>{
   let raw:string|null=null;const adapter:SaveAdapter={read:()=>raw,write:v=>{raw=v;},clear:()=>{raw=null;}};
-  const s=ProblemManager.decide(open(),'ramp');saveProgress(adapter,s);expect(loadProgress(adapter).data).toEqual(s);expect(finish(loadProgress(adapter).data).coins).toBe(1350);
+  const s=ProblemManager.decide(open(),'ramp');saveProgress(adapter,s);expect(loadProgress(adapter).data).toEqual(s);expect(finish(loadProgress(adapter).data).coins).toBe(120);
  });
  it('descarta o escopo antigo e rejeita dados corrompidos',()=>{
   for(const raw of ['{',JSON.stringify({version:9,data:initialProgress()}),JSON.stringify({version:1,data:{...initialProgress(),contentVersion:undefined}}),JSON.stringify({version:1,data:{...initialProgress(),coins:-1}})])expect(()=>decodeSave(raw)).toThrow();

@@ -10,13 +10,17 @@ export interface DailyMissions {
   claimed: DailyMissionId[];
   bonusClaimed: boolean;
 }
+/** Listed in the order a day of play reaches them: charge the companion, hear
+ * its observation, visit a few places and finally solve one. Rewards grow with
+ * the effort and add up to 250 coins a day with the chest (see
+ * docs/RENDA-PASSIVA.md). */
 export const dailyMissionList: { id: DailyMissionId; title: string; goal: number; reward: number; hint: string }[] = [
-  { id: 'energy', title: 'Dar energia ao Impactus', goal: 1, reward: 80, hint: 'Recarregue as energias do seu companheiro.' },
-  { id: 'explore', title: 'Explorar a cidade', goal: 5, reward: 150, hint: 'Visite 5 lugares diferentes no mapa hoje.' },
-  { id: 'emotion', title: 'Conhecer uma emoção', goal: 1, reward: 1, hint: 'Ouça a observação do Impactus sobre um problema.' },
-  { id: 'care', title: 'Cuidar da cidade', goal: 1, reward: 100, hint: 'Resolva completamente um problema hoje.' },
+  { id: 'energy', title: 'Dar energia ao Impactus', goal: 1, reward: 20, hint: 'Recarregue as energias do seu companheiro.' },
+  { id: 'emotion', title: 'Conhecer uma emoção', goal: 1, reward: 30, hint: 'Ouça a observação do Impactus sobre um problema.' },
+  { id: 'explore', title: 'Explorar a cidade', goal: 3, reward: 50, hint: 'Visite 3 lugares diferentes no mapa hoje.' },
+  { id: 'care', title: 'Cuidar da cidade', goal: 1, reward: 80, hint: 'Resolva completamente um problema hoje.' },
 ];
-export const DAILY_BONUS = 100;
+export const DAILY_BONUS = 70;
 export function localDay(now = new Date()): string {
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
@@ -24,7 +28,7 @@ export const initialDailyMissions = (now = new Date()): DailyMissions => ({ day:
 export function missionCount(daily: DailyMissions, id: DailyMissionId): number {
   switch (id) {
     case 'energy': return Number(daily.energy);
-    case 'explore': return Math.min(5, daily.explored.length);
+    case 'explore': return Math.min(3, daily.explored.length);
     case 'emotion': return Math.min(1, daily.emotions.length);
     case 'care': return Math.min(1, daily.helped.length);
   }

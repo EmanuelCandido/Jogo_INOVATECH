@@ -10,7 +10,7 @@ describe('narrativa e cinco poses do mesmo companheiro',()=>{
  it('mostra oito falas e não libera o mapa antes de concluir o tutorial',()=>{
   let s=initialProgress();const seen:string[]=[];
   while(s.phase==='INTRO'){seen.push(s.dialogueNodeId!);s=NarrativeManager.next(s);}
-  expect(seen).toHaveLength(8);expect(s.phase).toBe('TUTORIAL_QUESTION');expect(s.decisions).toHaveLength(0);expect(s.coins).toBe(1500);
+  expect(seen).toHaveLength(8);expect(s.phase).toBe('TUTORIAL_QUESTION');expect(s.decisions).toHaveLength(0);expect(s.coins).toBe(100);
   expect(ProblemManager.select(s,'pollution_01')).toBe(s);
   s=NarrativeManager.next(NarrativeManager.choose(s,'observe'));expect(s.phase).toBe('OVERVIEW');expect(s.tutorialCompleted).toBe(true);
  });
@@ -18,7 +18,7 @@ describe('narrativa e cinco poses do mesmo companheiro',()=>{
   let s=initialProgress();while(s.phase==='INTRO')s=NarrativeManager.next(s);
   s=NarrativeManager.choose(s,id);expect(s.phase).toBe('TUTORIAL_RESULT');expect(s.tutorialCompleted).toBe(false);
   expect(decodeSave(JSON.stringify({version:1,data:s}))).toEqual(s);
-  s=NarrativeManager.next(s);expect(s.phase).toBe('TUTORIAL_QUESTION');expect(s.coins).toBe(1500);expect(s.decisions).toHaveLength(0);
+  s=NarrativeManager.next(s);expect(s.phase).toBe('TUTORIAL_QUESTION');expect(s.coins).toBe(100);expect(s.decisions).toHaveLength(0);
  });
  it('comentário, contexto e pergunta são etapas separadas',()=>{
   let s=NarrativeManager.cameraArrived(ProblemManager.select(overview(),'pollution_01'));expect(s.phase).toBe('COMMENT');

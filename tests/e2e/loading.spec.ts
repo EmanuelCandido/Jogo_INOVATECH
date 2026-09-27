@@ -64,7 +64,7 @@ test("save restaurado aguarda modelos antes de retornar à cidade", async ({ pag
     await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible();
     await returnButton.click();
     await expect(page.getByRole("button", { name: "Analisar: Lixo nas ruas" })).toBeVisible();
-    await expect(page.locator(".balance")).toContainText("1.350");
+    await expect(page.locator(".balance")).toContainText("120");
     await expect(page.getByText('A cidade guarda novas histórias.', { exact: true })).toHaveCount(0);
   } finally {
     release();

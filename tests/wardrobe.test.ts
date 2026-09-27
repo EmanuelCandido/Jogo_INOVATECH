@@ -54,7 +54,7 @@ describe('missões diárias',()=>{
   it('não permite resgate antecipado nem resgate duplicado',()=>{
     const base=fixture();expect(claimMission(base,'energy',now)).toBe(base);
     const charged=giveEnergy(base,now), claimed=claimMission(charged,'energy',now);
-    expect(claimed.coins).toBe(1580);expect(claimMission(claimed,'energy',now)).toBe(claimed);
+    expect(claimed.coins).toBe(1520);expect(claimMission(claimed,'energy',now)).toBe(claimed);
     expect(giveEnergy(claimed,now)).toBe(claimed);
   });
   it('visitas repetidas não duplicam progresso; a emoção exige que o diálogo apareça',()=>{
@@ -74,7 +74,7 @@ describe('missões diárias',()=>{
     const refreshed=giveEnergy(claimed,tomorrow);
     expect(refreshed.coins).toBe(claimed.coins);expect(refreshed.dailyMissions.claimed).toEqual([]);
     expect(refreshed.wardrobe).toEqual(claimed.wardrobe);
-    expect(claimMission(refreshed,'energy',tomorrow).coins).toBe(1660);
+    expect(claimMission(refreshed,'energy',tomorrow).coins).toBe(1540);
     expect(normalizeDailyMissions({day:'2026-09-21',claimed:{}},now)).toEqual(initialDailyMissions(now));
   });
   it('abre o baú somente depois dos quatro resgates e paga o bônus uma vez',()=>{
@@ -82,6 +82,6 @@ describe('missões diárias',()=>{
     expect(claimMission(progress,'bonus',now)).toBe(progress);
     for(const mission of dailyMissionList)progress=claimMission(progress,mission.id,now);
     const withBonus=claimMission(progress,'bonus',now);
-    expect(withBonus.coins-progress.coins).toBe(100);expect(claimMission(withBonus,'bonus',now)).toBe(withBonus);
+    expect(withBonus.coins-progress.coins).toBe(70);expect(claimMission(withBonus,'bonus',now)).toBe(withBonus);
   });
 });

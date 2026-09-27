@@ -22,6 +22,11 @@ export function QuestPanel({ sceneReady }: { sceneReady: boolean }) {
   const midnight=new Date(now);midnight.setHours(24,0,0,0);
   const minutes=Math.max(1,Math.ceil((midnight.getTime()-now.getTime())/60000));
   const daily=s.dailyMissions;
+  // Open situations first, in the order they were revealed; then the temporary
+  // ones to reevaluate, and the solved ones at the end.
+  const questOrder:Record<string,number>={AVAILABLE:0,TEMPORARILY_SOLVED:1,SOLVED:2};
+  const cityQuests=problems.filter(p=>!['HIDDEN','LOCKED'].includes(s.problemStates[p.id])).map((p,i)=>({p,i}))
+    .sort((a,b)=>(questOrder[s.problemStates[a.p.id]]??0)-(questOrder[s.problemStates[b.p.id]]??0)||a.p.unlockAfter-b.p.unlockAfter||a.i-b.i).map(({p})=>p);
   const complete=dailyMissionList.filter(m=>missionCount(daily,m.id)>=m.goal);
   const available=dailyMissionList.filter(m=>missionCount(daily,m.id)<m.goal);
   const solved=problems.filter(p=>s.problemStates[p.id]==='SOLVED').length;
@@ -43,7 +48,7 @@ export function QuestPanel({ sceneReady }: { sceneReady: boolean }) {
         {available.length>0&&<section className="mission-section"><div className="mission-section-heading"><h3>MISSÕES DISPONÍVEIS</h3><span title="As missões renovam à meia-noite">↻ {Math.floor(minutes/60)}h {minutes%60}min</span></div>{available.map(missionCard)}</section>}
         {complete.length===4&&<button className="bonus-button" disabled={daily.claimed.length<4||daily.bonusClaimed} onClick={event=>redeem('bonus',DAILY_BONUS,event.currentTarget)}>{daily.bonusClaimed?'✓ Baú resgatado':`Abrir baú bônus · +${DAILY_BONUS} moedas`}</button>}
         <details className="city-quests"><summary>Problemas da cidade <span>{solved}/{problems.length}</span></summary><p>Escolha um lugar para investigar. Cada solução transforma a cidade.</p>
-          {problems.filter(p=>!['HIDDEN','LOCKED'].includes(s.problemStates[p.id])).map(p=><button className="city-quest" key={p.id} disabled={!sceneReady||s.problemStates[p.id]==='SOLVED'} onClick={()=>{close();s.problemStates[p.id]==='TEMPORARILY_SOLVED'?revisit(p.id):select(p.id);}}><span aria-hidden="true">{s.problemStates[p.id]==='SOLVED'?'✓':p.markerIcon}</span><span><b>{p.title}</b><small>{s.problemStates[p.id]==='SOLVED'?'Transformação permanente':s.problemStates[p.id]==='TEMPORARILY_SOLVED'?'Melhoria provisória · reavaliar':categories[p.category].label}</small></span></button>)}
+          {cityQuests.map(p=><button className="city-quest" key={p.id} disabled={!sceneReady||s.problemStates[p.id]==='SOLVED'} onClick={()=>{close();s.problemStates[p.id]==='TEMPORARILY_SOLVED'?revisit(p.id):select(p.id);}}><span aria-hidden="true">{s.problemStates[p.id]==='SOLVED'?'✓':p.markerIcon}</span><span><b>{p.title}</b><small>{s.problemStates[p.id]==='SOLVED'?'Transformação permanente':s.problemStates[p.id]==='TEMPORARILY_SOLVED'?'Melhoria provisória · reavaliar':categories[p.category].label}</small></span></button>)}
         </details>
       </div><div className="mission-feedback" role="status">{feedback}</div>
     </section>

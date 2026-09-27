@@ -23,7 +23,7 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
   }
   await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible({timeout:20000});
   await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_success');
-  if(i===0){await expect(page.locator('.balance')).toContainText('1.350');await page.reload();await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible({timeout:60000});}
+  if(i===0){await expect(page.locator('.balance')).toContainText('120');await page.reload();await expect(page.locator('[data-effectiveness="COMPLETE"]')).toBeVisible({timeout:60000});}
   await expect(page.getByRole('button',{name:'Voltar à cidade'})).toBeEnabled({timeout:30000});
   if(info.project.name==='desktop')await page.screenshot({path:info.outputPath('situation-'+id+'-solved.png'),animations:'disabled'});
   await page.getByRole('button',{name:'Voltar à cidade'}).click();
@@ -31,7 +31,7 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
  }
  if(info.project.name==='desktop'){
   await page.getByRole('button',{name:/^Missões/}).click();
-  await expect(page.locator('.balance')).toContainText('150');await expect(page.locator('.city-quests summary')).toContainText('10/10');await expect(page.locator('.marker')).toHaveCount(0);
+  await expect(page.locator('.balance')).toContainText('350');await expect(page.locator('.city-quests summary')).toContainText('10/10');await expect(page.locator('.marker')).toHaveCount(0);
  }
  else await expect(page.locator('.marker')).toHaveCount(2);
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('ecoquest.save.v1')!).data);
@@ -39,7 +39,10 @@ test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);
 });
 test('temporário, reavaliação, nenhuma melhoria e recursos insuficientes',async({page})=>{
- test.setTimeout(180000);await start(page);await question(page);
+ test.setTimeout(180000);await start(page);
+ // This flow is about states, so it starts with enough coins for every choice.
+ await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('ecoquest.save.v1')!);s.data.coins=1000;localStorage.setItem('ecoquest.save.v1',JSON.stringify(s));});
+ await page.reload();await resetMap(page);await question(page);
  await page.locator('[data-choice-id="support"]').click();await expect(page.locator('[data-effectiveness="TEMPORARY"]')).toBeVisible({timeout:20000});
  await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_failure');
  await page.getByRole('button',{name:'Voltar à cidade'}).click();
@@ -48,9 +51,9 @@ test('temporário, reavaliação, nenhuma melhoria e recursos insuficientes',asy
  await page.getByRole('button',{name:'Voltar à cidade'}).click();
  await expect(page.locator('[data-problem="accessibility_01"]')).toHaveAttribute('data-visual-state','initial');
  await question(page);
- await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('ecoquest.save.v1')!);s.data.coins=50;localStorage.setItem('ecoquest.save.v1',JSON.stringify(s));});
+ await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('ecoquest.save.v1')!);s.data.coins=30;localStorage.setItem('ecoquest.save.v1',JSON.stringify(s));});
  await page.reload();for(const button of await page.locator('.alternative').all())await expect(button).toBeDisabled();
  await page.getByRole('button',{name:'Configurações',exact:true}).click();
  await page.getByRole('button',{name:'Decidir depois · voltar ao mapa'}).click();await resetMap(page);
- await expect(page.locator('.balance')).toContainText('50');
+ await expect(page.locator('.balance')).toContainText('30');
 });

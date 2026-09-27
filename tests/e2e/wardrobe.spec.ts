@@ -202,7 +202,7 @@ test('chapéu maré encaixa na testa e mantém o rosto e o corpo no mesmo tamanh
 });
 
 test('missões resgatam uma vez e permitem comprar com saldo exato',async({page},info)=>{
-  await seed(page,0);
+  await seed(page,60);
   await page.getByRole('button',{name:/^Missões/}).click();
   await page.getByRole('button',{name:'Dar energia ao Impactus',exact:true}).click();
   const claim=page.getByRole('button',{name:'Resgatar: Dar energia ao Impactus',exact:true});
