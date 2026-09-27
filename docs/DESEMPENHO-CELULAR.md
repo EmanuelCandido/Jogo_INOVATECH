@@ -74,6 +74,12 @@ A causa era o preparo em segundo plano das próximas missões: baixar e decodifi
 
 Agora esse preparo opcional só começa depois de 2,5 s sem tocar na tela e sem gesto segurado (`optionalQuietMs`), e o `SceneReady` pede quadro só no primeiro sinal de pronto. No navegador de testes, 8 arrastos com 0,9 s de pausa entre eles tiveram só os 8 quadros completos de fim de gesto, e o preparo começou cerca de 2,5 s depois do último toque.
 
+## Redesenho final em faixas
+
+Depois de soltar o dedo, a cidade é redesenhada inteira para a imagem parada ficar exata. No Redmi 14C, com sombras, esse quadro leva cerca de 300 ms, e um toque nesse instante espera por ele. Agora, quando o quadro completo medido passa de 40 ms, ele é desenhado em faixas horizontais, uma por quadro (até 8), enquanto a imagem arrastada continua na tela. Um novo arrasto no meio descarta as faixas e continua da imagem arrastada. No PC, onde o quadro completo leva menos de 40 ms, nada muda.
+
+Cada faixa desenha a vista inteira com a projeção da própria câmera, recortada pela tesoura: com a projeção recortada (`setViewOffset`), 841 pixels de borda mudavam por arredondamento. Assim, a imagem final difere de um quadro completo novo em 6 pixels de 1,15 milhão, na borda da água, como antes. `?settleBands=N` força N faixas para teste.
+
 ## O que falta medir no Redmi 14C
 
 Nada aqui prova 60 fps no celular. É preciso abrir a versão de teste no Redmi 14C, em Alto, com "Mostrar desempenho" ligado, e anotar o FPS parado e arrastando no panorama, no centro e na floresta. Com esses números decidimos a próxima etapa (folhas pré-calculadas, custo das sombras ou da água).
