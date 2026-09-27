@@ -71,7 +71,7 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
           {s.selectedProblem && ['FOCUSING', 'COMMENT', 'CONTEXT', 'QUESTION', 'RESULT'].includes(s.phase) && (
             <button className="back-to-map" onClick={leave} aria-label="Voltar ao mapa">
               <HudIcon name="back"/>
-              Voltar
+              <span className="back-label">Voltar</span>
             </button>
           )}
           {s.phase === 'OVERVIEW' && <JourneyNav />}
