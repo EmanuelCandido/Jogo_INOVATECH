@@ -1,0 +1,7 @@
+{
+  "tool": "image_gen.imagegen (integrada)",
+  "asset": "repair-worn.png",
+  "reference": "public/assets/portraits/robot/impactus-clean.webp",
+  "purpose": "Colete ilustrado sobre o sprite 2D original; usado apenas na região da roupa.",
+  "prompt": "Use case: identity-preserve. Edit target: supplied transparent 2D Impactus game sprite. This exact illustration must stay 2D and retain the SAME face, eyes, helmet, head crest, pose, shoulder armor, hands, hips, legs, boots, purple cape, camera angle, proportions, lighting and pixel placement. Change ONLY the ivory chest plate between neck, shoulders and waist: dress it in a beautifully fitted sleeveless upcycled BLUE DENIM WORK VEST, subtle orange fabric patches, tiny sewn repair pocket and a small wrench tucked into the pocket, cream precise stitching, navy open V collar framing the neck. The vest hugs this robot's curved torso in the exact existing three-quarter perspective, with real illustrated side curvature, fabric compression under the shoulder joints, soft contact shadow at the armholes and waist, tailored seam lines, no empty interior, no disconnected sleeves, no floating clothing. Garment goes over the chest lightning badge but does not cover shoulder caps, hands, head or hip. This is a surgical wardrobe edit of the original sprite, NOT a redesign of the robot. Exact same full-body position and scale within a square transparent canvas. Do not crop. Preserve alpha. No text, no scenery, no ground shadow."
+}

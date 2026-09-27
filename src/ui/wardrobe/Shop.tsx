@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { accessories, accessoryById, accessoryCategories, defaultOutfit, type AccessorySlot, type Outfit } from '../../game/wardrobe';
+import { accessories, accessoryById, accessoryCategories, accessoryCollections, defaultOutfit, type AccessorySlot, type Outfit } from '../../game/wardrobe';
 import { useGame } from '../../stores/gameStore';
 import { Coin } from '../hud/Coin';
 import { Balance } from '../hud/Balance';
@@ -33,6 +33,7 @@ export function Shop() {
   const unowned=accessoryCategories.map(({id})=>draft[id]).filter((id):id is string=>!!id&&!progress.wardrobe.owned.includes(id));
   const items=accessories.filter(item=>item.slot===category);
   const categoryName=accessoryCategories.find(item=>item.id===category)!.label;
+  const selectedCollection=accessoryCollections.find(item=>item.id===selected?.collection);
   const purchaseAction=!owned&&selected&&<button className="buy-accessory" disabled={progress.coins<selected.price} onClick={()=>{if(buy(selected.id)){setMessage(`${selected.name} agora é seu! Salve para usar na cidade.`);const card=document.querySelector(`[data-accessory="${selected.id}"]`);if(card&&!reduced()){sparkleBurst(card,10);card.animate([{scale:'1',rotate:'0deg'},{scale:'1.08',rotate:'-3deg'},{scale:'.97',rotate:'2deg'},{scale:'1',rotate:'0deg'}],{duration:520,easing:'ease-out'});}}}}>{progress.coins<selected.price?`Faltam ${selected.price-progress.coins} moedas`:<><Coin/> Comprar por {selected.price}</>}</button>;
   function changeCategory(next:AccessorySlot){setCategory(next);setMessage('');}
   return <section ref={panel} className={`shop-screen${arriving?' is-arriving':''}`} role="dialog" aria-modal="true" aria-labelledby="shop-heading" tabIndex={-1}>
@@ -48,17 +49,17 @@ export function Shop() {
         }}>{accessoryCategories.map(item=><button key={item.id} id={`tab-${item.id}`} role="tab" aria-selected={category===item.id} aria-controls="accessory-collection" tabIndex={category===item.id?0:-1} onClick={()=>changeCategory(item.id)}>{item.label}</button>)}</div>
         </div><div className="shop-catalogue-scroll">
         <div id="accessory-collection" role="tabpanel" aria-labelledby={`tab-${category}`}>
-          <div className="collection-heading"><b>{selected?.name??(category==='jacket'?'Sem jaqueta':'Sem chapéu')}</b><span>{items.length} opções</span></div>
+          <div className="collection-heading"><b>{selected?.name??(category==='jacket'?'Sem traje':'Nada na cabeça')}</b><span>{items.length} opções</span></div>
           <div className="accessory-grid">{items.map(item=>{
             const isOwned=progress.wardrobe.owned.includes(item.id);
             return <button className={`accessory-card${draft[category]===item.id?' selected':''}`} key={item.id} aria-pressed={draft[category]===item.id} aria-label={`${item.name}, ${isOwned?'já adquirido':`${item.price} moedas`}`} data-accessory={item.id} onClick={()=>{setDraft({...draft,[category]:item.id});setMessage('');}}>
               <span className="accessory-preview"><WearablePreview item={item}/>{!isOwned&&<span className="accessory-lock"><HudIcon name="lock"/></span>}{draft[category]===item.id&&<span className="accessory-selected"><HudIcon name="check"/></span>}</span><strong>{item.name}</strong><span className="accessory-price">{isOwned?<><HudIcon name="check"/> Seu acessório</>:<><Coin/>{item.price} moedas</>}</span>
             </button>;
           })}</div>
-          <div className="outfit-tools">{category!=='cape'&&<button aria-pressed={!selected} onClick={()=>{setDraft({...draft,[category]:null});setMessage('');}}>{category==='jacket'?'Retirar jaqueta':'Retirar chapéu'}</button>}<button onClick={()=>{setDraft(defaultOutfit());setMessage('Visual original na prévia. Salve para confirmar.');}}>Visual original</button></div>
+          <div className="outfit-tools">{category!=='cape'&&<button aria-pressed={!selected} onClick={()=>{setDraft({...draft,[category]:null});setMessage('');}}>{category==='jacket'?'Retirar traje':'Retirar da cabeça'}</button>}<button onClick={()=>{setDraft(defaultOutfit());setMessage('Visual original na prévia. Salve para confirmar.');}}>Visual original</button></div>
         </div>
-        <div className="accessory-detail"><p>{selected?.description??'A armadura original também faz parte do seu estilo.'}</p></div>
-        <p className="shop-note">Combine uma capa, uma jaqueta e um chapéu. As compras usam as moedas da cidade.</p>
+        <div className="accessory-detail">{selectedCollection&&<span className="piece-collection" style={{'--collection-accent':selectedCollection.accent} as CSSProperties}>Coleção {selectedCollection.name}{selected?.feature&&<> · {selected.feature}</>}</span>}<p>{selected?.description??'A armadura original também faz parte do seu estilo.'}</p></div>
+        <p className="shop-note">Combine mochila ou capa, traje e acessório de cabeça, mesmo de coleções diferentes. As compras usam as moedas da cidade.</p>
       </div><footer className={`shop-save${purchaseAction?' has-purchase':''}`}><div className="shop-message" role="status">{message|| (unowned.length?`Compre ${unowned.length===1?'o acessório selecionado':'os acessórios selecionados'} para salvar.`:'')}</div>{purchaseAction}<button className="save-outfit" disabled={unowned.length>0} onClick={()=>{if(equip(draft)){setMessage('Visual salvo! O Impactus já pode usar essa combinação na cidade.');const avatar=document.querySelector('.shop-avatar');if(avatar&&!reduced()){sparkleBurst(avatar,16);avatar.animate([{scale:'1'},{scale:'1.06'},{scale:'1'}],{duration:450,easing:'cubic-bezier(.3,1.6,.5,1)'});}}}}><HudIcon name={!dirty&&message.startsWith('Visual salvo')?'check':'sparkles'}/>{!dirty&&message.startsWith('Visual salvo')?'VISUAL SALVO':'SALVAR VISUAL'}</button></footer></div>
     </div>
     {confirmExit&&<div className="shop-exit-scrim"><div className="shop-exit" role="alertdialog" aria-labelledby="exit-title"><h3 id="exit-title">Sair da prévia?</h3><p>As compras continuam suas. O visual que você está experimentando ainda não foi salvo.</p><button className="save-outfit" autoFocus onClick={()=>setConfirmExit(false)}>Continuar experimentando</button><button className="discard-outfit" onClick={()=>openOverlay(null)}>Sair sem salvar</button></div></div>}

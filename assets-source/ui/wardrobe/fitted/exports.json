@@ -1,0 +1,38 @@
+{
+  "garden-head": {
+    "source": "garden-worn.png",
+    "bytes": 23602
+  },
+  "garden-straps": {
+    "source": "garden-worn.png",
+    "bytes": 7244
+  },
+  "garden-back": {
+    "source": "back-layers.png",
+    "bytes": 12164
+  },
+  "solar-head": {
+    "source": "solar-worn.png",
+    "bytes": 21556
+  },
+  "solar-straps": {
+    "source": "solar-worn.png",
+    "bytes": 8186
+  },
+  "solar-back": {
+    "source": "back-layers.png",
+    "bytes": 9802
+  },
+  "repair-head": {
+    "source": "repair-gear.png",
+    "bytes": 13270
+  },
+  "repair-straps": {
+    "source": "repair-gear.png",
+    "bytes": 8838
+  },
+  "repair-back": {
+    "source": "back-layers.png",
+    "bytes": 12974
+  }
+}

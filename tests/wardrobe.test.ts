@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { accessories, buyAccessory, defaultOutfit, equipOutfit, initialWardrobe, normalizeWardrobe } from '../src/game/wardrobe';
+import { accessories, accessoryById, accessoryCollections, buyAccessory, defaultOutfit, equipOutfit, initialWardrobe, normalizeWardrobe } from '../src/game/wardrobe';
 import { claimMission, dailyMissionList, giveEnergy, initialDailyMissions, normalizeDailyMissions, trackDailyActivity } from '../src/game/dailyMissions';
 import type { Progress } from '../src/game/types';
 
@@ -15,8 +15,8 @@ describe('compras e combinações de acessórios',()=>{
     expect(bought.wardrobe.owned).toEqual(['cape-star','cape-comet']);
     expect(()=>buyAccessory(base,'missing')).toThrow('não encontrado');
   });
-  it('aceita todas as 294 combinações e retira peças sem afetar as outras categorias',()=>{
-    const base=fixture();base.wardrobe.owned=accessories.map(a=>a.id);
+  it('aceita todas as combinações entre peças novas e antigas e permite retirar peças',()=>{
+    const base=fixture();base.wardrobe=normalizeWardrobe({owned:accessories.map(a=>a.id)});
     const capes=accessories.filter(a=>a.slot==='cape').map(a=>a.id);
     const jackets=[null,...accessories.filter(a=>a.slot==='jacket').map(a=>a.id)];
     const hats=[null,...accessories.filter(a=>a.slot==='hat').map(a=>a.id)];
@@ -33,6 +33,21 @@ describe('compras e combinações de acessórios',()=>{
     expect(base.wardrobe).toEqual(initialWardrobe());
     expect(normalizeWardrobe({owned:['unknown','cape-star'],equipped:{cape:'unknown',hat:'cape-star'}})).toEqual(initialWardrobe());
     expect(normalizeWardrobe(undefined)).toEqual(initialWardrobe());
+  });
+  it('as três coleções têm uma peça por posição, com arte própria',()=>{
+    for(const collection of accessoryCollections)for(const slot of ['cape','jacket','hat'] as const){
+      const item=accessoryById[collection.outfit[slot]!];
+      expect(item.slot).toBe(slot);expect(item.collection).toBe(collection.id);expect(item.art).toBeTruthy();
+    }
+  });
+  it('mistura peças novas com compras antigas e mantém o salvamento',()=>{
+    let progress=buyAccessory(buyAccessory(fixture(),'jacket-ocean'),'pack-garden');
+    progress=buyAccessory(progress,'head-repair');
+    const outfit={cape:'pack-garden',jacket:'jacket-ocean',hat:'head-repair'};
+    progress=equipOutfit(progress,outfit);
+    expect(progress.coins).toBe(1500-150-220-120);
+    expect(progress.wardrobe.equipped).toEqual(outfit);
+    expect(normalizeWardrobe(JSON.parse(JSON.stringify(progress.wardrobe)))).toEqual(progress.wardrobe);
   });
 });
 describe('missões diárias',()=>{

@@ -24,9 +24,9 @@ test('controles da loja mantêm categorias, foco e mapa protegido durante a saí
   await expect(back.locator('svg')).toHaveCount(1);
   expect(await back.evaluate(el=>getComputedStyle(el).backgroundImage)).toContain('gradient');
   expect((await back.boundingBox())!.width).toBeGreaterThanOrEqual(44);
-  await page.getByRole('tab',{name:'Jaquetas'}).click();
-  await page.getByRole('tab',{name:'Jaquetas'}).press('ArrowRight');
-  await expect(page.getByRole('tab',{name:'Chapéus'})).toHaveAttribute('aria-selected','true');
+  await page.getByRole('tab',{name:'Trajes'}).click();
+  await page.getByRole('tab',{name:'Trajes'}).press('ArrowRight');
+  await expect(page.getByRole('tab',{name:'Cabeça'})).toHaveAttribute('aria-selected','true');
   await page.locator('[data-accessory="hat-bucket"]').click();
   const tabs=page.getByRole('tablist');
   const tabY=(await tabs.boundingBox())!.y;

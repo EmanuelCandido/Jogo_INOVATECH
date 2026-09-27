@@ -1,6 +1,7 @@
 import type { Progress } from './types';
 
 export type AccessorySlot = 'cape' | 'jacket' | 'hat';
+export type CollectionId = 'solar' | 'garden' | 'repair';
 export interface Outfit { cape: string; jacket: string | null; hat: string | null }
 export interface Wardrobe { owned: string[]; equipped: Outfit }
 export interface Accessory {
@@ -13,12 +14,24 @@ export interface Accessory {
   trim: string;
   style: number;
   description: string;
+  collection?: CollectionId;
+  art?: string;
+  feature?: string;
 }
 
 export const accessoryCategories: { id: AccessorySlot; label: string }[] = [
-  { id: 'cape', label: 'Capas' }, { id: 'jacket', label: 'Jaquetas' }, { id: 'hat', label: 'Chapéus' },
+  { id: 'cape', label: 'Costas' }, { id: 'jacket', label: 'Trajes' }, { id: 'hat', label: 'Cabeça' },
 ];
 export const accessories: Accessory[] = [
+  {id:'pack-solar',slot:'cape',collection:'solar',art:'solar-pack',name:'Estação de bolso',price:240,color:'#c58315',light:'#ffe3a0',trim:'#71edff',style:0,feature:'Carregador solar de mochila',description:'Energia limpa para acompanhar o Impactus. Painel solar, bateria compacta e um indicador de energia que acompanha cada descoberta.'},
+  {id:'vest-solar',slot:'jacket',collection:'solar',art:'solar-vest',name:'Colete raio de sol',price:160,color:'#c98c14',light:'#ffe9ab',trim:'#fff5d9',style:0,feature:'Acabamentos âmbar e refletivos',description:'Amarelo solar, costuras acolchoadas e detalhes refletivos. Um detalhe solar no peito completa o visual.'},
+  {id:'head-solar',slot:'hat',collection:'solar',art:'solar-helmet',name:'Capacete horizonte',price:140,color:'#c58315',light:'#ffe3a0',trim:'#71edff',style:0,feature:'Casco âmbar e células solares',description:'Um visual de mobilidade limpa: capacete leve em âmbar com pequenos painéis no topo.'},
+  {id:'pack-garden',slot:'cape',collection:'garden',art:'garden-pack',name:'Viveiro portátil',price:220,color:'#286754',light:'#b2deac',trim:'#db8154',style:0,feature:'Mudas e reservatório de água',description:'Uma pequena horta vai junto: mudas protegidas, água e ferramentas para imaginar uma cidade mais verde.'},
+  {id:'vest-garden',slot:'jacket',collection:'garden',art:'garden-vest',name:'Avental semeador',price:140,color:'#376b5e',light:'#b6d9aa',trim:'#ecae85',style:0,feature:'Bolsos de sementes e tons de sálvia',description:'Lona clara, bolsos de sementes e costuras em forma de folha. Verde e terracota para cuidar dos jardins da cidade.'},
+  {id:'head-garden',slot:'hat',collection:'garden',art:'garden-hat',name:'Chapéu flor do bairro',price:110,color:'#286754',light:'#b2deac',trim:'#db8154',style:0,feature:'Trama vegetal e folhas na faixa',description:'Aba curva, trama de papel reaproveitado e folhas na faixa. Pronto para cuidar das praças.'},
+  {id:'pack-repair',slot:'cape',collection:'repair',art:'repair-pack',name:'Oficina nas costas',price:230,color:'#285594',light:'#b0d4ed',trim:'#fda351',style:0,feature:'Lona, ferramentas e peças reaproveitadas',description:'Lona e jeans reaproveitados, bolsos de ferramentas e um rolo de tecido. Uma oficina compacta para dar nova vida ao que a cidade já tem.'},
+  {id:'vest-repair',slot:'jacket',collection:'repair',art:'repair-vest',name:'Colete segunda vida',price:160,color:'#295b9c',light:'#aaceec',trim:'#f4aa64',style:0,feature:'Retalhos, costuras e azul de oficina',description:'Retalhos azuis, remendos cuidadosos e bolsos de oficina. Detalhes laranja dão outra vida ao visual do Impactus.'},
+  {id:'head-repair',slot:'hat',collection:'repair',art:'repair-goggles',name:'Óculos de boas ideias',price:120,color:'#285594',light:'#b0d4ed',trim:'#fda351',style:0,feature:'Lentes de inspeção sobre a testa',description:'Lentes claras, armação de metal e uma tira ajustada ao capacete. Ficam sobre a testa, deixando a expressão do Impactus livre.'},
   { id: 'cape-star', slot: 'cape', name: 'Capa estelar', price: 120, color: '#5800c8', light: '#ba70ff', trim: '#f4d586', style: 0, description: 'O roxo clássico de quem nasceu para transformar a cidade.' },
   { id: 'cape-comet', slot: 'cape', name: 'Capa cometa', price: 80, color: '#096db5', light: '#8be9ff', trim: '#e7faff', style: 1, description: 'Azul celeste com um rastro de luz para novas descobertas.' },
   { id: 'cape-galaxy', slot: 'cape', name: 'Capa galáxia', price: 180, color: '#ac237f', light: '#ff9ccd', trim: '#ffe9a3', style: 2, description: 'Uma constelação de pequenas estrelas em rosa cósmico.' },
@@ -42,6 +55,20 @@ export const accessoryById: Record<string, Accessory> = Object.assign(Object.cre
 export const defaultOutfit = (): Outfit => ({ cape: 'cape-star', jacket: null, hat: null });
 export const initialWardrobe = (): Wardrobe => ({ owned: ['cape-star'], equipped: defaultOutfit() });
 
+export interface AccessoryCollection {
+  id: CollectionId;
+  name: string;
+  theme: string;
+  description: string;
+  accent: string;
+  surface: string;
+  outfit: Outfit;
+}
+export const accessoryCollections: AccessoryCollection[] = [
+  {id:'solar',name:'Pulso Solar',theme:'ENERGIA LIMPA',description:'Carregue boas ideias. Vista a energia do sol.',accent:'#9b5d08',surface:'#fff1d1',outfit:{cape:'pack-solar',jacket:'vest-solar',hat:'head-solar'}},
+  {id:'garden',name:'Jardim de Bolso',theme:'CIDADE MAIS VERDE',description:'Um pedacinho de verde, por onde você passar.',accent:'#267357',surface:'#e0f1df',outfit:{cape:'pack-garden',jacket:'vest-garden',hat:'head-garden'}},
+  {id:'repair',name:'Oficina Circular',theme:'REUTILIZAR É CRIAR',description:'Tudo pode ganhar uma segunda vida. Até seu estilo.',accent:'#2b5e96',surface:'#e1edfb',outfit:{cape:'pack-repair',jacket:'vest-repair',hat:'head-repair'}},
+];
 export function normalizeWardrobe(value: unknown): Wardrobe {
   if (!value || typeof value !== 'object') return initialWardrobe();
   const raw = value as Partial<Wardrobe>;

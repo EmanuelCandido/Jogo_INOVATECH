@@ -67,6 +67,8 @@
 /* The sprite and all wearable layers share one square coordinate system. */
 .character-avatar { position: relative; display: block; width: 100%; aspect-ratio: 1; }
 .character-avatar > .character-base { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* Backpacks and fitted headwear redraw the body inside the SVG, masked. */
+.character-avatar > .character-base.is-composited { opacity: 0; }
 .character-garments { position: absolute; inset: 0; display: block; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .character-avatar:not([data-hat="none"]) > .character-base, .character-avatar:not([data-hat="none"]) > .character-garments { transform: translateY(14%) scale(.86); transform-origin: 50% 0; }
 .wearable-reveal { animation: reveal .25s ease-out both; }
@@ -116,6 +118,7 @@
 .outfit-tools button[aria-pressed=true] { color: #786f8a; text-decoration: none; }
 .accessory-detail { display: flex; flex-direction: column; gap: 9px; padding: 8px 0; }
 .accessory-detail p { font-size: 12px; line-height: 1.5; color: #625775; }
+.piece-collection { font-size: 10px; font-weight: 800; letter-spacing: .02em; color: var(--collection-accent, #7024c5); }
 .buy-accessory { min-height: 43px; display: flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid #dec385; border-bottom: 3px solid #c7a24d; border-radius: 14px; background: #fff0bd; color: #67410c; font-size: 13px; font-weight: 800; }
 .buy-accessory .coin { width: 20px; height: 20px; }
 .buy-accessory:disabled { color: #736977; background: #eeebf0; border-color: #d3ccda; }

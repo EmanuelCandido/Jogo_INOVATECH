@@ -1,0 +1,47 @@
+{
+  "solar-pack": {
+    "width": 1214,
+    "height": 862,
+    "ratio": 0.7100494233937397
+  },
+  "garden-pack": {
+    "width": 1195,
+    "height": 1169,
+    "ratio": 0.9782426778242678
+  },
+  "repair-pack": {
+    "width": 1125,
+    "height": 1201,
+    "ratio": 1.0675555555555556
+  },
+  "solar-vest": {
+    "width": 1150,
+    "height": 1119,
+    "ratio": 0.9730434782608696
+  },
+  "garden-vest": {
+    "width": 1155,
+    "height": 1086,
+    "ratio": 0.9402597402597402
+  },
+  "repair-vest": {
+    "width": 1224,
+    "height": 1115,
+    "ratio": 0.9109477124183006
+  },
+  "solar-helmet": {
+    "width": 1179,
+    "height": 736,
+    "ratio": 0.6242578456318915
+  },
+  "garden-hat": {
+    "width": 1474,
+    "height": 770,
+    "ratio": 0.5223880597014925
+  },
+  "repair-goggles": {
+    "width": 1466,
+    "height": 651,
+    "ratio": 0.4440654843110505
+  }
+}

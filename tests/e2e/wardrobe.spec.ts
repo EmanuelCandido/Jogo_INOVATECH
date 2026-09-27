@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { overview } from '../helpers';
 import { mapReady } from './helpers';
 import sharp from 'sharp';
+import {accessoryCollections} from '../../src/game/wardrobe';
 
 async function seed(page:Page,coins=1500){
   const progress=overview();progress.coins=coins;
@@ -38,10 +39,10 @@ test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isM
   await page.locator('[data-accessory="cape-comet"]').click();
   await expect(page.getByRole('button',{name:'SALVAR VISUAL',exact:true})).toBeDisabled();
   await page.getByRole('button',{name:'Comprar por 80'}).click();
-  await page.getByRole('tab',{name:'Jaquetas'}).click();
+  await page.getByRole('tab',{name:'Trajes'}).click();
   await page.locator('[data-accessory="jacket-forest"]').click();
   await page.getByRole('button',{name:'Comprar por 120'}).click();
-  await page.getByRole('tab',{name:'Chapéus'}).click();
+  await page.getByRole('tab',{name:'Cabeça'}).click();
   await page.locator('[data-accessory="hat-explorer"]').click();
   await page.getByRole('button',{name:'Comprar por 80'}).click();
   await page.getByRole('button',{name:'SALVAR VISUAL',exact:true}).click();
@@ -49,7 +50,7 @@ test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isM
   const expected={cape:'cape-comet',jacket:'jacket-forest',hat:'hat-explorer'};
   expect((await saved(page)).wardrobe.equipped).toEqual(expected);
   const avatar=shop.locator('.character-avatar');
-  await expect(avatar.locator('[data-part="torso"]')).toHaveAttribute('href',/rendered\/jacket-base\.webp$/);
+  await expect(avatar.locator('[data-part="torso"]')).toHaveAttribute('href',/fitted\/repair-worn\.webp$/);
   await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',/rendered\/hat-explorer\.webp$/);
   await expect(avatar).toHaveAttribute('data-cape','cape-comet');await expect(avatar).toHaveAttribute('data-jacket','jacket-forest');await expect(avatar).toHaveAttribute('data-hat','hat-explorer');
   const image=await avatar.locator('img').boundingBox();expect(image!.width/image!.height).toBeCloseTo(1,2);
@@ -69,7 +70,7 @@ test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isM
   await page.reload();await mapReady(page);
   await page.getByRole('button',{name:'Loja',exact:true}).click();
   await expect(shop.locator('.character-avatar')).toHaveAttribute('data-hat','hat-explorer');
-  await page.getByRole('tab',{name:'Chapéus'}).click();await page.getByRole('button',{name:'Retirar chapéu'}).click();
+  await page.getByRole('tab',{name:'Cabeça'}).click();await page.getByRole('button',{name:'Retirar da cabeça'}).click();
   await page.getByRole('button',{name:'Voltar ao mapa',exact:true}).click();
   await page.getByRole('button',{name:'Sair sem salvar'}).click();
   expect((await saved(page)).wardrobe.equipped).toEqual(expected);
@@ -87,9 +88,9 @@ test('todas as jaquetas e chapéus carregam, combinam e podem ser retirados',asy
   const hats=['explorer','artist','bucket','cap','inventor','crown'];
   const jackets=['trail','forest','ocean','sun','city','cosmos'];
   for(let i=0;i<6;i++){
-    await page.getByRole('tab',{name:'Jaquetas'}).click();
+    await page.getByRole('tab',{name:'Trajes'}).click();
     await page.locator(`[data-accessory="jacket-${jackets[i]}"]`).click();
-    await page.getByRole('tab',{name:'Chapéus'}).click();
+    await page.getByRole('tab',{name:'Cabeça'}).click();
     await page.locator(`[data-accessory="hat-${hats[i]}"]`).click();
     await expect(avatar).toHaveAttribute('data-jacket',`jacket-${jackets[i]}`);
     await expect(avatar).toHaveAttribute('data-hat',`hat-${hats[i]}`);
@@ -106,23 +107,61 @@ test('todas as jaquetas e chapéus carregam, combinam e podem ser retirados',asy
     expect(bounds!.x+bounds!.width).toBeLessThanOrEqual(frame!.x+frame!.width+1);
     await page.screenshot({path:info.outputPath(`rendered-${hats[i]}.png`),animations:'disabled'});
   }
-  await page.getByRole('button',{name:'Retirar chapéu'}).click();
+  await page.getByRole('button',{name:'Retirar da cabeça'}).click();
   await expect(avatar.locator('[data-slot="hat"]')).toHaveCount(0);
   await expect(avatar.locator('[data-slot="jacket"]')).toHaveCount(1);
-  await page.getByRole('tab',{name:'Jaquetas'}).click();
-  await page.getByRole('button',{name:'Retirar jaqueta'}).click();
+  await page.getByRole('tab',{name:'Trajes'}).click();
+  await page.getByRole('button',{name:'Retirar traje'}).click();
   await expect(avatar.locator('[data-slot="jacket"]')).toHaveCount(0);
   expect((await saved(page)).coins).toBe(1500);
+});
+
+test('as nove peças novas aparecem na loja, carregam e não mudam a escala do corpo',async({page},info)=>{
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await seed(page);await page.getByRole('button',{name:'Loja',exact:true}).click();
+  const avatar=page.locator('.shop-avatar .character-avatar');
+  const originalBounds=(await avatar.locator('.character-base').boundingBox())!;
+  const tabs={cape:'Costas',jacket:'Trajes',hat:'Cabeça'} as const;
+  for(const collection of accessoryCollections){
+    for(const slot of ['cape','jacket','hat'] as const){
+      await page.getByRole('tab',{name:tabs[slot]}).click();
+      const card=page.locator(`[data-accessory="${collection.outfit[slot]}"]`);
+      await expect(card.locator('.accessory-art')).toBeVisible();
+      await card.click();
+    }
+    await expect(page.locator('.accessory-detail .piece-collection')).toContainText(collection.name);
+    await expect(avatar).toHaveAttribute('data-cape',collection.outfit.cape);
+    await expect(avatar).toHaveAttribute('data-jacket',collection.outfit.jacket!);
+    await expect(avatar).toHaveAttribute('data-hat',collection.outfit.hat!);
+    await expect(avatar.locator('[data-part="backpack-straps"]')).toHaveCount(1);
+    await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',new RegExp('fitted/'+collection.id+'-head.webp$'));
+    await expect(avatar.locator('[data-slot="backpack"] image')).toHaveAttribute('href',new RegExp('fitted/'+collection.id+'-back.webp$'));
+    const bounds=(await avatar.locator('.character-base').boundingBox())!;
+    for(const key of ['x','y','width','height'] as const)expect(bounds[key]).toBeCloseTo(originalBounds[key],2);
+    // Validate browser decoding of the actual artwork, in the cards and on the body.
+    expect(await page.locator('.shop-screen').locator('image, img.accessory-art').evaluateAll(async elements=>{
+      const sources=[...new Set(elements.map(el=>el.getAttribute('href')??el.getAttribute('src')!).filter(Boolean))];
+      return Promise.all(sources.map(async src=>{const image=new Image();image.src=src;await image.decode();return image.naturalWidth>0;}));
+    })).not.toContain(false);
+    await page.screenshot({path:info.outputPath('collection-'+collection.id+'.png'),animations:'disabled'});
+  }
+  expect((await saved(page)).coins).toBe(1500);
+  await page.getByRole('button',{name:'Retirar da cabeça'}).click();
+  await expect(avatar.locator('[data-slot="hat"]')).toHaveCount(0);
+  await page.getByRole('tab',{name:'Trajes'}).click();
+  await page.getByRole('button',{name:'Retirar traje'}).click();
+  await expect(avatar.locator('[data-slot="jacket"]')).toHaveCount(0);
+  await expect(avatar.locator('[data-slot="backpack"]')).toHaveCount(1);
 });
 
 test('vestir a jaqueta preserva os pixels da capa abaixo das mãos',async({page},info)=>{
   await seed(page);await page.getByRole('button',{name:'Loja',exact:true}).click();
   await page.locator('[data-accessory="cape-comet"]').click();
-  await page.getByRole('tab',{name:'Chapéus'}).click();
+  await page.getByRole('tab',{name:'Cabeça'}).click();
   await page.locator('[data-accessory="hat-crown"]').click();
   const avatar=page.locator('.shop-avatar .character-avatar');
   const before=await avatar.screenshot({animations:'disabled',path:info.outputPath('cape-before.png')});
-  await page.getByRole('tab',{name:'Jaquetas'}).click();
+  await page.getByRole('tab',{name:'Trajes'}).click();
   await page.locator('[data-accessory="jacket-forest"]').click();
   const after=await avatar.screenshot({animations:'disabled',path:info.outputPath('cape-after.png')});
   const {width,height}=await sharp(before).metadata();
@@ -137,12 +176,12 @@ test('chapéu maré encaixa na testa e mantém o rosto e o corpo no mesmo tamanh
   await seed(page);await page.getByRole('button',{name:'Loja',exact:true}).click();
   // Reproduce the reported outfit and keep the preview label/compositing state
   // identical in both captures; only the hat changes.
-  await page.getByRole('tab',{name:'Jaquetas'}).click();
+  await page.getByRole('tab',{name:'Trajes'}).click();
   await page.locator('[data-accessory="jacket-ocean"]').click();
   const avatar=page.locator('.shop-avatar .character-avatar');
   const before=await avatar.screenshot({animations:'disabled',path:info.outputPath('hat-before.png')});
   const initialBounds=await avatar.locator('.character-base').boundingBox();
-  await page.getByRole('tab',{name:'Chapéus'}).click();
+  await page.getByRole('tab',{name:'Cabeça'}).click();
   await page.locator('[data-accessory="hat-bucket"]').click();
   const after=await avatar.screenshot({animations:'disabled',path:info.outputPath('hat-after.png')});
   expect(await avatar.locator('.character-base').boundingBox()).toEqual(initialBounds);
@@ -188,8 +227,8 @@ test('teclado fica na tela aberta e Escape devolve o foco',async({page})=>{
   await trigger.focus();await page.keyboard.press('Enter');
   await expect(page.locator('.game-hud')).toHaveAttribute('inert','');
   await expect(page.locator('.world')).toHaveAttribute('inert','');
-  await page.getByRole('tab',{name:'Capas'}).focus();await page.keyboard.press('ArrowRight');
-  await expect(page.getByRole('tab',{name:'Jaquetas'})).toBeFocused();
+  await page.getByRole('tab',{name:'Costas'}).focus();await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('tab',{name:'Trajes'})).toBeFocused();
   await page.keyboard.press('Escape');await expect(trigger).toBeFocused();
   await expect(page.getByRole('dialog')).toHaveCount(0);
 });

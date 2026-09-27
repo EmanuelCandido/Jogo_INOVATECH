@@ -7,6 +7,7 @@ afterEach(() => vi.unstubAllEnvs());
 test('public images and models resolve beneath the hosting subdirectory', () => {
   vi.stubEnv('BASE_URL', '/Jogo_INOVATECH/');
   expect(publicAsset('/assets/ui/figma/logo.svg')).toBe('/Jogo_INOVATECH/assets/ui/figma/logo.svg');
+  expect(publicAsset('/assets/accessories/urban/garden-pack.webp')).toBe('/Jogo_INOVATECH/assets/accessories/urban/garden-pack.webp');
   expect(modelUrl({kind: 'glb', url: '/assets/models/tree-oak.glb'}, 'ULTRA'))
     .toBe('/Jogo_INOVATECH/assets/models/tree-oak.glb');
 });
