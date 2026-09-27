@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Eco City — Impactus</title>
+  <defs>
+    <linearGradient id="purple" x2="0.3" y2="1"><stop stop-color="#9236f4"/><stop offset="1" stop-color="#4b00ad"/></linearGradient>
+    <linearGradient id="shell" x2="0.7" y2="1"><stop stop-color="#fffef5"/><stop offset="1" stop-color="#d9ceee"/></linearGradient>
+    <linearGradient id="visor" x2="0.2" y2="1"><stop stop-color="#30224a"/><stop offset="1" stop-color="#09071c"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#purple)"/>
+  <rect x="2" y="2" width="60" height="59" rx="14" fill="none" stroke="#cba0ff" stroke-opacity=".45"/>
+  <rect x="5" y="26" width="10" height="24" rx="5" fill="url(#shell)"/>
+  <rect x="49" y="26" width="10" height="24" rx="5" fill="url(#shell)"/>
+  <rect x="7" y="31" width="5" height="14" rx="2.5" fill="#6610d1"/>
+  <rect x="52" y="31" width="5" height="14" rx="2.5" fill="#6610d1"/>
+  <path d="M10 32C10 15 20 9 32 9S54 15 54 32v7c0 13-9 19-22 19S10 52 10 39Z" fill="url(#shell)"/>
+  <path d="M15 35c0-9 7-10 17-10s17 1 17 10v5c0 10-7 13-17 13s-17-3-17-13Z" fill="url(#visor)"/>
+  <path d="m27 8 13 1-7 10 9-1-13 16 1-12-8 1Z" fill="#6100ce"/>
+  <ellipse cx="24" cy="38" rx="4" ry="5.5" fill="#76edff"/>
+  <path d="M36 38q5-7 9 0" fill="none" stroke="#76edff" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M27 46q5 5 10-1" fill="none" stroke="#76edff" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

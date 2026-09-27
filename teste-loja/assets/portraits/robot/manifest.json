@@ -1,0 +1,52 @@
+[
+  {
+    "pose": 1,
+    "name": "Apresentação",
+    "width": 1254,
+    "height": 1254,
+    "transparentPixels": 935257,
+    "sourceSha256": "f921c269271f7bc49dfe6df2f8d5e391bda38271b75de80157259fe558876bee",
+    "svgBytes": 1597658,
+    "webpBytes": 91458
+  },
+  {
+    "pose": 2,
+    "name": "Reflexão",
+    "width": 1254,
+    "height": 1254,
+    "transparentPixels": 952359,
+    "sourceSha256": "350145c63736b3f23c07bb037153e9d5dca9fdeb26538f394433a1389db70781",
+    "svgBytes": 1625445,
+    "webpBytes": 90076
+  },
+  {
+    "pose": 3,
+    "name": "Alerta",
+    "width": 1254,
+    "height": 1254,
+    "transparentPixels": 859999,
+    "sourceSha256": "c2f806905976bbefdafd3320165896b0de44f389ef577e43c3ba8bbbee6f6a5a",
+    "svgBytes": 1731266,
+    "webpBytes": 97198
+  },
+  {
+    "pose": 4,
+    "name": "Comemoração",
+    "width": 1254,
+    "height": 1254,
+    "transparentPixels": 882725,
+    "sourceSha256": "e0aaab0a6a811368fcd126662b3c14cf0a88ef643532a734727aaab76d82b701",
+    "svgBytes": 1795285,
+    "webpBytes": 102650
+  },
+  {
+    "pose": 5,
+    "name": "Preocupação",
+    "width": 1239,
+    "height": 1270,
+    "transparentPixels": 801897,
+    "sourceSha256": "0bca4e271a1d600292d98c9c2cbe47941ae64ce4fe4f6e61b8a948b490f3c876",
+    "svgBytes": 1963457,
+    "webpBytes": 106000
+  }
+]
