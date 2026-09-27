@@ -1,0 +1,62 @@
+{
+  "hat-explorer": {
+    "source": "hat-explorer.png",
+    "width": 768,
+    "height": 768
+  },
+  "hat-artist": {
+    "source": "hat-artist.png",
+    "width": 768,
+    "height": 768
+  },
+  "hat-bucket": {
+    "source": "hat-bucket.png",
+    "width": 768,
+    "height": 768
+  },
+  "hat-cap": {
+    "source": "hat-cap.png",
+    "width": 768,
+    "height": 768
+  },
+  "hat-inventor": {
+    "source": "hat-inventor.png",
+    "width": 768,
+    "height": 768
+  },
+  "hat-crown": {
+    "source": "hat-crown.png",
+    "width": 768,
+    "height": 768
+  },
+  "cape-star": {
+    "source": "cape-star.png",
+    "width": 768,
+    "height": 768
+  },
+  "cape-comet": {
+    "source": "cape-comet.png",
+    "width": 768,
+    "height": 768
+  },
+  "cape-galaxy": {
+    "source": "cape-galaxy.png",
+    "width": 768,
+    "height": 768
+  },
+  "cape-neon": {
+    "source": "cape-neon.png",
+    "width": 768,
+    "height": 768
+  },
+  "cape-moon": {
+    "source": "cape-moon.png",
+    "width": 768,
+    "height": 768
+  },
+  "cape-legend": {
+    "source": "cape-legend.png",
+    "width": 768,
+    "height": 768
+  }
+}

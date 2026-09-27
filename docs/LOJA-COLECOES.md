@@ -14,7 +14,7 @@ A loja apresenta três coleções ligadas à transformação da cidade. Cada uma
 
 A loja mantém o layout anterior (prévia à esquerda, abas por posição e compra peça a peça). Em 27/09/2026, a versão do Astra com as abas Coleções, Peças e Meu armário foi substituída por esse layout, a pedido de Emanuel, conservando as peças, as artes e o encaixe.
 
-- As abas **Costas**, **Trajes** e **Cabeça** mostram primeiro as três peças novas de cada posição e depois as clássicas, que continuam à venda.
+- As abas **Costas**, **Trajes** e **Cabeça** mostram primeiro as três peças novas de cada posição e depois as clássicas, que continuam à venda. As capas e os chapéus clássicos ganharam artes vestidas novas (seção abaixo); as jaquetas clássicas não mudaram.
 - O detalhe da peça selecionada mostra a coleção e o destaque da peça, na cor da coleção.
 - Experimentar não custa moedas. Cada peça é comprada no botão "Comprar por", e "Salvar visual" equipa a combinação.
 - A saída com alterações não aplicadas mantém a confirmação para evitar perder a prévia.
@@ -35,7 +35,17 @@ O colete de oficina usa o trecho da ilustração em que já está vestido, com g
 
 As mochilas mostram sua lateral, apoiadas atrás do tronco, e têm alças ilustradas sobre os ombros. Os chapéus cobrem o trecho apropriado do capacete e recebem sombra de contato; os óculos têm uma tira que acompanha a cabeça. Os contornos do corpo foram revistos nas cinco poses para remover os fragmentos de capa. A área reservada aos acessórios mantém constante o tamanho do corpo durante a prévia. As compras antigas continuam no armário e podem ser combinadas com as novas peças.
 
-Os identificadores persistidos `cape`, `jacket` e `hat` foram mantidos para compatibilidade com os salvamentos antigos. A posição `cape` aceita uma mochila ou uma capa clássica.
+Os identificadores persistidos `cape`, `jacket` e `hat` foram mantidos para compatibilidade com os salvamentos antigos. A posição `cape` aceita uma mochila ou uma capa clássica. Na loja essa aba se chama **Costas**.
+
+## Capas e chapéus clássicos renovados
+
+Os seis chapéus clássicos passaram pelo mesmo processo de arte vestida das coleções: aba, tecido, pontos de contato e registro na cabeça. O código não usa mais as fotografias de produto no personagem nem diminui seu corpo ao colocar um chapéu nos diálogos.
+
+As seis capas têm artes de tecido completas e independentes, com motivos de cidade, rio, jardim, reaproveitamento, vento e energia solar. São compostas atrás do corpo, usando os contornos das cinco poses. Isso substitui o filtro de recoloração e os símbolos sobrepostos à capa antiga. IDs e preços continuam iguais, preservando todas as compras.
+
+Fontes, prompts completos e instruções de exportação: [classic-v2](../assets-source/ui/wardrobe/classic-v2/README.md). As doze camadas exportadas ficam em `public/assets/accessories/classic-v2` e somam aproximadamente 456 KiB.
+
+Validação desta etapa em 27/09/2026: TypeScript e build de produção passaram, assim como 19 testes unitários. Os 12 cenários de navegador em desktop e celular passaram após a correção dos cards em telas pequenas e a atualização das áreas de comparação do rosto: o teste compara olhos e boca, deixando a aba cobrir a testa. A revisão visual cobre os seis chapéus e as seis capas nas cinco poses, com mistura entre peças antigas e coleções.
 
 ## Verificação
 

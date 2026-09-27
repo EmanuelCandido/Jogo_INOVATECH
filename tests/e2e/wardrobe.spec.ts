@@ -2,10 +2,11 @@ import { test, expect, type Page } from '@playwright/test';
 import { overview } from '../helpers';
 import { mapReady } from './helpers';
 import sharp from 'sharp';
-import {accessoryCollections} from '../../src/game/wardrobe';
+import {accessories, accessoryCollections} from '../../src/game/wardrobe';
 
-async function seed(page:Page,coins=1500){
+async function seed(page:Page,coins=1500,legacy=false){
   const progress=overview();progress.coins=coins;
+  if(legacy)progress.wardrobe.owned=accessories.filter(a=>!a.collection).map(a=>a.id);
   await page.addInitScript(value=>{
     if(!sessionStorage.getItem('wardrobe-seeded')){
       localStorage.setItem('ecoquest.save.v1',value);sessionStorage.setItem('wardrobe-seeded','true');
@@ -19,9 +20,10 @@ function expectSamePixels(first:Uint8Array,second:Uint8Array){
   expect(first.length).toBe(second.length);
   let maxDifference=0;
   for(let i=0;i<first.length;i++)maxDifference=Math.max(maxDifference,Math.abs(first[i]-second[i]));
-  // ANGLE may round composited pixels by one 8-bit channel value on a phone.
-  // Keep this strict enough to catch clothing/occlusion or positioning changes.
-  expect(maxDifference).toBeLessThanOrEqual(1);
+  // Adding a layer changes how the browser resamples the other image layers of
+  // the downscaled avatar: a few channel values of rounding at most (6 on the
+  // 152px phone preview). A garment or cape out of place changes tens.
+  expect(maxDifference).toBeLessThanOrEqual(8);
 }
 
 test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isMobile},info)=>{
@@ -51,7 +53,7 @@ test('compra, combina, persiste e mostra o visual nos diálogos',async({page,isM
   expect((await saved(page)).wardrobe.equipped).toEqual(expected);
   const avatar=shop.locator('.character-avatar');
   await expect(avatar.locator('[data-part="torso"]')).toHaveAttribute('href',/fitted\/repair-worn\.webp$/);
-  await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',/rendered\/hat-explorer\.webp$/);
+  await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',/classic-v2\/hat-explorer\.webp$/);
   await expect(avatar).toHaveAttribute('data-cape','cape-comet');await expect(avatar).toHaveAttribute('data-jacket','jacket-forest');await expect(avatar).toHaveAttribute('data-hat','hat-explorer');
   const image=await avatar.locator('img').boundingBox();expect(image!.width/image!.height).toBeCloseTo(1,2);
   await expect(shop.locator('.save-outfit')).toBeInViewport({ratio:1});
@@ -95,7 +97,7 @@ test('todas as jaquetas e chapéus carregam, combinam e podem ser retirados',asy
     await expect(avatar).toHaveAttribute('data-jacket',`jacket-${jackets[i]}`);
     await expect(avatar).toHaveAttribute('data-hat',`hat-${hats[i]}`);
     const hat=avatar.locator('[data-slot="hat"] image');
-    await expect(hat).toHaveAttribute('href',new RegExp(`rendered/hat-${hats[i]}\\.webp$`));
+    await expect(hat).toHaveAttribute('href',new RegExp(`classic-v2/hat-${hats[i]}\\.webp$`));
     // Validate browser decoding of the actual artwork, not only its label.
     expect(await avatar.locator('image').evaluateAll(async elements=>{
       const sources=[...new Set(elements.map(el=>el.getAttribute('href')!).filter(Boolean))];
@@ -186,11 +188,11 @@ test('chapéu maré encaixa na testa e mantém o rosto e o corpo no mesmo tamanh
   const after=await avatar.screenshot({animations:'disabled',path:info.outputPath('hat-after.png')});
   expect(await avatar.locator('.character-base').boundingBox()).toEqual(initialBounds);
   const {width,height}=await sharp(before).metadata();
-  // The old empty hat interior covered this part of the helmet. Its rear rim
-  // now sits behind the head; the face and body below the brim stay untouched.
+  // The fitted brim now legitimately covers the upper forehead. Protect the
+  // cyan expression and lower face, plus the whole body below the neck.
   const regions=[
-    {left:Math.round(width!*.50),top:Math.round(height!*.287),width:Math.max(1,Math.floor(width!*.045)),height:Math.max(1,Math.floor(height!*.012))},
-    {left:0,top:Math.ceil(height!*.36),width:width!,height:height!-Math.ceil(height!*.36)},
+    {left:Math.round(width!*.445),top:Math.round(height!*.375),width:Math.max(1,Math.floor(width!*.17)),height:Math.max(1,Math.floor(height!*.064))},
+    {left:0,top:Math.ceil(height!*.48),width:width!,height:height!-Math.ceil(height!*.48)},
   ];
   for(const region of regions){
     const first=await sharp(before).extract(region).raw().toBuffer();
@@ -231,4 +233,44 @@ test('teclado fica na tela aberta e Escape devolve o foco',async({page})=>{
   await expect(page.getByRole('tab',{name:'Trajes'})).toBeFocused();
   await page.keyboard.press('Escape');await expect(trigger).toBeFocused();
   await expect(page.getByRole('dialog')).toHaveCount(0);
+});
+
+test('capas e chapéus clássicos têm artes vestidas, misturam com as coleções e conservam compras antigas',async({page},info)=>{
+  test.setTimeout(150000);
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await seed(page,1500,true);
+  await page.getByRole('button',{name:'Loja',exact:true}).click();
+  const avatar=page.locator('.shop-avatar .character-avatar');
+  const originalBounds=await avatar.locator('.character-base').boundingBox();
+  await page.getByRole('tab',{name:'Costas',exact:true}).click();
+  for(const cape of accessories.filter(a=>a.slot==='cape'&&!a.collection)){
+    await page.locator('[data-accessory="'+cape.id+'"]').click();
+    await expect(avatar.locator('[data-slot="cape"]')).toHaveAttribute('data-fitting','complete-rear-cloth');
+    await expect(avatar.locator('[data-slot="cape"] image')).toHaveAttribute('href',new RegExp('classic-v2/'+cape.id+'.webp$'));
+    await expect(avatar.locator('[data-slot="backpack"]')).toHaveCount(0);
+  }
+  await page.getByRole('tab',{name:'Cabeça',exact:true}).click();
+  for(const hat of accessories.filter(a=>a.slot==='hat'&&!a.collection)){
+    await page.locator('[data-accessory="'+hat.id+'"]').click();
+    await expect(avatar.locator('[data-slot="hat"]')).toHaveAttribute('data-fitting','worn-silhouette');
+    await expect(avatar.locator('[data-slot="hat"] image')).toHaveAttribute('href',new RegExp('classic-v2/'+hat.id+'.webp$'));
+    expect(await avatar.locator('.character-base').boundingBox()).toEqual(originalBounds);
+  }
+  await page.getByRole('tab',{name:'Trajes',exact:true}).click();
+  await page.locator('[data-accessory="vest-garden"]').click();
+  // Only the new garment is charged. The redesigned cape and crown are still owned.
+  await page.getByRole('button',{name:'Comprar por 140'}).click();
+  await expect(page.getByRole('button',{name:'SALVAR VISUAL',exact:true})).toBeInViewport({ratio:1});
+  await page.getByRole('button',{name:'SALVAR VISUAL',exact:true}).click();
+  const progress=await saved(page);
+  expect(progress.coins).toBe(1360);
+  expect(progress.wardrobe.equipped).toEqual({cape:'cape-legend',jacket:'vest-garden',hat:'hat-crown'});
+  expect(progress.wardrobe.owned).toHaveLength(19);
+  await page.screenshot({path:info.outputPath('classic-outfit.png'),animations:'disabled'});
+  await page.getByRole('button',{name:'Voltar ao mapa',exact:true}).click();
+  await page.reload();
+  await page.getByRole('button',{name:'Loja',exact:true}).click();
+  await expect(avatar).toHaveAttribute('data-hat','hat-crown');
+  await expect(avatar).toHaveAttribute('data-cape','cape-legend');
+  expect((await saved(page)).coins).toBe(1360);
 });
