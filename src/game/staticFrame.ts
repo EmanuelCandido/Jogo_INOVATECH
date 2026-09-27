@@ -20,7 +20,9 @@ import {Matrix4,SRGBColorSpace,Vector2,WebGLRenderTarget,type Camera,type Materi
  * that come into view are drawn. A drag is shifted by whole pixels, so the
  * image stays sharp; the camera is drawn up to half a pixel from its exact
  * place. The water waits, and a complete frame is drawn as soon as the finger
- * leaves the screen, so every still image is the same as before. */
+ * leaves the screen, so every still image is the same as before. Where that
+ * frame is slow (a phone with shadows), it is drawn in bands over several
+ * frames behind the moved image, so no single frame blocks a new touch. */
 const params=typeof location==='undefined'?new URLSearchParams():new URLSearchParams(location.search);
 // ?cache=0 draws every frame completely, as before. Benchmarks keep their
 // established path unless they ask for this one.
@@ -39,6 +41,11 @@ const maxNewArea=.6;
 const margin=64,lookahead=2,minAhead=12;
 /** Share of new area above which a zoomed frame becomes the next reference. */
 const rebaseArea=.25;
+/** Time per frame for the final frame after a move, and at most how many
+ * frames it is spread over. */
+const bandMs=40,maxBands=8;
+// ?settleBands=N always spreads that frame over N frames (tests).
+const forcedBands=Number(params.get('settleBands'))||0;
 
 /** Materials animated by the ambient clock (water, surf) carry userData.ambient. */
 export const isAmbientMaterial=(m:Material)=>m.userData.ambient===true;
@@ -46,12 +53,21 @@ function isAmbient(o:Object3D){
  const m=(o as Mesh).material;
  return !!(o as Mesh).isMesh&&!!m&&(Array.isArray(m)?m.some(isAmbientMaterial):isAmbientMaterial(m));
 }
+/** Put lights and animated surfaces on the ambient layer; how many surfaces. */
+function markAmbient(scene:Scene){
+ let count=0;
+ scene.traverse(o=>{
+  if((o as {isLight?:boolean}).isLight)o.layers.enable(ambientLayer);
+  else if(isAmbient(o)){o.layers.enable(ambientLayer);count++;}
+ });
+ return count;
+}
 
 let quiet=false,dirty=true,cause='';
 /** Where a request came from: file:line:column of the first callers. */
 const caller=()=>(new Error().stack??'').split('\n').slice(3,6).map(l=>(l.match(/([^/\s(]+:\d+:\d+)\)?\s*$/)?.[1]??l.trim())).join(' < ');
 /** The last frames: complete, moved, still (water only) or held, and why. */
-export const frameLog:{at:number;kind:'completo'|'movendo'|'parado'|'mantido';cause:string;strips:number}[]=[];
+export const frameLog:{at:number;kind:'completo'|'movendo'|'parado'|'mantido'|'assentando';cause:string;strips:number}[]=[];
 /** Frames drawn completely, from the kept frame, or moved, and why frames were redrawn. */
 export const staticFrameStats={full:0,reused:0,moved:0,strips:0,drawMs:0,moveMs:0,reasons:{} as Record<string,number>,last:null as unknown};
 // ?cacheDebug exposes the counters for measurements in ordinary games.
@@ -116,12 +132,24 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
  const cameraView=new Matrix4(),shown=new Matrix4(),shownProjection=new Matrix4(),base=new Matrix4(),baseProjection=new Matrix4(),mapping=new Matrix4(),scratch=new Matrix4();
  // Moving state: which plain image is the reference, which is on screen.
  let ambient=0,moving=false,reference=0,display=0,settle:ReturnType<typeof setTimeout>|undefined;
+ // Time from a complete frame to the next one, the last few (the slowest
+ // counts: too many bands only cost a few quick frames, too few a stall),
+ // and the bands of the final
+ // frame after a move still to draw, bottom first.
+ const fullCosts:number[]=[];let fullStart=0,bands:Rect[]|null=null,band=0;
+ const dragging=()=>gl.domElement.classList.contains('dragging');
  const arm=()=>{
   clearTimeout(settle);
   settle=setTimeout(()=>{
    // Keep moving frames while a finger is still on the map.
-   if(gl.domElement.classList.contains('dragging')){arm();return;}
-   dirty=true;requestFrame();
+   if(dragging()){arm();return;}
+   const cost=fullCosts.length?Math.max(...fullCosts):0,count=forcedBands||Math.min(maxBands,Math.ceil(cost/bandMs));
+   if(count<=1||!last.width){dirty=true;requestFrame();return;}
+   if(!bands){
+    const edges=Array.from({length:count+1},(_,i)=>Math.round(i*last.height/count));
+    bands=edges.slice(1).map((y,i):Rect=>[0,edges[i],last.width,y-edges[i]]);band=0;
+   }
+   quietly(requestFrame);
   },settleMs);
  };
  const blit=(from:WebGLFramebuffer|null,to:WebGLFramebuffer|null,s:Rect,d:Rect,linear=false)=>{
@@ -265,6 +293,8 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
  return {
   /** `draw` renders the complete scene (it may use a depth prepass). */
   render(scene:Scene,camera:Camera,draw:(scene:Scene,camera:Camera)=>void){
+   const start=performance.now();
+   if(fullStart){const cost=start-fullStart;fullStart=0;if(cost<2000){fullCosts.push(cost);if(fullCosts.length>3)fullCosts.shift();}}
    gl.getDrawingBufferSize(size);
    const width=Math.floor(size.x),height=Math.floor(size.y);
    if(width!==last.width||height!==last.height){
@@ -278,7 +308,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      frame.setSize(w,h);for(const t of moved)t.setSize(w,h);
      gl.initRenderTarget(frame);for(const t of moved)gl.initRenderTarget(t);
     }
-    last.width=width;last.height=height;last.valid=false;moving=false;
+    last.width=width;last.height=height;last.valid=false;moving=false;bands=null;
    }
    fullView(width,height);
    camera.updateMatrixWorld();
@@ -306,21 +336,43 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      gl.autoClear=false;camera.layers.set(ambientLayer);scene.userData.dynamicPass=true;
      gl.render(scene,camera);
      presentFrom=resolved();
+    }else if(steady&&moving&&cameraSame&&bands&&!dragging()){
+     // One band of the final frame, drawn in place while the moved image
+     // stays on screen. The whole view is drawn with the camera's own
+     // projection and cut by the scissor, so every sample lands exactly as
+     // in a complete frame (a view offset moves edges by rounding).
+     const r=bands[band],finalBand=band===bands.length-1;
+     if(band===0)ambient=markAmbient(scene);
+     try{
+      quiet=true;
+      frame.scissor.set(r[0],r[1],r[2],r[3]);frame.scissorTest=true;
+      // Resolve the samples once, after the last band.
+      if(!finalBand){frame.width=1;frame.height=1;}
+      gl.setRenderTarget(frame);
+      draw(scene,camera);
+     }finally{
+      quiet=false;frame.width=width;frame.height=height;
+      fullView(width,height);gl.setRenderTarget(frame);
+     }
+     band++;log('assentando');
+     if(finalBand){
+      bands=null;moving=false;last.valid=true;shown.copy(cameraView);shownProjection.copy(camera.projectionMatrix);
+      staticFrameStats.full++;reason('settle');presentFrom=resolved();
+     }else{staticFrameStats.moved++;presentMoved=true;quietly(requestFrame);}
     }else if(steady&&moving&&cameraSame){
-     // Still between moves (water ticks): the moved image stays on screen.
+     // Still between moves (water ticks), or a finger rests on the map: the
+     // moved image stays on screen.
      staticFrameStats.moved++;presentMoved=true;log('mantido');
-    }else if(movingEnabled&&steady&&(last.valid||moving)&&!cameraSame&&timed(()=>move(scene,camera,cameraView,width,height,draw))){
+     if(bands)arm();
+    }else if(movingEnabled&&steady&&(last.valid||moving)&&!cameraSame&&(bands=null,true)&&timed(()=>move(scene,camera,cameraView,width,height,draw))){
      staticFrameStats.moved++;presentMoved=true;last.valid=false;arm();log('movendo');
     }else{
      reason(!last.valid&&!moving?'first':requested?'requested':!cameraSame?'camera':shadowRefresh?'shadows':scene.overrideMaterial?'override':'no-water');
      staticFrameStats.full++;log('completo',requested?requestCause:!last.valid&&!moving?'primeiro':!cameraSame?'câmera':shadowRefresh?'sombra':'outro');
-     clearTimeout(settle);moving=false;
-     ambient=0;
-     scene.traverse(o=>{
-      if((o as {isLight?:boolean}).isLight)o.layers.enable(ambientLayer);
-      else if(isAmbient(o)){o.layers.enable(ambientLayer);ambient++;}
-     });
+     clearTimeout(settle);moving=false;bands=null;
+     ambient=markAmbient(scene);
      draw(scene,camera);last.valid=true;shown.copy(cameraView);shownProjection.copy(camera.projectionMatrix);
+     fullStart=start;
      presentFrom=resolved();
     }
     if(presentMoved)show(display,width,height);else blit(presentFrom,null,whole(width,height),whole(width,height));
