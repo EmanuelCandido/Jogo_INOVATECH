@@ -137,9 +137,11 @@ for(let i=0;i<78;i++){
 }
 // Boulder revetments follow each actual bank; they also soften the reservoir
 // transition and the industrial outfall instead of hiding missing terrain.
+// They rest in the water at the foot of the quay wall (u±4.5, cap ±.25): on
+// the wall line they crossed the wall and poked out on the grass side.
 for(const [i,[u,v]]of canalSamples.entries()){
  if(v>82||v< -33||i%2)continue;
- for(const side of [-1,1])if(side<0||v>18){riversideAssets.push(placement('prop.rock',u+side*4.55,v,.65+(i%3)*.12,i*.73,-.16));}
+ for(const side of [-1,1])if(side<0||v>18){riversideAssets.push(placement('prop.rock',u+side*3.72,v,.65+(i%3)*.12,i*.73,-.72));}
 }
 // Continue the existing stone bank around the exposed eastern shoreline. The
 // inland offset leaves the beach open and covers the hard grass-to-sea seam

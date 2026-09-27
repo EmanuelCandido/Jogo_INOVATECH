@@ -72,7 +72,11 @@ export const landOutlines:MapPoint[][]=[
 function naturalTerrainY(u:number,v:number){
  const t=Math.max(0,Math.min(1,(v-84)/22));
  const ridge=(a:number,b:number,s:number,height:number)=>height*Math.exp(-((u-a)**2+(v-b)**2)/(s*s));
- const mountain=t*(ridge(-78,94,22,20)+ridge(-6,107,27,24)+ridge(41,109,27,21)+ridge(97,107,28,27)+3.5);
+ // The canal runs through the mountains in a valley. Its walls only rise to
+ // the quay height, so the slopes must come down to them; otherwise the open
+ // side of the cut showed the background between the wall and the ground.
+ const gorge=Math.max(0,Math.min(1,(Math.abs(u-canalU(v))-4.9)/13)),valley=gorge*gorge*(3-2*gorge);
+ const mountain=t*valley*(ridge(-78,94,22,20)+ridge(-6,107,27,24)+ridge(41,109,27,21)+ridge(97,107,28,27)+3.5);
  if(u>-57&&u<-16&&v>73&&v<116){const ramp=Math.min(1,(v-73)/11),cross=Math.max(0,Math.min(1,(20.5-Math.abs(u+36.5))/5));return Math.max(mountain,6.65*ramp*ramp*(3-2*ramp)*cross);}
  return mountain;
 }
