@@ -2,6 +2,8 @@ import {test,expect} from '@playwright/test';
 import {open,overview} from '../helpers';
 import {questions} from '../../src/content/questions';
 import sharp from 'sharp';
+import {freezeIncome} from './helpers';
+test.beforeEach(({page})=>freezeIncome(page));
 
 test('recolhe o lixo antes do resultado e preserva a escolha ao recarregar',async({page},info)=>{
  test.setTimeout(120000);
@@ -56,7 +58,7 @@ test('permite pular a transformação e voltar sem desfazer a decisão',async({p
  const s=overview();s.coins=1500;
  const progress=open(s);progress.settings={...progress.settings,quality:'LOW',reducedMotion:false};
  await page.addInitScript(value=>localStorage.setItem('ecoquest.save.v1',value),JSON.stringify({version:1,data:progress}));
- await page.goto('./');const choice=page.locator('.alternative').first();await expect(choice).toBeEnabled({timeout:60000});
+ await page.goto('./');const choice=page.locator('[data-choice-id="ramp"]');await expect(choice).toBeEnabled({timeout:60000});
  await choice.click();await expect(page.locator('.narrative-stage')).toHaveCount(0);
  await page.getByRole('button',{name:'Ver resultado',exact:true}).click();
  await expect(page.getByRole('region',{name:'Resultado da decisão'})).toBeVisible();

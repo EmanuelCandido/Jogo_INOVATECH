@@ -2,6 +2,8 @@ import {overview} from '../helpers';
 import { test, expect } from "@playwright/test";
 import { NarrativeManager } from "../../src/game/NarrativeManager";
 import { ProblemManager } from "../../src/game/ProblemManager";
+import {freezeIncome} from './helpers';
+test.beforeEach(({page})=>freezeIncome(page));
 
 test("abertura animada aparece antes do código do jogo e carrega o favicon", async ({ page }, info) => {
   let release!: () => void;

@@ -11,8 +11,9 @@ import { Balance } from './hud/Balance';
 import { HudControl, HudIcon } from './hud/HudControl';
 import { useOverlayPresence } from './menus/useOverlayPresence';
 import { gameAudio } from '../audio/gameAudio';
+import { incomePerMinute } from '../game/passiveIncome';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
-  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics } = useGame();
+  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics, collectIncome } = useGame();
   const [menu, setMenu] = useState(false);
   const layer=useOverlayPresence(overlay??(menu?'settings':null),s.settings.reducedMotion);
   // The title is presentation state; opening it must never reset a saved game.
@@ -30,12 +31,21 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
     const timer=window.setInterval(refreshMissions,60000);
     return ()=>window.clearInterval(timer);
   },[refreshMissions]);
+  useEffect(() => {
+    // Solved situations pay the city while the game is open; the time away
+    // (capped) is paid on load and when the tab becomes visible again.
+    const collect=()=>{ if(!document.hidden)collectIncome(); };
+    collect();
+    const timer=window.setInterval(collect,10000);
+    document.addEventListener('visibilitychange',collect);
+    return ()=>{ window.clearInterval(timer); document.removeEventListener('visibilitychange',collect); };
+  },[collectIncome]);
   return (
     <div className={`interface${showTitle ? ' on-title' : ''}`}>
       <div className="game-hud" inert={Boolean(layer.overlay)}>
       {showHeader && <header className="topbar">
         <div className="header-actions">
-          {!showTitle && <Balance coins={s.coins}/>}
+          {!showTitle && <Balance coins={s.coins} income={incomePerMinute(s)}/>}
           <HudControl
             icon={s.settings.muted ? 'muted' : 'sound'}
             label={s.settings.muted ? 'Ativar sons' : 'Desativar sons'}

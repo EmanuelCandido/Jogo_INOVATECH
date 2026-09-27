@@ -5,6 +5,7 @@ import {problems,categories} from '../../content/problems';
 import {useGame} from '../../stores/gameStore';
 import {situationVisuals} from '../../config/situationVisuals';
 import {SituationScene,dumpCollectionTarget} from './ResolutionScene';
+import {ProblemGlyph} from './ProblemGlyph';
 import {situationVisualKey} from '../../game/situationState';
 export {situationVisualKey} from '../../game/situationState';
 import {preloadAsset} from '../Asset';
@@ -34,9 +35,11 @@ export function SituationLayers({interactive}:{interactive:boolean}){
    return <group key={p.id} name={p.id} userData={{problem:p.id,state,visualState:key}}>
     <group position={p.worldPosition} rotation={[0,situationAnchors[p.id].yaw??0,0]}><SituationScene problemId={p.id} states={states} collection={p.id==='pollution_01'?dumpCollectionTarget:undefined}/></group>
     {s.phase==='OVERVIEW'&&['AVAILABLE','TEMPORARILY_SOLVED'].includes(state)&&<Html position={p.markerPosition} center zIndexRange={[20,10]}>
-     <button className={'marker '+category.shape} style={{'--marker-color':category.color} as React.CSSProperties}
+     <button className={'marker '+category.shape+(state==='TEMPORARILY_SOLVED'?' is-revisit':'')} data-category={p.category}
       onClick={()=>state==='TEMPORARILY_SOLVED'?revisit(p.id):select(p.id)} disabled={!interactive} aria-label={'Analisar: '+p.title} data-problem={p.id} data-visual-state={key}>
-      <span className="marker-icon">{p.markerIcon}</span><span className="marker-label">{p.title}<b>{state==='TEMPORARILY_SOLVED'?'Reavaliar':'Explorar'} →</b></span>
+      <span className="marker-balloon" aria-hidden="true"><ProblemGlyph id={p.id} fallback={p.markerIcon}/></span>
+      <span className="marker-badge" aria-hidden="true">{state==='TEMPORARILY_SOLVED'?'↻':'!'}</span>
+      <span className="marker-label"><small>{category.label}</small>{p.title}<b>{state==='TEMPORARILY_SOLVED'?'Reavaliar':'Explorar'} →</b></span>
      </button>
     </Html>}
    </group>;

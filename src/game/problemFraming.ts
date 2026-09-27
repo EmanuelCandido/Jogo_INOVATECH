@@ -9,11 +9,12 @@ export function frameProblemShot(shot: CameraShot, width: number, height: number
   const zoom = shot.zoom * (mobile
     ? Math.min(width / 650, height / 500, 1)
     : Math.min(width / 1100, height / 760, 1.25));
-  if (!mobile) return { ...shot, zoom };
   const forward = new Vector3(...shot.target).sub(new Vector3(...shot.position)).normalize();
   // Orthographic zoom does not need an eye close to the ground. Pull it back
-  // along the same viewing direction so a tall phone's lower rays do not start
-  // below the terrain. The mission is centered during the unobstructed preview.
+  // along the same viewing direction on every screen: a tall phone's lower
+  // rays must not start below the terrain, and on a computer the near plane
+  // cut everything taller than the eye (the chimneys and their smoke, for
+  // example). The mission is centered during the unobstructed preview.
   const distance = Math.max(200, new Vector3(...shot.position).distanceTo(new Vector3(...shot.target)));
   return {
     ...shot, zoom,

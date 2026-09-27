@@ -2,7 +2,8 @@ import { test, expect, type Page } from '@playwright/test';
 import { OrthographicCamera, Vector3 } from 'three';
 import { overview } from '../helpers';
 import { problemById } from '../../src/content/problems';
-import {mapReady} from './helpers';
+import {freezeIncome,mapReady} from './helpers';
+test.beforeEach(({page})=>freezeIncome(page));
 
 type Pose = { position: number[]; quaternion: number[]; zoom: number };
 type Sample = Pose & { time: number; dialogue: boolean; characterOpacity: number; boxOpacity: number };

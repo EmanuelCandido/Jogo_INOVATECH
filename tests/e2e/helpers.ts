@@ -1,4 +1,9 @@
 import {expect,type Page} from '@playwright/test';
+/** Solved situations earn coins over time (Date.now). Specs that compare coin
+ * balances freeze that clock so income never shifts the expected values. */
+export async function freezeIncome(page:Page){
+ await page.addInitScript(()=>{const now=Date.now();Date.now=()=>now;});
+}
 export async function mapReady(page:Page){
  await expect(page.locator('canvas')).toHaveAttribute('tabindex','0',{timeout:60000});
 }

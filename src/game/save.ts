@@ -5,6 +5,7 @@ import type { Progress } from "./types";
 import {defaultGraphicsSettings,normalizeGraphicsSettings,qualityOptions} from '../config/graphics';
 import { initialWardrobe, normalizeWardrobe } from './wardrobe';
 import { initialDailyMissions, normalizeDailyMissions } from './dailyMissions';
+import { normalizeIncome } from './passiveIncome';
 import {
   dialogueEntry,
   dialogueNodes,
@@ -148,6 +149,7 @@ export function decodeSave(raw: string): Progress {
     ...s,
     wardrobe: normalizeWardrobe(s.wardrobe),
     dailyMissions: normalizeDailyMissions(s.dailyMissions),
+    income: normalizeIncome(s.income, Date.now()),
     settings:normalizeGraphicsSettings(s.settings),
     dialogueNodeId: s.dialogueNodeId ?? legacyIntroNodes[s.introIndex],
   };

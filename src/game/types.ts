@@ -113,4 +113,6 @@ export interface Progress {
   rewarded: string[];
   wardrobe: Wardrobe;
   dailyMissions: DailyMissions;
+  /** When passive income was last paid; absent until the first payment. */
+  income?: { at: number; carry: number };
 }

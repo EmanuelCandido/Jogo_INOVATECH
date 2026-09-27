@@ -1,7 +1,8 @@
 import {test,expect} from '@playwright/test';
-import {start,question,resetMap} from './helpers';
+import {freezeIncome,start,question,resetMap} from './helpers';
 import {problems} from '../../src/content/problems';
 import {questions} from '../../src/content/questions';
+test.beforeEach(({page})=>freezeIncome(page));
 test('narrativa, tutorial, decisões na cidade, descoberta e conclusão',async({page},info)=>{
  test.setTimeout(360000);
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&/WebGL|THREE|shader/i.test(m.text()))errors.push(m.text());});

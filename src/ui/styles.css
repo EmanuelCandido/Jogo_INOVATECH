@@ -72,16 +72,33 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
 .region-label { padding: 4px 8px; border: 1px solid #ffffffaa; border-radius: 6px; color: #34306c; background: #faf8efdc; font-size: 8px; white-space: nowrap; letter-spacing: 1px; pointer-events: none; }
 
 /* Teardrop map pins; the label opens beside the pin without moving its tip. */
-.marker, .marker.square { position: relative; display: grid; place-items: center; width: 62px; height: 72px; padding: 0 0 10px; border: 0; background: transparent; color: #fff; filter: drop-shadow(0 5px 4px #13285266); }
-.marker::before { content: ""; position: absolute; inset: 0 0 10px; border: 3px solid #e6e8ff; border-radius: 50% 50% 48% 0; transform: rotate(-45deg); background: linear-gradient(160deg, #1379a0, #075476); box-shadow: inset 0 0 0 2px #66b6ce77; }
-.marker.square::before { background: linear-gradient(160deg, #847ca8, #676383); }
-.marker-icon { position: relative; z-index: 1; font-size: 29px; line-height: 1; text-shadow: 0 2px 2px #142b6066; }
-.marker-label { position: absolute; top: 6px; left: calc(100% + 8px); width: max-content; max-width: 180px; padding: 10px 13px; border: 2px solid #b3a6ff; border-radius: 13px; background: #39328feF; text-align: left; font-size: 12px; opacity: 0; visibility: hidden; pointer-events: none; }
-.marker-label b { display: block; margin-top: 5px; font-size: 10px; color: #e0daff; }
-.marker:hover .marker-label, .marker:focus-visible .marker-label { opacity: 1; visibility: visible; }
-.marker:hover::before { filter: brightness(1.2); }
-.marker:focus-visible { outline-offset: 7px; border-radius: 24px; }
-.marker:disabled { opacity: .6; }
+/* Map balloons: a speech bubble in the category colour pointing at the
+ * situation, a line icon, and a badge for new (!) or temporary (↻) ones.
+ * Only the halo and the badge animate, so the button box stays still. */
+.marker, .marker.square { --marker-color: #1d7a9e; position: relative; display: block; width: 60px; height: 74px; padding: 0; border: 0; background: transparent; color: #fff; cursor: pointer; filter: drop-shadow(0 6px 5px #13285259); transition: transform .18s var(--hud-ease, ease-out); transform-origin: 50% 100%; }
+.marker[data-category="POLLUTION"] { --marker-color: #8b4fd8; }
+.marker[data-category="SECURITY"] { --marker-color: #2a78de; }
+.marker[data-category="NATURE"] { --marker-color: #169c55; }
+.marker[data-category="HEALTH"] { --marker-color: #e04563; }
+.marker[data-category="ACCESSIBILITY"] { --marker-color: #ec7a16; }
+.marker::before { content: ""; position: absolute; left: 50%; bottom: 0; width: 26px; height: 10px; margin-left: -13px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--marker-color) 55%, #fff) 30%, #fff0); opacity: .8; animation: marker-ping 2.4s ease-out infinite; }
+.marker-balloon { position: absolute; left: 50%; top: 2px; display: grid; place-items: center; width: 54px; height: 54px; margin-left: -27px; border: 3px solid #fff; border-radius: 50%; background: radial-gradient(circle at 34% 26%, color-mix(in srgb, var(--marker-color) 72%, #fff) 0 10%, var(--marker-color) 50%, color-mix(in srgb, var(--marker-color) 78%, #000)); box-shadow: inset 0 -4px 0 #0000002e, inset 0 3px 2px #ffffff55; }
+.marker-balloon::after { content: ""; position: absolute; left: 50%; bottom: -12px; width: 16px; height: 16px; margin-left: -8px; border: solid #fff; border-width: 0 3px 3px 0; border-radius: 0 0 5px 0; background: color-mix(in srgb, var(--marker-color) 82%, #000); transform: rotate(45deg); z-index: -1; }
+.marker-glyph { width: 30px; height: 30px; filter: drop-shadow(0 2px 1px #0e1f4a55); }
+.marker-glyph.is-text { display: block; width: auto; height: auto; font-size: 26px; line-height: 1; }
+.marker-badge { position: absolute; top: -2px; right: -1px; display: grid; place-items: center; width: 22px; height: 22px; border: 2px solid #fff; border-radius: 50%; background: #ffc233; color: #4a2a00; font-size: 13px; font-weight: 900; line-height: 1; box-shadow: 0 2px 4px #1328524d; animation: marker-badge 2.4s ease-in-out infinite; }
+.marker.is-revisit .marker-badge { background: #ff9a3c; color: #fff; font-size: 14px; }
+.marker-label { position: absolute; top: 4px; left: calc(100% + 6px); display: grid; gap: 2px; width: max-content; max-width: 190px; padding: 9px 13px 10px; border: 0; border-left: 5px solid var(--marker-color); border-radius: 13px; background: #fff; color: #2b2150; box-shadow: 0 6px 16px #1328523d; text-align: left; font-size: 13px; font-weight: 800; line-height: 1.25; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(-4px); transition: opacity .15s, transform .15s, visibility .15s; }
+.marker-label small { font-size: 9px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: color-mix(in srgb, var(--marker-color) 80%, #000); }
+.marker-label b { margin-top: 3px; font-size: 11px; color: #6a52d9; }
+.marker:hover, .marker:focus-visible { transform: scale(1.08); z-index: 2; }
+.marker:hover .marker-label, .marker:focus-visible .marker-label { opacity: 1; visibility: visible; transform: none; }
+.marker:active { transform: scale(.96); }
+.marker:focus-visible { outline: 3px solid #fff; outline-offset: 4px; border-radius: 30px; }
+.marker:disabled { opacity: .6; cursor: default; }
+.marker:disabled::before, .marker:disabled .marker-badge { animation: none; }
+@keyframes marker-ping { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }
+@keyframes marker-badge { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.2); } 90% { transform: scale(.95); } }
 
 /* Figma 17:2 and 17:17: one scaled composition, with live game copy. */
 .narrative-stage { position: absolute; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); pointer-events: auto; background: #0003; animation: reveal .2s ease-out; }
@@ -173,9 +190,12 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
   .quest-header { font-size: 9px; padding: 9px; min-height: 44px; letter-spacing: .3px; }
   .quest-panel.open { width: min(285px, calc(100% - 32px)); }
   .quest-body { padding: 13px; }
-  .marker, .marker.square { width: 52px; height: 62px; }
-  .marker-icon { font-size: 25px; }
-  .marker-label { max-width: 135px; font-size: 10px; }
+  .marker, .marker.square { width: 52px; height: 64px; }
+  .marker-balloon { width: 46px; height: 46px; margin-left: -23px; }
+  .marker-balloon::after { bottom: -11px; width: 14px; height: 14px; margin-left: -7px; }
+  .marker-glyph { width: 25px; height: 25px; }
+  .marker-badge { width: 19px; height: 19px; font-size: 11px; }
+  .marker-label { max-width: 140px; font-size: 11px; }
   .settings { padding: 20px 16px; }
   .footer { font-size: 6px; letter-spacing: .3px; left: 16px; right: 16px; }
   .notice { font-size: 11px; width: 92%; }

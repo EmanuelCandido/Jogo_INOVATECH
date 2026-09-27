@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { open } from '../helpers';
-import {mapReady} from './helpers';
+import {freezeIncome,mapReady} from './helpers';
+test.beforeEach(({page})=>freezeIncome(page));
 
 test('abertura, Impactus e continuação do progresso', async ({ page }, info) => {
   await page.goto('/');

@@ -1,5 +1,5 @@
 import {publicAsset} from '../../assets/publicAsset';
-import {useEffect,useRef} from 'react';
+import {useEffect,useMemo,useRef} from 'react';
 import {useGame} from '../../stores/gameStore';
 import {introNode,dialogueCopy} from '../../content/dialogues';
 import {characters} from '../../content/characters';
@@ -9,6 +9,7 @@ import {story} from '../../content/story';
 import {canAfford} from '../../game/economy';
 import {CharacterStage} from './CharacterStage';
 import {ChoiceList} from '../choices/ChoiceList';
+import {choiceOrder,choiceSeed} from '../../game/choiceOrder';
 import type {CharacterPose} from '../../game/types';
 export function DialogueStage({sceneReady}:{sceneReady:boolean}){
  const {progress:s,next,narrativeChoice,choose,resolution}=useGame(),panel=useRef<HTMLElement>(null);
@@ -20,6 +21,8 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
  const canContinue=sceneReady&&!isQuestion;
  const q=tutorial?tutorialQuestion:p?questions[p.questionId]:null;
  const decision=p?s.decisions.findLast(d=>d.problemId===p.id):null;
+ const seed=tutorial?'tutorial':p?choiceSeed(p.id,s.decisions):'';
+ const alternatives=useMemo(()=>q?choiceOrder(q.alternatives,seed):[],[q,seed]);
  const answer=tutorial?tutorialQuestion.alternatives.find(a=>a.id===s.tutorialAnswerId):q?.alternatives.find(a=>a.id===decision?.alternativeId);
  const result=(s.phase==='RESULT'||s.phase==='TUTORIAL_RESULT')&&answer;
  const characterId='companion',character=characters[characterId];
@@ -84,7 +87,7 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
     </div>
    </section>
    </div>
-   {isQuestion&&q&&<ChoiceList key={`${s.selectedProblem??'tutorial'}:${s.phase}`} choices={q.alternatives.map(a=>({id:a.id,text:a.text,cost:tutorial?undefined:a.cost,disabled:!sceneReady||!canAfford(s.coins,a.cost),hint:!canAfford(s.coins,a.cost)?'Faltam '+(a.cost-s.coins).toLocaleString('pt-BR')+' moedas':undefined}))} onChoose={tutorial?narrativeChoice:choose}/>}
+   {isQuestion&&q&&<ChoiceList key={`${s.selectedProblem??'tutorial'}:${s.phase}`} choices={alternatives.map(a=>({id:a.id,text:a.text,cost:tutorial?undefined:a.cost,disabled:!sceneReady||!canAfford(s.coins,a.cost),hint:!canAfford(s.coins,a.cost)?'Faltam '+(a.cost-s.coins).toLocaleString('pt-BR')+' moedas':undefined}))} onChoose={tutorial?narrativeChoice:choose}/>}
   </div>
  </div>;
 }

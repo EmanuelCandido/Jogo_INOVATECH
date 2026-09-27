@@ -1,5 +1,7 @@
 import {test, expect} from '@playwright/test';
 import {open} from '../helpers';
+import {freezeIncome} from './helpers';
+test.beforeEach(({page})=>freezeIncome(page));
 
 for (const reducedMotion of [false, true]) {
   test(`double tap cannot spend coins when choices appear (reduced motion: ${reducedMotion})`, async ({page, isMobile}) => {
