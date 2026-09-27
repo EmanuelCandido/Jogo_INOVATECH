@@ -172,6 +172,18 @@ export const dumpTurnPads=dumpEntryTurns.map(turn=>convexHull(turn.samples.flatM
  }));
 })));
 export const roadTerminals=mapRoads.filter(r=>r.terminal).map(r=>({road:r.id,point:r.points.at(-1)!,radius:2.7,destination:r.terminal}));
+// Where roads start or end at the same point, each one's square end left its
+// corners sticking out and an asphalt notch cut into the grass beside the
+// bend. A disc through those corners rounds the outside of the junction.
+export const roadCorners=(()=>{
+ const corners:{point:MapPoint;radius:number}[]=[];
+ for(const r of mapRoads)for(const point of [r.points[0],r.points.at(-1)!]){
+  if(corners.some(c=>Math.hypot(c.point[0]-point[0],c.point[1]-point[1])<.1))continue;
+  const sharing=mapRoads.filter(o=>[o.points[0],o.points.at(-1)!].some(q=>Math.hypot(q[0]-point[0],q[1]-point[1])<.1));
+  if(sharing.length>1)corners.push({point,radius:Math.max(...sharing.map(o=>o.width))/2});
+ }
+ return corners;
+})();
 export const roadProfiles=buildRoadProfiles(mapRoads,(r,[u,v])=>{
  if(r.id==='acesso-viaduto')return Math.hypot(u-viaductJoin[0],v-viaductJoin[1])<5?4.5:0;
  if(r.id==='ponte-industrial')return Math.abs(u-canalU(v))<4.5+r.width/2+.6?1.3:0;
@@ -277,7 +289,7 @@ export const bridges=[30,1,-23].map(preferred=>{
 });
 // Authoring and tests compute the layout; the browser consumes the validated snapshot.
 const prepared=import.meta.env?.SSR?null:preparedLayout as unknown as {referenceAssets:Placement[];referenceTrees:Placement[];referenceTraffic:Placement[];referenceFurniture:Placement[];buildingLots:BuildingLot[];pedestrianNetwork:ReturnType<typeof buildWalkNetwork>;streetLayout:ReturnType<typeof buildStreetLayout>};
-export const streetLayout=prepared?.streetLayout??buildStreetLayout(mapRoads,roadViaduct,[roadViaduct.points[0],viaductJoin],roadTerminals);
+export const streetLayout=prepared?.streetLayout??buildStreetLayout(mapRoads,roadViaduct,[roadViaduct.points[0],viaductJoin],[...roadTerminals,...roadCorners]);
 export function atRoadJunction(r:MapRoute,p:MapPoint){
  return [...mapRoads,roadViaduct].some(other=>other!==r&&distanceToRoute(...p,other)<other.width/2+1.15&&Math.abs(roadHeightAt(r,p)-roadHeightAt(other,p))<.12);
 }
