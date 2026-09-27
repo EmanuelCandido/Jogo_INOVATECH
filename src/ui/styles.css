@@ -39,7 +39,7 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
 .balance .coin { position: absolute; left: -22px; top: 50%; transform: translateY(-47%); width: 58px; height: 58px; }
 .back-to-map { position: absolute; z-index: 30; top: max(20px, env(safe-area-inset-top)); left: max(32px, env(safe-area-inset-left)); display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 14px; border: 0; border-bottom: 3px solid var(--ink); border-radius: 15px; background: var(--panel); box-shadow: inset 0 3px 2px #ffffff40, 0 4px 12px #25045226; font-size: 13px; font-weight: 700; animation: controls-arrive .3s ease-out both; transition: filter .15s, transform .15s; }
 .back-to-map:hover { filter: brightness(1.15); }
-.back-to-map:active { transform: translateY(2px); }
+.back-to-map:active { translate: 0 2px; }
 .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #e2deff; line-height: 1.5; }
 .primary { background: var(--panel); border: 0; border-bottom: 4px solid var(--ink); border-radius: 15px; box-shadow: inset 0 4px 2px #ffffff40; display: flex; align-items: center; justify-content: center; gap: 20px; min-height: 48px; padding: 11px 19px; font-size: 14px; font-weight: 700; }
 .primary:hover:enabled { filter: brightness(1.12); }
@@ -179,6 +179,21 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
   .settings { padding: 20px 16px; }
   .footer { font-size: 6px; letter-spacing: .3px; left: 16px; right: 16px; }
   .notice { font-size: 11px; width: 92%; }
+}
+/* Narrow phones: the right-aligned coins and buttons would cover a labelled
+   back button, so it becomes an icon-only control (its aria-label stays). */
+@media (max-width: 419px) {
+  .back-to-map { width: 48px; min-height: 48px; padding: 0; gap: 0; }
+  .back-label { display: none; }
+}
+@media (max-width: 359px) {
+  .topbar { --control-size: 44px; top: max(12px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right)); }
+  .topbar .icon-button { --control-size: 44px; }
+  .back-to-map { width: 44px; min-height: 44px; top: max(12px, env(safe-area-inset-top)); left: max(12px, env(safe-area-inset-left)); }
+  .header-actions { gap: 10px; }
+  .balance { min-width: 100px; padding: 6px 12px 6px 24px; }
+  .balance b { font-size: 18px; }
+  .balance .coin { left: -16px; width: 42px; height: 42px; }
 }
 /* Wide screens use a lower reading area, with choices alongside the dialogue. */
 @media (min-width: 1000px) and (min-height: 501px) {
