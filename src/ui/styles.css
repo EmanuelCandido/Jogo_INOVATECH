@@ -190,10 +190,10 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
   .topbar { --control-size: 44px; top: max(12px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right)); }
   .topbar .icon-button { --control-size: 44px; }
   .back-to-map { width: 44px; min-height: 44px; top: max(12px, env(safe-area-inset-top)); left: max(12px, env(safe-area-inset-left)); }
-  .header-actions { gap: 10px; }
-  .balance { min-width: 100px; padding: 6px 12px 6px 24px; }
-  .balance b { font-size: 18px; }
-  .balance .coin { left: -16px; width: 42px; height: 42px; }
+  .topbar .header-actions { gap: 10px; }
+  .topbar .balance { min-width: 100px; padding: 6px 12px 6px 24px; }
+  .topbar .balance b { font-size: 18px; }
+  .topbar .balance .coin { left: -16px; width: 42px; height: 42px; }
 }
 /* Wide screens use a lower reading area, with choices alongside the dialogue. */
 @media (min-width: 1000px) and (min-height: 501px) {
