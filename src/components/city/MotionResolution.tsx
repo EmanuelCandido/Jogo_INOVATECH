@@ -2,7 +2,7 @@ import {useEffect,useRef} from 'react';
 import {useFrame,useThree} from '@react-three/fiber';
 import {Matrix4} from 'three';
 import {useGraphicsRuntime} from '../../stores/graphicsStore';
-import {staticFrameDirty,staticFrameEnabled} from '../../game/staticFrame';
+import {cameraInvalidate,staticFrameEnabled,staticFrameFullMoves} from '../../game/staticFrame';
 
 const params=new URLSearchParams(location.search);
 // Benchmarks lock the resolution unless the route opts into this behaviour.
@@ -33,14 +33,17 @@ export function MotionResolution(){
   if(moved){
    s.last=now;
    // Map drags and zooms move the kept image instead (staticFrame); only
-   // camera flights that redraw the whole city use fewer pixels.
-   if(!s.moving&&!(staticFrameEnabled&&!staticFrameDirty())){s.moving=true;setDpr(base*motionScale);}
+   // camera flights that redraw the whole city use fewer pixels. One complete
+   // frame or two are not enough to tell: the end of the previous gesture,
+   // a change in the city or a shadow refresh can land on a drag.
+   if(!s.moving&&(!staticFrameEnabled||staticFrameFullMoves()>=3)){s.moving=true;setDpr(base*motionScale);}
   }else if(s.moving&&now-s.last>=settleMs){
    s.moving=false;setDpr(base);invalidate();
   }
   // Demand rendering: keep ticking until the camera has settled, then draw
-  // one sharp frame at the full resolution.
-  if(s.moving)invalidate();
+  // one sharp frame at the full resolution. Ticking changes nothing in the
+  // city, so it does not force complete frames by itself.
+  if(s.moving)cameraInvalidate(invalidate);
  },-95);
  return null;
 }

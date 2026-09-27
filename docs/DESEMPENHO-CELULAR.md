@@ -80,6 +80,15 @@ Depois de soltar o dedo, a cidade é redesenhada inteira para a imagem parada fi
 
 Cada faixa desenha a vista inteira com a projeção da própria câmera, recortada pela tesoura: com a projeção recortada (`setViewOffset`), 841 pixels de borda mudavam por arredondamento. Assim, a imagem final difere de um quadro completo novo em 6 pixels de 1,15 milhão, na borda da água, como antes. `?settleBands=N` força N faixas para teste.
 
+## Defeito no zoom do PC e quadros completos no meio do gesto
+
+No vídeo de Emanuel no PC (Intel UHD, com gravação de tela), partes da tela apareciam em outra escala durante o zoom, e a lista mostrava quadros completos pedidos pela `MotionResolution`. Havia duas causas:
+
+- A última faixa do redesenho final só resolvia a si mesma: o three resolve as amostras com `blitFramebuffer`, que respeita a tesoura. O resto da imagem guardada ficava com o conteúdo antigo e virava a referência do próximo zoom. Agora todas as faixas pulam a resolução do three, e a imagem inteira é resolvida uma vez, sem tesoura, depois da última faixa.
+- A `MotionResolution` baixava a resolução sempre que a câmera se mexia com a cena marcada como alterada, o que acontece à toa (fim do gesto anterior, sombra atualizada). Depois disso, o próprio pedido de quadro dela a cada quadro marcava a cena como alterada, e o gesto inteiro virava quadros completos em resolução menor. Agora ela só baixa a resolução depois de 3 quadros seguidos em que a câmera mudou e a cidade teve de ser desenhada inteira (um voo de câmera), e seus pedidos de quadro não marcam a cena. O fim do gesto também deixou de marcar a cena como alterada.
+
+No navegador de teste, um zoom logo depois de uma atualização de sombra passou de 16 quadros completos em resolução menor para 3 quadros completos e 13 movidos, sem mudar a resolução.
+
 ## O que falta medir no Redmi 14C
 
 Nada aqui prova 60 fps no celular. É preciso abrir a versão de teste no Redmi 14C, em Alto, com "Mostrar desempenho" ligado, e anotar o FPS parado e arrastando no panorama, no centro e na floresta. Com esses números decidimos a próxima etapa (folhas pré-calculadas, custo das sombras ou da água).

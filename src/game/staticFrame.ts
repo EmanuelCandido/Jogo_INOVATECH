@@ -94,6 +94,11 @@ export const measureInvalidate=quietly;
 export function markStaticFrameDirty(){if(trace&&!dirty)cause=caller();dirty=true;}
 /** Whether something besides the camera and water changed since the last frame. */
 export const staticFrameDirty=()=>dirty;
+// Camera changes in a row that had to be drawn completely (the kept image
+// could not be moved): a camera flight rather than a map drag or zoom.
+let fullMoves=0;
+/** How many frames in a row the camera changed and the city was drawn completely. */
+export const staticFrameFullMoves=()=>fullMoves;
 
 type Rect=[x:number,y:number,width:number,height:number];
 /** An outer rectangle minus a covered one, both as [x0,y0,x1,y1]: up to four rectangles. */
@@ -136,7 +141,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
  // counts: too many bands only cost a few quick frames, too few a stall),
  // and the bands of the final
  // frame after a move still to draw, bottom first.
- const fullCosts:number[]=[];let fullStart=0,bands:Rect[]|null=null,band=0;
+ const fullCosts:number[]=[];let fullStart=0,bands:Rect[]|null=null,band=0,settleNow=false;
  const dragging=()=>gl.domElement.classList.contains('dragging');
  const arm=()=>{
   clearTimeout(settle);
@@ -144,7 +149,9 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
    // Keep moving frames while a finger is still on the map.
    if(dragging()){arm();return;}
    const cost=fullCosts.length?Math.max(...fullCosts):0,count=forcedBands||Math.min(maxBands,Math.ceil(cost/bandMs));
-   if(count<=1||!last.width){dirty=true;requestFrame();return;}
+   // The end of a gesture is not a change of the city: staticFrameDirty()
+   // stays false, so the next gesture still moves the kept image.
+   if(count<=1||!last.width){settleNow=true;quietly(requestFrame);return;}
    if(!bands){
     const edges=Array.from({length:count+1},(_,i)=>Math.round(i*last.height/count));
     bands=edges.slice(1).map((y,i):Rect=>[0,edges[i],last.width,y-edges[i]]);band=0;
@@ -162,6 +169,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
  };
  // Rendering resolved the samples into the target's texture.
  const resolved=()=>(gl.properties.get(frame) as {__webglFramebuffer?:WebGLFramebuffer}).__webglFramebuffer??null;
+ const multisampled=()=>(gl.properties.get(frame) as {__webglMultisampledFramebuffer?:WebGLFramebuffer}).__webglMultisampledFramebuffer??null;
  const whole=(width:number,height:number):Rect=>[0,0,width,height];
  const fullView=(width:number,height:number)=>{frame.viewport.set(0,0,width,height);frame.scissor.set(0,0,width,height);frame.scissorTest=false;};
 
@@ -317,9 +325,10 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
    // Three leaves needsUpdate set while shadows are off; only a live shadow
    // map needs a complete frame.
    const shadowRefresh=gl.shadowMap.enabled&&(gl.shadowMap.needsUpdate||gl.shadowMap.autoUpdate);
-   const requested=dirty,requestCause=cause,strips0=staticFrameStats.strips,steady=!requested&&!shadowRefresh&&!scene.overrideMaterial;
+   const requested=dirty||settleNow,requestCause=dirty?cause:'fim do gesto',strips0=staticFrameStats.strips,steady=!requested&&!shadowRefresh&&!scene.overrideMaterial;
    // Requests made while this frame is drawn are for the next one.
-   dirty=false;cause='';
+   dirty=false;cause='';settleNow=false;
+   const fullMove=fullMoves;fullMoves=0;
    const log=(kind:typeof frameLog[number]['kind'],why='')=>{if(!trace)return;frameLog.push({at:performance.now(),kind,cause:why,strips:0});if(frameLog.length>60)frameLog.shift();};
    const reuse=steady&&last.valid&&!moving&&cameraSame&&ambient>0;
    const autoClear=gl.autoClear,layers=camera.layers.mask,previous=gl.getRenderTarget();
@@ -346,10 +355,12 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      try{
       quiet=true;
       frame.scissor.set(r[0],r[1],r[2],r[3]);frame.scissorTest=true;
-      // Resolve the samples once, after the last band.
-      if(!finalBand){frame.width=1;frame.height=1;}
+      // Three's resolve after each render is cut by the scissor, so it only
+      // covers a pixel; the whole frame is resolved once, after the last band.
+      frame.width=1;frame.height=1;
       gl.setRenderTarget(frame);
       draw(scene,camera);
+      if(finalBand)blit(multisampled(),resolved(),whole(width,height),whole(width,height));
      }finally{
       quiet=false;frame.width=width;frame.height=height;
       fullView(width,height);gl.setRenderTarget(frame);
@@ -369,7 +380,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
     }else{
      reason(!last.valid&&!moving?'first':requested?'requested':!cameraSame?'camera':shadowRefresh?'shadows':scene.overrideMaterial?'override':'no-water');
      staticFrameStats.full++;log('completo',requested?requestCause:!last.valid&&!moving?'primeiro':!cameraSame?'câmera':shadowRefresh?'sombra':'outro');
-     clearTimeout(settle);moving=false;bands=null;
+     clearTimeout(settle);moving=false;bands=null;if(!cameraSame)fullMoves=fullMove+1;
      ambient=markAmbient(scene);
      draw(scene,camera);last.valid=true;shown.copy(cameraView);shownProjection.copy(camera.projectionMatrix);
      fullStart=start;
