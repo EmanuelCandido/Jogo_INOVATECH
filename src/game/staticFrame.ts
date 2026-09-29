@@ -122,8 +122,14 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
  frame.texture.internalFormat='RGBA8';
  // Same tone mapping, sRGB encoding and 8-bit storage as the canvas.
  (frame as unknown as {isXRRenderTarget:boolean}).isXRRenderTarget=true;
- // Real multisampled buffers, which keep their samples between frames.
- (gl.properties.get(frame) as {__useRenderToTexture?:boolean}).__useRenderToTexture=false;
+ // Real multisampled buffers, which keep their samples between frames. Three
+ // would otherwise render straight into the texture where the browser offers
+ // WEBGL_multisampled_render_to_texture (Safari on iPhone): that framebuffer
+ // counts as multisampled, so copying a part of it to another place fails and
+ // moving frames came out empty. Resizing forgets the setting, so it is set
+ // again before every allocation.
+ const realSamples=()=>{(gl.properties.get(frame) as {__useRenderToTexture?:boolean}).__useRenderToTexture=false;};
+ realSamples();
  // Two plain images for moving frames: the reference and the one being built.
  const moved=[0,1].map(()=>{
   const t=new WebGLRenderTarget(1,1,{samples:0,depthBuffer:false,stencilBuffer:false});
@@ -314,7 +320,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      // Allocate now, at the full size: later renders shrink width and height
      // for a moment to resolve only a corner.
      frame.setSize(w,h);for(const t of moved)t.setSize(w,h);
-     gl.initRenderTarget(frame);for(const t of moved)gl.initRenderTarget(t);
+     realSamples();gl.initRenderTarget(frame);for(const t of moved)gl.initRenderTarget(t);
     }
     last.width=width;last.height=height;last.valid=false;moving=false;bands=null;
    }
