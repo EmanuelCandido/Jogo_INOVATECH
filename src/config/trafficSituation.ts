@@ -63,3 +63,8 @@ export const trafficSituation=Object.fromEntries(Object.entries(situationVisuals
   }),
  }];
 })) as typeof situationVisuals.pollution_02;
+// Centre of the initial jam in world space. The mission camera frames the cars
+// rather than the anchor, which sits behind the six-storey tower to its south.
+const rotation=new Quaternion().setFromAxisAngle(new Vector3(0,1,0),anchor.yaw??0);
+const jam=trafficSituation.initial.assets.filter(isVehicle).map(p=>new Vector3(...p.position).applyQuaternion(rotation).add(origin));
+export const trafficFocus=jam.reduce((sum,p)=>sum.add(p),new Vector3()).divideScalar(jam.length).toArray() as Vec3;
