@@ -69,7 +69,7 @@ const caller=()=>(new Error().stack??'').split('\n').slice(3,6).map(l=>(l.match(
 /** The last frames: complete, moved, still (water only) or held, and why. */
 export const frameLog:{at:number;kind:'completo'|'movendo'|'parado'|'mantido'|'assentando';cause:string;strips:number}[]=[];
 /** Frames drawn completely, from the kept frame, or moved, and why frames were redrawn. */
-export const staticFrameStats={full:0,reused:0,moved:0,strips:0,drawMs:0,moveMs:0,reasons:{} as Record<string,number>,last:null as unknown};
+export const staticFrameStats={moveFailed:false,full:0,reused:0,moved:0,strips:0,drawMs:0,moveMs:0,reasons:{} as Record<string,number>,last:null as unknown};
 // ?cacheDebug exposes the counters for measurements in ordinary games.
 if(debug&&typeof window!=='undefined')(window as unknown as {ecoStaticFrame:typeof staticFrameStats}).ecoStaticFrame=staticFrameStats;
 const reason=(r:string)=>{staticFrameStats.reasons[r]=(staticFrameStats.reasons[r]??0)+1;};
@@ -205,6 +205,23 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
   const from=framebuffer(moved[index]);
   for(const [x,y,w,h,sx,sy] of pieces(whole(width,height),origin[index],width,height))blit(from,null,[sx,sy,w,h],[x,y,w,h]);
  };
+
+ /** Whether the moved image really reached the screen. Some browsers refuse
+  * these copies without a visible error (on iPhone the page behind the canvas
+  * showed while the map moved), so the first moving frames compare
+  * the pixel at the middle of the screen with the stored image it came from. */
+ const pixel=new Uint8Array(4),stored=new Uint8Array(4);
+ const shownMatches=(index:number,width:number,height:number)=>{
+  const cx=width>>1,cy=height>>1,[,, ,,sx,sy]=pieces([cx,cy,1,1],origin[index],width,height)[0];
+  gl.state.bindFramebuffer(context.READ_FRAMEBUFFER,framebuffer(moved[index]));context.bindFramebuffer(context.READ_FRAMEBUFFER,framebuffer(moved[index]));
+  context.readPixels(sx,sy,1,1,context.RGBA,context.UNSIGNED_BYTE,stored);
+  gl.state.bindFramebuffer(context.READ_FRAMEBUFFER,null);context.bindFramebuffer(context.READ_FRAMEBUFFER,null);
+  context.readPixels(cx,cy,1,1,context.RGBA,context.UNSIGNED_BYTE,pixel);
+  // A complete frame is opaque: a stored pixel without alpha was never copied.
+  return stored[3]>0&&stored[0]===pixel[0]&&stored[1]===pixel[1]&&stored[2]===pixel[2];
+ };
+ // Moving frames still to verify; after a failure every frame is complete.
+ let checks=3,moveBroken=false;
 
  /** Draw the view as the previous image moved plus the newly visible strips.
   * Returns false when the move cannot be expressed that way. */
@@ -381,7 +398,7 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      // moved image stays on screen.
      staticFrameStats.moved++;presentMoved=true;log('mantido');
      if(bands)arm();
-    }else if(movingEnabled&&steady&&(last.valid||moving)&&!cameraSame&&(bands=null,true)&&timed(()=>move(scene,camera,cameraView,width,height,draw))){
+    }else if(movingEnabled&&!moveBroken&&steady&&(last.valid||moving)&&!cameraSame&&(bands=null,true)&&timed(()=>move(scene,camera,cameraView,width,height,draw))){
      staticFrameStats.moved++;presentMoved=true;last.valid=false;arm();log('movendo');
     }else{
      reason(!last.valid&&!moving?'first':requested?'requested':!cameraSame?'camera':shadowRefresh?'shadows':scene.overrideMaterial?'override':'no-water');
@@ -392,7 +409,25 @@ export function createStaticFrame(gl:WebGLRenderer,requestFrame:()=>void){
      fullStart=start;
      presentFrom=resolved();
     }
+    // WebKit (every browser on iPhone) only takes a new canvas image after a
+    // clear or a draw on it, and may clear it after a copy that came first:
+    // a frame made of copies alone reached the screen empty. Clear it first.
+    gl.state.bindFramebuffer(context.DRAW_FRAMEBUFFER,null);context.bindFramebuffer(context.DRAW_FRAMEBUFFER,null);
+    gl.state.setScissorTest(false);gl.state.buffers.color.setMask(true);context.clear(context.COLOR_BUFFER_BIT);
     if(presentMoved)show(display,width,height);else blit(presentFrom,null,whole(width,height),whole(width,height));
+    if(presentMoved&&checks>0){
+     checks--;
+     if(!shownMatches(display,width,height)){
+      // Draw this frame completely instead, and every moving frame from now on.
+      moveBroken=true;staticFrameStats.moveFailed=true;checks=0;
+      clearTimeout(settle);moving=false;bands=null;staticFrameStats.full++;reason('move-failed');log('completo','imagem movida não apareceu');
+      ambient=markAmbient(scene);
+      fullView(width,height);gl.setRenderTarget(frame);
+      draw(scene,camera);last.valid=true;shown.copy(cameraView);shownProjection.copy(camera.projectionMatrix);
+      fullStart=start;
+      blit(resolved(),null,whole(width,height),whole(width,height));
+     }
+    }
     if(trace&&frameLog.length)frameLog[frameLog.length-1].strips=staticFrameStats.strips-strips0;
    }finally{
     camera.layers.mask=layers;gl.autoClear=autoClear;scene.userData.dynamicPass=false;
