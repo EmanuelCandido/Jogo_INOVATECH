@@ -115,4 +115,8 @@ export interface Progress {
   dailyMissions: DailyMissions;
   /** When passive income was last paid; absent until the first payment. */
   income?: { at: number; carry: number };
+  /** Coins already returned from attempts that did not solve a problem. */
+  attemptRefunds?: number;
+  /** Coins returned when the current situation was opened; shown with its question. */
+  retryHelp?: number;
 }

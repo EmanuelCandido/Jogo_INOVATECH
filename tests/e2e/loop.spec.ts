@@ -51,9 +51,9 @@ test('temporário, reavaliação, nenhuma melhoria e recursos insuficientes',asy
  await page.getByRole('button',{name:'Voltar à cidade'}).click();
  await expect(page.locator('[data-problem="accessibility_01"]')).toHaveAttribute('data-visual-state','initial');
  await question(page);
- await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('ecoquest.save.v1')!);s.data.coins=30;localStorage.setItem('ecoquest.save.v1',JSON.stringify(s));});
+ await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('ecoquest.save.v1')!);s.data.coins=10;localStorage.setItem('ecoquest.save.v1',JSON.stringify(s));});
  await page.reload();for(const button of await page.locator('.alternative').all())await expect(button).toBeDisabled();
  await page.getByRole('button',{name:'Configurações',exact:true}).click();
  await page.getByRole('button',{name:'Decidir depois · voltar ao mapa'}).click();await resetMap(page);
- await expect(page.locator('.balance')).toContainText('30');
+ await expect(page.locator('.balance')).toContainText('10');
 });

@@ -79,7 +79,8 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
      {result&&<div className="eyebrow">{story.results[answer.effectiveness].label}</div>}
      {(isQuestion||result)&&<h2>{title}</h2>}
      {!isQuestion&&<p>{text}</p>}
-     {result&&!tutorial&&p&&<div className="result-receipt"><span>✦ − {answer.cost} moedas investidas</span>{answer.effectiveness==='COMPLETE'&&<span>+ {p.rewards} pela transformação</span>}</div>}
+     {result&&!tutorial&&p&&<div className="result-receipt"><span>✦ − {answer.cost} moedas investidas</span>{answer.effectiveness==='COMPLETE'?<span>+ {p.rewards} pela transformação</span>:<span>↺ Se faltar moeda para tentar de novo, esta tentativa volta para você</span>}</div>}
+     {isQuestion&&!tutorial&&s.retryHelp&&<div className="result-receipt retry-help" role="status"><span>↺ + {s.retryHelp} moedas das tentativas anteriores voltaram para você tentar de novo</span></div>}
     </div>
     <div className="dialogue-actions">
      {!sceneReady&&<span className="scene-loading" role="status">Preparando a cidade…</span>}
