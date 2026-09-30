@@ -1,6 +1,6 @@
 import {BufferGeometry,Float32BufferAttribute,Shape,Path,ShapeGeometry,Color,Vector2} from 'three';
 import {mergeVertices} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import {tessellateSurface} from '../../assets/surfaceTriangulation';
+import {tessellateSurface,improveSurfaceTriangles} from '../../assets/surfaceTriangulation';
 import clip from 'polygon-clipping';
 import {mergeSurfaceGeometry as merged} from '../../assets/mergeSurfaceGeometry';
 export {merged};
@@ -28,7 +28,15 @@ export function polygon(points:MapPoint[],height:number|((u:number,v:number)=>nu
    else{const m:MapPoint=[(c[0]+a[0])/2,(c[1]+a[1])/2];triangle(a,b,m,depth+1);triangle(m,b,c,depth+1);}return;
   }add(a);add(b);add(c);
  };
- for(let i=0;i<idx.count;i+=3){const p=(j:number):MapPoint=>[pos.getX(idx.getX(j)),pos.getY(idx.getX(j))];triangle(p(i),p(i+1),p(i+2));}
+ const p=(j:number):MapPoint=>[pos.getX(idx.getX(j)),pos.getY(idx.getX(j))];
+ if(land){
+  // Ear clipping leaves hair-thin slivers along the long, finely sampled
+  // banks and coasts. Their interpolated shading rendered as dotted dark lines
+  // across the grass. Flip them to well-shaped faces before refining.
+  const faces:MapPoint[]=[];for(let i=0;i<idx.count;i++)faces.push(p(i));
+  const better=improveSurfaceTriangles(faces),q=(j:number)=>better.points[better.indices[j]] as MapPoint;
+  for(let i=0;i<better.indices.length;i+=3)triangle(q(i),q(i+1),q(i+2));
+ }else for(let i=0;i<idx.count;i+=3)triangle(p(i),p(i+1),p(i+2));
  source.dispose();const g=new BufferGeometry();
  if(improve){const improved=tessellateSurface(surfacePoints,maxEdge,typeof height==='function'?height:undefined);improved.points.forEach(add);g.setIndex(improved.indices);}
  g.setAttribute('position',new Float32BufferAttribute(vertices,3));g.setAttribute('uv',new Float32BufferAttribute(uvs,2));if(land)g.setAttribute('color',new Float32BufferAttribute(colors,3));if(land){const smooth=mergeVertices(g,.0001);g.dispose();smooth.computeVertexNormals();return smooth;}g.computeVertexNormals();return g;
@@ -43,9 +51,9 @@ export function ribbon(points:MapPoint[],width:number|((u:number,v:number)=>numb
  });
  const g=new BufferGeometry();g.setAttribute('position',new Float32BufferAttribute(positions,3));g.setAttribute('uv',new Float32BufferAttribute(uv,2));g.setIndex(indices);g.computeVertexNormals();return g;
 }
-export function wall(points:MapPoint[],top=.13,bottom=-.62){
+export function wall(points:MapPoint[],top:number|((u:number,v:number)=>number)=.13,bottom=-.62){
  const positions:number[]=[],uv:number[]=[],indices:number[]=[];
- points.forEach(([u,v],i)=>{positions.push(...worldPoint(u,v,bottom),...worldPoint(u,v,top));uv.push(i,0,i,1);if(i<points.length-1){const j=i*2;indices.push(j,j+1,j+2,j+1,j+3,j+2);}});
+ points.forEach(([u,v],i)=>{positions.push(...worldPoint(u,v,bottom),...worldPoint(u,v,typeof top==='number'?top:top(u,v)));uv.push(i,0,i,1);if(i<points.length-1){const j=i*2;indices.push(j,j+1,j+2,j+1,j+3,j+2);}});
  const g=new BufferGeometry();g.setAttribute('position',new Float32BufferAttribute(positions,3));g.setAttribute('uv',new Float32BufferAttribute(uv,2));g.setIndex(indices);g.computeVertexNormals();return g;
 }
 export function valleyLand(){
@@ -70,6 +78,17 @@ export function valleyLand(){
  }
  return geometry;
 }
+/** Below the dam the valley floor ramps up to the abutments while the river
+ * stays at sea level. The land ends at the bank, so without a face there the
+ * 6 m step showed the sea plane through the ground beside the dam. The face
+ * follows the land outline's own bank vertices, so its top meets the terrain edge. */
+const gorgeBank=(side:number)=>{
+ const bank=Array.from({length:180},(_,i)=>{const v=160-300*i/179;return [riverU(v)+side*riverWidth(v)/2,v] as MapPoint;});
+ const i=bank.findIndex(([,v])=>v<84),[a,b]=[bank[i-1],bank[i]],t=(a[1]-84)/(a[1]-b[1]);
+ // The land above v=84 is one block, so the outline turns along the dam line there.
+ return [[a[0]+(b[0]-a[0])*t,84] as MapPoint,...bank.slice(i).filter(([,v])=>v>=70)];
+};
+export const damGorgeFaces=(()=>{const [left,right]=[gorgeBank(-1),gorgeBank(1)];return [[...left].reverse(),[left[0],right[0]],right];})();
 export const cleanBanks=[-1,1].map(side=>riverSamples.map(([u,v])=>[u+side*riverWidth(v)/2,v] as MapPoint));
 export const dirtyBanks=[-1,1].map(side=>canalSamples.filter(([,v])=>side<0?v>-34:v>18).map(([u,v])=>[u+side*4.5,v] as MapPoint));
 

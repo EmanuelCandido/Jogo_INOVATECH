@@ -7,7 +7,7 @@ import {serviceTurns} from '../src/config/truckManeuvers';
 import {referenceTrees,referenceAssets,referenceTraffic,mapRoads,roadViaduct,centralRail,monorail,roadSurfaceHeight,routeHeight,terrainY,pedestrianNetwork,buildingLots,onReferenceLand,railFacilities,riverU,canalU,riverWidth,pointInFootprint} from '../src/config/referenceMap';
 describe('continuidade espacial do vale',()=>{
  it('entrega ao navegador a mesma implantação validada na autoria',()=>{
-  expect(referenceTrees).toHaveLength(5686);
+  expect(referenceTrees).toHaveLength(5694);
   const same=(saved:unknown[],actual:unknown[],name:string)=>{
    expect(saved.length,name+' contagem').toBe(actual.length);
    const mismatch=actual.findIndex((p,i)=>JSON.stringify(saved[i])!==JSON.stringify(p));

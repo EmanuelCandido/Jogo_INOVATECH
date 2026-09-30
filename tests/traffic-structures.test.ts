@@ -27,7 +27,7 @@ describe('volumes de tráfego e estruturas',()=>{
    const t=volume(tree);
    for(const deck of decks)if(t.box.intersectsBox(deck.box)&&t.obb.intersectsOBB(deck.obb))conflicts.push({tree:tree.asset,at:tree.position,deck:deck.p.position});
   }
-  expect(referenceTrees).toHaveLength(5686);
+  expect(referenceTrees).toHaveLength(5694);
   expect(conflicts).toEqual([]);
  });
  it('mantém os veículos fora de tabuleiros, vigas e fundações, incluindo peças inclinadas',()=>{

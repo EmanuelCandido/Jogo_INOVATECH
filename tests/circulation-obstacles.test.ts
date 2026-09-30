@@ -6,7 +6,7 @@ import {corridorGap,polygonGap} from '../src/config/spatial';
 
 describe('obstáculos encontrados na revisão de circulação',()=>{
  it('mantém as copas completas fora dos pátios de carga e dos acessos dos funcionários',()=>{
-  expect(referenceTrees).toHaveLength(5686);expect(industrialAprons).toHaveLength(4);
+  expect(referenceTrees).toHaveLength(5694);expect(industrialAprons).toHaveLength(4);
   const conflicts=[];
   for(const tree of referenceTrees){
    const poly=placementFootprint(tree);

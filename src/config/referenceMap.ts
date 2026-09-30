@@ -8,7 +8,7 @@ import {dumpSite} from './dumpSite';
 import {buildRoadProfiles,heightAlongRoad} from './roadProfiles';
 import {industrialSite,industrialGroundWeight,industrialYieldGeometry} from './industrialSite';
 import {buildStreetLayout} from './streetLayout';
-import {buildRiverCorridors} from './riverCorridors';
+import {buildRiverCorridors,offsetPolyline} from './riverCorridors';
 import {buildStationFacilities} from './stationFacilities';
 import {loadingManeuver,serviceTurns} from './truckManeuvers';
 import {convexHull} from './spatial';
@@ -63,10 +63,35 @@ export const shoreLine:MapPoint[]=[[riverU(-70)+riverWidth(-70)/2,-70],[30,-59],
 export const easternSeaEdge:MapPoint[]=[[canalU(18)+4.5,18],[88,11],[116,6],[146,36]];
 export const beachLine=mapCurve([[27,-55],[35,-48],[44,-43.5],[52,-42],[60,-42],[66,-40.5]],100);
 const riverBank=(side:number,top:number,bottom:number)=>Array.from({length:180},(_,i)=>{const v=top+(bottom-top)*i/179;return [riverU(v)+side*riverWidth(v)/2,v] as MapPoint;});
+// The east bank at the river mouth carries the promenade and the cycle path
+// out to the sea. The coast keeps them on land and closes in a rounded tip;
+// it used to run 2 m from the bank, so the path hung over the sea.
+export const riverMouthTip=-77;
+const mouthCoast=(()=>{
+ const bank=riverBank(1,-44,riverMouthTip),coast=offsetPolyline(bank,6.3);
+ const end=bank.at(-1)!,[du,dv]=[coast.at(-1)![0]-end[0],coast.at(-1)![1]-end[1]],length=Math.hypot(du,dv);
+ const [tu,tv]=[bank.at(-1)![0]-bank.at(-2)![0],bank.at(-1)![1]-bank.at(-2)![1]],tl=Math.hypot(tu,tv);
+ // Half-round cap from the outer coast back to the bank, bulging seaward.
+ const cap=Array.from({length:9},(_,i)=>{const a=Math.PI*(i+1)/10,c=Math.cos(a),s=Math.sin(a),r=length/2;
+  return [end[0]+du/2+du/length*r*c+tu/tl*r*s,end[1]+dv/2+dv/length*r*c+tv/tl*r*s] as MapPoint;});
+ // Rejoin the original shore where the widened coast meets it.
+ const [a,b]=[shoreLine[1],shoreLine[2]];let join=coast.length-1,point=coast[join];
+ for(let i=1;i<coast.length;i++){
+  const p=coast[i-1],q=coast[i],d=(q[0]-p[0])*(b[1]-a[1])-(q[1]-p[1])*(b[0]-a[0]);if(Math.abs(d)<1e-9)continue;
+  const t=((a[0]-p[0])*(b[1]-a[1])-(a[1]-p[1])*(b[0]-a[0]))/d,s=((a[0]-p[0])*(q[1]-p[1])-(a[1]-p[1])*(q[0]-p[0]))/d;
+  if(t>=0&&t<=1&&s>=0&&s<=1){join=i;point=[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t];break;}
+ }
+ // Fillet the inner corner so the beach meets the promenade without a notch.
+ const along=(from:MapPoint,to:MapPoint,d:number):MapPoint=>{const l=Math.hypot(to[0]-from[0],to[1]-from[1]);return [from[0]+(to[0]-from[0])*d/l,from[1]+(to[1]-from[1])*d/l];};
+ let rest=coast.slice(join);while(rest.length>1&&Math.hypot(rest[0][0]-point[0],rest[0][1]-point[1])<3)rest=rest.slice(1);
+ const start=along(point,b,3.5),finish=rest[0];
+ const fillet=Array.from({length:7},(_,i)=>{const t=i/6,k=1-t;return [k*k*start[0]+2*k*t*point[0]+t*t*finish[0],k*k*start[1]+2*k*t*point[1]+t*t*finish[1]] as MapPoint;});
+ return {cap,coast:[...fillet,...rest.slice(1)]};
+})();
 const canalBank=(side:number,top:number,bottom:number)=>Array.from({length:130},(_,i)=>{const v=top+(bottom-top)*i/129;return [canalU(v)+side*4.5,v] as MapPoint;});
 export const landOutlines:MapPoint[][]=[
  [[-185,160],...riverBank(-1,160,-140),[-55,-154],[-100,-159],[-185,-162]],
- [...riverBank(1,160,-140),[riverU(-140)+riverWidth(-140)/2+3,-140],[38,-107],[36,-84],...shoreLine.slice(1),...canalBank(-1,-34,160)],
+ [...riverBank(1,160,riverMouthTip),...[...mouthCoast.cap].reverse(),...[...mouthCoast.coast].reverse(),...shoreLine.slice(2),...canalBank(-1,-34,160)],
  [...canalBank(1,160,18),...easternSeaEdge.slice(1),[168,105],[185,160]],
 ];
 function naturalTerrainY(u:number,v:number){
@@ -490,6 +515,9 @@ export function onReferenceLand(u:number,v:number){
  return landOutlines.some(poly=>contains([u,v],poly));
 }
 
+/** Land added at the river mouth in 2026. The seeded planting skips it, so the
+ * random sequence (and with it every tree, car and lamp elsewhere) is unchanged. */
+function onRiverMouthTip(u:number,v:number){return v< -56&&u>riverU(v);}
 export const industrialAprons=buildingLots.filter(l=>l.id.startsWith('industria-')).map(l=>{
  const model=layoutFor(l.placement.asset)!,load=attachmentWorld(l.placement,[0,0,model.bounds.max[2]]),door=attachmentWorld(l.placement,[model.entry![0],0,model.bounds.max[2]]);
  const loading=compositionPoint(load[0],load[2]),staff=compositionPoint(door[0],door[2]);
@@ -548,7 +576,7 @@ for(let v=-78;v<124;v+=1.8)for(let u=-124;u<125;u+=1.85){
  if(dumpTurnPads.some(pad=>contains([x,z],pad)||pad.some((p,i)=>segmentDistance([x,z],p,pad[(i+1)%pad.length])<2)))continue;
  if(industrialAprons.some(a=>contains([x,z],a.footprint)||corridorGap([[x-1,z-1],[x+1,z-1],[x+1,z+1],[x-1,z+1]],a.driveway,3.5)<.3))continue;
  if(pedestrianNetwork.links.some(link=>link.points.some((p,i)=>i>0&&segmentDistance([x,z],link.points[i-1],p)<1.65)))continue;
- if(!onReferenceLand(x,z)||clearings.some(c=>((x-c.u)/c.ru)**2+((z-c.v)/c.rv)**2<1))continue;
+ if(!onReferenceLand(x,z)||onRiverMouthTip(x,z)||clearings.some(c=>((x-c.u)/c.ru)**2+((z-c.v)/c.rv)**2<1))continue;
  if(nearSolarFarm(x,z))continue;
  if(missionReservations.some(poly=>contains([x,z],poly)||poly.some((p,i)=>segmentDistance([x,z],p,poly[(i+1)%poly.length])<1)))continue;
  if(buildingLots.some(l=>Math.hypot(x-l.u,z-l.v)<l.radius+1.05||pointInFootprint([x,z],l.footprint)))continue;
@@ -574,7 +602,7 @@ for(let i=0;referenceTrees.length<5686&&i<40000;i++){
  if(distanceToRoute(u,v,dumpDriveway)<dumpDriveway.width/2+1.6)continue;
  if(dumpTurnPads.some(pad=>contains([u,v],pad)||pad.some((p,i)=>segmentDistance([u,v],p,pad[(i+1)%pad.length])<2)))continue;
  if(industrialAprons.some(a=>contains([u,v],a.footprint)||corridorGap([[u-1,v-1],[u+1,v-1],[u+1,v+1],[u-1,v+1]],a.driveway,3.5)<.3))continue;
- if(!onReferenceLand(u,v)||clearings.some(c=>((u-c.u)/c.ru)**2+((v-c.v)/c.rv)**2<1.1))continue;
+ if(!onReferenceLand(u,v)||onRiverMouthTip(u,v)||clearings.some(c=>((u-c.u)/c.ru)**2+((v-c.v)/c.rv)**2<1.1))continue;
  if(nearSolarFarm(u,v))continue;
  if(Math.abs(u-riverU(v))<riverWidth(v)/2+5||Math.abs(u-canalU(v))<7)continue;
  if(mapRoads.some(r=>distanceToRoute(u,v,r)<r.width/2+1.7)||[centralRail,monorail,roadViaduct].some(r=>distanceToRoute(u,v,r)<r.width/2+1.5))continue;
@@ -625,6 +653,18 @@ for(let i=0;i<referenceTrees.length;i++){
   referenceTrees[i]=candidate;found=true;
  }
  if(!found)throw new Error('Árvore sem posição livre fora dos corredores: '+tree.asset+' '+u+','+v);
+}
+// The river-mouth tip gets its own small grove with a separate seed.
+{let tipSeed=4242;const tipRandom=()=>{tipSeed=(tipSeed*1664525+1013904223)>>>0;return tipSeed/4294967296;};
+ for(let v=-78;v<-56;v+=1.1)for(let u=24;u<44;u+=1.1){
+  const x=u+(tipRandom()-.5)*1.1,z=v+(tipRandom()-.5)*1.1,size=1.05+tipRandom()*.25,kind=tipRandom(),yaw=tipRandom()*6.28;
+  if(!onRiverMouthTip(x,z)||Math.abs(x-riverU(z))<riverWidth(z)/2+4.4||[[0,0],[.8,0],[-.8,0],[0,.8],[0,-.8]].some(([du,dv])=>!onReferenceLand(x+du,z+dv)))continue;
+  // Same trunk clearance from the cycle path as the rest of the riverside planting.
+  if(riverCorridors.some(c=>distanceToRoute(x,z,{id:'river-path',points:c.cycle,width:c.cycleWidth})<2.15))continue;
+  const tree=placement(kind<.5?'tree.fir':kind<.8?'tree.oak':'tree.blossom',x,z,size,yaw,terrainY(x,z));
+  if(referenceTrees.some(p=>Math.hypot(p.position[0]-tree.position[0],p.position[2]-tree.position[2])<1.8))continue;
+  referenceTrees.push(tree);
+ }
 }
 const trafficSources=new Map<Placement,{road:MapRoute;distance:number;side:number}>();
 for(const r of mapRoads){

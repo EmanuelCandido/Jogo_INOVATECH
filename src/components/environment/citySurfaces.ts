@@ -1,4 +1,4 @@
-import {junctionPriority,worldPoint,dumpDriveway,industrialAprons,streetLayout,atRoadJunction,riverCorridors,mapRoads,riverSamples,canalSamples,riverWidth,beachLine,reservoirOutline,monorail,centralRail,roadViaduct,buildingLots,routeHeight,distanceToRoute,pedestrianNetwork,type MapPoint} from '../../config/referenceMap';
+import {junctionPriority,worldPoint,terrainY,dumpDriveway,industrialAprons,streetLayout,atRoadJunction,riverCorridors,mapRoads,riverSamples,canalSamples,riverWidth,beachLine,reservoirOutline,riverMouthTip,monorail,centralRail,roadViaduct,buildingLots,routeHeight,distanceToRoute,pedestrianNetwork,type MapPoint} from '../../config/referenceMap';
 import {reservoirWaterHeight} from '../../config/reservoir';
 import {dumpExitPriority,industrialGatePriority} from '../../config/servicePriority';
 import {industrialServiceFloor} from '../../config/industrialPaving';
@@ -9,7 +9,7 @@ import {dumpSite} from '../../config/dumpSite';
 import type {BufferGeometry} from 'three';
 import {lineLength} from '../../config/spatial';
 import {roadHeightSampler} from '../../config/roadProfiles';
-import {polygon,ribbon,wall,merged,valleyLand,cleanBanks,dirtyBanks} from './referenceGeometry';
+import {polygon,ribbon,wall,merged,valleyLand,cleanBanks,dirtyBanks,damGorgeFaces} from './referenceGeometry';
 
 /** Static city ground: roads, sidewalks, terrain and water surfaces.
  * Depends only on the map configuration. The build precomputes it into
@@ -58,9 +58,11 @@ export function createSurfaces(){
   });
   cycles.push(ribbon(points,corridor.cycleWidth,.052));
   walks.push(ribbon(corridor.walk,corridor.walkWidth,.017));
-  const bank=cleanBanks[(side+1)/2].filter(([,v])=>v<80);edging.push(wall(bank,.18,-.64));edging.push(ribbon(bank,.34,.18));
+  // The east bank ends at the rounded tip of the river mouth; past it lies open sea.
+  const bank=cleanBanks[(side+1)/2].filter(([,v])=>v<80&&(side<0||v>=riverMouthTip));edging.push(wall(bank,.18,-.64));edging.push(ribbon(bank,.34,.18));
   for(let i=2;i<points.length-2;i+=4)if(!blocked(points[i])&&!blocked(points[i+1]))marks.push(ribbon(points.slice(i,i+2),.045,.058));
  }
+ for(const face of damGorgeFaces)edging.push(wall(face,(u,v)=>terrainY(u,v),-.64));
  for(const bank of dirtyBanks){edging.push(wall(bank,.35,-.9));edging.push(ribbon(bank,.5,.35));}
  for(const l of buildingLots){
   sidewalks.push(polygon(l.footprint,l.placement.position[1]+.012));

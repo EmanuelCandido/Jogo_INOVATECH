@@ -1,6 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {offsetPolyline} from '../src/config/riverCorridors';
-import {riverCorridors,mapRoads,roadViaduct,roadHeightAt,buildingLots} from '../src/config/referenceMap';
+import {riverCorridors,mapRoads,roadViaduct,roadHeightAt,buildingLots,onReferenceLand} from '../src/config/referenceMap';
 import {structuralSupports} from '../src/config/roadStructures';
 import {segmentDistance,corridorGap} from '../src/config/spatial';
 describe('corredores ribeirinhos e fundações',()=>{
@@ -30,6 +30,13 @@ describe('corredores ribeirinhos e fundações',()=>{
   for(const s of structuralSupports)for(const c of riverCorridors){
    expect(corridorGap(s.footprint,c.cycle,c.cycleWidth),s.road).toBeGreaterThan(.39);
    expect(corridorGap(s.footprint,c.walk,c.walkWidth),s.road).toBeGreaterThan(.29);
+  }
+ });
+ it('mantém a ciclovia e o mobiliário sobre terra firme até a foz',()=>{
+  // The outer edge of the cycle path was 2 m over the sea at the river mouth.
+  for(const c of riverCorridors){
+   const edge=offsetPolyline(c.bank,c.side*(2.95+c.cycleWidth/2+.3));
+   for(const p of [...edge,...c.furniture])expect(onReferenceLand(...p),`${c.side} @ ${p}`).toBe(true);
   }
  });
 });

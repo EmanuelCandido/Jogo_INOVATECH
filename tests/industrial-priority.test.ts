@@ -34,6 +34,6 @@ it('mantém a sinalização visível por inteiro pela câmera do jogador sem rem
   for(const x of [b.min[0],b.max[0]])for(const y of [b.min[1],b.max[1]])for(const z of [b.min[2],b.max[2]])points.push(project(attachmentWorld(tree,[x,y,z])));
   if(polygonGap(mark,convexHull(points))<=0)conflicts.push(tree.position);
  }
- expect(referenceTrees).toHaveLength(5686);
+ expect(referenceTrees).toHaveLength(5694);
  expect(conflicts).toEqual([]);
 });
