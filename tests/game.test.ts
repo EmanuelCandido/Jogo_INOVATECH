@@ -91,6 +91,14 @@ describe('salvamento desta versão',()=>{
   expect(restored.coins).toBe(original.coins);expect(restored.decisions).toEqual(original.decisions);
   expect(restored.wardrobe.owned).toEqual(['cape-star']);expect(restored.dailyMissions.claimed).toEqual([]);
  });
+ it('mantém saves feitos com preços antigos e devolve as tentativas a quem ficou sem moedas',()=>{
+  const wrong=finish(ProblemManager.decide(open(),'campaign'));
+  const legacy={...wrong,coins:10,decisions:wrong.decisions.map(d=>({...d,cost:90}))};
+  const restored=decodeSave(JSON.stringify({version:1,data:legacy}));
+  expect(restored.decisions[0].cost).toBe(90);
+  const reopened=open(restored);expect(reopened.coins).toBe(80);expect(reopened.retryHelp).toBe(70);
+  expect(ProblemManager.decide(reopened,'ramp').problemStates.accessibility_01).toBe('SOLVED');
+ });
  it('restaura resultados sem cobrar novamente',()=>{
   let raw:string|null=null;const adapter:SaveAdapter={read:()=>raw,write:v=>{raw=v;},clear:()=>{raw=null;}};
   const s=ProblemManager.decide(open(),'ramp');saveProgress(adapter,s);expect(loadProgress(adapter).data).toEqual(s);expect(finish(loadProgress(adapter).data).coins).toBe(120);

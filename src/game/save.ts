@@ -106,9 +106,11 @@ export function decodeSave(raw: string): Progress {
         questions[p.questionId].alternatives.find(
           (a) => a.id === d.alternativeId,
         );
+      // Prices can change between versions; a decision keeps what it cost then.
       return (
         !a ||
-        a.cost !== d.cost ||
+        !Number.isSafeInteger(d.cost) ||
+        d.cost < 0 ||
         a.effectiveness !== d.effectiveness ||
         d.turn !== i + 1
       );
@@ -145,6 +147,7 @@ export function decodeSave(raw: string): Progress {
     throw new Error("Diálogo inválido");
   if(s.tutorialAnswerId!==undefined&&!tutorialQuestion.alternatives.some(a=>a.id===s.tutorialAnswerId))throw new Error('Resposta tutorial inválida');
   if(s.phase==='TUTORIAL_RESULT'&&!s.tutorialAnswerId)throw new Error('Resultado tutorial ausente');
+  for(const n of [s.attemptRefunds,s.retryHelp])if(n!==undefined&&(!Number.isSafeInteger(n)||n<0))throw new Error('Moedas inválidas');
   return {
     ...s,
     wardrobe: normalizeWardrobe(s.wardrobe),
