@@ -4,6 +4,9 @@ As escolhas continuam sendo salvas imediatamente pelo `ProblemManager`. A aprese
 
 - Coleta de lixo: 6,8 segundos de animação, com chegada do caminhão, recolhimento, recuperação do terreno, instalação das lixeiras e crescimento das árvores.
 - Demais situações: 5,2 segundos, com deslocamento dos animais e veículos, instalação gradual de equipamentos, vegetação e pisos, limpeza da água e dissipação da fumaça.
+- Cada mudança recebe um papel (`changeRole` em `src/game/resolution.ts`) que decide quando e como ela se move: a fumaça sobe e se dissipa, obstáculos tremem e afundam, veículos que saem aceleram e os que chegam freiam; depois o piso se espalha em sequência (o piso tátil é assentado ao longo do caminho), os equipamentos descem e assentam com um pequeno amortecimento, as árvores crescem com um leve balanço e a placa informativa aparece por último.
+- `ResolutionBursts.tsx` desenha poeira quando algo é removido ou assentado, folhas quando uma árvore cresce e brilhos sobre a área ao final (menos e amarelos numa solução parcial). É uma única malha instanciada, sem sombra nem transparência, com no máximo 240 partículas determinísticas.
+- O cartão acima de “Ver resultado” mostra três etapas com o nome do que está acontecendo em cada situação (`src/content/resolutionSteps.ts`) e uma barra que acompanha o relógio da animação.
 - Soluções parciais usam apenas o estado visual temporário. Escolhas sem melhoria não exibem uma transformação positiva.
 - O diálogo de resultado só aparece ao final. “Ver resultado” permite pular; “Voltar” encerra a sequência e retorna ao mapa.
 - Movimento reduzido, inclusive pela preferência do sistema, apresenta o resultado diretamente. Abas ocultas não consomem o tempo da animação.
