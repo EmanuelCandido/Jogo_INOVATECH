@@ -1,10 +1,13 @@
 import {describe,it,expect} from 'vitest';
-import {createResolution,planVisualChanges,sampleVisualChange} from '../src/game/resolution';
+import {type VisualChange,changeWindow,createResolution,planVisualChanges,sampleVisualChange} from '../src/game/resolution';
+import {planBursts} from '../src/components/city/ResolutionBursts';
+import {resolutionStep,resolutionSteps} from '../src/content/resolutionSteps';
 import {ProblemManager} from '../src/game/ProblemManager';
 import {problems} from '../src/content/problems';
 import {questions} from '../src/content/questions';
 import {situationVisuals} from '../src/config/situationVisuals';
 import type {Placement} from '../src/game/types';
+import type {LandscapeDetail} from '../src/config/landscape';
 import {open,overview} from './helpers';
 
 function selected(id='pollution_01'){
@@ -46,5 +49,25 @@ describe('transformação visível da cidade',()=>{
    if(change.after&&!change.before){expect(first.visible).toBe(false);expect(end.visible).toBe(true);expect(end.position).toEqual(change.after.position);expect(end.scale).toEqual(change.after.scale);}
   }
   expect(JSON.stringify([before,after])).toBe(snapshot);
+ });
+ it.each(problems.map(p=>p.id))('%s remove o problema antes de construir e termina a placa por último',id=>{
+  const visual=situationVisuals[id],changes=[...planVisualChanges(visual.initial.assets,visual.solved.assets).changes,...planVisualChanges(visual.initial.details,visual.solved.details).changes] as VisualChange<Placement|LandscapeDetail>[];
+  const removals=changes.filter(c=>c.before&&!c.after).map(c=>changeWindow(c)[0]),builds=changes.filter(c=>c.after&&!c.before&&c.role!=='sign').map(c=>changeWindow(c)[0]);
+  const signs=changes.filter(c=>c.role==='sign').map(c=>changeWindow(c)[0]);
+  if(removals.length&&builds.length)expect(Math.min(...removals)).toBeLessThan(Math.min(...builds));
+  if(signs.length&&builds.length)expect(Math.min(...signs)).toBeGreaterThanOrEqual(Math.min(...builds));
+  for(const change of changes){
+   const [start,end]=changeWindow(change);expect(start).toBeGreaterThanOrEqual(0);expect(end).toBeLessThanOrEqual(1);
+   const end1=sampleVisualChange(change,1);
+   if(change.after){end1.position.forEach((v,i)=>expect(v).toBeCloseTo(change.after!.position[i],8));expect(end1.visible).toBe(true);}
+   else expect(end1.visible).toBe(false);
+  }
+  const bursts=planBursts(changes,'solved');
+  expect(bursts.length).toBeGreaterThan(0);expect(bursts.length).toBeLessThanOrEqual(240);
+  expect(bursts.every(p=>p.start>=0&&p.start+p.life<=1.02)).toBe(true);
+  expect(resolutionSteps[id].solved).toHaveLength(3);expect(resolutionSteps[id].temporary).toHaveLength(3);
+ });
+ it('segue as etapas da legenda com o relógio',()=>{
+  expect([0,.39,.4,.79,.8,1].map(resolutionStep)).toEqual([0,0,1,1,2,2]);
  });
 });

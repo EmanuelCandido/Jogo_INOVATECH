@@ -16,6 +16,7 @@ import {useGame} from '../../stores/gameStore';
 import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {AssetBatch} from './AssetBatch';
 import {DetailInstances} from '../environment/Landscape';
+import {ResolutionBursts} from './ResolutionBursts';
 
 function Timeline({resolution,interactive}:{resolution:Resolution;interactive:boolean}) {
  const {tier}=useResolvedGraphics(),{gl,invalidate}=useThree();
@@ -73,10 +74,12 @@ function MovingItem({change,resolution,collection}:{change:VisualChange<Item>;re
 function ChangingVisual({before,after,resolution,collection}:{before:SituationVisual;after:SituationVisual;resolution:Resolution;collection?:Vec3}) {
  const assets=useMemo(()=>planVisualChanges(before.assets,after.assets),[before,after]);
  const details=useMemo(()=>planVisualChanges(before.details,after.details),[before,after]);
+ const bursts=useMemo(()=>[...assets.changes,...details.changes],[assets,details]);
  return <group name="Obras e recuperação em andamento">
   <AssetBatch placements={assets.stable}/><DetailInstances details={details.stable}/>
   {assets.changes.map((change,i)=><MovingItem key={'asset'+i} change={change} resolution={resolution} collection={collection}/>)}
   {details.changes.map((change,i)=><MovingItem key={'detail'+i} change={change} resolution={resolution}/>)}
+  <ResolutionBursts changes={bursts} resolution={resolution} collection={collection}/>
  </group>;
 }
 export function SituationScene({problemId,states,collection}:{problemId:string;states:Record<VisualKey,SituationVisual>;collection?:Vec3}) {

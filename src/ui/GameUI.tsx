@@ -8,6 +8,7 @@ import { SettingsPanel } from "./menus/SettingsPanel";
 import {PerformanceReadout} from './hud/PerformanceReadout';
 import { TitleScreen } from './menus/TitleScreen';
 import { Balance } from './hud/Balance';
+import { ResolutionProgress } from './hud/ResolutionProgress';
 import { HudControl, HudIcon } from './hud/HudControl';
 import { useOverlayPresence } from './menus/useOverlayPresence';
 import { gameAudio } from '../audio/gameAudio';
@@ -78,6 +79,7 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
           <DialogueStage sceneReady={sceneReady} />
           {resolution&&<div className="resolution-status" data-problem={resolution.problemId}>
             <span className="sr-only" role="status">Acompanhe a transformação da cidade. O resultado aparecerá após a animação.</span>
+            <ResolutionProgress resolution={resolution}/>
             <button className="resolution-skip" onClick={()=>finishResolution(resolution.sequence)}>Ver resultado <HudIcon name="forward"/></button>
           </div>}
           {["FOCUSING", "RETURNING"].includes(s.phase) && (
