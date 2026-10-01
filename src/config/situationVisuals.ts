@@ -1,5 +1,6 @@
 import type {Placement,Vec3} from '../game/types';
 import type {LandscapeDetail,LandscapeShape} from './landscape';
+import {mapBasis} from './mapBasis';
 export type VisualKey='initial'|'temporary'|'solved';
 export interface SituationVisual {assets:Placement[];details:LandscapeDetail[]}
 export const situationVisuals:Record<string,Record<VisualKey,SituationVisual>>={};
@@ -12,6 +13,8 @@ function build(id:string,state:VisualKey):SituationVisual{
  const tree=(x:number,z:number,size=.7)=>p('tree.oak',[x,.03,z],[size,size,size]);
  const sign=(x:number,z:number,color:string)=>{p('prop.information',[x,.02,z]);box([x,.58,z+.038],[.10,.09,.025],color);};
  const smoke=(x:number,y:number,z:number,count:number)=>{for(let i=0;i<count;i++)d('smoke',[x+i*.18,y+i*.25,z],[.22+i*.065,.2+i*.06,.21+i*.06],'#77776e');};
+ // Local offset of a map displacement (du,dv), as worldPoint in referenceMap.
+ const onMap=(du:number,dv:number):Vec3=>[mapBasis.rx*du+mapBasis.dx*dv,0,mapBasis.rz*du+mapBasis.dz*dv];
  const animal=(x:number,z:number)=>{
   p('prop.rabbit',[x,.035,z],[1,1,1],[0,x*.3,0]);
  };
@@ -30,10 +33,16 @@ function build(id:string,state:VisualKey):SituationVisual{
   sign(3.7,1.35,partial?'#d6b960':'#548aba');
  }
  if(id==='security_01'){
-  p('prop.wildlife',[-2.3,.02,0]);
-  animal(full?-2.1:-.45,full?1:.1);animal(full?-2.8:.35,full?1.7:-1);
-  if(full){railing(-2.1,2.2,2.2);sign(-3.6,1.8,'#5b9c70');p('prop.truck',[-.1,.05,-2.3],[.7,.7,.7]);}
-  else {cone(-.7,1.5);sign(-1.25,-1.8,'#d9a34c');if(partial)box([-.5,.14,.9],[.45,.14,.35],'#a88c54');}
+  // Only the animals are on the road. The shelter stands on the north verge,
+  // between the footpaths (its trees are moved away in referenceMap), and the
+  // rescued animals end up inside its pen.
+  const [sx,,sz]=onMap(.5,7),yaw=Math.atan2(-mapBasis.dx,-mapBasis.dz);
+  const pen=(x:number,z:number):[number,number]=>[sx+Math.cos(yaw)*x+Math.sin(yaw)*z,sz-Math.sin(yaw)*x+Math.cos(yaw)*z];
+  p('prop.wildlife',[sx,.02,sz],[1,1,1],[0,yaw,0]);
+  if(full){animal(...pen(-.45,.6));animal(...pen(.35,.85));}
+  else{animal(-.45,.1);animal(.35,-1);}
+  if(full){railing(-2.1,2.2,2.2);const [x,,z]=onMap(2.2,5.7);sign(x,z,'#5b9c70');const [tx,,tz]=onMap(-2,2.6);p('prop.truck',[tx,.05,tz],[.7,.7,.7],[0,Math.atan2(-mapBasis.rx,-mapBasis.rz),0]);}
+  else {const [cx,,cz]=onMap(-2.2,.6),[wx,,wz]=onMap(3,4);cone(cx,cz);sign(wx,wz,'#d9a34c');if(partial)box([-.5,.14,.9],[.45,.14,.35],'#a88c54');}
  }
  if(id==='security_02'){
   // A roadside assistance point, next to the existing shops.

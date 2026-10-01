@@ -20,13 +20,14 @@ import {routeFrame} from './routeFrame';
 import {groundConnection} from './groundConnection';
 import {reservoirOutline,reservoirBankHeight} from './reservoir';
 export {reservoirOutline} from './reservoir';
+import {mapBasis} from './mapBasis';
 import {contains,segmentDistance,polygonGap,corridorGap,sampleLine,lineLength} from './spatial';
 
 /** Composition coordinates: u goes right in the image, v goes into the valley.
  * They are metres, independent of viewport, camera zoom and graphics quality. */
 export type MapPoint=[number,number];
+export {mapBasis};
 const h=Math.hypot(110,145);
-export const mapBasis={rx:145/h,rz:-110/h,dx:-110/h,dz:-145/h};
 export function worldPoint(u:number,v:number,y=0):Vec3{return [mapBasis.rx*u+mapBasis.dx*v,y,mapBasis.rz*u+mapBasis.dz*v];}
 export function compositionPoint(x:number,z:number):MapPoint{return [x*mapBasis.rx+z*mapBasis.rz,x*mapBasis.dx+z*mapBasis.dz];}
 /** Project an asset envelope along the fixed player-camera direction. */
@@ -345,6 +346,8 @@ function situationFootprints(id:string,anchor:Placement){
  });
 }
 const natureReservation=situationFootprints('nature_02',placement('prop.information',22,-17,1,frontYaw));
+// The animal shelter stands among the roadside trees north of the road.
+const shelterReservation=situationFootprints('security_01',placement('prop.information',-88,36,1));
 // Keep the small inner pocket between the hospital, central and school-road
 // approaches planted. Its exits are enclosed by ramps and adjacent buildings;
 // filling the first free footprint here merely transfers an unreachable address.
@@ -625,6 +628,7 @@ const crownConflict=(tree:Placement)=>{
  const [u,v]=compositionPoint(tree.position[0],tree.position[2]),bounds=layoutFor(tree.asset)!.bounds,scale=tree.scale??[1,1,1];
  // An unobstructed road surface can still be unreadable behind a foreground
  // crown. Reserve the marking in projection, retaining all relocated trees.
+ if(Math.abs(u+87.5)<8&&Math.abs(v-40)<8&&shelterReservation.some(p=>polygonGap(placementFootprint(tree),p)<.3))return true;
  if(Math.abs(u-gateMark.centre[0])<12&&Math.abs(v-gateMark.centre[1])<25&&polygonGap(placementViewFootprint(tree),gateView)<.35)return true;
  const radius=Math.hypot(Math.max(Math.abs(bounds.min[0]),Math.abs(bounds.max[0]))*scale[0],Math.max(Math.abs(bounds.min[2]),Math.abs(bounds.max[2]))*scale[2]);
  let poly:MapPoint[]|undefined;
