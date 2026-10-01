@@ -13,11 +13,13 @@ import {useResolvedGraphics} from '../../stores/graphicsStore';
 import {situationAnchors} from '../../config/referenceMap';
 import {useThree} from '@react-three/fiber';
 import {optionalQuietMs,preparationActivity,schedulePreparation} from '../../game/resourcePreparation';
+import {endingVisited} from '../../game/ending';
 export const situationPreloadStatus={pending:false};
 export function SituationLayers({interactive}:{interactive:boolean}){
  const gl=useThree(s=>s.gl);
  const {tier}=useResolvedGraphics();
  const s=useGame(v=>v.progress),select=useGame(v=>v.select),revisit=useGame(v=>v.revisit);
+ const ending=useGame(v=>v.ending);
  useEffect(()=>{
   situationPreloadStatus.pending=true;
   const ids=[...new Set(['prop.cleanupTruck',...Object.values(situationVisuals).flatMap(states=>Object.values(states).flatMap(v=>v.assets.map(a=>a.asset)))])];
@@ -41,6 +43,13 @@ export function SituationLayers({interactive}:{interactive:boolean}){
       <span className="marker-badge" aria-hidden="true">{state==='TEMPORARILY_SOLVED'?'↻':'!'}</span>
       <span className="marker-label"><small>{category.label}</small>{p.title}<b>{state==='TEMPORARILY_SOLVED'?'Reavaliar':'Explorar'} →</b></span>
      </button>
+    </Html>}
+    {endingVisited(ending,p.id)&&<Html position={p.markerPosition} center zIndexRange={[20,10]}>
+     {/* The ending brings each place's balloon back with a check, one per visited place. */}
+     <span className={'marker '+category.shape+' is-solved'} data-category={p.category} data-solved={p.id} aria-hidden="true">
+      <span className="marker-balloon"><ProblemGlyph id={p.id} fallback={p.markerIcon}/></span>
+      <span className="marker-badge">✓</span>
+     </span>
     </Html>}
    </group>;
   })}

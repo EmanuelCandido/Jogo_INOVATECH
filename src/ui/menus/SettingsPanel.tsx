@@ -6,6 +6,7 @@ import {recheckGraphics,useGraphicsRuntime,useResolvedGraphics} from '../../stor
 import { useDialog } from './useDialog';
 import { HudControl } from '../hud/HudControl';
 import { gameAudio } from '../../audio/gameAudio';
+import { ExtraScenes } from './ExtraScenes';
 export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneReady: boolean }) {
   const { progress: s, graphics, reset, leave } = useGame();
   const q=useResolvedGraphics(),runtime=useGraphicsRuntime();
@@ -77,6 +78,7 @@ export function SettingsPanel({ close, sceneReady }: { close: () => void; sceneR
         {!runtime.measuring&&runtime.frameMs!==null&&<p>Tempo por quadro: {runtime.frameMs.toFixed(1)} ms · 95% até {runtime.frameP95?.toFixed(1)} ms.</p>}
         <button className="text-button" disabled={runtime.measuring} onClick={()=>useGraphicsRuntime.setState(v=>({probe:v.probe+1}))}>Medir novamente</button>
       </div>}
+      <ExtraScenes close={close} />
       <p className="muted">
         Seu progresso é salvo automaticamente neste navegador.
       </p>

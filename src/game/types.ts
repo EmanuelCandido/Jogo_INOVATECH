@@ -121,4 +121,6 @@ export interface Progress {
   attemptRefunds?: number;
   /** Coins returned when the current situation was opened; shown with its question. */
   retryHelp?: number;
+  /** The ending reached its closing screen; it can be watched again from Extra. */
+  endingSeen?: boolean;
 }

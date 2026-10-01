@@ -2,10 +2,13 @@ import {useEffect} from 'react';
 import {useGame} from '../stores/gameStore';
 import {gameAudio,type MusicMood,type Sfx} from './gameAudio';
 import type {Progress} from '../game/types';
+import {endingTiming,finaleBeat,type Ending} from '../game/ending';
 
 const storyPhases=new Set(['INTRO','TUTORIAL_QUESTION','TUTORIAL_RESULT','FOCUSING','CONTEXT','COMMENT','QUESTION','RESULT']);
-function moodFor(progress:Progress,overlay:string|null):MusicMood{
+function moodFor(progress:Progress,overlay:string|null,ending:Ending|null=null):MusicMood{
  if(overlay)return 'indoor';
+ // The tour and the closing screen play the full soundtrack; the talk lowers it.
+ if(ending)return ending.step==='opening'||ending.step==='dialogue'?'story':'city';
  return storyPhases.has(progress.phase)?'story':'city';
 }
 /** Which cue a click on a control plays, unless it declares `data-sfx`. */
@@ -39,10 +42,11 @@ export function useGameAudio(revealed:boolean){
  },[]);
  useEffect(()=>{if(revealed)gameAudio.startMusic();},[revealed]);
  useEffect(()=>{
-  gameAudio.setMood(moodFor(useGame.getState().progress,useGame.getState().overlay));
+  gameAudio.setMood(moodFor(useGame.getState().progress,useGame.getState().overlay,useGame.getState().ending));
   return useGame.subscribe((state,prev)=>{
    const a=state.progress,b=prev.progress;
-   gameAudio.setMood(moodFor(a,state.overlay));
+   gameAudio.setMood(moodFor(a,state.overlay,state.ending));
+   if(state.ending!==prev.ending)endingCue(state.ending,prev.ending);
    if(state.overlay!==prev.overlay)gameAudio.play(state.overlay?'open':'close');
    if(state.notice&&state.notice!==prev.notice)gameAudio.play('notice');
    if(a===b)return;
@@ -63,6 +67,18 @@ export function useGameAudio(revealed:boolean){
   });
  },[]);
  useEffect(()=>useGame.subscribe((state,prev)=>{if(prev.resolution&&!state.resolution&&state.progress.decisions.length)outcome(state.progress);}),[]);
+}
+/** The ending: a chime when Impactus notices, one as each place's balloon
+ * appears, the fanfare over the whole city and a flourish on the closing screen. */
+function endingCue(ending:Ending|null,previous:Ending|null){
+ if(!ending)return;
+ if(!previous||previous.sequence!==ending.sequence){gameAudio.play('achievement');return;}
+ if(ending.step==='tour'&&(previous.step!=='tour'||previous.beat!==ending.beat)){
+  if(ending.beat>=finaleBeat){window.setTimeout(()=>{if(useGame.getState().ending===ending){gameAudio.fanfare();gameAudio.play('level-up');}},endingTiming.finaleFlight*500);return;}
+  window.setTimeout(()=>{if(useGame.getState().ending===ending)gameAudio.play('unlock',{volume:.8});},endingTiming.flight*1000);
+ }
+ else if(ending.step==='dialogue'&&(previous.step!=='dialogue'||previous.line!==ending.line))gameAudio.play('advance');
+ else if(ending.step==='closing'&&previous.step!=='closing')gameAudio.play('success');
 }
 function outcome(progress:Progress){
  const effectiveness=progress.decisions.at(-1)?.effectiveness;

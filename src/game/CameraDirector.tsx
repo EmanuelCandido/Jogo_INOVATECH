@@ -11,6 +11,7 @@ import {mapFit} from '../config/referenceFrame';
 import {introNode} from '../content/dialogues';
 import {preparationActivity} from './resourcePreparation';
 import {frameProblemShot,flightZoom,problemPreviewDuration} from './problemFraming';
+import {ENDING_WIDE,endingShot,endingTiming,endingWideShots} from './ending';
 export const CameraDirector = {
   focusCity: (): CameraShot => overview,
   focusProblem: (id: string): CameraShot => problemById[id].camera,
@@ -26,10 +27,15 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
   const phase = useGame((s) => s.progress.phase);
   const introView=useGame(s=>s.progress.phase==='INTRO'?introNode(s.progress).view:'city');
   const selected = useGame((s) => s.progress.selectedProblem);
-  const resultView=phase==='RESULT';
+  // The ending visits each transformed place with its result framing, then
+  // shows the whole city; the player does not steer the camera meanwhile.
+  const tourShot = useGame((s) => endingShot(s.ending));
+  const inEnding = useGame((s) => s.ending !== null);
+  const tourPlace = tourShot !== null && tourShot !== ENDING_WIDE;
+  const resultView=phase==='RESULT'||tourPlace;
   // Context and question share one shot; results may widen it for the work.
   // Returning and overview share a shot to avoid a second camera flight.
-  const shotId=selected && phase!=="RETURNING" ? selected : introView==='city'?'city':'intro_'+introView;
+  const shotId=tourShot ?? (selected && phase!=="RETURNING" ? selected : introView==='city'?'city':'intro_'+introView);
   const reduced = useGame((s) => s.progress.settings.reducedMotion);
   const arrived = useGame((s) => s.cameraArrived);
   const target = useRef(new Vector3(...overview.target));
@@ -46,7 +52,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     return ()=>{cancelAnimationFrame(first);cancelAnimationFrame(second);};
   },[interactive,phase,moving,viewportKey]);
   const baseZoom=mapBaseZoom(size.width,size.height);
-  useMapNavigation(interactive && phase==="OVERVIEW" && !moving && readyViewport===viewportKey,baseZoom,target);
+  useMapNavigation(interactive && phase==="OVERVIEW" && !inEnding && !moving && readyViewport===viewportKey,baseZoom,target);
   const animation = useRef<{
     from: Vector3;
     fromTarget: Vector3;
@@ -56,24 +62,31 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     done: boolean;
     destination: Vector3;
     destinationTarget: Vector3;
+    /** Relative zoom-out at mid-flight, so long hops rise over the city. */
+    hop: number;
+    /** A slow pan that follows this flight (the ending's finale on narrow screens). */
+    then?: CameraShot;
   } | null>(null);
   useEffect(() => {
     setMoving(true);
     const intro=shotId.startsWith('intro_'),shift=introView==='west'?[-16,0,8]:[-18,0,-26];
-    let shot = shotId==="city" ? CameraDirector.focusCity() : intro?{...overview,position:overview.position.map((v,i)=>v+shift[i]) as [number,number,number],target:overview.target.map((v,i)=>v+shift[i]) as [number,number,number],zoom:overview.zoom*1.22}:CameraDirector.focusProblem(shotId);
+    const whole=shotId===ENDING_WIDE,city=shotId==="city"||whole;
+    let shot = city ? CameraDirector.focusCity() : intro?{...overview,position:overview.position.map((v,i)=>v+shift[i]) as [number,number,number],target:overview.target.map((v,i)=>v+shift[i]) as [number,number,number],zoom:overview.zoom*1.22}:CameraDirector.focusProblem(shotId);
     if(shotId==='security_01'){
       // Look over the foreground crowns so the animals' path stays visible.
       const [x,y,z]=shot.target;shot={...shot,position:[x+11,y+30,z+15]};
     }
-    if(resultView&&shotId!=='city'&&!intro){
+    if(resultView&&!city&&!intro){
       const wide:Record<string,number>={pollution_01:size.width<1000?24:32,nature_01:32,health_01:40,health_02:28};
       shot={...shot,zoom:wide[shotId]??shot.zoom,duration:.75};
       if(shotId==='health_02')shot={...shot,position:[shot.position[0],shot.position[1]+6,shot.position[2]],target:[shot.target[0],shot.target[1]+6,shot.target[2]]};
+      if(tourPlace)shot={...shot,duration:endingTiming.flight};
     }
-    const responsive = shotId==='city'||intro
+    const [finale,pan]=whole?endingWideShots(size.width,size.height,reduced):[];
+    const responsive = finale ?? (city||intro
       ? {...shot,zoom:shot.zoom*mapFit(size.width,size.height)}
-      : frameProblemShot(shot,size.width,size.height);
-    if(shotId==='city'||intro){
+      : frameProblemShot(shot,size.width,size.height));
+    if((city||intro)&&!whole){
       responsive.zoom=Math.max(responsive.zoom,mapBaseZoom(size.width,size.height));
       const [x,z]=clampTarget(responsive.target[0],responsive.target[2],mapFootprint(responsive.zoom,size.width,size.height));
       const dx=x-responsive.target[0],dz=z-responsive.target[2];
@@ -89,9 +102,11 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
       done: false,
       destination: new Vector3(...responsive.position),
       destinationTarget: new Vector3(...responsive.target),
+      hop: tourPlace ? Math.min(1.6, target.current.distanceTo(new Vector3(...responsive.target)) / 28) : 0,
+      then: pan,
     };
     invalidate();
-  }, [camera, shotId, size.width, size.height, reduced, invalidate,introView,resultView]);
+  }, [camera, shotId, size.width, size.height, reduced, invalidate,introView,resultView,tourPlace]);
   useEffect(() => {
     if (moving || !interactive || phase !== 'FOCUSING') return;
     // Keep the completed shot clear before mounting the dialogue. No frames
@@ -122,9 +137,13 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     target.current.copy(a.fromTarget).lerp(a.destinationTarget, smooth);
     camera.lookAt(target.current);
     (camera as OrthographicCamera).zoom =
-      flightZoom(a.fromZoom, a.shot.zoom, smooth);
+      flightZoom(a.fromZoom, a.shot.zoom, smooth) / (1 + a.hop * Math.sin(Math.PI * smooth));
     camera.updateProjectionMatrix();
-    if (t === 1) {
+    if (t === 1 && a.then) {
+      const shot = a.then;
+      animation.current = {...a, from: camera.position.clone(), fromTarget: target.current.clone(), fromZoom: (camera as OrthographicCamera).zoom, shot, startedAt: performance.now(), destination: new Vector3(...shot.position), destinationTarget: new Vector3(...shot.target), hop: 0, then: undefined};
+      invalidate();
+    } else if (t === 1) {
       a.done = true;
       setMoving(false);
       if (useGame.getState().progress.phase !== 'FOCUSING') arrived();

@@ -13,16 +13,17 @@ import { HudControl, HudIcon } from './hud/HudControl';
 import { useOverlayPresence } from './menus/useOverlayPresence';
 import { gameAudio } from '../audio/gameAudio';
 import { incomePerMinute } from '../game/passiveIncome';
+import { EndingStage } from './ending/EndingStage';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
-  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics, collectIncome } = useGame();
+  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics, collectIncome, ending } = useGame();
   const [menu, setMenu] = useState(false);
   const layer=useOverlayPresence(overlay??(menu?'settings':null),s.settings.reducedMotion);
   // The title is presentation state; opening it must never reset a saved game.
   const [showTitle, setShowTitle] = useState(() => s.phase === 'INTRO' && s.introIndex === 0);
-  const showHeader = !resolution&&(menu || (!showTitle && !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase)));
+  const showHeader = !resolution&&!ending&&(menu || (!showTitle && !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase)));
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (useGame.getState().overlay || useGame.getState().resolution || layer.overlay || event.defaultPrevented) return;
+      if (useGame.getState().overlay || useGame.getState().resolution || useGame.getState().ending || layer.overlay || event.defaultPrevented) return;
       if (event.key === 'Escape') { event.preventDefault(); setMenu(open => !open); }
     };
     window.addEventListener('keydown', onKeyDown);
@@ -75,8 +76,9 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
               <span className="back-label">Voltar</span>
             </button>
           )}
-          {s.phase === 'OVERVIEW' && <JourneyNav />}
+          {s.phase === 'OVERVIEW' && !ending && <JourneyNav />}
           <DialogueStage sceneReady={sceneReady} />
+          <EndingStage sceneReady={sceneReady} />
           {resolution&&<div className="resolution-status" data-problem={resolution.problemId}>
             <span className="sr-only" role="status">Acompanhe a transformação da cidade. O resultado aparecerá após a animação.</span>
             <ResolutionProgress resolution={resolution}/>
@@ -91,7 +93,7 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
           )}
         </>
       )}
-      {!showTitle && s.phase === 'OVERVIEW' && <footer className="footer">
+      {!showTitle && s.phase === 'OVERVIEW' && !ending && <footer className="footer">
         <span>CADA ESCOLHA DEIXA UMA MARCA.</span>
         <span>{notice ? "○ Verifique o aviso" : "✓ Progresso automático"}</span>
       </footer>}
