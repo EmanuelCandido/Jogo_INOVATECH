@@ -2,7 +2,7 @@ import {sampleLine,lineLength,segmentDistance,corridorGap} from './spatial';
 import {Euler,Quaternion,Vector3} from 'three';
 import type {LandscapeDetail,LandscapeShape} from './landscape';
 import type {Placement,Vec3} from '../game/types';
-import {worldPoint,riverU,riverWidth,terrainY,riverSamples,canalSamples,beachLine,easternSeaEdge,monorail,roadViaduct,centralRail,mapRoads,buildingLots,frontYaw,placement,facing,routeHeight,pedestrianNetwork,onReferenceLand,gradedRotation,compositionPoint,placementFootprint,footprintGap,pointInFootprint,distanceToRoute,railFacilities,stationConcourses,type MapPoint,type MapRoute} from './referenceMap';
+import {worldPoint,riverU,riverWidth,terrainY,riverSamples,canalSamples,beachLine,easternSeaEdge,monorail,roadViaduct,centralRail,mapRoads,buildingLots,frontYaw,placement,facing,routeHeight,pedestrianNetwork,onReferenceLand,gradedRotation,compositionPoint,placementFootprint,footprintGap,pointInFootprint,distanceToRoute,railFacilities,stationConcourses,publicLots,stationAccessLots,referenceTrees,referenceAssets,referenceFurniture,obstructsMission,type MapPoint,type MapRoute} from './referenceMap';
 import {attachmentWorld,layoutFor} from '../assets/modelLayout';
 import {routeFrame} from './routeFrame';
 import {reserveTraffic} from './trafficReservations';
@@ -167,12 +167,32 @@ for(let i=0;i<18;i++){
 for(let i=0;i<beachLine.length;i+=4){const [u,v]=beachLine[i];if(i%3===0){riversideAssets.push(placement('tree.palm',u,v+3.2,1.1,i));person(u,v-1.1,i);} }
 // Dump contents now use the authored waste models and all mission states.
 // Dead trees and fractured paving are deliberately limited to the neglected block.
-for(const [u,v]of [[34,-12],[38,-27],[47,-24],[46,-13],[25,-28]]){
+// Both keep off the asphalt, sidewalks, footpaths, lots and the mission grounds;
+// a dead tree that would stand there moves to the nearest clear verge.
+const neglectedLots=[...buildingLots,...publicLots,...stationAccessLots];
+const neglectedClear=(u:number,v:number,road:number,lot:number,walk:number)=>onReferenceLand(u,v)&&Math.abs(terrainY(u,v))<.05&&mapRoads.every(r=>distanceToRoute(u,v,r)>r.width/2+road)&&
+ neglectedLots.every(l=>!pointInFootprint([u,v],l.footprint)&&l.footprint.every((p,i)=>segmentDistance([u,v],p,l.footprint[(i+1)%l.footprint.length])>lot))&&
+ pedestrianNetwork.links.every(l=>l.points.every((p,i)=>i===0||segmentDistance([u,v],l.points[i-1],p)>walk));
+const deadTreeClear=(u:number,v:number)=>{
+ if(!neglectedClear(u,v,2.4,1.6,1.6))return false;
+ const [x,,z]=worldPoint(u,v);
+ if([...referenceTrees,...referenceAssets,...referenceFurniture].some(p=>Math.hypot(p.position[0]-x,p.position[2]-z)<1.8))return false;
+ return !obstructsMission([[u-1.5,v-1.1],[u+1.5,v-1.1],[u+1.5,v+1.1],[u-1.5,v+1.1]],3.7);
+};
+const deadTrees=[[34,-12],[38,-27],[47,-24],[46,-13],[25,-28]].map(([u,v]):MapPoint=>{
+ for(let radius=0;radius<=24;radius+=1)for(let a=0;a<(radius?16:1);a++){
+  const x=u+Math.cos(a*Math.PI/8)*radius,z=v+Math.sin(a*Math.PI/8)*radius;
+  if(deadTreeClear(x,z))return [x,z];
+ }
+ throw new Error('Árvore seca sem lugar livre perto de '+u+','+v);
+});
+for(const [u,v]of deadTrees){
  detailBeam(referenceDetails,worldPoint(u,v,0),worldPoint(u+.25,v,3.7),.12,'#8c7351');
  for(let j=0;j<4;j++){const a=j*2;detailBeam(referenceDetails,worldPoint(u+.17,v,1.5+j*.45),worldPoint(u+Math.cos(a)*1.5,v+Math.sin(a)*1.1,3.0+j*.35),.055,'#8c7351');}
 }
 for(let i=0;i<35;i++){
  const u=22+(i%7)*4,v=-11-Math.floor(i/7)*4.6;
+ if(![[u,v],[u+1,v+.6],[u+1.3,v+.1]].every(([x,z])=>neglectedClear(x,z,1,.4,.9))||obstructsMission([[u,v],[u+1.3,v+.6]],.1))continue;
  detailBeam(referenceDetails,worldPoint(u,v,.055),worldPoint(u+1.0,v+.6,.055),.032,'#605f59');
  detailBeam(referenceDetails,worldPoint(u+1,v+.6,.055),worldPoint(u+1.3,v+.1,.055),.025,'#605f59');
 }
@@ -235,7 +255,8 @@ for(let i=0;i<riversideAssets.length;i++){
    riverCorridors.every(c=>corridorGap(poly,c.cycle,c.cycleWidth)>.25&&corridorGap(poly,c.walk,c.walkWidth)>.2)&&
    [...mapRoads,...(tree?[roadViaduct,monorail,centralRail]:[])].every(r=>corridorGap(poly,r.points,r.width+1.35)>.2)&&
    buildingLots.every(l=>footprintGap(poly,l.footprint)>.3)&&
-   pedestrianNetwork.links.every(l=>corridorGap(poly,[...l.points,l.sidewalk],1.4)>.2);
+   pedestrianNetwork.links.every(l=>corridorGap(poly,[...l.points,l.sidewalk],1.4)>.2)&&
+   !(tree&&obstructsMission(poly,layoutFor(p.asset)!.bounds.max[1]*(p.scale?.[1]??1)));
  };
  if(safe(original))continue;
  let moved=false;

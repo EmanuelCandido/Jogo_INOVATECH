@@ -22,7 +22,8 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
   const layer=useOverlayPresence(overlay??(menu?'settings':null),s.settings.reducedMotion);
   // The title is presentation state; opening it must never reset a saved game.
   const [showTitle, setShowTitle] = useState(() => s.phase === 'INTRO' && s.introIndex === 0);
-  const showHeader = !resolution&&!ending&&!arrival&&(menu || (!showTitle && !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase)));
+  // The title shows sound and settings too, so graphics can be set before playing.
+  const showHeader = !resolution&&!ending&&!arrival&&(menu || showTitle || !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase));
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       const {arrival:playing,finishArrival}=useGame.getState();

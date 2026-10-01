@@ -339,13 +339,49 @@ export const stationAccessLots=railFacilities.flatMap((s,i)=>[
  {id:'estacao-'+i+'-escada',placement:s.stairs,footprint:s.groundFootprints[0],entry:s.stairsEntry,height:0},
  {id:'estacao-'+i+'-elevador',placement:placement('prop.liftLanding',...s.lift,1,facing(...s.n)),footprint:s.groundFootprints[1],entry:s.liftEntry,height:0},
 ]);
-function situationFootprints(id:string,anchor:Placement){
- return Object.values(situationVisuals[id]).flatMap(state=>state.assets).filter(p=>layoutFor(p.asset)).map(p=>{
+function situationFootprints(id:string,anchor:Placement,assets=Object.values(situationVisuals[id]).flatMap(state=>state.assets)){
+ return assets.filter(p=>layoutFor(p.asset)).map(p=>{
   const w=attachmentWorld({...anchor,scale:[1,1,1]},p.position);
   return placementFootprint({...p,position:w,rotation:[0,(anchor.rotation?.[1]??0)+(p.rotation?.[1]??0),0]});
  });
 }
-const natureReservation=situationFootprints('nature_02',placement('prop.information',22,-17,1,frontYaw));
+// The seeded forest was laid out around the first solved planting, three oaks
+// along the front edge. Reserving those spots keeps every tree where it was;
+// trees that now hide the ground move in the crown pass below.
+const natureAnchor=placement('prop.information',22,-17,1,frontYaw);
+const natureReservation=[
+ ...situationFootprints('nature_02',natureAnchor,Object.values(situationVisuals.nature_02).flatMap(state=>state.assets).filter(p=>p.asset!=='tree.oak')),
+ ...situationFootprints('nature_02',natureAnchor,[[-2,.2],[0,.5],[2,.2]].map(([x,z])=>({asset:'tree.oak',position:[x,.03,z],scale:[.86,.86,.86]}))),
+];
+/** A point beside a road, offset metres from its centreline on the side of
+ * near, turned so that local +z faces the road. */
+function roadside(id:string,near:MapPoint,offset:number){
+ const r=mapRoads.find(r=>r.id===id)!;let best={d:Infinity,p:near};
+ for(let i=1;i<r.points.length;i++){
+  const [a,b]=[r.points[i-1],r.points[i]],du=b[0]-a[0],dv=b[1]-a[1],t=Math.max(0,Math.min(1,((near[0]-a[0])*du+(near[1]-a[1])*dv)/(du*du+dv*dv))),p:MapPoint=[a[0]+du*t,a[1]+dv*t],d=Math.hypot(near[0]-p[0],near[1]-p[1]);
+  if(d<best.d)best={d,p};
+ }
+ const n=[(near[0]-best.p[0])/best.d,(near[1]-best.p[1])/best.d];
+ return {point:[best.p[0]+n[0]*offset,best.p[1]+n[1]*offset] as MapPoint,yaw:facing(-n[0],-n[1])};
+}
+// The roadside assistance point stands on the verge behind the sidewalk
+// (asphalt 1.65 and sidewalk .675 from the centreline), not on the curve.
+const assistancePoint=roadside('comunidade',[49.5,-16.8],3);
+/** Ground rectangle of a situation, from its local centre and size. */
+function situationRect(anchor:{point:MapPoint;yaw:number},[x,z]:[number,number],[sx,sz]:[number,number]){
+ const p=placement('prop.information',...anchor.point,1,anchor.yaw);
+ return [[-1,-1],[1,-1],[1,1],[-1,1]].map(([i,j])=>{const w=attachmentWorld(p,[x+i*sx/2,0,z+j*sz/2]);return compositionPoint(w[0],w[2]);});
+}
+// Mission grounds are framed from a low camera (11, 10, 15 from the target).
+// Nothing may stand on them or rise in front of them along that view.
+const missionView=compositionPoint(11/10,15/10).map(c=>-c) as MapPoint;
+const missionGrounds=[situationRect({point:[22,-17],yaw:frontYaw},[.45,-1.3],[4.8,4.1]),situationRect(assistancePoint,[0,0],[2.7,.65])];
+export function obstructsMission(ground:MapPoint[],height:number){
+ const [cu,cv]=ground.reduce((s,p)=>[s[0]+p[0]/ground.length,s[1]+p[1]/ground.length],[0,0]);
+ if(!missionGrounds.some(g=>Math.hypot(g[0][0]-cu,g[0][1]-cv)<30))return false;
+ const view=convexHull([...ground,...ground.map(([u,v]):MapPoint=>[u+missionView[0]*height,v+missionView[1]*height])]);
+ return missionGrounds.some(g=>polygonGap(view,g)<.3);
+}
 // The animal shelter stands among the roadside trees north of the road.
 const shelterReservation=situationFootprints('security_01',placement('prop.information',-88,36,1));
 // Keep the small inner pocket between the hospital, central and school-road
@@ -630,6 +666,7 @@ const crownConflict=(tree:Placement)=>{
  // crown. Reserve the marking in projection, retaining all relocated trees.
  if(Math.abs(u+87.5)<8&&Math.abs(v-40)<8&&shelterReservation.some(p=>polygonGap(placementFootprint(tree),p)<.3))return true;
  if(Math.abs(u-gateMark.centre[0])<12&&Math.abs(v-gateMark.centre[1])<25&&polygonGap(placementViewFootprint(tree),gateView)<.35)return true;
+ if(obstructsMission(placementFootprint(tree),bounds.max[1]*(tree.scale?.[1]??1)))return true;
  const radius=Math.hypot(Math.max(Math.abs(bounds.min[0]),Math.abs(bounds.max[0]))*scale[0],Math.max(Math.abs(bounds.min[2]),Math.abs(bounds.max[2]))*scale[2]);
  let poly:MapPoint[]|undefined;
  // The initial planting checks the trunk position. Reserve the entire crown
@@ -704,8 +741,11 @@ for(const r of mapRoads){
   }
  }
 }
+// security_01's rabbits sit in both lanes of acesso-futuro; cars wait clear of them.
+const animalCrossing:MapPoint[]=[[-91,36.2],[-85,36.2],[-85,39.6],[-91,39.6]];
 const clearTraffic=reserveTraffic(referenceTraffic,p=>{
  const poly=placementFootprint(p);
+ if(Math.abs(p.position[1])<1&&footprintGap(poly,animalCrossing)<.3)return true;
  const gateBlocked=Math.abs(p.position[1]-roadHeightAt(gateRoad,gateMark.centre))<1.5&&[gateMark.triangle,...gateMark.line].some(line=>corridorGap(poly,line,gateMark.width)<.15);
  return gateBlocked||blocksJunctionMarking(p)||circulationCrossings.crossings.some(c=>Math.abs(p.position[1]-roadHeightAt(crossingRoads.find(r=>r.id===c.road)!,c.point))<1.5&&footprintGap(poly,c.footprint)<.4);
 },(p,offset)=>{
@@ -732,9 +772,11 @@ for(const start of [lineLength(monorail.points)-49,lineLength(monorail.points)+3
 function siteAt(id:string,entrance=false){const lot=buildingLots.find(l=>l.id===id)!,p=lot.placement,b=layoutFor(p.asset)!;const local:Vec3=entrance?[0,0,b.bounds.max[2]+.6]:[0,0,0],w=attachmentWorld(p,local);return {point:compositionPoint(w[0],w[2]),yaw:p.rotation?.[1],y:p.position[1]};}
 export const situationAnchors:Record<string,{point:MapPoint;yaw?:number;y?:number}>={
  pollution_01:{point:dumpSite.centre,yaw:frontYaw},pollution_02:{point:blueprint(810,444),yaw:frontYaw},
- security_01:{point:[-88,36]},security_02:{point:[50,-19],yaw:frontYaw},
+ security_01:{point:[-88,36]},security_02:assistancePoint,
  nature_01:{point:[17,80],y:terrainY(17,80)},nature_02:{point:[22,-17],yaw:frontYaw},
- health_01:{point:[canalU(31)+2.75,31],yaw:facing(1,0)},health_02:siteAt('industria-0'),
+ // The polluted stretch lies in front of the road viaduct (v 28 to 33), which
+ // would otherwise hide it from the mission camera.
+ health_01:{point:[canalU(22.5)+2.75,22.5],yaw:facing(1,0)},health_02:siteAt('industria-0'),
  accessibility_01:siteAt('estacao-central',true),accessibility_02:siteAt('hospital',true),
 };
 

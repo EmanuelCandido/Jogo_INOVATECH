@@ -15,6 +15,7 @@ function build(id:string,state:VisualKey):SituationVisual{
  const smoke=(x:number,y:number,z:number,count:number)=>{for(let i=0;i<count;i++)d('smoke',[x+i*.18,y+i*.25,z],[.22+i*.065,.2+i*.06,.21+i*.06],'#77776e');};
  // Local offset of a map displacement (du,dv), as worldPoint in referenceMap.
  const onMap=(du:number,dv:number):Vec3=>[mapBasis.rx*du+mapBasis.dx*dv,0,mapBasis.rz*du+mapBasis.dz*dv];
+ const xz=([x,,z]:Vec3):[number,number]=>[x,z];
  const animal=(x:number,z:number)=>{
   p('prop.rabbit',[x,.035,z],[1,1,1],[0,x*.3,0]);
  };
@@ -40,15 +41,17 @@ function build(id:string,state:VisualKey):SituationVisual{
   const pen=(x:number,z:number):[number,number]=>[sx+Math.cos(yaw)*x+Math.sin(yaw)*z,sz-Math.sin(yaw)*x+Math.cos(yaw)*z];
   p('prop.wildlife',[sx,.02,sz],[1,1,1],[0,yaw,0]);
   if(full){animal(...pen(-.45,.6));animal(...pen(.35,.85));}
-  else{animal(-.45,.1);animal(.35,-1);}
+  // In the lanes of acesso-futuro, whose centreline runs 1.9 m north of the anchor.
+  else{animal(...xz(onMap(-.45,1.3)));animal(...xz(onMap(.5,2.5)));}
   if(full){railing(-2.1,2.2,2.2);const [x,,z]=onMap(2.2,5.7);sign(x,z,'#5b9c70');const [tx,,tz]=onMap(-2,2.6);p('prop.truck',[tx,.05,tz],[.7,.7,.7],[0,Math.atan2(-mapBasis.rx,-mapBasis.rz),0]);}
   else {const [cx,,cz]=onMap(-2.2,.6),[wx,,wz]=onMap(3,4);cone(cx,cz);sign(wx,wz,'#d9a34c');if(partial)box([-.5,.14,.9],[.45,.14,.35],'#a88c54');}
  }
  if(id==='security_02'){
-  // A roadside assistance point, next to the existing shops.
+  // A roadside assistance point on the verge; local x runs along the road and
+  // +z towards it (the asphalt starts 2.3 ahead, past the sidewalk).
   box([0,.07,0],[2.7,.1,.65],'#ded6c0');
   p('prop.lamp',[-1,.1,0],[.8,.8,.8]);
-  if(full){p('prop.assistance',[.6,.10,0]);p('prop.car.blue',[-.8,.06,1.05],[.86,.86,.86],[0,Math.PI/2,0]);box([-.8,.97,1.05],[.42,.13,.2],'#56b5dc');}
+  if(full){p('prop.assistance',[.6,.10,0]);p('prop.car.blue',[-.8,.06,2.2],[.86,.86,.86],[0,Math.PI/2,0]);box([-.8,.97,2.2],[.42,.13,.2],'#56b5dc');}
   else if(partial){d('cylinder',[.7,1.1,0],[.035,2.1,.035],'#748a8a');box([.65,2.05,.13],[.32,.17,.17],'#e8e7d7');}
   else {box([.6,.14,0],[.45,.2,.36],'#8a9085');cone(1.1,-.1);}
  }
@@ -60,7 +63,8 @@ function build(id:string,state:VisualKey):SituationVisual{
    sign(1.5,-1.7,'#c8bda4');}
  }
  if(id==='nature_02'){
-  box([0,.012,-1],[5.7,.03,4.7],full?'#abc787':'#c8b59a');
+  // The ground stops short of the comunidade sidewalk and its guardrail at the front left.
+  box([.45,.012,-1.3],[4.8,.03,4.1],full?'#abc787':'#c8b59a');
   for(const x of [-1.7,0,1.7])p('prop.heatpump',[x,.02,-2.1]);
   if(partial){
    // A timer and one inactive unit communicate the reduced operating hours.
@@ -69,9 +73,11 @@ function build(id:string,state:VisualKey):SituationVisual{
    d('cylinder',[0,1.0,-2.1],[.16,.04,.16],'#f2ead8',[Math.PI/2,0,0]);
    box([0,1.045,-2.067],[.018,.10,.015],'#4b656b');box([.05,1.0,-2.067],[.10,.018,.015],'#4b656b');
   }
-  if(full){for(const[x,z]of[[-2,.2],[0,.5],[2,.2]])tree(x,z,.86);p('prop.solarCanopy',[0,.02,-1.1],[.8,.8,.8]);}
+  // The new trees shade the block from behind the heat pumps, so the solar
+  // canopy reads in front from the mission camera.
+  if(full){for(const[x,z]of[[-1.8,-2.9],[.1,-3.1],[2,-2.9]])tree(x,z,.86);p('prop.solarCanopy',[0,.02,-1.1],[.8,.8,.8]);}
   else {p('prop.thermometer',[1.9,.04,-.5]);
-   for(const x of [-1.8,.1]){box([x,.15,-.5],[.63,.29,.44],'#c8aa7b');d('patch',[x,.305,-.5],[.26,1,.17],'#816944');
+   for(const x of [-1.55,.1]){box([x,.15,-.5],[.63,.29,.44],'#c8aa7b');d('patch',[x,.305,-.5],[.26,1,.17],'#816944');
     d('cylinder',[x,.53,-.5],[.02,.43,.02],'#9d8750');for(const side of [-1,1])d('leaf',[x+side*.1,.56,-.5],[.13,.06,.055],'#b9a363',[0,0,side*.5]);}
    sign(2.3,.6,'#cc9958');}
  }
