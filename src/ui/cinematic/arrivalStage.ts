@@ -1,11 +1,13 @@
-import {arrivalTimes,type ArrivalHeroPose} from '../../game/arrival';
+import {arrivalPoseIds,arrivalTimes,type ArrivalHeroPose,type ArrivalPoseId} from '../../game/arrival';
+import {heroChest,heroFeet} from './arrivalPoses';
 
 /** DOM side of the arrival. The 3D timeline (ArrivalScene) paints once per
  * drawn frame, right after it moves the camera, so Impactus stays glued to the
  * city. His transform is written directly: no React render per frame. */
-export const arrivalStage={hero:null as HTMLElement|null,turn:null as HTMLElement|null,trail:null as HTMLCanvasElement|null,size:0};
-/** His feet in the 768 px portrait box, as fractions of its size. */
-export const heroFeet={x:.5,y:.93};
+export const arrivalStage={hero:null as HTMLElement|null,turn:null as HTMLElement|null,pose:null as HTMLElement|null,trail:null as HTMLCanvasElement|null,size:0,
+ layers:{} as Partial<Record<ArrivalPoseId,HTMLElement>>,
+ /** The drawings are decoded; the timeline waits for them a little. */
+ ready:false};
 type TrailPoint={x:number;y:number;width:number;t:number};
 type Spark={x:number;y:number;vx:number;vy:number;t:number;size:number;color:string};
 const trail:TrailPoint[]=[],sparks:Spark[]=[];
@@ -13,18 +15,27 @@ const trailLife=.42,sparkLife=.65,sparkColors=['#ffe187','#d9c2ff','#ffffff','#b
 let lastSpark=0;
 export function resetArrivalStage(){trail.length=0;sparks.length=0;lastSpark=0;}
 
-/** Box transform that puts his feet at x,y. The element's transform-origin
- * is at the feet, so the lean and the scale pivot there. */
-export function heroTransform(x:number,y:number,scale:number,angle:number,size:number){
- return `translate3d(${(x-size*heroFeet.x).toFixed(2)}px,${(y-size*heroFeet.y).toFixed(2)}px,0) rotate(${angle.toFixed(4)}rad) scale(${scale.toFixed(4)})`;
+/** Box transform that puts his feet at x,y (with the element's
+ * transform-origin at its top left corner). The scale pivots at the feet, so
+ * he lands exactly on the spot; the angle turns him around his chest, which
+ * the facing mirrors. */
+export function heroTransform(x:number,y:number,scale:number,angle:number,size:number,facing=1){
+ const cx=(.5+(heroChest.x-.5)*facing)*size,cy=heroChest.y*size,fx=heroFeet.x*size,fy=heroFeet.y*size,px=(v:number)=>v.toFixed(2)+'px';
+ return `translate3d(${px(x)},${px(y)},0) scale(${scale.toFixed(4)}) translate(${px(cx-fx)},${px(cy-fy)}) rotate(${angle.toFixed(4)}rad) translate(${px(-cx)},${px(-cy)})`;
+}
+/** His chest on the screen, where the trail flies from. */
+export function heroChestAt(pose:ArrivalHeroPose,size:number){
+ return {x:pose.x+((heroChest.x-.5)*pose.facing+.5-heroFeet.x)*size*pose.scale,y:pose.y+(heroChest.y-heroFeet.y)*size*pose.scale};
 }
 
 export function paintArrival(t:number,pose:ArrivalHeroPose){
- const {hero,turn,size}=arrivalStage;
+ const {hero,turn,size,layers}=arrivalStage;
  if(!hero||!turn||!size)return;
- hero.style.transform=heroTransform(pose.x,pose.y,pose.scale,pose.angle,size);
+ hero.style.transform=heroTransform(pose.x,pose.y,pose.scale,pose.angle,size,pose.facing);
  hero.style.opacity=pose.visible?'1':'0';
  turn.style.transform=`scaleX(${pose.facing.toFixed(3)})`;
+ for(const id of arrivalPoseIds){const layer=layers[id];if(layer)layer.style.opacity=pose.poses[id].toFixed(3);}
+ if(arrivalStage.pose)arrivalStage.pose.style.transform=`translateY(${(-pose.lift*100).toFixed(2)}%) scale(${(1-(pose.stretch-1)*.6).toFixed(4)},${pose.stretch.toFixed(4)})`;
  drawTrail(t,pose,size);
 }
 
@@ -37,8 +48,8 @@ function drawTrail(t:number,pose:ArrivalHeroPose,size:number){
  context.setTransform(ratio,0,0,ratio,0,0);
  context.clearRect(0,0,width,height);
  const flying=pose.visible&&t<arrivalTimes.landed;
- // The centre of his body, where the cape flies from.
- const cx=pose.x+Math.sin(pose.angle)*size*pose.scale*.42,cy=pose.y-Math.cos(pose.angle)*size*pose.scale*.42;
+ // His chest, where the cape flies from.
+ const {x:cx,y:cy}=heroChestAt(pose,size);
  if(flying&&(!trail.length||t>trail.at(-1)!.t)){
   trail.push({x:cx,y:cy,width:Math.max(3,size*pose.scale*.2),t});
   if(t-lastSpark>.045){

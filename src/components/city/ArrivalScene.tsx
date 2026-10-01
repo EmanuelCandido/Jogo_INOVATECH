@@ -24,7 +24,7 @@ function planLanding():Particle[]{
  * the city and, after the camera moved, Impactus' place on the screen. */
 function Timeline({arrival}:{arrival:Arrival}){
  const {camera,size,gl,invalidate}=useThree();
- const start=useRef<ArrivalCameraStart|null>(null),resume=useRef(true);
+ const start=useRef<ArrivalCameraStart|null>(null),resume=useRef(true),waited=useRef(0);
  const shadow=useRef<Mesh>(null),rings=[useRef<Mesh>(null),useRef<Mesh>(null)],dust=useRef<InstancedMesh>(null);
  const particles=useMemo(planLanding,[]),geometry=useMemo(()=>new OctahedronGeometry(1,0),[]),material=useMemo(()=>new MeshBasicMaterial({toneMapped:false}),[]);
  const scratch=useMemo(()=>({point:new Vector3(),forward:new Vector3(),dummy:new Object3D()}),[]);
@@ -52,8 +52,10 @@ function Timeline({arrival}:{arrival:Arrival}){
    point.copy(camera.position).addScaledVector(forward,-camera.position.y/forward.y);
    start.current={target:point.toArray(),offset:camera.position.clone().sub(point).toArray(),zoom:ortho.zoom};
   }
-  // A background tab or a slow first frame must not consume the animation.
+  // A background tab or a slow first frame must not consume the animation,
+  // and the flight waits a little for Impactus' drawings to be decoded.
   if(resume.current)resume.current=false;
+  else if(!arrivalStage.ready&&arrival.clock.value===0&&waited.current<3)waited.current+=Math.min(delta,.1);
   else arrival.clock.value+=Math.min(delta,.1);
   const t=arrival.clock.value;
   const shot=arrivalCamera(t,start.current,mapBaseZoom(size.width,size.height));

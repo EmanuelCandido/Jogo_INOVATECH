@@ -15,6 +15,7 @@ import { gameAudio } from '../audio/gameAudio';
 import { incomePerMinute } from '../game/passiveIncome';
 import { EndingStage } from './ending/EndingStage';
 import { ArrivalCinematic } from './cinematic/ArrivalCinematic';
+import { preloadArrivalPoses } from './cinematic/arrivalPoses';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
   const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics, collectIncome, ending, arrival, startArrival } = useGame();
   const [menu, setMenu] = useState(false);
@@ -32,6 +33,8 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [layer.overlay]);
+  // Impactus' arrival drawings load on the title, once the city is ready.
+  useEffect(() => { if (showTitle && sceneReady && !s.settings.reducedMotion) void preloadArrivalPoses(); }, [showTitle, sceneReady, s.settings.reducedMotion]);
   useEffect(() => {
     const timer=window.setInterval(refreshMissions,60000);
     return ()=>window.clearInterval(timer);

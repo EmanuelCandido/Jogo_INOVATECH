@@ -1,5 +1,5 @@
 import {describe,it,expect,vi,beforeAll} from 'vitest';
-import {arrivalBeatAt,arrivalCamera,arrivalHero,arrivalShockwave,arrivalSite,arrivalTimes,landingZoom} from '../src/game/arrival';
+import {arrivalBeatAt,arrivalCamera,arrivalHero,arrivalPoseIds,arrivalPoseWeights,arrivalShockwave,arrivalSite,arrivalTimes,landingZoom} from '../src/game/arrival';
 import {problemById} from '../src/content/problems';
 import {mapEye,mapTarget} from '../src/config/referenceFrame';
 import {NarrativeManager} from '../src/game/NarrativeManager';
@@ -50,6 +50,35 @@ describe('chegada de Impactus à cidade',()=>{
   expect(Math.hypot(before.x-site[0],before.y-site[1])).toBeLessThan(Math.max(width,height)*.03);
   // He lands facing right, like the portrait of the first line.
   expect(landed.facing).toBe(-1);expect(before.facing).toBe(-1);expect(landed.glow).toBe(0);
+ });
+ it('troca de desenho aos poucos, um de cada vez e na ordem do voo',()=>{
+  const shown=(t:number)=>arrivalPoseIds.filter(id=>arrivalPoseWeights(t)[id]>.5);
+  for(const t of frames()){
+   const weights=Object.values(arrivalPoseWeights(t));
+   expect(weights.reduce((a,b)=>a+b)).toBeCloseTo(1,9);
+   expect(Math.min(...weights)).toBeGreaterThanOrEqual(0);
+   // Never more than two drawings at once.
+   expect(weights.filter(w=>w>1e-6).length).toBeLessThanOrEqual(2);
+  }
+  expect(frames().map(t=>shown(t)[0]).filter((id,i,all)=>id!==all[i-1])).toEqual([...arrivalPoseIds]);
+  expect(shown(arrivalTimes.appear)).toEqual(['flight']);
+  expect(shown(arrivalTimes.landed+.05)).toEqual(['impact']);
+  expect(shown(arrivalTimes.end)).toEqual(['landed']);
+ });
+ it.each([[1280,800],[390,844]])('gira, estica e amassa sem trancos (%i×%i)',(width,height)=>{
+  const site:[number,number]=[width/2,height/2];
+  let previous=arrivalHero(arrivalTimes.appear,width,height,site);
+  for(const t of frames().filter(t=>t>arrivalTimes.appear)){
+   const pose=arrivalHero(t,width,height,site);
+   expect(Math.abs(pose.angle-previous.angle),`ângulo em ${t}`).toBeLessThan(.12);
+   // Only the impact squashes him at once.
+   if(t<arrivalTimes.landed||t>arrivalTimes.landed+.1)expect(Math.abs(pose.stretch-previous.stretch),`elástico em ${t}`).toBeLessThan(.06);
+   expect(pose.stretch).toBeGreaterThan(.75);expect(pose.stretch).toBeLessThan(1.15);
+   previous=pose;
+  }
+  // He touches the ground upright and squashed by the impact.
+  expect(Math.abs(arrivalHero(arrivalTimes.landed-1/60,width,height,site).angle)).toBeLessThan(.02);
+  expect(arrivalHero(arrivalTimes.landed+.05,width,height,site).stretch).toBeLessThan(.9);
  });
  it('a onda de choque só existe logo depois do pouso',()=>{
   expect(arrivalShockwave(arrivalTimes.landed)).toBeNull();

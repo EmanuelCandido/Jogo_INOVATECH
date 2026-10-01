@@ -1,0 +1,27 @@
+[
+  {
+    "file": "descida.webp",
+    "removedPixels": 82,
+    "webpBytes": 68618
+  },
+  {
+    "file": "levantando.webp",
+    "removedPixels": 116,
+    "webpBytes": 96630
+  },
+  {
+    "file": "pouso.webp",
+    "removedPixels": 82,
+    "webpBytes": 88266
+  },
+  {
+    "file": "virada.webp",
+    "removedPixels": 103,
+    "webpBytes": 95888
+  },
+  {
+    "file": "voo.webp",
+    "removedPixels": 78,
+    "webpBytes": 69790
+  }
+]
