@@ -26,7 +26,7 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
  const alternatives=useMemo(()=>q?choiceOrder(q.alternatives,seed):[],[q,seed]);
  // Alternatives already tried without solving stay visible, locked and marked.
  const tried=tutorial?new Set(s.tutorialMisses):p?triedAlternatives(s,p.id):new Set<string>();
- const triedHint=(effectiveness:string)=>tutorial?'✕ Você já tentou: não era o melhor começo':effectiveness==='TEMPORARY'?'✕ Você já tentou: só aliviou por um tempo':'✕ Você já tentou: não resolveu';
+ const triedHint=(effectiveness:string)=>tutorial?'Essa você já experimentou. Que tal outra ideia?':effectiveness==='TEMPORARY'?'Essa ajudou só um pouquinho. Vamos tentar outra?':'Essa não funcionou, mas tudo bem! Tente outra.';
  const answer=tutorial?tutorialQuestion.alternatives.find(a=>a.id===s.tutorialAnswerId):q?.alternatives.find(a=>a.id===decision?.alternativeId);
  const result=(s.phase==='RESULT'||s.phase==='TUTORIAL_RESULT')&&answer;
  const characterId='companion',character=characters[characterId];

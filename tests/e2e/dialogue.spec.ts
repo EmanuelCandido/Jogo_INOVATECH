@@ -40,7 +40,7 @@ test('Impactus, tutorial com tentativas, teclado e restauração',async({page})=
   await expect(page.locator('.balance')).toContainText('100');await page.getByRole('button',{name:'Tentar novamente'}).click();
   await expectPose(page,'character_thinking','/assets/portraits/robot/pose-2.webp');
   const tried=page.locator('[data-choice-id="'+id+'"]');
-  await expect(tried).toBeDisabled();await expect(tried).toHaveAttribute('data-tried','true');await expect(tried).toContainText('Você já tentou');
+  await expect(tried).toBeDisabled();await expect(tried).toHaveAttribute('data-tried','true');await expect(tried).toContainText('Que tal outra ideia?');
  }
  await page.locator('[data-choice-id="observe"]').click();await expectPose(page,'character_success','/assets/portraits/robot/pose-4.webp');
  await page.screenshot({path:test.info().outputPath('robot-tutorial-'+test.info().project.name+'.png'),animations:'disabled'});
