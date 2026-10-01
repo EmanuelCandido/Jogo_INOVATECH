@@ -31,11 +31,13 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
   // shows the whole city; the player does not steer the camera meanwhile.
   const tourShot = useGame((s) => endingShot(s.ending));
   const inEnding = useGame((s) => s.ending !== null);
+  const arriving = useGame((s) => s.arrival !== null);
   const tourPlace = tourShot !== null && tourShot !== ENDING_WIDE;
   const resultView=phase==='RESULT'||tourPlace;
   // Context and question share one shot; results may widen it for the work.
   // Returning and overview share a shot to avoid a second camera flight.
-  const shotId=tourShot ?? (selected && phase!=="RETURNING" ? selected : introView==='city'?'city':'intro_'+introView);
+  // The arrival cinematic (ArrivalScene) moves the camera itself.
+  const shotId=arriving ? 'arrival' : tourShot ?? (selected && phase!=="RETURNING" ? selected : introView==='city'?'city':'intro_'+introView);
   const reduced = useGame((s) => s.progress.settings.reducedMotion);
   const arrived = useGame((s) => s.cameraArrived);
   const target = useRef(new Vector3(...overview.target));
@@ -52,7 +54,7 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     return ()=>{cancelAnimationFrame(first);cancelAnimationFrame(second);};
   },[interactive,phase,moving,viewportKey]);
   const baseZoom=mapBaseZoom(size.width,size.height);
-  useMapNavigation(interactive && phase==="OVERVIEW" && !inEnding && !moving && readyViewport===viewportKey,baseZoom,target);
+  useMapNavigation(interactive && phase==="OVERVIEW" && !inEnding && !arriving && !moving && readyViewport===viewportKey,baseZoom,target);
   const animation = useRef<{
     from: Vector3;
     fromTarget: Vector3;
@@ -67,8 +69,16 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     /** A slow pan that follows this flight (the ending's finale on narrow screens). */
     then?: CameraShot;
   } | null>(null);
+  const external = useRef(false);
   useEffect(() => {
     setMoving(true);
+    if (shotId === 'arrival') { animation.current = null; external.current = true; return; }
+    if (external.current) {
+      // Continue from where the arrival left the view: its target is on the ground.
+      external.current = false;
+      const forward = camera.getWorldDirection(new Vector3());
+      target.current.copy(camera.position).addScaledVector(forward, -camera.position.y / forward.y);
+    }
     const intro=shotId.startsWith('intro_'),shift=introView==='west'?[-16,0,8]:[-18,0,-26];
     const whole=shotId===ENDING_WIDE,city=shotId==="city"||whole;
     let shot = city ? CameraDirector.focusCity() : intro?{...overview,position:overview.position.map((v,i)=>v+shift[i]) as [number,number,number],target:overview.target.map((v,i)=>v+shift[i]) as [number,number,number],zoom:overview.zoom*1.22}:CameraDirector.focusProblem(shotId);

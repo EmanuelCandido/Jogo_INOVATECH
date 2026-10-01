@@ -1,0 +1,85 @@
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
+import {useGame} from '../../stores/gameStore';
+import {story} from '../../content/story';
+import type {Arrival} from '../../game/arrival';
+import type {CharacterPose} from '../../game/types';
+import {CharacterAvatar} from '../wardrobe/CharacterAvatar';
+import {HudIcon} from '../hud/HudControl';
+import {arrivalStage,heroFeet,resetArrivalStage} from './arrivalStage';
+
+type Stage='playing'|'handoff'|'settle';
+const poses:[string,CharacterPose][]=[['flight','character_alert'],['landed','character_success'],['intro','character_intro']];
+const exitMs=300;
+
+/** Letterbox, Impactus, his trail and the chapter card over the 3D arrival.
+ * When the arrival ends (or is skipped) the story's first line is already
+ * mounted underneath: Impactus jumps into the dialogue portrait and the
+ * overlay leaves. */
+export function ArrivalCinematic(){
+ const arrival=useGame(s=>s.arrival),finish=useGame(s=>s.finishArrival),outfit=useGame(s=>s.progress.wardrobe.equipped);
+ const [shown,setShown]=useState<Arrival|null>(arrival);
+ const [stage,setStage]=useState<Stage>('playing');
+ const hero=useRef<HTMLDivElement>(null),turn=useRef<HTMLDivElement>(null),trail=useRef<HTMLCanvasElement>(null),skip=useRef<HTMLButtonElement>(null);
+ // Beats replace the store object; the sequence identifies one arrival.
+ if(arrival&&arrival!==shown){setShown(arrival);if(arrival.sequence!==shown?.sequence)setStage('playing');}
+ else if(!arrival&&shown&&stage==='playing')setStage('handoff');
+ const sequence=shown?.sequence;
+ useLayoutEffect(()=>{
+  if(sequence===undefined)return;
+  resetArrivalStage();
+  Object.assign(arrivalStage,{hero:hero.current,turn:turn.current,trail:trail.current,size:hero.current?.offsetWidth??0});
+  const resize=new ResizeObserver(()=>{arrivalStage.size=hero.current?.offsetWidth??0;});
+  if(hero.current)resize.observe(hero.current);
+  return()=>{resize.disconnect();Object.assign(arrivalStage,{hero:null,turn:null,trail:null,size:0});};
+ },[sequence]);
+ useEffect(()=>{if(sequence!==undefined)skip.current?.focus({preventScroll:true});},[sequence]);
+ useLayoutEffect(()=>{
+  if(stage!=='handoff')return;
+  // Fly into the portrait of the first line, which mounted in this commit.
+  // The portrait is cropped at the top of the dialogue box: the legs fade
+  // into that edge on the way, so nothing is left over the text.
+  const portrait=document.querySelector('.narrative-stage .character-avatar'),box=portrait?.getBoundingClientRect();
+  const crop=portrait?.closest('.character-stage')?.getBoundingClientRect();
+  const element=hero.current,size=element?.offsetWidth??0;
+  if(!element||!turn.current||!box?.width||!crop||!size||element.style.opacity!=='1'){setStage('settle');return;}
+  const scale=box.width/size,origin=[size*heroFeet.x,size*heroFeet.y],hidden=Math.min(100,Math.max(0,(box.bottom-crop.bottom)/box.height*100));
+  const end=`translate3d(${box.left-origin[0]*(1-scale)}px,${box.top-origin[1]*(1-scale)}px,0) rotate(0rad) scale(${scale})`;
+  const timing={duration:520,easing:'cubic-bezier(.3,1.15,.45,1)',fill:'forwards'} as const;
+  const animations=[
+   element.animate([{transform:element.style.transform},{transform:end}],timing),
+   turn.current.animate([{transform:turn.current.style.transform||'scaleX(1)',clipPath:'inset(0 0 0 0)'},{transform:'scaleX(-1)',clipPath:`inset(0 0 ${hidden}% 0)`}],timing),
+  ];
+  let active=true;
+  animations[0].finished.then(()=>{if(active)setStage('settle');},()=>{});
+  return()=>{active=false;animations.forEach(a=>a.cancel());};
+ },[stage]);
+ useEffect(()=>{
+  if(stage!=='settle')return;
+  const timer=window.setTimeout(()=>{setShown(null);setStage('playing');},exitMs);
+  return()=>window.clearTimeout(timer);
+ },[stage]);
+ if(!shown)return null;
+ return <section className="arrival" data-beat={shown.beat} data-stage={stage} aria-label="Chegada de Impactus à cidade">
+  <div className="arrival-bars" aria-hidden="true"><i/><i/></div>
+  <canvas className="arrival-trail" ref={trail} aria-hidden="true"/>
+  <div className="arrival-flash" aria-hidden="true"/>
+  <div className="arrival-hero" ref={hero} style={{opacity:0}} aria-hidden="true">
+   <span className="arrival-impact"/>
+   <div className="arrival-turn" ref={turn}>
+    <div className="arrival-pose">
+     {poses.map(([id,pose])=><div key={id} className="arrival-avatar" data-pose={id}><CharacterAvatar outfit={outfit} pose={pose} label=""/></div>)}
+    </div>
+   </div>
+   <p className="arrival-bubble">Cheguei!</p>
+  </div>
+  <header className="arrival-title">
+   <span>{story.chapter.label} · A chegada</span>
+   <h2>Eco City</h2>
+   <p>{story.chapter.title}</p>
+  </header>
+  <p className="sr-only" role="status">Impactus está chegando voando à Eco City.</p>
+  <button ref={skip} className="arrival-skip" onClick={()=>{if(arrival)finish(arrival.sequence);}} disabled={stage!=='playing'}>
+   Pular abertura <HudIcon name="forward"/>
+  </button>
+ </section>;
+}

@@ -14,6 +14,8 @@ import { claimMission, giveEnergy, refreshDaily, trackDailyActivity, type DailyM
 import {createResolution,type Resolution} from '../game/resolution';
 import {owedIncome,settleIncome} from '../game/passiveIncome';
 import {beginEnding,cityTransformed,endingDue,nextEnding,skipEnding,type Ending} from '../game/ending';
+import {introNode,dialogueEntry} from '../content/dialogues';
+import type {Arrival,ArrivalBeat} from '../game/arrival';
 interface Store {
   progress: Progress;
   notice: string | null;
@@ -29,6 +31,13 @@ interface Store {
   advanceEnding: () => void;
   skipEnding: () => void;
   closeEnding: () => void;
+  /** Impactus' arrival cinematic before the first line of a new story. */
+  arrival: Arrival | null;
+  startArrival: () => void;
+  arrivalBeat: (sequence:number, beat:ArrivalBeat) => void;
+  finishArrival: (sequence:number) => void;
+  /** Plays the arrival again from the map, for the Extra menu. Needs motion. */
+  playArrival: () => boolean;
   openOverlay: (overlay: 'missions' | 'shop' | null) => void;
   buy: (id: string) => boolean;
   equip: (outfit: Outfit) => boolean;
@@ -49,8 +58,16 @@ interface Store {
 }
 const loaded = loadProgress(browserSave);
 let endingSequence = 0;
+let arrivals = 0;
+const reducedMotion = (progress: Progress) =>
+  progress.settings.reducedMotion || (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches);
+/** The arrival plays only at the very start of a story, with motion allowed. */
+function newArrival(progress: Progress): Arrival | null {
+  const fresh = progress.phase === 'INTRO' && progress.introIndex === 0 && introNode(progress).id === dialogueEntry;
+  return fresh && !reducedMotion(progress) ? { sequence: ++arrivals, clock: { value: 0 }, beat: 'approach' } : null;
+}
 export const useGame = create<Store>((set, get) => {
-  function commit(progress: Progress, presentation:Partial<Pick<Store,'resolution'|'overlay'|'ending'>>={}, fresh=false) {
+  function commit(progress: Progress, presentation:Partial<Pick<Store,'resolution'|'overlay'|'ending'|'arrival'>>={}, fresh=false) {
     if (progress === get().progress) return;
     // Pay the passive income the previous state earned before it changes.
     progress = fresh ? {...progress, income:{at:Date.now(),carry:0}} : settleIncome(get().progress, progress, Date.now());
@@ -72,12 +89,12 @@ export const useGame = create<Store>((set, get) => {
     ending: null,
     finishResolution: sequence => { if(get().resolution?.sequence===sequence)set({resolution:null}); },
     startEnding: () => {
-      const {progress,ending,resolution}=get();
-      if(!ending&&!resolution&&endingDue(progress))set({ending:beginEnding(false,++endingSequence),overlay:null});
+      const {progress,ending,resolution,arrival}=get();
+      if(!ending&&!resolution&&!arrival&&endingDue(progress))set({ending:beginEnding(false,++endingSequence),overlay:null});
     },
     playEnding: () => {
-      const {progress,ending,resolution}=get();
-      if(ending||resolution||progress.phase!=='OVERVIEW'||!cityTransformed(progress))return false;
+      const {progress,ending,resolution,arrival}=get();
+      if(ending||resolution||arrival||progress.phase!=='OVERVIEW'||!cityTransformed(progress))return false;
       set({ending:beginEnding(true,++endingSequence),overlay:null});
       return true;
     },
@@ -99,8 +116,18 @@ export const useGame = create<Store>((set, get) => {
       const progress=get().progress;
       if(progress.endingSeen)set({ending:null});else commit({...progress,endingSeen:true},{ending:null});
     },
+    arrival: null,
+    startArrival: () => { const arrival = get().arrival ? null : newArrival(get().progress); if (arrival) set({ arrival }); },
+    arrivalBeat: (sequence, beat) => { const arrival = get().arrival; if (arrival?.sequence === sequence && arrival.beat !== beat) set({ arrival: { ...arrival, beat } }); },
+    finishArrival: sequence => { if (get().arrival?.sequence === sequence) set({ arrival: null }); },
+    playArrival: () => {
+      const {progress,ending,resolution,arrival}=get();
+      if(ending||resolution||arrival||progress.phase!=='OVERVIEW'||reducedMotion(progress))return false;
+      set({arrival:{sequence:++arrivals,clock:{value:0},beat:'approach'},overlay:null});
+      return true;
+    },
     openOverlay: (overlay) => {
-      if (overlay && (get().progress.phase !== 'OVERVIEW' || get().ending)) return;
+      if (overlay && (get().progress.phase !== 'OVERVIEW' || get().ending || get().arrival)) return;
       commit(refreshDaily(get().progress));
       set({ overlay });
     },
@@ -121,8 +148,7 @@ export const useGame = create<Store>((set, get) => {
     choose: (id) => {
       try {
         const before=get().progress,after=ProblemManager.decide(before,id);
-        const reduced=before.settings.reducedMotion||(typeof matchMedia!=='undefined'&&matchMedia('(prefers-reduced-motion: reduce)').matches);
-        commit(after,{resolution:createResolution(before,after,reduced)});
+        commit(after,{resolution:createResolution(before,after,reducedMotion(before))});
       } catch (error) {
         set({ notice: (error as Error).message });
       }
@@ -134,7 +160,7 @@ export const useGame = create<Store>((set, get) => {
     settings: (quality, reducedMotion) =>
       commit({ ...get().progress, settings: { ...get().progress.settings, quality, reducedMotion } }),
     graphics: (patch) => commit({...get().progress,settings:normalizeGraphicsSettings({...get().progress.settings,...patch})}),
-    reset: () => commit(initialProgress(),{overlay:null,resolution:null,ending:null},true),
+    reset: () => { const progress = initialProgress(); commit(progress,{overlay:null,resolution:null,ending:null,arrival:newArrival(progress)},true); },
     collectIncome: () => {
       const progress=get().progress;
       // Save only when whole coins are due, or to start the clock.

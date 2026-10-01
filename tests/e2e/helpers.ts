@@ -15,9 +15,14 @@ export async function resetMap(page:Page){
 export async function cameraZoom(page:Page){
  return page.evaluate(()=>(window as unknown as {ecoBenchmark:{cameraState:()=>{zoom:number}}}).ecoBenchmark.cameraState().zoom);
 }
+/** JOGAR opens a new story with Impactus' arrival; skip it to the first line. */
+export async function play(page:Page){
+ await page.getByRole('button',{name:'JOGAR',exact:true}).click();
+ await page.getByRole('button',{name:'Pular abertura'}).click();
+}
 export async function start(page:Page){
  await page.goto('./');
- await page.getByRole('button',{name:'JOGAR',exact:true}).click();
+ await play(page);
  for(let i=0;i<7;i++)await page.getByRole('button',{name:'Continuar →',exact:true}).click();
  await page.getByRole('button',{name:'Pensar no primeiro passo'}).click();
  await page.locator('[data-choice-id="observe"]').click();

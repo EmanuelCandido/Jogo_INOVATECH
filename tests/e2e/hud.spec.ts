@@ -12,6 +12,9 @@ test('abertura, Impactus e continuação do progresso', async ({ page }, info) =
   await page.screenshot({ path: info.outputPath('hud-title.png'), animations: 'disabled' });
   await play.focus();
   await page.keyboard.press('Enter');
+  // The arrival takes the focus to its skip button: Enter goes to the story.
+  await expect(page.getByRole('button', { name: 'Pular abertura' })).toBeFocused();
+  await page.keyboard.press('Enter');
   await expect(page.locator('.speaker-plate')).toHaveText('Impactus');
   await expect(page.locator('.dialogue-body')).toContainText('Olá! Vamos transformar nossa cidade em um lugar melhor?');
   await expect(page.getByAltText('Robô companheiro da jornada')).toHaveJSProperty('naturalWidth', 768);

@@ -71,3 +71,20 @@ test('o Extra das configurações repete o final depois de visto',async({page})=
  await expect(page.getByRole('dialog',{name:'Configurações'})).toHaveCount(0);
  await expect(page.getByRole('region',{name:'Conversa final com o companheiro'})).toContainText('último problema');
 });
+
+test('o Extra repete a chegada do Impactus e volta ao mapa',async({page})=>{
+ test.setTimeout(150000);
+ await seed(page,lastSolutionSave({endingSeen:true,phase:'OVERVIEW'}));
+ await page.goto('./');
+ await mapReady(page);
+ await page.getByRole('button',{name:'Configurações'}).click();
+ await page.getByRole('button',{name:/A chegada: Impactus pousa na cidade/}).click();
+ const arrival=page.getByRole('region',{name:'Chegada de Impactus à cidade'});
+ await expect(arrival).toBeVisible();
+ await expect(page.locator('.journey-nav, .topbar')).toHaveCount(0);
+ await page.getByRole('button',{name:'Pular abertura'}).click();
+ await expect(arrival).toHaveCount(0);
+ await mapReady(page);
+ await expect(page.locator('.journey-nav')).toBeVisible();
+ await expect(page.locator('.dialogue-box')).toHaveCount(0);
+});

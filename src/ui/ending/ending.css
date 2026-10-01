@@ -63,7 +63,7 @@
 .ending-confirm p { font-size: 14px; font-weight: 700; line-height: 1.4; }
 .ending-confirm .danger { width: 100%; min-height: 46px; margin: 0; font-weight: 800; }
 
-@media (max-height: 700px) {
+@media (max-height: 800px) {
   .ending-logo { display: none; }
   .ending-hero { width: 128px; }
   .ending-hero::before { width: 170px; }

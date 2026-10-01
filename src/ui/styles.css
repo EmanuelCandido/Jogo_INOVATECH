@@ -297,6 +297,7 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
 .extra-scene { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 58px; padding: 10px 12px; border: 1px solid #e2daef; border-bottom: 3px solid #d5c6ea; border-radius: 14px; background: #fff; color: #211a33; text-align: left; }
 .extra-scene:hover:enabled { border-color: #b98cff; }
 .extra-scene:disabled { opacity: .6; cursor: not-allowed; }
+.extra-scene + .extra-scene { margin-top: 8px; }
 .extra-scene > span:last-child { display: grid; gap: 2px; min-width: 0; }
 .extra-scene b { font-size: 13px; font-weight: 800; }
 .extra-scene small { color: #786f8a; font-size: 11px; font-weight: 600; line-height: 1.35; }

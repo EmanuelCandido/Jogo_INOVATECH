@@ -113,7 +113,7 @@ describe('final do jogo na store',()=>{
   game=(await import('../src/stores/gameStore')).useGame;
  });
  afterAll(()=>vi.unstubAllGlobals());
- const start=(progress:Progress)=>game.setState({progress,ending:null,overlay:null,resolution:null});
+ const start=(progress:Progress)=>game.setState({progress,ending:null,arrival:null,overlay:null,resolution:null});
  it('marca o final como visto ao chegar ao encerramento e devolve o mapa',()=>{
   start(solveCity());
   game.getState().startEnding();
@@ -142,5 +142,20 @@ describe('final do jogo na store',()=>{
   start(overview());
   expect(game.getState().playEnding()).toBe(false);
   expect(game.getState().ending).toBeNull();
+ });
+ it('a chegada pode ser revista pelo Extra de volta ao mapa, com movimento',()=>{
+  start(overview());
+  expect(game.getState().playArrival()).toBe(true);
+  expect(game.getState().arrival).toMatchObject({beat:'approach'});
+  expect(game.getState().playArrival()).toBe(false);
+  game.getState().openOverlay('shop');
+  expect(game.getState().overlay).toBeNull();
+  game.getState().finishArrival(game.getState().arrival!.sequence);
+  expect(game.getState().arrival).toBeNull();
+  start({...overview(),settings:{...overview().settings,reducedMotion:true}});
+  expect(game.getState().playArrival()).toBe(false);
+  start({...solveCity(),endingSeen:true});
+  game.getState().playEnding();
+  expect(game.getState().playArrival()).toBe(false);
  });
 });

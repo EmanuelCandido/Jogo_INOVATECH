@@ -14,16 +14,19 @@ import { useOverlayPresence } from './menus/useOverlayPresence';
 import { gameAudio } from '../audio/gameAudio';
 import { incomePerMinute } from '../game/passiveIncome';
 import { EndingStage } from './ending/EndingStage';
+import { ArrivalCinematic } from './cinematic/ArrivalCinematic';
 export function GameUI({ sceneReady }: { sceneReady: boolean }) {
-  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics, collectIncome, ending } = useGame();
+  const { progress: s, notice, leave, overlay, refreshMissions, resolution, finishResolution, graphics, collectIncome, ending, arrival, startArrival } = useGame();
   const [menu, setMenu] = useState(false);
   const layer=useOverlayPresence(overlay??(menu?'settings':null),s.settings.reducedMotion);
   // The title is presentation state; opening it must never reset a saved game.
   const [showTitle, setShowTitle] = useState(() => s.phase === 'INTRO' && s.introIndex === 0);
-  const showHeader = !resolution&&!ending&&(menu || (!showTitle && !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase)));
+  const showHeader = !resolution&&!ending&&!arrival&&(menu || (!showTitle && !['INTRO', 'FOCUSING', 'COMMENT', 'CONTEXT'].includes(s.phase)));
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (useGame.getState().overlay || useGame.getState().resolution || useGame.getState().ending || layer.overlay || event.defaultPrevented) return;
+      const {arrival:playing,finishArrival}=useGame.getState();
+      if (playing && event.key === 'Escape') { event.preventDefault(); finishArrival(playing.sequence); return; }
+      if (playing || useGame.getState().overlay || useGame.getState().resolution || useGame.getState().ending || layer.overlay || event.defaultPrevented) return;
       if (event.key === 'Escape') { event.preventDefault(); setMenu(open => !open); }
     };
     window.addEventListener('keydown', onKeyDown);
@@ -67,7 +70,7 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
         </div>
       </header>}
       {showTitle ? (
-        <TitleScreen sceneReady={sceneReady} onPlay={() => setShowTitle(false)} />
+        <TitleScreen sceneReady={sceneReady} onPlay={() => { setShowTitle(false); startArrival(); }} />
       ) : (
         <>
           {s.selectedProblem && ['FOCUSING', 'COMMENT', 'CONTEXT', 'QUESTION', 'RESULT'].includes(s.phase) && (
@@ -76,9 +79,10 @@ export function GameUI({ sceneReady }: { sceneReady: boolean }) {
               <span className="back-label">Voltar</span>
             </button>
           )}
-          {s.phase === 'OVERVIEW' && !ending && <JourneyNav />}
-          <DialogueStage sceneReady={sceneReady} />
+          {s.phase === 'OVERVIEW' && !ending && !arrival && <JourneyNav />}
+          {!arrival && <DialogueStage sceneReady={sceneReady} />}
           <EndingStage sceneReady={sceneReady} />
+          <ArrivalCinematic />
           {resolution&&<div className="resolution-status" data-problem={resolution.problemId}>
             <span className="sr-only" role="status">Acompanhe a transformação da cidade. O resultado aparecerá após a animação.</span>
             <ResolutionProgress resolution={resolution}/>
