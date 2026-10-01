@@ -85,7 +85,6 @@ export function ArrivalCinematic(){
    <p className="arrival-bubble">Cheguei!</p>
   </div>
   <header className="arrival-title">
-   <span>{story.chapter.label} · A chegada</span>
    <h2>Eco City</h2>
    <p>{story.chapter.title}</p>
   </header>
