@@ -1,5 +1,5 @@
 import {describe,it,expect,vi,beforeAll} from 'vitest';
-import {arrivalBeatAt,arrivalCamera,arrivalHero,arrivalPoseIds,arrivalPoseWeights,arrivalShockwave,arrivalSite,arrivalTimes,landingZoom} from '../src/game/arrival';
+import {arrivalBeatAt,arrivalCamera,arrivalHero,arrivalPoseIds,arrivalPoseOpacity,arrivalPoseWeights,arrivalShockwave,arrivalSite,arrivalTimes,landingZoom} from '../src/game/arrival';
 import {problemById} from '../src/content/problems';
 import {mapEye,mapTarget} from '../src/config/referenceFrame';
 import {NarrativeManager} from '../src/game/NarrativeManager';
@@ -59,6 +59,8 @@ describe('chegada de Impactus à cidade',()=>{
    expect(Math.min(...weights)).toBeGreaterThanOrEqual(0);
    // Never more than two drawings at once.
    expect(weights.filter(w=>w>1e-6).length).toBeLessThanOrEqual(2);
+   // One drawing is always opaque: he is never see-through.
+   expect(Math.max(...Object.values(arrivalPoseOpacity(t)))).toBe(1);
   }
   expect(frames().map(t=>shown(t)[0]).filter((id,i,all)=>id!==all[i-1])).toEqual([...arrivalPoseIds]);
   expect(shown(arrivalTimes.appear)).toEqual(['flight']);

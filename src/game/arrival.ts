@@ -50,11 +50,12 @@ export function arrivalCamera(t:number,start:ArrivalCameraStart,baseZoom:number)
  * made for it; 'landed' is the dialogue's celebration pose. */
 export const arrivalPoseIds=['flight','turn','fall','impact','rise','landed'] as const;
 export type ArrivalPoseId=typeof arrivalPoseIds[number];
-/** When each drawing hands over to the next: [start, end] of a short
- * cross-fade. The swaps happen on motion (the turn, the top of the climb,
- * the impact under the flash, the springs on the ground), so the body never
- * stands still while it changes. */
-const swaps:[number,number][]=[[2.2,2.34],[3.04,3.18],[3.69,3.72],[4.02,4.12],[4.3,4.4]];
+/** When each drawing hands over to the next: [start, end] of a swap of a
+ * few frames, like the key drawings of a cartoon. The swaps happen on motion
+ * (the turn, the top of the climb, the impact under the flash, the springs on
+ * the ground) and with a small pop, so the body never stands still while it
+ * changes. */
+const swaps:[number,number][]=[[2.24,2.29],[3.09,3.14],[3.69,3.72],[4.05,4.1],[4.32,4.37]];
 /** How much of each drawing is shown at time t; the weights add up to 1.
  * spread widens every swap on both sides (the turns use slower swaps). */
 export function arrivalPoseWeights(t:number,spread=0):Record<ArrivalPoseId,number>{
@@ -62,10 +63,19 @@ export function arrivalPoseWeights(t:number,spread=0):Record<ArrivalPoseId,numbe
  return Object.fromEntries(arrivalPoseIds.map((id,i)=>[id,(i?done[i-1]:1)-(i<done.length?done[i]:0)])) as Record<ArrivalPoseId,number>;
 }
 
+/** Opacity of each drawing: the next one appears over the previous, which
+ * stays opaque until it is covered, so he is never see-through. */
+export function arrivalPoseOpacity(t:number):Record<ArrivalPoseId,number>{
+ const done=swaps.map(([a,b])=>ease(a,b,t));
+ return Object.fromEntries(arrivalPoseIds.map((id,i)=>[id,i<done.length&&done[i]>=1?0:i?done[i-1]:1])) as Record<ArrivalPoseId,number>;
+}
+/** A quick swell of the body at the swaps in the air. */
+const pop=(t:number)=>swaps.slice(0,2).reduce((sum,[a,b])=>sum+.07*Math.sin(Math.PI*ease(a-.05,b+.1,t)),0);
+
 /** Screen pose of Impactus: x,y are his feet in CSS pixels, scale is relative
  * to his landed size, angle turns him around his chest (radians, clockwise),
  * facing is 1 when he faces left and -1 when he faces right like the dialogue
- * portrait, glow turns him into a distant star. poses are the weights of the
+ * portrait, glow turns him into a distant star. poses are the opacities of the
  * drawings; stretch squashes (below 1) or stretches him from the feet. */
 export interface ArrivalHeroPose{x:number;y:number;scale:number;angle:number;facing:number;glow:number;visible:boolean;poses:Record<ArrivalPoseId,number>;stretch:number;lift:number}
 type Key={t:number;x:number;y:number;s:number;face:number};
@@ -76,8 +86,8 @@ const flight:Key[]=[
  {t:1.3,x:.82,y:.17,s:.22,face:1},
  {t:arrivalTimes.flyby,x:.6,y:.27,s:.5,face:1},
  {t:2.3,x:.22,y:.44,s:1.3,face:1},
- {t:arrivalTimes.dive,x:.12,y:.36,s:.92,face:-1},
- {t:3.15,x:.26,y:.3,s:.8,face:-1},
+ {t:arrivalTimes.dive,x:.12,y:.42,s:.92,face:-1},
+ {t:3.15,x:.26,y:.38,s:.8,face:-1},
 ];
 /** Cubic Hermite through the keys with time-scaled Catmull-Rom tangents. */
 function sample(keys:Key[],t:number,field:'x'|'y'|'s'){
@@ -101,7 +111,7 @@ function stretchAt(t:number){
  return 1+fall-.34*spring(t,landed,22,9)+.05*Math.sin(Math.PI*ease(4,4.2,t))+.12*spring(t,4.32,15,7);
 }
 export function arrivalHero(t:number,width:number,height:number,site:[number,number]):ArrivalHeroPose{
- const {appear,landed}=arrivalTimes,poses=arrivalPoseWeights(t),stretch=stretchAt(t);
+ const {appear,landed}=arrivalTimes,poses=arrivalPoseOpacity(t),stretch=stretchAt(t);
  // On the ground he breathes once the celebration has settled.
  const lift=t>4.8?.016*(1-Math.cos((t-4.8)*Math.PI*2/2.4))/2:0;
  if(t>=landed)return {x:site[0],y:site[1],scale:1,angle:0,facing:-1,glow:0,visible:true,poses,stretch,lift};
@@ -112,7 +122,7 @@ export function arrivalHero(t:number,width:number,height:number,site:[number,num
  const [x,y]=at(t),before=Math.max(appear,t-1/120),after=Math.min(landed,Math.max(t,before+1e-3)+1/120);
  const [px,py]=at(before),[nx,ny]=at(after);
  const vx=(nx-px)/(after-before),vy=(ny-py)/(after-before),speed=Math.hypot(vx,vy),unit=Math.min(width,height);
- const scale=Math.max(.05,sample(keys,t,'s'));
+ const scale=Math.max(.05,sample(keys,t,'s'))*(1+pop(t));
  // Turn quickly in the middle of the segment where the facing changes.
  const i=Math.max(0,keys.findLastIndex(k=>k.t<=t)),a=keys[i],b=keys[Math.min(keys.length-1,i+1)];
  const facing=a.face===b.face?a.face:mix(a.face,b.face,ease(.35,.65,(t-a.t)/(b.t-a.t)));
