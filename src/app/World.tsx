@@ -14,6 +14,7 @@ import {MotionResolution} from '../components/city/MotionResolution';
 import {ShaderGate} from '../components/city/ShaderGate';
 import {LiveFrameRate} from '../components/city/LiveFrameRate';
 import {ResolutionDirector} from '../components/city/ResolutionScene';
+import {ArrivalDirector} from '../components/city/ArrivalScene';
 import {lazy,Suspense,useRef} from 'react';
 import {staticFrameEnabled,trackInvalidate} from '../game/staticFrame';
 import type {DirectionalLight} from 'three';
@@ -64,6 +65,7 @@ export default function World({ onReady, interactive }: { onReady: () => void; i
       />
       <CameraRig interactive={interactive} />
       <ResolutionDirector interactive={interactive}/>
+      <ArrivalDirector/>
       <GraphicsRuntime ready={interactive}/>
       <MotionResolution/>
       <LiveFrameRate/>

@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import { story } from '../../src/content/story';
-import {resetMap} from './helpers';
+import {play,resetMap} from './helpers';
 
 async function tap(page: Page, x: number, y: number, touch: boolean) {
   if (touch) await page.touchscreen.tap(x, y);
@@ -13,7 +13,7 @@ test('tocar na tela avança uma fala e preserva menus, gestos e escolhas', async
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  await page.getByRole('button', { name: 'JOGAR', exact: true }).click();
+  await play(page);
   const copy = page.locator('.dialogue-body p');
   const viewport = page.viewportSize()!;
   await expect(copy).toHaveText(story.intro[0]);

@@ -13,12 +13,19 @@ import { buyAccessory, equipOutfit, type Outfit } from '../game/wardrobe';
 import { claimMission, giveEnergy, refreshDaily, trackDailyActivity, type DailyMissionId } from '../game/dailyMissions';
 import {createResolution,type Resolution} from '../game/resolution';
 import {owedIncome,settleIncome} from '../game/passiveIncome';
+import {introNode,dialogueEntry} from '../content/dialogues';
+import type {Arrival,ArrivalBeat} from '../game/arrival';
 interface Store {
   progress: Progress;
   notice: string | null;
   overlay: 'missions' | 'shop' | null;
   resolution: Resolution | null;
   finishResolution: (sequence:number) => void;
+  /** Impactus' arrival cinematic before the first line of a new story. */
+  arrival: Arrival | null;
+  startArrival: () => void;
+  arrivalBeat: (sequence:number, beat:ArrivalBeat) => void;
+  finishArrival: (sequence:number) => void;
   openOverlay: (overlay: 'missions' | 'shop' | null) => void;
   buy: (id: string) => boolean;
   equip: (outfit: Outfit) => boolean;
@@ -38,8 +45,16 @@ interface Store {
   collectIncome: () => void;
 }
 const loaded = loadProgress(browserSave);
+let arrivals = 0;
+const reducedMotion = (progress: Progress) =>
+  progress.settings.reducedMotion || (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches);
+/** The arrival plays only at the very start of a story, with motion allowed. */
+function newArrival(progress: Progress): Arrival | null {
+  const fresh = progress.phase === 'INTRO' && progress.introIndex === 0 && introNode(progress).id === dialogueEntry;
+  return fresh && !reducedMotion(progress) ? { sequence: ++arrivals, clock: { value: 0 }, beat: 'approach' } : null;
+}
 export const useGame = create<Store>((set, get) => {
-  function commit(progress: Progress, presentation:Partial<Pick<Store,'resolution'|'overlay'>>={}, fresh=false) {
+  function commit(progress: Progress, presentation:Partial<Pick<Store,'resolution'|'overlay'|'arrival'>>={}, fresh=false) {
     if (progress === get().progress) return;
     // Pay the passive income the previous state earned before it changes.
     progress = fresh ? {...progress, income:{at:Date.now(),carry:0}} : settleIncome(get().progress, progress, Date.now());
@@ -59,6 +74,10 @@ export const useGame = create<Store>((set, get) => {
     overlay: null,
     resolution: null,
     finishResolution: sequence => { if(get().resolution?.sequence===sequence)set({resolution:null}); },
+    arrival: null,
+    startArrival: () => { const arrival = get().arrival ? null : newArrival(get().progress); if (arrival) set({ arrival }); },
+    arrivalBeat: (sequence, beat) => { const arrival = get().arrival; if (arrival?.sequence === sequence && arrival.beat !== beat) set({ arrival: { ...arrival, beat } }); },
+    finishArrival: sequence => { if (get().arrival?.sequence === sequence) set({ arrival: null }); },
     openOverlay: (overlay) => {
       if (overlay && get().progress.phase !== 'OVERVIEW') return;
       commit(refreshDaily(get().progress));
@@ -81,8 +100,7 @@ export const useGame = create<Store>((set, get) => {
     choose: (id) => {
       try {
         const before=get().progress,after=ProblemManager.decide(before,id);
-        const reduced=before.settings.reducedMotion||(typeof matchMedia!=='undefined'&&matchMedia('(prefers-reduced-motion: reduce)').matches);
-        commit(after,{resolution:createResolution(before,after,reduced)});
+        commit(after,{resolution:createResolution(before,after,reducedMotion(before))});
       } catch (error) {
         set({ notice: (error as Error).message });
       }
@@ -94,7 +112,7 @@ export const useGame = create<Store>((set, get) => {
     settings: (quality, reducedMotion) =>
       commit({ ...get().progress, settings: { ...get().progress.settings, quality, reducedMotion } }),
     graphics: (patch) => commit({...get().progress,settings:normalizeGraphicsSettings({...get().progress.settings,...patch})}),
-    reset: () => commit(initialProgress(),{overlay:null,resolution:null},true),
+    reset: () => { const progress = initialProgress(); commit(progress,{overlay:null,resolution:null,arrival:newArrival(progress)},true); },
     collectIncome: () => {
       const progress=get().progress;
       // Save only when whole coins are due, or to start the clock.

@@ -80,6 +80,40 @@ class GameAudio {
   });
   window.setTimeout(()=>{if(this.mood==='celebration')this.setMood(previous);},2600);
  }
+ /** A gust of wind for a flight: noise through a band that sweeps in pitch
+  * while it crosses the stereo field. Synthesized, like the soundtrack. */
+ whoosh({seconds=1,from=500,to=2400,volume=.5,pan=[0,0] as [number,number]}={}){
+  const ctx=this.live();if(!ctx)return;
+  const t=ctx.currentTime,source=ctx.createBufferSource(),band=ctx.createBiquadFilter(),gain=ctx.createGain();
+  source.buffer=this.noise(ctx);band.type='bandpass';band.Q.value=1.2;
+  band.frequency.setValueAtTime(from,t);band.frequency.exponentialRampToValueAtTime(to,t+seconds*.75);band.frequency.exponentialRampToValueAtTime(Math.max(150,to*.6),t+seconds);
+  gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(volume,t+seconds*.6);gain.gain.exponentialRampToValueAtTime(.0001,t+seconds);
+  let tail:AudioNode=gain;
+  if(ctx.createStereoPanner){const panner=ctx.createStereoPanner();panner.pan.setValueAtTime(pan[0],t);panner.pan.linearRampToValueAtTime(pan[1],t+seconds);gain.connect(panner);tail=panner;}
+  source.connect(band);band.connect(gain);tail.connect(this.sfxBus!);
+  source.start(t);source.stop(t+seconds+.05);
+ }
+ /** A landing: a falling low thump under a short burst of dust. */
+ impact(volume=.9){
+  const ctx=this.live();if(!ctx)return;
+  const t=ctx.currentTime,thump=ctx.createOscillator(),body=ctx.createGain(),dust=ctx.createBufferSource(),low=ctx.createBiquadFilter(),puff=ctx.createGain();
+  thump.type='sine';thump.frequency.setValueAtTime(150,t);thump.frequency.exponentialRampToValueAtTime(38,t+.4);
+  body.gain.setValueAtTime(volume,t);body.gain.exponentialRampToValueAtTime(.0001,t+.5);
+  dust.buffer=this.noise(ctx);low.type='lowpass';low.frequency.setValueAtTime(1600,t);low.frequency.exponentialRampToValueAtTime(220,t+.35);
+  puff.gain.setValueAtTime(volume*.55,t);puff.gain.exponentialRampToValueAtTime(.0001,t+.4);
+  thump.connect(body);body.connect(this.sfxBus!);dust.connect(low);low.connect(puff);puff.connect(this.sfxBus!);
+  thump.start(t);thump.stop(t+.55);dust.start(t);dust.stop(t+.45);
+ }
+ private noiseBuffer:AudioBuffer|null=null;
+ private noise(ctx:AudioContext){
+  if(!this.noiseBuffer){
+   const buffer=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate),data=buffer.getChannelData(0);
+   for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;
+   this.noiseBuffer=buffer;
+  }
+  return this.noiseBuffer;
+ }
+ private live(){const ctx=this.ctx;return ctx&&this.sfxBus&&this.volumes.sfx>0&&ctx.state==='running'?ctx:null;}
  private sfxUrl(id:Sfx){return `/assets/audio/sfx/${id}.mp3`;}
  private load(url:string){
   let pending=this.buffers.get(url);

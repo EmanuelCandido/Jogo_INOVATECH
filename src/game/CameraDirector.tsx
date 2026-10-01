@@ -26,10 +26,12 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
   const phase = useGame((s) => s.progress.phase);
   const introView=useGame(s=>s.progress.phase==='INTRO'?introNode(s.progress).view:'city');
   const selected = useGame((s) => s.progress.selectedProblem);
+  const arriving = useGame((s) => s.arrival !== null);
   const resultView=phase==='RESULT';
   // Context and question share one shot; results may widen it for the work.
   // Returning and overview share a shot to avoid a second camera flight.
-  const shotId=selected && phase!=="RETURNING" ? selected : introView==='city'?'city':'intro_'+introView;
+  // The arrival cinematic (ArrivalScene) moves the camera itself.
+  const shotId=arriving ? 'arrival' : selected && phase!=="RETURNING" ? selected : introView==='city'?'city':'intro_'+introView;
   const reduced = useGame((s) => s.progress.settings.reducedMotion);
   const arrived = useGame((s) => s.cameraArrived);
   const target = useRef(new Vector3(...overview.target));
@@ -57,8 +59,16 @@ export function CameraRig({ interactive }: { interactive: boolean }) {
     destination: Vector3;
     destinationTarget: Vector3;
   } | null>(null);
+  const external = useRef(false);
   useEffect(() => {
     setMoving(true);
+    if (shotId === 'arrival') { animation.current = null; external.current = true; return; }
+    if (external.current) {
+      // Continue from where the arrival left the view: its target is on the ground.
+      external.current = false;
+      const forward = camera.getWorldDirection(new Vector3());
+      target.current.copy(camera.position).addScaledVector(forward, -camera.position.y / forward.y);
+    }
     const intro=shotId.startsWith('intro_'),shift=introView==='west'?[-16,0,8]:[-18,0,-26];
     let shot = shotId==="city" ? CameraDirector.focusCity() : intro?{...overview,position:overview.position.map((v,i)=>v+shift[i]) as [number,number,number],target:overview.target.map((v,i)=>v+shift[i]) as [number,number,number],zoom:overview.zoom*1.22}:CameraDirector.focusProblem(shotId);
     if(shotId==='security_01'){

@@ -1,5 +1,5 @@
 import {test,expect,type Page} from '@playwright/test';
-import {resetMap} from './helpers';
+import {play,resetMap} from './helpers';
 import {story} from '../../src/content/story';
 
 async function expectPose(page:Page,pose:string,src:string,width=768){
@@ -19,7 +19,7 @@ async function expectPose(page:Page,pose:string,src:string,width=768){
 
 test('Impactus, tutorial com tentativas, teclado e restauração',async({page})=>{
  test.setTimeout(180000);await page.goto('/');
- await page.getByRole('button',{name:'JOGAR',exact:true}).click();
+ await play(page);
  const portrait=page.getByAltText('Robô companheiro da jornada');
  await expect(portrait).toBeVisible();await expect(portrait).toHaveJSProperty('naturalWidth', 768);
  await expectPose(page,'character_intro','/assets/portraits/robot/impactus-clean.webp',768);
@@ -57,7 +57,7 @@ test('pose atrasada não apaga o retrato nem substitui uma pose mais recente',as
  await page.route('**/portraits/robot/pose-3.webp',async route=>{await ready;await route.continue();});
  try{
   await page.goto('/');
-  await page.getByRole('button',{name:'JOGAR',exact:true}).click();
+  await play(page);
   await expectPose(page,'character_intro','/assets/portraits/robot/impactus-clean.webp',768);
   for(let i=0;i<3;i++)await page.getByRole('button',{name:'Continuar →',exact:true}).click();
   await expect(page.locator('.dialogue-body p')).toHaveText(story.intro[3]);

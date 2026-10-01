@@ -2,10 +2,12 @@ import {useEffect} from 'react';
 import {useGame} from '../stores/gameStore';
 import {gameAudio,type MusicMood,type Sfx} from './gameAudio';
 import type {Progress} from '../game/types';
+import type {ArrivalBeat} from '../game/arrival';
 
 const storyPhases=new Set(['INTRO','TUTORIAL_QUESTION','TUTORIAL_RESULT','FOCUSING','CONTEXT','COMMENT','QUESTION','RESULT']);
-function moodFor(progress:Progress,overlay:string|null):MusicMood{
+function moodFor(progress:Progress,overlay:string|null,arriving=false):MusicMood{
  if(overlay)return 'indoor';
+ if(arriving)return 'city';
  return storyPhases.has(progress.phase)?'story':'city';
 }
 /** Which cue a click on a control plays, unless it declares `data-sfx`. */
@@ -39,10 +41,11 @@ export function useGameAudio(revealed:boolean){
  },[]);
  useEffect(()=>{if(revealed)gameAudio.startMusic();},[revealed]);
  useEffect(()=>{
-  gameAudio.setMood(moodFor(useGame.getState().progress,useGame.getState().overlay));
+  gameAudio.setMood(moodFor(useGame.getState().progress,useGame.getState().overlay,!!useGame.getState().arrival));
   return useGame.subscribe((state,prev)=>{
    const a=state.progress,b=prev.progress;
-   gameAudio.setMood(moodFor(a,state.overlay));
+   gameAudio.setMood(moodFor(a,state.overlay,!!state.arrival));
+   if(state.arrival&&state.arrival.beat!==(prev.arrival?.sequence===state.arrival.sequence?prev.arrival.beat:undefined))arrivalCue(state.arrival.beat);
    if(state.overlay!==prev.overlay)gameAudio.play(state.overlay?'open':'close');
    if(state.notice&&state.notice!==prev.notice)gameAudio.play('notice');
    if(a===b)return;
@@ -63,6 +66,13 @@ export function useGameAudio(revealed:boolean){
   });
  },[]);
  useEffect(()=>useGame.subscribe((state,prev)=>{if(prev.resolution&&!state.resolution&&state.progress.decisions.length)outcome(state.progress);}),[]);
+}
+/** Impactus' arrival: a distant gust, the pass by the camera, the dive and the landing. */
+function arrivalCue(beat:ArrivalBeat){
+ if(beat==='approach')gameAudio.whoosh({seconds:1.6,from:700,to:1900,volume:.18,pan:[.8,.3]});
+ else if(beat==='flyby')gameAudio.whoosh({seconds:1,from:450,to:2600,volume:.5,pan:[.5,-.8]});
+ else if(beat==='dive')gameAudio.whoosh({seconds:1,from:2400,to:420,volume:.42,pan:[-.6,0]});
+ else{gameAudio.impact();window.setTimeout(()=>gameAudio.play('success',{volume:.8}),350);}
 }
 function outcome(progress:Progress){
  const effectiveness=progress.decisions.at(-1)?.effectiveness;
