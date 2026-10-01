@@ -23,7 +23,7 @@ function applyDialogueEvent(
 export const NarrativeManager = {
   choose(s: Progress, choiceId: string): Progress {
     if(s.phase==='TUTORIAL_QUESTION'){
-      const answer=tutorialQuestion.alternatives.find(a=>a.id===choiceId);
+      const answer=tutorialQuestion.alternatives.find(a=>a.id===choiceId&&!s.tutorialMisses?.includes(a.id));
       return answer?{...s,tutorialAnswerId:answer.id,phase:'TUTORIAL_RESULT'}:s;
     }
     if (s.phase !== "INTRO") return s;
@@ -34,7 +34,8 @@ export const NarrativeManager = {
     switch (s.phase) {
       case 'TUTORIAL_RESULT':
         return tutorialQuestion.alternatives.find(a=>a.id===s.tutorialAnswerId)?.effectiveness==='COMPLETE'
-          ?{...s,tutorialCompleted:true,phase:'OVERVIEW'}:{...s,tutorialAnswerId:undefined,phase:'TUTORIAL_QUESTION'};
+          ?{...s,tutorialCompleted:true,phase:'OVERVIEW'}
+          :{...s,tutorialMisses:[...new Set([...(s.tutorialMisses??[]),s.tutorialAnswerId!])],tutorialAnswerId:undefined,phase:'TUTORIAL_QUESTION'};
       case "INTRO": {
         const node = introNode(s);
         return node.choices

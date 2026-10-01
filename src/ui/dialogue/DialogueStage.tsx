@@ -7,6 +7,7 @@ import {problemById} from '../../content/problems';
 import {questions,tutorialQuestion} from '../../content/questions';
 import {story} from '../../content/story';
 import {canAfford} from '../../game/economy';
+import {triedAlternatives} from '../../game/ProblemManager';
 import {CharacterStage} from './CharacterStage';
 import {ChoiceList} from '../choices/ChoiceList';
 import {choiceOrder,choiceSeed} from '../../game/choiceOrder';
@@ -23,6 +24,9 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
  const decision=p?s.decisions.findLast(d=>d.problemId===p.id):null;
  const seed=tutorial?'tutorial':p?choiceSeed(p.id,s.decisions):'';
  const alternatives=useMemo(()=>q?choiceOrder(q.alternatives,seed):[],[q,seed]);
+ // Alternatives already tried without solving stay visible, locked and marked.
+ const tried=tutorial?new Set(s.tutorialMisses):p?triedAlternatives(s,p.id):new Set<string>();
+ const triedHint=(effectiveness:string)=>tutorial?'✕ Você já tentou: não era o melhor começo':effectiveness==='TEMPORARY'?'✕ Você já tentou: só aliviou por um tempo':'✕ Você já tentou: não resolveu';
  const answer=tutorial?tutorialQuestion.alternatives.find(a=>a.id===s.tutorialAnswerId):q?.alternatives.find(a=>a.id===decision?.alternativeId);
  const result=(s.phase==='RESULT'||s.phase==='TUTORIAL_RESULT')&&answer;
  const characterId='companion',character=characters[characterId];
@@ -88,7 +92,9 @@ export function DialogueStage({sceneReady}:{sceneReady:boolean}){
     </div>
    </section>
    </div>
-   {isQuestion&&q&&<ChoiceList key={`${s.selectedProblem??'tutorial'}:${s.phase}`} choices={alternatives.map(a=>({id:a.id,text:a.text,cost:tutorial?undefined:a.cost,disabled:!sceneReady||!canAfford(s.coins,a.cost),hint:!canAfford(s.coins,a.cost)?'Faltam '+(a.cost-s.coins).toLocaleString('pt-BR')+' moedas':undefined}))} onChoose={tutorial?narrativeChoice:choose}/>}
+   {isQuestion&&q&&<ChoiceList key={`${s.selectedProblem??'tutorial'}:${s.phase}`} choices={alternatives.map(a=>tried.has(a.id)
+    ?{id:a.id,text:a.text,cost:tutorial?undefined:a.cost,disabled:true,tried:true,hint:triedHint(a.effectiveness)}
+    :{id:a.id,text:a.text,cost:tutorial?undefined:a.cost,disabled:!sceneReady||!canAfford(s.coins,a.cost),hint:!canAfford(s.coins,a.cost)?'Faltam '+(a.cost-s.coins).toLocaleString('pt-BR')+' moedas':undefined})} onChoose={tutorial?narrativeChoice:choose}/>}
   </div>
  </div>;
 }

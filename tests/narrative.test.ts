@@ -19,6 +19,16 @@ describe('narrativa e cinco poses do mesmo companheiro',()=>{
   s=NarrativeManager.choose(s,id);expect(s.phase).toBe('TUTORIAL_RESULT');expect(s.tutorialCompleted).toBe(false);
   expect(decodeSave(JSON.stringify({version:1,data:s}))).toEqual(s);
   s=NarrativeManager.next(s);expect(s.phase).toBe('TUTORIAL_QUESTION');expect(s.coins).toBe(100);expect(s.decisions).toHaveLength(0);
+  expect(s.tutorialMisses).toEqual([id]);expect(NarrativeManager.choose(s,id)).toBe(s);
+  expect(decodeSave(JSON.stringify({version:1,data:s}))).toEqual(s);
+ });
+ it('tutorial bloqueia cada alternativa errada e deixa só a certa no fim',()=>{
+  let s=initialProgress();while(s.phase==='INTRO')s=NarrativeManager.next(s);
+  for(const id of ['ignore','rush'])s=NarrativeManager.next(NarrativeManager.choose(s,id));
+  expect(s.tutorialMisses).toEqual(['ignore','rush']);
+  for(const id of ['ignore','rush'])expect(NarrativeManager.choose(s,id)).toBe(s);
+  s=NarrativeManager.next(NarrativeManager.choose(s,'observe'));expect(s.phase).toBe('OVERVIEW');
+  expect(()=>decodeSave(JSON.stringify({version:1,data:{...s,tutorialMisses:['observe']}}))).toThrow('Resposta tutorial inválida');
  });
  it('comentário, contexto e pergunta são etapas separadas',()=>{
   let s=NarrativeManager.cameraArrived(ProblemManager.select(overview(),'pollution_01'));expect(s.phase).toBe('COMMENT');

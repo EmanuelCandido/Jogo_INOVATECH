@@ -10,6 +10,8 @@ export interface ChoiceView {
   cost?: number;
   disabled?: boolean;
   hint?: string;
+  /** Already tried without solving: locked and marked as a wrong choice. */
+  tried?: boolean;
 }
 export function ChoiceList({
   choices,
@@ -38,6 +40,7 @@ export function ChoiceList({
           style={{'--choice-index': index} as CSSProperties}
           data-choice-id={choice.id}
           data-unavailable={choice.disabled || undefined}
+          data-tried={choice.tried || undefined}
           disabled={!ready || choice.disabled}
           onPointerDown={event => {
             gesture.current = ready && !choice.disabled && event.isPrimary && event.button === 0
@@ -62,7 +65,7 @@ export function ChoiceList({
           }}
         >
           <span className="choice-text">
-            {choice.text}
+            <span className="choice-label">{choice.text}</span>
             {choice.hint && <small>{choice.hint}</small>}
           </span>
           {choice.cost !== undefined ? (

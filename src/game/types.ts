@@ -100,6 +100,8 @@ export interface Decision {
 export interface Progress {
   contentVersion: 2;
   tutorialAnswerId?: string;
+  /** Wrong first-step answers already seen; they stay locked on the next try. */
+  tutorialMisses?: string[];
   dialogueNodeId?: string;
   coins: number;
   currentChapter: string;

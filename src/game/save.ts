@@ -146,6 +146,7 @@ export function decodeSave(raw: string): Progress {
   if (s.dialogueNodeId !== undefined && !dialogueNodes[s.dialogueNodeId])
     throw new Error("Diálogo inválido");
   if(s.tutorialAnswerId!==undefined&&!tutorialQuestion.alternatives.some(a=>a.id===s.tutorialAnswerId))throw new Error('Resposta tutorial inválida');
+  if(s.tutorialMisses!==undefined&&(!Array.isArray(s.tutorialMisses)||s.tutorialMisses.some(id=>!tutorialQuestion.alternatives.some(a=>a.id===id&&a.effectiveness!=='COMPLETE'))))throw new Error('Resposta tutorial inválida');
   if(s.phase==='TUTORIAL_RESULT'&&!s.tutorialAnswerId)throw new Error('Resultado tutorial ausente');
   for(const n of [s.attemptRefunds,s.retryHelp])if(n!==undefined&&(!Number.isSafeInteger(n)||n<0))throw new Error('Moedas inválidas');
   return {

@@ -136,6 +136,10 @@ h1, h2 { font-family: "Exo 2", sans-serif; }
 .choice:hover:enabled { filter: brightness(1.15); }
 .choice:active:enabled { filter: brightness(.9); }
 .choice:disabled[data-unavailable] { background: #77648e; border-color: #483552; color: #eee6f5; }
+.choice:disabled[data-tried] { background: #8f8597; border-color: #5f5468; color: #f1edf4; box-shadow: none; }
+.choice[data-tried] .choice-label { text-decoration: line-through; text-decoration-color: #ffffffa6; text-decoration-thickness: 2px; }
+.choice[data-tried] .choice-text small { width: fit-content; margin-top: 6px; padding: 2px 8px; border-radius: 999px; background: #c6354c; color: #fff; }
+.choice[data-tried] .choice-cost { opacity: .6; }
 .choice-text { flex: 1; min-width: 0; font-size: max(12px, calc(24 * var(--hud-u))); font-weight: 500; line-height: 1.29; }
 .choice-text small { display: block; margin-top: 5px; color: #ffebad; font-size: 10px; font-weight: 700; }
 .choice-cost { display: flex; align-items: center; justify-content: flex-end; gap: calc(4 * var(--hud-u)); font-size: max(12px, calc(24 * var(--hud-u))); font-weight: 800; line-height: 1.29; white-space: nowrap; }

@@ -23,6 +23,17 @@ export function retryRefund(state: Progress, id: string) {
     refundableAttempts(state),
   );
 }
+/**
+ * Alternatives already tried for a situation without solving it. They stay
+ * locked, so each new attempt is a different choice.
+ */
+export function triedAlternatives(state: Progress, id: string) {
+  return new Set(
+    state.decisions
+      .filter((d) => d.problemId === id && d.effectiveness !== "COMPLETE")
+      .map((d) => d.alternativeId),
+  );
+}
 export const ProblemManager = {
   revisit(state: Progress, id: string): Progress {
     if (
@@ -75,7 +86,7 @@ export const ProblemManager = {
     const answer = questions[p.questionId].alternatives.find(
       (a) => a.id === alternativeId,
     );
-    if (!answer) return state;
+    if (!answer || triedAlternatives(state, p.id).has(answer.id)) return state;
     const coins = spend(state.coins, answer.cost);
     const reward =
       answer.effectiveness === "COMPLETE" && !state.rewarded.includes(p.id);

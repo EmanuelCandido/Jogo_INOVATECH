@@ -1,5 +1,5 @@
 import {describe,expect,it} from 'vitest';
-import {ProblemManager} from '../src/game/ProblemManager';
+import {ProblemManager,triedAlternatives} from '../src/game/ProblemManager';
 import {NarrativeManager} from '../src/game/NarrativeManager';
 import {decodeSave,initialProgress,loadProgress,saveProgress,type SaveAdapter} from '../src/game/save';
 import {problems,categories} from '../src/content/problems';
@@ -62,6 +62,17 @@ describe('economia, decisões e descoberta',()=>{
   expect(s.problemStates.security_01).toBe('HIDDEN');
   s=ProblemManager.revisit(s,'accessibility_01');s=NarrativeManager.next(NarrativeManager.next(NarrativeManager.cameraArrived(s)));
   s=finish(ProblemManager.decide(s,'campaign'));expect(s.problemStates.security_01).toBe('HIDDEN');
+ });
+ it('alternativa já tentada sem resolver fica bloqueada na próxima visita',()=>{
+  let s=finish(ProblemManager.decide(open(rich()),'campaign'));
+  expect([...triedAlternatives(s,'accessibility_01')]).toEqual(['campaign']);
+  s=open(s);expect(ProblemManager.decide(s,'campaign')).toBe(s);
+  s=finish(ProblemManager.decide(s,'support'));
+  s=ProblemManager.revisit(s,'accessibility_01');s=NarrativeManager.next(NarrativeManager.next(NarrativeManager.cameraArrived(s)));
+  expect([...triedAlternatives(s,'accessibility_01')].sort()).toEqual(['campaign','support']);
+  for(const id of ['campaign','support'])expect(ProblemManager.decide(s,id)).toBe(s);
+  expect(ProblemManager.decide(s,'ramp').problemStates.accessibility_01).toBe('SOLVED');
+  expect(triedAlternatives(s,'pollution_01').size).toBe(0);
  });
  it('mantém reavaliação e recorrência do temporário sem recompensas repetidas',()=>{
   let s=finish(ProblemManager.decide(open(rich()),'support'));

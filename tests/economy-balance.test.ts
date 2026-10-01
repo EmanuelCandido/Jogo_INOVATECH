@@ -27,13 +27,15 @@ describe('coin balance', () => {
     }
   });
 
-  it('always lets a player retry a first situation after any number of wrong attempts', () => {
+  it('always lets a player retry a first situation after every wrong attempt', () => {
     for (const first of problems.filter(p => p.unlockAfter === 0)) {
       const alternatives = questions[first.questionId].alternatives;
       const complete = alternatives.find(a => a.effectiveness === 'COMPLETE')!;
-      for (const wrong of alternatives.filter(a => a.effectiveness !== 'COMPLETE')) {
+      const wrongs = alternatives.filter(a => a.effectiveness !== 'COMPLETE');
+      // Tried alternatives stay locked, so each order of wrong attempts is tried once.
+      for (const order of [wrongs, [...wrongs].reverse()]) {
         let s = overview();
-        for (let attempt = 0; attempt < 6; attempt++) {
+        for (const wrong of order) {
           s = open(s, first.id);
           expect(s.coins).toBeGreaterThanOrEqual(complete.cost);
           if (!canAfford(s.coins, wrong.cost)) break;
@@ -42,6 +44,7 @@ describe('coin balance', () => {
           s = { ...s, problemStates: { ...s.problemStates, [first.id]: 'AVAILABLE' } };
         }
         s = open(s, first.id);
+        expect(s.coins).toBeGreaterThanOrEqual(complete.cost);
         expect(ProblemManager.decide(s, complete.id).problemStates[first.id]).toBe('SOLVED');
       }
     }

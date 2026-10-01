@@ -47,7 +47,7 @@ test('temporário, reavaliação, nenhuma melhoria e recursos insuficientes',asy
  await expect(page.locator('.robot-stage')).toHaveAttribute('data-pose','character_failure');
  await page.getByRole('button',{name:'Voltar à cidade'}).click();
  await expect(page.locator('[data-problem="accessibility_01"]')).toHaveAttribute('data-visual-state','temporary');
- await question(page);await page.locator('[data-choice-id="campaign"]').click();await expect(page.locator('[data-effectiveness="NONE"]')).toBeVisible();
+ await question(page);await expect(page.locator('[data-choice-id="support"]')).toBeDisabled();await page.locator('[data-choice-id="campaign"]').click();await expect(page.locator('[data-effectiveness="NONE"]')).toBeVisible();
  await page.getByRole('button',{name:'Voltar à cidade'}).click();
  await expect(page.locator('[data-problem="accessibility_01"]')).toHaveAttribute('data-visual-state','initial');
  await question(page);
