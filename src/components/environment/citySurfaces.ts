@@ -1,7 +1,7 @@
-import {junctionPriority,worldPoint,terrainY,dumpDriveway,industrialAprons,streetLayout,atRoadJunction,riverCorridors,mapRoads,riverSamples,canalSamples,riverWidth,beachLine,reservoirOutline,riverMouthTip,monorail,centralRail,roadViaduct,buildingLots,routeHeight,distanceToRoute,pedestrianNetwork,type MapPoint} from '../../config/referenceMap';
+import {junctionPriority,worldPoint,terrainY,industrialAprons,streetLayout,atRoadJunction,riverCorridors,mapRoads,riverSamples,canalSamples,riverWidth,beachLine,reservoirOutline,riverMouthTip,monorail,centralRail,roadViaduct,buildingLots,routeHeight,distanceToRoute,pedestrianNetwork,type MapPoint} from '../../config/referenceMap';
 import {reservoirWaterHeight} from '../../config/reservoir';
 import {dumpExitPriority,industrialGatePriority} from '../../config/servicePriority';
-import {industrialServiceFloor} from '../../config/industrialPaving';
+import {industrialServiceFloor,dumpStreet} from '../../config/industrialPaving';
 import {crossingApproachSurfaces,crossingSidewalks,crossingViaductSidewalks} from '../../config/crossingApproaches';
 import {circulationCrossings} from '../../config/circulationCrossings';
 import {stationPassengerFloors,stationSlabThickness} from '../../config/stationPerimeters';
@@ -100,7 +100,7 @@ export function createSurfaces(){
   sea:polygon([[-215,-185],[225,-185],[225,94],[-215,94]],-.60),river:ribbon(riverSamples,(_,v)=>riverWidth(v),-.58,0,0,true),canal:ribbon(canalSamples,9,-.57,0,0,true),reservoir:polygon(reservoirOutline,reservoirWaterHeight),
   beach:ribbon([...beachLine].reverse(),(u,v)=>{const a=beachLine[0],b=beachLine.at(-1)!,d=Math.min(Math.hypot(u-a[0],v-a[1]),Math.hypot(u-b[0],v-b[1]));const t=Math.min(1,d/4);return .03+4.97*t*t*(3-2*t);},.06,1.4,-.67),
   yard:polygon(dumpSite.footprint,.021),
-  dumpAccess:ribbon(dumpDriveway.points,dumpDriveway.width,.048),
+  dumpAccess:merged(dumpStreet.map(p=>polygon(p[0],.038,false,p.slice(1),1.6))),
   ruined:polygon([[18,-10],[45,-7],[54,-16],[47,-31],[29,-33],[21,-24]],.006),
  };
 }
