@@ -1002,39 +1002,39 @@
     "meshes": 5
   },
   {
-    "name": "waste-partial-low.glb",
-    "before": 50160,
-    "after": 38940,
-    "meshes": 6
-  },
-  {
-    "name": "waste-partial.glb",
-    "before": 72156,
-    "after": 56000,
-    "meshes": 6
-  },
-  {
-    "name": "waste-pile-low.glb",
-    "before": 115636,
-    "after": 87556,
-    "meshes": 9
-  },
-  {
-    "name": "waste-pile.glb",
-    "before": 164524,
-    "after": 125776,
-    "meshes": 9
-  },
-  {
     "name": "industrial-waste-low.glb",
-    "before": 99984,
-    "after": 74064,
+    "before": 81960,
+    "after": 33964,
     "meshes": 6
   },
   {
     "name": "industrial-waste.glb",
-    "before": 140480,
-    "after": 103756,
+    "before": 109984,
+    "after": 42516,
     "meshes": 6
+  },
+  {
+    "name": "waste-partial-low.glb",
+    "before": 42188,
+    "after": 26604,
+    "meshes": 9
+  },
+  {
+    "name": "waste-partial.glb",
+    "before": 58912,
+    "after": 31460,
+    "meshes": 9
+  },
+  {
+    "name": "waste-pile-low.glb",
+    "before": 108424,
+    "after": 50004,
+    "meshes": 10
+  },
+  {
+    "name": "waste-pile.glb",
+    "before": 159860,
+    "after": 65168,
+    "meshes": 10
   }
 ]

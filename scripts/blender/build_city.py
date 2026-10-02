@@ -129,10 +129,16 @@ for name,fn in asset_models.items():
 import json
 metadata_file=ROOT/'assets-source'/'model-attachments.json'
 existing=json.loads(metadata_file.read_text()) if metadata_file.exists() else {}
-existing.update(MODEL_ATTACHMENTS)
+built=set(asset_models)
+partial='--only' in sys.argv or '--expansion-only' in sys.argv
+# A partial build only owns the entries of the models it rebuilt; the others
+# keep their published bounds and sockets.
+existing.update({k:v for k,v in MODEL_ATTACHMENTS.items() if not partial or k in built})
 metadata_file.write_text(json.dumps(existing,indent=2))
 lod_file=ROOT/'assets-source'/'model-lods.json'
-lod_file.write_text(json.dumps(sorted(n for n in FUTURE_LOD_MODELS if (OUT/(n+'-low.glb')).exists()),indent=2))
+lods={n for n in FUTURE_LOD_MODELS if (OUT/(n+'-low.glb')).exists()}
+if partial and lod_file.exists():lods|=set(json.loads(lod_file.read_text()))-built
+lod_file.write_text(json.dumps(sorted(lods),indent=2))
 polish_file=ROOT/'assets-source'/'future-polish-notes.json'
 polish_notes=json.loads(polish_file.read_text()) if polish_file.exists() else {}
 polish_notes.update(FUTURE_POLISH_NOTES)
