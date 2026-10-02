@@ -102,7 +102,7 @@ export default function Diagnostic(){
    const tasks=window.ecoLongTasks??[],opening=ready||performance.now();
    const blocked=tasks.filter(t=>t.start<opening),longest=blocked.reduce((m,t)=>Math.max(m,t.duration),0),total=blocked.reduce((s,t)=>s+t.duration,0);
    root.innerHTML='';
-   const box=document.createElement('div');box.style.cssText='background:#1d1330e6;border-radius:10px;padding:8px 10px;pointer-events:auto;max-width:520px;margin:0 auto';
+   const box=document.createElement('div');box.style.cssText='background:#111b12e6;border-radius:10px;padding:8px 10px;pointer-events:auto;max-width:520px;margin:0 auto';
    const head=document.createElement('div');
    const gate=useShaderGate.getState(),programs=gl.info.programs?.length??0;
    head.textContent=`${gpu} · ${gl.domElement.width}×${gl.domElement.height} · sombras ${gl.shadowMap.enabled?'ligadas':'desligadas'} · abertura ${(opening/1000).toFixed(1)} s · travadas ${(total/1000).toFixed(1)} s (maior ${(longest/1000).toFixed(1)} s) · ${programs} programas · compilação paralela ${gl.extensions.has('KHR_parallel_shader_compile')?`sim (${((gate.compileMs??0)/1000).toFixed(1)} s)`:'não'}`;
@@ -116,7 +116,7 @@ export default function Diagnostic(){
    const text=document.createElement('span');text.textContent=status;text.style.flex='1';line.append(text);
    if(!run.current){
     const button=document.createElement('button');button.type='button';button.textContent=rows.length?'Medir de novo':'Medir esta vista';
-    button.style.cssText='font:600 13px system-ui,sans-serif;padding:8px 12px;border-radius:8px;border:0;background:#8d4dff;color:#fff';
+    button.style.cssText='font:600 13px system-ui,sans-serif;padding:8px 12px;border-radius:8px;border:0;background:#518f5b;color:#fff';
     button.onclick=()=>{run.current={variant:0,phase:'settle',since:performance.now(),frames:[],cpu:[],last:0,rows:[],undo:variants.current[0].apply()};render([],'Medindo… não toque na tela.');invalidate();};
     line.append(button);
    }

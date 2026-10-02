@@ -1,11 +1,11 @@
 /* Loaded directly by index.html so the opening never waits for React or Three. */
 @font-face { font-family: "Exo 2"; font-style: normal; font-weight: 100 900; font-display: swap; src: url('/assets/fonts/exo-2-variable.woff2') format('woff2'); }
-.game-loading { position: fixed; z-index: 1000; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; padding: max(24px, env(safe-area-inset-top)) 24px max(50px, env(safe-area-inset-bottom)); overflow: auto; color: #251b38; background: radial-gradient(ellipse at 50% 42%, #ece0ff 0%, #f7f5fc 55%); font-family: "Exo 2", sans-serif; text-align: center; opacity: 1; transition: opacity .48s ease, visibility .48s; }
+.game-loading { position: fixed; z-index: 1000; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; padding: max(24px, env(safe-area-inset-top)) 24px max(50px, env(safe-area-inset-bottom)); overflow: auto; color: #151f17; background: radial-gradient(ellipse at 50% 42%, #e9ffed 0%, #f7fcf8 55%); font-family: "Exo 2", sans-serif; text-align: center; opacity: 1; transition: opacity .48s ease, visibility .48s; }
 .game-loading[hidden] { display: none; }
 .loading-content { display: flex; flex-direction: column; align-items: center; width: min(100%, 400px); }
 .loading-logo { display: block; width: clamp(130px, 21dvh, 186px); height: auto; margin: 0 0 10px; }
 .loading-hero { position: relative; width: min(88vw, 430px, 62dvh); aspect-ratio: 5 / 3; margin: 4px 0 24px; isolation: isolate; }
-.loading-city svg { display: block; width: 100%; height: 100%; overflow: visible; border-radius: 28px; box-shadow: 0 18px 40px -18px #5d01c74d, 0 0 0 1px #ffffffb3 inset; }
+.loading-city svg { display: block; width: 100%; height: 100%; overflow: visible; border-radius: 28px; box-shadow: 0 18px 40px -18px #3f70454d, 0 0 0 1px #ffffffb3 inset; }
 .loading-city svg * { transform-box: view-box; }
 .loading-building { transform-box: fill-box; transform-origin: 50% 100%; animation: loading-rise .75s cubic-bezier(.22, 1.35, .4, 1) calc(.25s + var(--i) * .13s) both; }
 .loading-window { fill: #dff3ff; opacity: .85; animation: loading-light 4.2s ease-in-out calc(1.8s + var(--w) * .45s) infinite; }
@@ -30,19 +30,19 @@
 .loading-cloud { transform: translate(calc(var(--c) * 140px + 40px), var(--y)); }
 .loading-caption.loading-tip { animation: loading-tip .45s ease-out both; }
 .loading-copy { width: 100%; }
-.loading-title { margin: 0; color: #41058a; font-size: clamp(20px, 4.8vw, 26px); line-height: 1.25; font-weight: 850; }
-.loading-caption { margin: 10px 0 22px; color: #796a8d; font-size: 14px; line-height: 1.5; }
-.loading-track { position: relative; height: 10px; width: min(78%, 250px); margin: 0 auto; border: 1px solid #e3d9f0; border-radius: 99px; overflow: hidden; background: #eae3f2; box-shadow: inset 0 1px 2px #4d296212, 0 1px 0 #fff; }
-.loading-track span { position: absolute; inset: 0; width: 42%; border-radius: inherit; background: linear-gradient(90deg, #5900c5, #9228f3, #c28bff); animation: loading-energy 1.9s cubic-bezier(.45, 0, .55, 1) infinite; }
-.loading-signature { position: absolute; bottom: max(22px, env(safe-area-inset-bottom)); margin: 0; color: #8e7b9e; font-size: 9px; font-weight: 700; letter-spacing: 1.6px; }
+.loading-title { margin: 0; color: #1f4d27; font-size: clamp(20px, 4.8vw, 26px); line-height: 1.25; font-weight: 850; }
+.loading-caption { margin: 10px 0 22px; color: #677c6a; font-size: 14px; line-height: 1.5; }
+.loading-track { position: relative; height: 10px; width: min(78%, 250px); margin: 0 auto; border: 1px solid #e0f0e3; border-radius: 99px; overflow: hidden; background: #e8f2e9; box-shadow: inset 0 1px 2px #23372612, 0 1px 0 #fff; }
+.loading-track span { position: absolute; inset: 0; width: 42%; border-radius: inherit; background: linear-gradient(90deg, #2a6e35, #42884d, #aeffbb); animation: loading-energy 1.9s cubic-bezier(.45, 0, .55, 1) infinite; }
+.loading-signature { position: absolute; bottom: max(22px, env(safe-area-inset-bottom)); margin: 0; color: #758b79; font-size: 9px; font-weight: 700; letter-spacing: 1.6px; }
 .loading-error, .loading-retry { display: none; }
-.loading-no-script { position: fixed; z-index: 1001; bottom: 12%; inset-inline: 24px; color: #41058a; font: 18px "Exo 2", sans-serif; text-align: center; }
+.loading-no-script { position: fixed; z-index: 1001; bottom: 12%; inset-inline: 24px; color: #1f4d27; font: 18px "Exo 2", sans-serif; text-align: center; }
 .game-loading[data-state="ready"] { opacity: 0; visibility: hidden; }
 .game-loading[data-state="ready"] .loading-track span { width: 100%; animation: none; }
 .game-loading[data-state="error"] .loading-title, .game-loading[data-state="error"] .loading-caption, .game-loading[data-state="error"] .loading-track { display: none; }
 .game-loading[data-state="error"] .loading-error { display: block; margin: 0; font-size: 16px; line-height: 1.6; }
-.game-loading[data-state="error"] .loading-retry { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 25px; margin-top: 20px; border: 1px solid #ac5aff; border-radius: 17px; color: #fff; font: 750 16px "Exo 2", sans-serif; background: linear-gradient(165deg, #861bf0, #5900b8); box-shadow: inset 0 2px 0 #ffffff55, 0 4px 0 #380776; cursor: pointer; touch-action: manipulation; }
-.loading-retry:focus-visible { outline: 3px solid #b176ee; outline-offset: 5px; }
+.game-loading[data-state="error"] .loading-retry { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 25px; margin-top: 20px; border: 1px solid #568f5f; border-radius: 17px; color: #fff; font: 750 16px "Exo 2", sans-serif; background: linear-gradient(165deg, #5a8052, #276732); box-shadow: inset 0 2px 0 #ffffff55, 0 4px 0 #294b31; cursor: pointer; touch-action: manipulation; }
+.loading-retry:focus-visible { outline: 3px solid #5c8563; outline-offset: 5px; }
 .loading-retry:active { translate: 0 2px; }
 @keyframes loading-rise { 0% { transform: scaleY(0); } 70% { transform: scaleY(1.06); } 100% { transform: scaleY(1); } }
 @keyframes loading-light { 0%, 55%, 100% { fill: #dff3ff; } 65%, 90% { fill: #ffe38a; } }

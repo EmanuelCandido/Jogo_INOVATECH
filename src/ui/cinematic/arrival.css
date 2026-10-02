@@ -2,14 +2,14 @@
  * marks the beats (data-beat); these rules frame the shot and react to them.
  * It never plays with reduced motion. Entrances fill backwards only. */
 .arrival { --bar: clamp(26px, 8.5dvh, 78px); --hero-size: min(30dvh, 48vw, 250px); position: absolute; inset: 0; z-index: 25; overflow: hidden; pointer-events: none; }
-.arrival-bars i { position: absolute; left: 0; right: 0; height: var(--bar); background: #0c0420; transition: transform .3s ease-in; }
+.arrival-bars i { position: absolute; left: 0; right: 0; height: var(--bar); background: #08120a; transition: transform .3s ease-in; }
 .arrival-bars i:first-child { top: 0; animation: arrival-bar-top .6s cubic-bezier(.2, .8, .3, 1) backwards; }
 .arrival-bars i:last-child { bottom: 0; animation: arrival-bar-bottom .6s cubic-bezier(.2, .8, .3, 1) backwards; }
 .arrival:not([data-stage=playing]) .arrival-bars i:first-child { transform: translateY(-100%); }
 .arrival:not([data-stage=playing]) .arrival-bars i:last-child { transform: translateY(100%); }
 .arrival-trail { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity .25s; }
 .arrival:not([data-stage=playing]) .arrival-trail { opacity: 0; }
-.arrival-flash { position: absolute; inset: 0; opacity: 0; background: radial-gradient(circle at 50% 50%, #fffbe8 0, #eadcffcc 16%, #b98cff40 42%, #0000 70%); }
+.arrival-flash { position: absolute; inset: 0; opacity: 0; background: radial-gradient(circle at 50% 50%, #fffbe8 0, #e7ffebcc 16%, #afffbc40 42%, #0000 70%); }
 .arrival[data-stage=playing][data-beat=landed] .arrival-flash { animation: arrival-flash .6s ease-out; }
 
 /* Impactus: the box is his 768 px portrait; the timeline places it (from its
@@ -18,19 +18,19 @@
 .arrival-turn, .arrival-pose, .arrival-avatar { position: absolute; inset: 0; }
 .arrival-turn, .arrival-pose { will-change: transform; }
 .arrival-pose { transform-origin: 50% 93%; }
-.arrival-drawing { position: absolute; max-width: none; pointer-events: none; user-select: none; }
+.arrival-drawing { position: absolute; max-width: none; pointer-events: none; user-select: none; filter: url(#eco-green-accent); }
 .arrival-impact { position: absolute; left: 50%; top: 93%; width: 170%; aspect-ratio: 2.6; translate: -50% -50%; opacity: 0; border-radius: 50%; background: repeating-conic-gradient(from 4deg, #fff6d6 0 3deg, #0000 3deg 15deg); mask: radial-gradient(closest-side, #0000 42%, #000 58%, #0000 100%); }
 .arrival[data-stage=playing][data-beat=landed] .arrival-impact { animation: arrival-impact .7s cubic-bezier(.2, .8, .3, 1); }
-.arrival-bubble { position: absolute; left: 62%; top: 3%; padding: .4em .9em; border: 3px solid var(--ink); border-radius: 18px 18px 18px 4px; color: var(--ink); background: #fff; box-shadow: 0 4px 0 var(--ink), 0 10px 22px #1a064055; font-size: clamp(15px, 2.6dvh, 24px); font-weight: 900; line-height: 1.1; white-space: nowrap; opacity: 0; transform-origin: 0 100%; transition: opacity .15s; }
+.arrival-bubble { position: absolute; left: 62%; top: 3%; padding: .4em .9em; border: 3px solid var(--ink); border-radius: 18px 18px 18px 4px; color: var(--ink); background: #fff; box-shadow: 0 4px 0 var(--ink), 0 10px 22px #10241355; font-size: clamp(15px, 2.6dvh, 24px); font-weight: 900; line-height: 1.1; white-space: nowrap; opacity: 0; transform-origin: 0 100%; transition: opacity .15s; }
 .arrival[data-stage=playing][data-beat=landed] .arrival-bubble { opacity: 1; animation: arrival-bubble .5s cubic-bezier(.3, 1.6, .5, 1) .75s backwards; }
 
 /* Chapter card above the bottom bar, once he has landed. */
-.arrival-title { position: absolute; left: max(20px, env(safe-area-inset-left)); bottom: calc(var(--bar) + clamp(10px, 2.6dvh, 28px)); width: min(88vw, 560px); padding: 14px 28px 14px 4px; opacity: 0; background: radial-gradient(farthest-side at 30% 55%, #1d0848b8, #1d084800); text-shadow: 0 2px 0 var(--ink), 0 4px 14px #12042f; transition: opacity .2s; }
+.arrival-title { position: absolute; left: max(20px, env(safe-area-inset-left)); bottom: calc(var(--bar) + clamp(10px, 2.6dvh, 28px)); width: min(88vw, 560px); padding: 14px 28px 14px 4px; opacity: 0; background: radial-gradient(farthest-side at 30% 55%, #122816b8, #12281600); text-shadow: 0 2px 0 var(--ink), 0 4px 14px #0b1a0e; transition: opacity .2s; }
 .arrival-title h2 { font-size: clamp(34px, 7.4dvh, 66px); font-weight: 900; line-height: 1.05; letter-spacing: .01em; }
 .arrival-title p { margin-top: 2px; font-size: clamp(13px, 2.1dvh, 19px); font-weight: 700; white-space: pre-line; }
 .arrival[data-stage=playing][data-beat=landed] .arrival-title { opacity: 1; animation: arrival-title .8s cubic-bezier(.2, 1.2, .4, 1) .9s backwards; }
 
-.arrival-skip { position: absolute; right: max(16px, env(safe-area-inset-right)); bottom: calc(var(--bar) / 2 - 20px); display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 16px; border: 1px solid #ffffff65; border-radius: 99px; color: #fff; background: #331354db; box-shadow: 0 4px 16px #25113c33; font-size: 13px; font-weight: 700; animation: arrival-skip .4s ease-out .5s backwards; }
+.arrival-skip { position: absolute; right: max(16px, env(safe-area-inset-right)); bottom: calc(var(--bar) / 2 - 20px); display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 16px; border: 1px solid #ffffff65; border-radius: 99px; color: #fff; background: #182f1cdb; box-shadow: 0 4px 16px #13221533; font-size: 13px; font-weight: 700; animation: arrival-skip .4s ease-out .5s backwards; }
 .arrival-skip:hover:enabled { filter: brightness(1.2); }
 .arrival-skip .hud-icon { width: 18px; height: 18px; }
 .arrival:not([data-stage=playing]) .arrival-skip { visibility: hidden; }

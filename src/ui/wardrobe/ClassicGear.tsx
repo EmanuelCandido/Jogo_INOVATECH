@@ -16,7 +16,7 @@ export function ClassicHat({item,pose,uid}:{item:Accessory;pose:CharacterPose;ui
   return <g data-slot="hat" data-fitting="worn-silhouette" className="wearable-reveal" transform={headTransform(pose)}>
     <g transform={art.registration}>
       <defs><filter id={uid+'-classic-contact'} x="-.1" y="-.2" width="1.2" height="1.5"><feGaussianBlur stdDeviation="1.4"/></filter></defs>
-      {art.contact&&<path d={art.contact} fill="none" stroke="#231526" strokeWidth="5" opacity=".24" filter={'url(#'+uid+'-classic-contact)'}/>}
+      {art.contact&&<path d={art.contact} fill="none" stroke="#172119" strokeWidth="5" opacity=".24" filter={'url(#'+uid+'-classic-contact)'}/>}
       <image href={classicSource(item.id)} width="768" height="768"/>
     </g>
   </g>;

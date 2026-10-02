@@ -11,7 +11,7 @@ export const arrivalStage={hero:null as HTMLElement|null,turn:null as HTMLElemen
 type TrailPoint={x:number;y:number;width:number;t:number};
 type Spark={x:number;y:number;vx:number;vy:number;t:number;size:number;color:string};
 const trail:TrailPoint[]=[],sparks:Spark[]=[];
-const trailLife=.42,sparkLife=.65,sparkColors=['#ffe187','#d9c2ff','#ffffff','#b98cff'];
+const trailLife=.42,sparkLife=.65,sparkColors=['#ffe187','#d4ffdb','#ffffff','#afffbc'];
 let lastSpark=0;
 export function resetArrivalStage(){trail.length=0;sparks.length=0;lastSpark=0;}
 
@@ -80,7 +80,7 @@ function drawTrail(t:number,pose:ArrivalHeroPose,size:number){
  if(pose.visible&&pose.glow>0){
   // Far away he is a twinkling star; the glint fades as he grows.
   const radius=26*pose.glow*(1+.18*Math.sin(t*19)),glow=context.createRadialGradient(cx,cy,0,cx,cy,radius);
-  glow.addColorStop(0,`rgba(255,255,255,${pose.glow})`);glow.addColorStop(.35,`rgba(214,190,255,${.7*pose.glow})`);glow.addColorStop(1,'rgba(150,90,255,0)');
+  glow.addColorStop(0,`rgba(255,255,255,${pose.glow})`);glow.addColorStop(.35,`rgba(210,255,217,${.7*pose.glow})`);glow.addColorStop(1,'rgba(86,143,95,0)');
   context.fillStyle=glow;context.beginPath();context.arc(cx,cy,radius,0,Math.PI*2);context.fill();
   context.strokeStyle=`rgba(255,255,255,${.8*pose.glow})`;context.lineWidth=1.5;
   const flare=radius*1.9;

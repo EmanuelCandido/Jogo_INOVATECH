@@ -3,6 +3,7 @@ import { useGame } from "../stores/gameStore";
 import { GameUI } from "../ui/GameUI";
 import { useLoadingScreen } from "../ui/useLoadingScreen";
 import { useGameAudio } from "../audio/useGameAudio";
+import { GreenAccentFilter } from "../ui/GreenAccentFilter";
 const World = lazy(() => import("./World"));
 class SceneBoundary extends Component<
   { children: ReactNode; onError: () => void },
@@ -34,6 +35,7 @@ export default function App() {
     <main
       className={`game ${settings.reducedMotion ? "reduced-motion" : ""} ${selected && phase!=="RETURNING" ? "focused" : ""}`}
     >
+      <GreenAccentFilter />
       <div className="world" inert={!revealed || Boolean(overlay)} aria-hidden={!revealed} aria-label="Diorama 3D da Praça do Encontro">
         <SceneBoundary onError={onError}>
           <Suspense fallback={null}>

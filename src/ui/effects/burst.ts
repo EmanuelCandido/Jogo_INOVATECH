@@ -31,7 +31,7 @@ export function sparkleBurst(around:Element,count=12){
  if(reduced())return;
  const {x,y}=centre(around),r=around.getBoundingClientRect(),radius=Math.max(r.width,r.height)*.42;
  const layer=document.createElement('div');layer.className='fx-layer';layer.setAttribute('aria-hidden','true');document.body.append(layer);
- const colours=['#ffd35c','#c792ff','#7fe0c0','#ff9fb8'];
+ const colours=['#ffd35c','#b3ffbf','#7fe0c0','#ff9fb8'];
  const sparks=Array.from({length:count},(_,i)=>{
   const s=document.createElement('span');s.className='fx-spark';s.style.background=colours[i%colours.length];layer.append(s);
   const a=i/count*Math.PI*2,d=radius*(.7+Math.random()*.5);
@@ -48,7 +48,7 @@ export function sparkleBurst(around:Element,count=12){
 export function fireworks(duration=4200){
  if(reduced())return ()=>{};
  const layer=document.createElement('div');layer.className='fx-layer';layer.setAttribute('aria-hidden','true');document.body.append(layer);
- const colours=['#ffd35c','#c792ff','#7fe0c0','#ff9fb8','#8fd3ff','#ffffff'];
+ const colours=['#ffd35c','#b3ffbf','#7fe0c0','#ff9fb8','#8fd3ff','#ffffff'];
  const w=window.innerWidth,h=window.innerHeight,timers:number[]=[];
  const add=(className:string,colour:string)=>{const s=document.createElement('span');s.className=className;s.style.background=colour;s.style.color=colour;layer.append(s);return s;};
  const bursts=Math.round(Math.min(9,Math.max(5,w/170)));

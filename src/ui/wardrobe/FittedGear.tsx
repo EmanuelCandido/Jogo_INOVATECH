@@ -21,7 +21,7 @@ export function FittedHeadwear({item,pose,uid}:{item:Accessory;pose:CharacterPos
       <defs>
         <filter id={uid+'-brim-shade'} x="-.1" y="-.2" width="1.2" height="1.5"><feGaussianBlur stdDeviation="2"/></filter>
       </defs>
-      {art.headContact&&<path d={art.headContact} fill="none" stroke="#211326" strokeWidth="8" opacity=".32" filter={`url(#${uid}-brim-shade)`}/>}
+      {art.headContact&&<path d={art.headContact} fill="none" stroke="#162118" strokeWidth="8" opacity=".32" filter={`url(#${uid}-brim-shade)`}/>}
       <image href={gearSource(item,'head')} width="768" height="768"/>
     </g></g>
   </g>;

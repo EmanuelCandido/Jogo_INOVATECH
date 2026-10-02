@@ -12,7 +12,7 @@ export function Garment({ item, uid }: { item: Accessory; uid: string }) {
       <linearGradient id={`${uid}-cloth`} x1="0" y1="0" x2="1" y2=".65">
         <stop stopColor={item.color} /><stop offset=".28" stopColor={item.light} /><stop offset=".56" stopColor={item.color} /><stop offset=".78" stopColor={item.light} /><stop offset="1" stopColor={item.color} />
       </linearGradient>
-      <linearGradient id={`${uid}-shade`} x2="0" y2="1"><stop stopColor="#fff" stopOpacity=".4"/><stop offset=".4" stopColor="#fff" stopOpacity="0"/><stop offset="1" stopColor="#171023" stopOpacity=".48"/></linearGradient>
+      <linearGradient id={`${uid}-shade`} x2="0" y2="1"><stop stopColor="#fff" stopOpacity=".4"/><stop offset=".4" stopColor="#fff" stopOpacity="0"/><stop offset="1" stopColor="#0d140e" stopOpacity=".48"/></linearGradient>
     </defs>
     {item.slot === 'cape' && <g>
       <path d="M64 31Q89 13 116 31L150 137Q126 125 108 146Q87 130 69 148Q49 128 27 139Z" fill={gradient} stroke={item.color} strokeWidth="3"/>
@@ -27,7 +27,7 @@ export function Garment({ item, uid }: { item: Accessory; uid: string }) {
       <path d="M43 32 69 22Q90 38 111 22L138 32 160 77 134 88 125 65 133 148Q90 159 47 148L55 65 46 88 20 77Z" fill={gradient} stroke={item.color} strokeWidth="3" strokeLinejoin="round"/>
       <path d="M43 32 69 22Q90 38 111 22L138 32 160 77 134 88 125 65 133 148Q90 159 47 148L55 65 46 88 20 77Z" fill={shade}/>
       <path d="M71 24 62 43 82 62 90 34 99 62 119 43 109 24M50 137Q90 147 130 137M23 70 48 81M135 81 157 70" fill="none" stroke={trim} strokeWidth="5" strokeLinejoin="round"/>
-      <path d="M90 40v103" stroke="#252235" strokeOpacity=".8" strokeWidth="5"/><path d="M91 42v99" stroke={trim} strokeWidth="2"/>
+      <path d="M90 40v103" stroke="#232f25" strokeOpacity=".8" strokeWidth="5"/><path d="M91 42v99" stroke={trim} strokeWidth="2"/>
       <rect x="91" y="75" width="5" height="12" rx="2" fill={trim}/>
       <path d="M57 102v21q12 8 23 0v-21zm45 0v21q12 8 23 0v-21z" fill={item.color} stroke={trim} strokeWidth="1.5"/>
       <path d="M58 103h20m26 0h19" stroke={trim} strokeWidth="4"/>

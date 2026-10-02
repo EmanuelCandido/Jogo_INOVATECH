@@ -21,9 +21,9 @@ export function HudIcon({ name, className='' }: { name: HudIconName; className?:
   return <svg className={`hud-icon ${className}`} viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{paths[name]}</svg>;
 }
 
-type HudControlProps = ComponentProps<'button'> & { icon: HudIconName; label: string; tone?: 'violet' | 'quiet' };
+type HudControlProps = ComponentProps<'button'> & { icon: HudIconName; label: string; tone?: 'green' | 'quiet' };
 
 /** The button owns its shape, hit area and interaction states; SVG is only the glyph. */
-export function HudControl({ icon, label, tone='violet', className='', ...props }: HudControlProps) {
+export function HudControl({ icon, label, tone='green', className='', ...props }: HudControlProps) {
   return <button type="button" className={`hud-control hud-control-${tone} ${className}`} aria-label={label} title={label} {...props}><HudIcon name={icon}/></button>;
 }

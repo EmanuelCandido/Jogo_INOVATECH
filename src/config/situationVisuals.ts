@@ -115,7 +115,7 @@ function build(id:string,state:VisualKey):SituationVisual{
   else if(partial){railing(-1.8,-.05,1.8);railing(.5,-1.6,.7);}
   else{cone(-.8,-.35);box([-2.2,.35,-.38],[.43,.6,.4],'#8a9c91');}
   // A cane and a small person make the orientation problem visible.
-  d('leaf',[-3.1,.9,-.25],[.12,.14,.12],'#bd906c');box([-3.1,.59,-.25],[.22,.35,.18],'#8165a2');
+  d('leaf',[-3.1,.9,-.25],[.12,.14,.12],'#bd906c');box([-3.1,.59,-.25],[.22,.35,.18],'#698f6f');
   for(const x of [-3.17,-3.03])box([x,.25,-.25],[.065,.35,.08],'#526b79');d('cylinder',[-2.86,.39,-.13],[.012,.65,.012],'#f0ecd8',[0,0,.2]);
  }
  if(id==='accessibility_01'){

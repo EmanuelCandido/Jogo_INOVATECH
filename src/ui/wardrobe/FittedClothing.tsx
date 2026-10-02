@@ -19,13 +19,13 @@ export function FittedClothing({item,pose,uid,source,front}:{item:Accessory;pose
       <clipPath id={clothId}><path d={outline}/></clipPath>
       <clipPath id={frontId}><path d={front}/></clipPath>
       <clipPath id={footprintId}><path d={outline} transform={torsoTransform(pose)}/></clipPath>
-      <filter id={uid+'-cloth-contact'} x="-.05" y="-.05" width="1.1" height="1.15"><feDropShadow dx=".7" dy="2" stdDeviation="1.4" floodColor="#1d122c" floodOpacity=".5"/></filter>
+      <filter id={uid+'-cloth-contact'} x="-.05" y="-.05" width="1.1" height="1.15"><feDropShadow dx=".7" dy="2" stdDeviation="1.4" floodColor="#101911" floodOpacity=".5"/></filter>
       {!item.collection&&<filter id={uid+'-legacy-fabric'} colorInterpolationFilters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer>{['R','G','B'].map((channel,i)=>{
         const Component=({'R':'feFuncR','G':'feFuncG','B':'feFuncB'} as const)[channel as 'R'|'G'|'B'];
         const dark=parseInt(item.color.slice(1+i*2,3+i*2),16)/255,light=parseInt(item.light.slice(1+i*2,3+i*2),16)/255;
         return <Component key={channel} type="table" tableValues={`0 ${dark*.75} ${dark} ${light} 1`}/>;
       })}</feComponentTransfer></filter>}
-      <linearGradient id={uid+'-cloth-volume'}><stop stopColor="#0e0a20" stopOpacity=".38"/><stop offset=".19" stopColor="#fff2cf" stopOpacity=".12"/><stop offset=".48" stopColor="#fff" stopOpacity="0"/><stop offset=".84" stopColor="#1b1330" stopOpacity=".08"/><stop offset="1" stopColor="#120925" stopOpacity=".4"/></linearGradient>
+      <linearGradient id={uid+'-cloth-volume'}><stop stopColor="#0a120c" stopOpacity=".38"/><stop offset=".19" stopColor="#fff2cf" stopOpacity=".12"/><stop offset=".48" stopColor="#fff" stopOpacity="0"/><stop offset=".84" stopColor="#111b12" stopOpacity=".08"/><stop offset="1" stopColor="#0b150d" stopOpacity=".4"/></linearGradient>
     </defs>
     <g transform={torsoTransform(pose)} filter={`url(#${uid}-cloth-contact)`}>
       <g clipPath={`url(#${clothId})`}>

@@ -51,7 +51,7 @@ function shrub(x:number,z:number,size:number,seed:number,flowers=false){
  const flowerStart=landscapeDetails.length;
  if(flowers)for(let i=0;i<5;i++){
   const a=i*2.4+seed,r=Math.sqrt(rand(seed+i+9))*size*.42;
-  detail('leaf',[x+Math.cos(a)*r,y+.15+size*.5,z+Math.sin(a)*r],[.062,.04,.062],seed%3<1?'#e3bd5e':seed%3<2?'#c0a1d2':'#f0dec1');
+  detail('leaf',[x+Math.cos(a)*r,y+.15+size*.5,z+Math.sin(a)*r],[.062,.04,.062],seed%3<1?'#e3bd5e':seed%3<2?'#b0d2b5':'#f0dec1');
  }
  for(const p of landscapeDetails.slice(flowerStart)){p.cluster=cluster;p.category='flower';}
 }

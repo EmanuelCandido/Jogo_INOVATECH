@@ -5,7 +5,7 @@
 
 /* Coin and spark particles (src/ui/effects/burst.ts). */
 .fx-layer { position: fixed; inset: 0; z-index: 2000; pointer-events: none; overflow: hidden; }
-.fx-coin { position: absolute; left: 0; top: 0; width: 26px; height: 26px; filter: drop-shadow(0 3px 3px #3a137033); will-change: transform; }
+.fx-coin { position: absolute; left: 0; top: 0; width: 26px; height: 26px; filter: drop-shadow(0 3px 3px #1e3f2433); will-change: transform; }
 .fx-spark { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 2px; box-shadow: 0 0 8px currentColor; will-change: transform; }
 
 /* Title: the logo floats and the play button glows with a moving shine.
@@ -49,8 +49,8 @@
 /* Shop: a striped shutter rolls up over the showcase, the spotlight turns on
  * and the catalogue pops in piece by piece. The showcase settles completely:
  * outfit previews are compared pixel by pixel. */
-.hud-overlay[data-state=open] .shop-screen::after { content: 'LOJA ABERTA'; position: absolute; inset: 0; z-index: 50; display: grid; place-items: center; color: #fff; font: 900 clamp(20px, 5vw, 34px) "Exo 2", sans-serif; letter-spacing: 6px; text-shadow: 0 3px 0 #3a0680; background: repeating-linear-gradient(180deg, #7414dc 0 22px, #5d01c7 22px 26px, #6a0bd4 26px 48px); box-shadow: 0 10px 30px #2d0b5a55; pointer-events: none; transform: translateY(-104%); animation: shutter-up .75s cubic-bezier(.7, 0, .25, 1) .22s backwards; }
-.shop-showcase::before { content: ''; position: absolute; z-index: -2; width: min(460px, 110%); aspect-ratio: 1; border-radius: 50%; background: repeating-conic-gradient(from 0deg, #b98cff40 0 9deg, #fff0 9deg 22deg); mask: radial-gradient(circle, #000 20%, #0000 68%); animation: rays-in 1.2s cubic-bezier(.2, .8, .3, 1) .7s backwards; }
+.hud-overlay[data-state=open] .shop-screen::after { content: 'LOJA ABERTA'; position: absolute; inset: 0; z-index: 50; display: grid; place-items: center; color: #fff; font: 900 clamp(20px, 5vw, 34px) "Exo 2", sans-serif; letter-spacing: 6px; text-shadow: 0 3px 0 #1d4824; background: repeating-linear-gradient(180deg, #367b41 0 22px, #3f7045 22px 26px, #31773d 26px 48px); box-shadow: 0 10px 30px #17321c55; pointer-events: none; transform: translateY(-104%); animation: shutter-up .75s cubic-bezier(.7, 0, .25, 1) .22s backwards; }
+.shop-showcase::before { content: ''; position: absolute; z-index: -2; width: min(460px, 110%); aspect-ratio: 1; border-radius: 50%; background: repeating-conic-gradient(from 0deg, #afffbc40 0 9deg, #fff0 9deg 22deg); mask: radial-gradient(circle, #000 20%, #0000 68%); animation: rays-in 1.2s cubic-bezier(.2, .8, .3, 1) .7s backwards; }
 .hud-overlay[data-state=open] .shop-avatar { animation: avatar-land .9s cubic-bezier(.2, 1.35, .4, 1) .55s backwards; }
 .hud-overlay[data-state=open] .avatar-name { animation: hud-row .5s var(--hud-ease) .9s backwards; }
 .hud-overlay[data-state=open] .shop-topbar { animation: shop-drop .6s cubic-bezier(.2, 1.3, .4, 1) .7s backwards; }
@@ -74,7 +74,7 @@
 @keyframes mission-reveal { from { clip-path: circle(0 at calc(100% - 76px) 150px); } to { clip-path: circle(160% at calc(100% - 76px) 150px); } }
 @keyframes mission-unfold { from { opacity: 0; transform: perspective(900px) rotateX(-70deg) translateY(-24px); } 60% { opacity: 1; } to { opacity: 1; transform: perspective(900px) rotateX(0) translateY(0); } }
 @keyframes medal-in { from { opacity: 0; transform: scale(0) rotate(-200deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
-@keyframes medal-glow { 0%, 100% { box-shadow: 0 0 0 0 #c792ff00; } 50% { box-shadow: 0 0 0 7px #c792ff33; } }
+@keyframes medal-glow { 0%, 100% { box-shadow: 0 0 0 0 #b3ffbf00; } 50% { box-shadow: 0 0 0 7px #b3ffbf33; } }
 @keyframes bar-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes mission-card { from { opacity: 0; translate: 40px 0; rotate: 2deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
 @keyframes claim-ready { 0%, 100% { outline: 0 solid #25b98a00; outline-offset: 0; } 50% { outline: 6px solid #25b98a2e; outline-offset: 1px; } }
