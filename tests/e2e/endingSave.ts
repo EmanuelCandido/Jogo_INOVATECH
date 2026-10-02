@@ -5,10 +5,9 @@ import {situations} from '../../src/content/situations';
 export function lastSolutionSave({misses=0,endingSeen=false,phase='RESULT'}:{misses?:number;endingSeen?:boolean;phase?:'RESULT'|'OVERVIEW'}={}){
  const decisions:{problemId:string;alternativeId:string;effectiveness:string;cost:number;turn:number}[]=[];
  situations.forEach((s,i)=>{
-  const costs=s.costBand==='community'?{COMPLETE:70,NONE:20}:{COMPLETE:80,NONE:20};
   const wrong=s.answers.find(a=>a.effectiveness==='NONE')!,right=s.answers.find(a=>a.effectiveness==='COMPLETE')!;
-  if(i<misses)decisions.push({problemId:s.id,alternativeId:wrong.id,effectiveness:'NONE',cost:costs.NONE,turn:0});
-  decisions.push({problemId:s.id,alternativeId:right.id,effectiveness:'COMPLETE',cost:costs.COMPLETE,turn:0});
+  if(i<misses)decisions.push({problemId:s.id,alternativeId:wrong.id,effectiveness:'NONE',cost:wrong.cost,turn:0});
+  decisions.push({problemId:s.id,alternativeId:right.id,effectiveness:'COMPLETE',cost:right.cost,turn:0});
  });
  decisions.forEach((d,i)=>{d.turn=i+1;});
  const last=decisions.at(-1)!.problemId;

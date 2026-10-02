@@ -1,9 +1,8 @@
 import type {Question} from '../game/types';
 import {situations} from './situations';
-import {balance} from './balance';
 const states={COMPLETE:'SOLVED',TEMPORARY:'TEMPORARILY_SOLVED',NONE:'AVAILABLE'} as const;
 export const questions:Record<string,Question>=Object.fromEntries(situations.map(s=>[s.questionId,{
- id:s.questionId,text:s.question,alternatives:s.answers.map(a=>({...a,cost:balance.costs[s.costBand][a.effectiveness],resultState:states[a.effectiveness]})) as Question['alternatives']
+ id:s.questionId,text:s.question,alternatives:s.answers.map(a=>({...a,resultState:states[a.effectiveness]})) as Question['alternatives']
 }]));
 export const tutorialQuestion:Question={id:'arrival_tutorial',text:'O que deve fazer primeiro?',alternatives:[
  {id:'observe',text:'Observar a cidade, identificar os problemas e entender cada situação antes de tomar uma decisão.',cost:0,effectiveness:'COMPLETE',explanation:'Faz sentido. Primeiro eu preciso entender o que está acontecendo.\nCada parte da cidade pode ter um problema diferente… e cada decisão vai ter uma consequência.\nÉ melhor começar a investigar.',consequence:'Observar antes de decidir.',resultState:'SOLVED'},

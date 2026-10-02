@@ -1,5 +1,5 @@
 import type {Category,CharacterPose,Effectiveness,Vec3} from '../game/types';
-export interface SituationContent {id:string;category:Category;title:string;regionName:string;worldPosition:Vec3;markerIcon:string;comment:string;characterPose:CharacterPose;unlockAfter:number;questionId:string;description:string;question:string;costBand:'standard'|'community';answers:{id:string;text:string;effectiveness:Effectiveness;explanation:string;consequence:string}[]}
+export interface SituationContent {id:string;category:Category;title:string;regionName:string;worldPosition:Vec3;markerIcon:string;comment:string;characterPose:CharacterPose;unlockAfter:number;questionId:string;description:string;question:string;answers:{id:string;text:string;cost:number;effectiveness:Effectiveness;explanation:string;consequence:string}[]}
 // Editorial content is independent of rendering and question order.
 export const situations:SituationContent[]=[
   {
@@ -13,33 +13,35 @@ export const situations:SituationContent[]=[
       6.5
     ],
     "markerIcon": "♻",
-    "comment": "Os resíduos chegaram perto dos animais. Vamos observar de onde vem esse acúmulo.",
+    "comment": "O lixo está chegando perto dos animais. Vamos investigar!",
     "characterPose": "character_thinking",
     "unlockAfter": 0,
     "questionId": "waste",
-    "description": "Em vários bairros da cidade, as pessoas estão jogando lixo nas ruas e em terrenos vazios. Além de deixar a cidade suja, o lixo está chegando a áreas onde vivem animais, que acabam ingerindo resíduos ou se machucando. Se nada for feito, a quantidade de lixo continuará aumentando.",
-    "question": "O que a cidade deve fazer para reduzir o lixo jogado nas ruas?",
-    "costBand": "community",
+    "description": "Há lixo nas ruas e perto dos animais. Eles podem se machucar, e a sujeira aumenta a cada dia.",
+    "question": "Como diminuir o lixo nas ruas?",
     "answers": [
       {
         "id": "collection",
-        "text": "Instalar mais lixeiras e pontos de coleta seletiva, realizar campanhas de conscientização e melhorar a coleta de lixo.",
+        "text": "Melhorar a coleta, instalar lixeiras e ensinar a separar o lixo.",
+        "cost": 60,
         "effectiveness": "COMPLETE",
-        "explanation": "Boa escolha! Além de orientar a população, agora existem locais adequados para descartar os resíduos.",
+        "explanation": "Boa escolha! Com coleta e lixeiras, o lixo vai para o lugar certo.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "cleanup",
-        "text": "Criar leis mais rígidas e aplicar multas para quem jogar lixo nas ruas.",
+        "text": "Aplicar multas a quem jogar lixo nas ruas.",
+        "cost": 90,
         "effectiveness": "TEMPORARY",
-        "explanation": "As multas podem diminuir o problema, mas ainda faltam locais adequados para o descarte.",
+        "explanation": "As multas ajudam, mas ainda faltam lugares para jogar o lixo.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "banner",
-        "text": "Colocar apenas cartazes pela cidade dizendo para não jogar lixo no chão.",
+        "text": "Colocar cartazes pedindo para não jogar lixo no chão.",
+        "cost": 35,
         "effectiveness": "NONE",
-        "explanation": "Os cartazes alertam as pessoas, mas o lixo continua sem ter um destino adequado.",
+        "explanation": "Os cartazes avisam, mas o lixo ainda fica sem destino.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -55,33 +57,35 @@ export const situations:SituationContent[]=[
       -11
     ],
     "markerIcon": "🚍",
-    "comment": "Há muitos carros nesta avenida e pouca opção para quem precisa de ônibus.",
+    "comment": "Há muitos carros e poucos ônibus nesta avenida.",
     "characterPose": "character_thinking",
     "unlockAfter": 2,
     "questionId": "transport",
-    "description": "A cidade possui muitos carros circulando ao mesmo tempo, principalmente veículos movidos a gasolina. O trânsito está aumentando e, junto com ele, a quantidade de poluentes liberados no ar. Cada vez mais pessoas usam carros particulares porque o transporte público não consegue atender bem a população.",
-    "question": "Qual seria a melhor forma de diminuir a quantidade de carros poluentes circulando pela cidade?",
-    "costBand": "standard",
+    "description": "Muita gente usa carro porque faltam ônibus. O trânsito aumenta e a fumaça dos carros polui o ar.",
+    "question": "Como reduzir os carros poluentes?",
     "answers": [
       {
         "id": "public_transport",
-        "text": "Investir em transporte público de qualidade, com veículos suficientes para atender mais pessoas.",
+        "text": "Oferecer mais ônibus, com conforto e horários confiáveis.",
+        "cost": 90,
         "effectiveness": "COMPLETE",
-        "explanation": "Um transporte público suficiente e confiável oferece uma alternativa real ao carro particular. A avenida ganhou mais ônibus e menos carros.",
+        "explanation": "Com mais ônibus e bons horários, mais pessoas podem deixar o carro em casa.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "fares",
-        "text": "Dar descontos e benefícios nas passagens de ônibus.",
+        "text": "Dar descontos nas passagens dos ônibus que já existem.",
+        "cost": 45,
         "effectiveness": "TEMPORARY",
-        "explanation": "A tarifa menor facilita o uso, mas a quantidade de ônibus continua insuficiente.",
+        "explanation": "A passagem mais barata ajuda, mas ainda faltam ônibus.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "lectures",
-        "text": "Fazer apenas palestras explicando que os carros poluem.",
+        "text": "Fazer palestras sobre a poluição causada pelos carros.",
+        "cost": 100,
         "effectiveness": "NONE",
-        "explanation": "Informar ajuda a compreender o problema, mas sem uma alternativa de transporte os carros continuam circulando.",
+        "explanation": "As palestras informam, mas as pessoas ainda precisam de mais ônibus.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -97,33 +101,35 @@ export const situations:SituationContent[]=[
       -28
     ],
     "markerIcon": "⚠",
-    "comment": "Há animais perto da pista. Eles e as pessoas que passam por aqui correm risco.",
+    "comment": "Os animais estão perto dos carros. Que perigo!",
     "characterPose": "character_alert",
     "unlockAfter": 2,
     "questionId": "road_animals",
-    "description": "Com a construção de novos prédios, alguns animais estão perdendo partes do seu habitat e começando a procurar novos lugares para viver. Durante esse deslocamento, muitos acabam chegando às estradas da cidade, onde correm risco de serem atropelados e também podem causar acidentes.",
-    "question": "O que deve ser feito para proteger os animais que estão chegando às estradas?",
-    "costBand": "community",
+    "description": "Os animais perderam parte da floresta onde vivem. Agora chegam à estrada e correm risco de atropelamento.",
+    "question": "Como proteger os animais na estrada?",
     "answers": [
       {
         "id": "rescue",
-        "text": "Resgatar os animais e levá-los para um local seguro e adequado, onde possam receber alimento e proteção.",
+        "text": "Chamar uma equipe para levar os animais a um lugar seguro.",
+        "cost": 45,
         "effectiveness": "COMPLETE",
-        "explanation": "Uma equipe capacitada encaminhou os animais para um local adequado. A pista ficou mais segura, e a proteção do habitat continua necessária.",
+        "explanation": "A equipe protegeu os animais. Também precisamos cuidar da floresta onde vivem.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "food",
-        "text": "Deixar comida para os animais próximos da estrada, sem retirá-los do local.",
+        "text": "Deixar comida para os animais perto da estrada.",
+        "cost": 80,
         "effectiveness": "TEMPORARY",
-        "explanation": "A comida mantém os animais perto dos veículos. Eles continuam expostos ao risco de atropelamento.",
+        "explanation": "A comida atrai os animais para perto dos carros. O perigo continua.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "ignore",
-        "text": "Apenas passar pelo local e não fazer nada.",
+        "text": "Passar pelos animais sem fazer nada para protegê-los.",
+        "cost": 60,
         "effectiveness": "NONE",
-        "explanation": "Sem uma ação de proteção, os animais permanecem na estrada e o risco de acidente continua.",
+        "explanation": "Sem ajuda, os animais continuam na estrada e podem se machucar.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -139,33 +145,35 @@ export const situations:SituationContent[]=[
       12.6
     ],
     "markerIcon": "🛡",
-    "comment": "Neste trecho, pedir ajuda rapidamente parece difícil. Que estrutura está faltando?",
+    "comment": "Aqui é difícil pedir ajuda. O que está faltando?",
     "characterPose": "character_alert",
     "unlockAfter": 4,
     "questionId": "street_safety",
-    "description": "Algumas regiões da cidade estão registrando acidentes e situações de insegurança. Em certos locais, as pessoas têm dificuldade para pedir ajuda rapidamente e há pouca presença de equipes de segurança.",
-    "question": "Qual medida pode tornar esses locais mais seguros para a população?",
-    "costBand": "standard",
+    "description": "Há acidentes e perigo nestas ruas. Faltam equipes de segurança, e as pessoas não conseguem pedir ajuda rapidamente.",
+    "question": "Como deixar estas ruas mais seguras?",
     "answers": [
       {
         "id": "emergency",
-        "text": "Instalar botões de emergência em pontos estratégicos e aumentar o policiamento nas regiões com mais ocorrências.",
+        "text": "Instalar botões de emergência e colocar mais equipes nas ruas.",
+        "cost": 85,
         "effectiveness": "COMPLETE",
-        "explanation": "Os pontos de emergência e as equipes presentes permitem pedir e receber ajuda mais rapidamente.",
+        "explanation": "Agora as pessoas podem chamar ajuda e receber atendimento mais rápido.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "cameras",
-        "text": "Instalar câmeras de segurança nos locais com mais problemas.",
+        "text": "Instalar câmeras nas ruas onde há mais problemas.",
+        "cost": 60,
         "effectiveness": "TEMPORARY",
-        "explanation": "As câmeras ajudam a acompanhar a região, mas ainda falta uma resposta rápida no local.",
+        "explanation": "As câmeras mostram o que acontece, mas ainda faltam equipes para ajudar.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "signs",
-        "text": "Colocar apenas placas pedindo para as pessoas tomarem cuidado.",
+        "text": "Colocar placas pedindo cuidado a quem passa por ali.",
+        "cost": 35,
         "effectiveness": "NONE",
-        "explanation": "As placas chamam a atenção, mas não oferecem uma forma de pedir ajuda nem ampliam a presença das equipes.",
+        "explanation": "As placas avisam, mas não ajudam a chamar as equipes de segurança.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -181,33 +189,35 @@ export const situations:SituationContent[]=[
       -27
     ],
     "markerIcon": "🦋",
-    "comment": "Este habitat está ficando menor. Trazer animais de volta basta se eles não tiverem onde viver?",
+    "comment": "Os animais estão perdendo seu lar. Como protegê-los?",
     "characterPose": "character_thinking",
     "unlockAfter": 4,
     "questionId": "habitat",
-    "description": "Algumas espécies da região estão diminuindo porque estão perdendo seus habitats. Além disso, ações como a caça ilegal aumentam ainda mais o risco de esses animais desaparecerem da natureza.",
-    "question": "Qual ação pode ajudar de forma mais completa a proteger essas espécies?",
-    "costBand": "community",
+    "description": "Alguns animais estão desaparecendo. A caça e a perda dos lugares onde vivem colocam essas espécies em perigo.",
+    "question": "Como proteger as espécies ameaçadas?",
     "answers": [
       {
         "id": "restore",
-        "text": "Proteger e recuperar os habitats onde esses animais vivem.",
+        "text": "Proteger e recuperar os lugares onde os animais vivem.",
+        "cost": 65,
         "effectiveness": "COMPLETE",
-        "explanation": "A recuperação e a proteção do habitat devolvem alimento, abrigo e espaço para as espécies.",
+        "explanation": "Com seu lar protegido, os animais têm comida, abrigo e espaço para viver.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "reintroduce",
-        "text": "Reintroduzir animais da espécie na natureza.",
+        "text": "Trazer mais animais da espécie de volta à natureza.",
+        "cost": 90,
         "effectiveness": "TEMPORARY",
-        "explanation": "Reintroduzir animais pode ajudar, mas o habitat continua reduzido e sem proteção suficiente.",
+        "explanation": "Trazer animais de volta ajuda, mas eles ainda precisam de um lar protegido.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "observe",
-        "text": "Apenas observar a quantidade de animais existentes sem realizar nenhuma ação de proteção.",
+        "text": "Contar os animais que restam, sem proteger seu lar.",
+        "cost": 80,
         "effectiveness": "NONE",
-        "explanation": "Acompanhar as espécies fornece informação, mas não impede a perda de habitat ou a caça ilegal.",
+        "explanation": "Contar os animais não impede a caça nem a destruição do lugar onde vivem.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -223,33 +233,35 @@ export const situations:SituationContent[]=[
       -25
     ],
     "markerIcon": "🌳",
-    "comment": "Quase não há sombra neste quarteirão. Os aparelhos ligados também consomem energia.",
+    "comment": "Que calor! Há poucas árvores e muitos aparelhos ligados.",
     "characterPose": "character_thinking",
     "unlockAfter": 6,
     "questionId": "climate",
-    "description": "O consumo de energia na cidade aumentou muito. Casas e prédios utilizam ventiladores, ar-condicionado e vários equipamentos durante muitas horas do dia. Ao mesmo tempo, existem poucas áreas verdes, deixando a cidade ainda mais quente.",
-    "question": "O que pode ser feito para ajudar a diminuir os impactos das mudanças climáticas na cidade?",
-    "costBand": "standard",
+    "description": "A cidade gasta muita energia e tem poucas árvores. Sem sombra, as ruas ficam ainda mais quentes.",
+    "question": "Como reduzir o calor e cuidar do clima?",
     "answers": [
       {
         "id": "green_energy",
-        "text": "Investir em reflorestamento, aumentar as áreas verdes e buscar formas de utilizar energia de maneira mais sustentável.",
+        "text": "Plantar mais árvores e usar energia de forma sustentável.",
+        "cost": 95,
         "effectiveness": "COMPLETE",
-        "explanation": "Mais áreas verdes e uso sustentável de energia atuam juntos sobre o calor e os impactos ambientais da cidade.",
+        "explanation": "Mais árvores e energia sustentável ajudam a refrescar a cidade e cuidar do clima.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "reduce_hours",
-        "text": "Reduzir o uso de energia apenas em alguns momentos do dia.",
+        "text": "Economizar energia só em alguns horários do dia.",
+        "cost": 50,
         "effectiveness": "TEMPORARY",
-        "explanation": "Economizar em alguns horários ajuda, mas o quarteirão continua com pouca vegetação e consumo elevado.",
+        "explanation": "Economizar por algumas horas ajuda, mas ainda faltam árvores e mais economia.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "more_ac",
-        "text": "Continuar utilizando cada vez mais ventiladores e ar-condicionado sem mudar nenhuma outra ação.",
+        "text": "Ligar mais ventiladores e aparelhos de ar-condicionado.",
+        "cost": 80,
         "effectiveness": "NONE",
-        "explanation": "Usar cada vez mais aparelhos aumenta a demanda de energia e mantém as causas do problema.",
+        "explanation": "Mais aparelhos gastam mais energia, e as ruas continuam sem sombra.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -265,33 +277,35 @@ export const situations:SituationContent[]=[
       -45.6
     ],
     "markerIcon": "💧",
-    "comment": "A água está recebendo resíduos todos os dias. Limpar uma vez resolve a origem?",
+    "comment": "O rio recebe sujeira todo dia. De onde ela vem?",
     "characterPose": "character_alert",
     "unlockAfter": 6,
     "questionId": "river",
-    "description": "Um rio que passa pela cidade está recebendo lixo e água contaminada. Algumas pessoas que vivem perto dele estão entrando em contato com essa água e começando a ficar doentes. A sujeira continua chegando ao rio todos os dias.",
-    "question": "O que deve ser feito para melhorar a qualidade da água e proteger a saúde da população?",
-    "costBand": "community",
+    "description": "Lixo e água suja chegam ao rio todos os dias. Pessoas que entram em contato com essa água estão ficando doentes.",
+    "question": "Como cuidar do rio e da saúde das pessoas?",
     "answers": [
       {
         "id": "sanitation",
-        "text": "Melhorar o saneamento da cidade e realizar a recuperação das áreas poluídas do rio.",
+        "text": "Tratar o esgoto da cidade e recuperar o rio poluído.",
+        "cost": 80,
         "effectiveness": "COMPLETE",
-        "explanation": "O saneamento reduz a chegada de contaminantes e a recuperação melhora o rio. A água ficou visualmente mais limpa.",
+        "explanation": "Tratar o esgoto reduz a sujeira que chega. A recuperação ajuda a limpar o rio.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "cleanups",
-        "text": "Realizar mutirões de reciclagem e limpeza do rio de tempos em tempos.",
+        "text": "Reunir moradores para limpar o rio de vez em quando.",
+        "cost": 45,
         "effectiveness": "TEMPORARY",
-        "explanation": "O mutirão remove parte dos resíduos, mas a água contaminada continua chegando ao rio.",
+        "explanation": "A limpeza tira parte do lixo, mas a água suja continua chegando ao rio.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "warnings",
-        "text": "Colocar apenas placas avisando que a água do rio está poluída.",
+        "text": "Colocar placas avisando que a água do rio está suja.",
+        "cost": 95,
         "effectiveness": "NONE",
-        "explanation": "Os avisos alertam sobre o risco, mas não interrompem o descarte nem recuperam a água.",
+        "explanation": "As placas avisam do perigo, mas não impedem a sujeira de chegar ao rio.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -307,33 +321,35 @@ export const situations:SituationContent[]=[
       -48
     ],
     "markerIcon": "☁",
-    "comment": "A fumaça desta área chega à vegetação e aos prédios vizinhos. Vamos entender a fonte.",
+    "comment": "A fumaça chega aos vizinhos. Vamos descobrir de onde vem.",
     "characterPose": "character_alert",
     "unlockAfter": 8,
     "questionId": "air",
-    "description": "Algumas regiões da cidade estão com muita fumaça causada por queimadas e outras fontes de poluição. O ar está ficando mais quente e desagradável, podendo prejudicar a saúde das pessoas que vivem próximas desses locais.",
-    "question": "Qual medida ajudaria de forma mais completa a melhorar essa situação?",
-    "costBand": "standard",
+    "description": "Queimadas e outras fontes de poluição soltam muita fumaça. O ar sujo faz mal às pessoas que vivem por perto.",
+    "question": "Como diminuir a fumaça e melhorar o ar?",
     "answers": [
       {
         "id": "prevent_burning",
-        "text": "Fiscalizar as áreas onde acontecem queimadas, impedir novas queimas e incentivar formas menos poluentes de funcionamento da cidade.",
+        "text": "Impedir queimadas e reduzir a poluição na cidade.",
+        "cost": 100,
         "effectiveness": "COMPLETE",
-        "explanation": "A fiscalização e a prevenção atuam na fonte das emissões. O local ganhou controle e menos fumaça.",
+        "explanation": "Controlar as fontes de poluição diminui a fumaça e melhora o ar.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "trees",
-        "text": "Plantar mais árvores e cuidar delas para aumentar as áreas verdes da cidade.",
+        "text": "Plantar árvores e cuidar das áreas verdes da cidade.",
+        "cost": 75,
         "effectiveness": "TEMPORARY",
-        "explanation": "As árvores ajudam o ambiente, mas as queimas e as demais fontes de fumaça continuam ativas.",
+        "explanation": "As árvores ajudam, mas as queimadas e outras fontes de fumaça continuam.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "talks",
-        "text": "Apenas realizar palestras falando sobre os problemas causados pela fumaça.",
+        "text": "Fazer palestras sobre os perigos causados pela fumaça.",
+        "cost": 40,
         "effectiveness": "NONE",
-        "explanation": "As palestras informam, mas sem medidas sobre a fonte da fumaça a qualidade do ar não melhora.",
+        "explanation": "As palestras ensinam, mas não param a fumaça que polui o ar.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -349,33 +365,35 @@ export const situations:SituationContent[]=[
       13.1
     ],
     "markerIcon": "◉",
-    "comment": "Como encontrar a entrada com autonomia quando faltam referências táteis no caminho?",
+    "comment": "Como encontrar o hospital sem enxergar o caminho?",
     "characterPose": "character_thinking",
     "unlockAfter": 8,
     "questionId": "hospital_path",
-    "description": "Uma pessoa com deficiência visual precisa ir ao hospital, mas o caminho até o prédio não possui piso tátil. Ela encontra dificuldades para identificar o caminho correto e se deslocar com segurança pelas calçadas.",
-    "question": "O que deve ser feito para tornar esse caminho mais acessível?",
-    "costBand": "community",
+    "description": "Uma pessoa com deficiência visual precisa chegar ao hospital. Sem piso tátil na calçada, é difícil encontrar o caminho com segurança.",
+    "question": "Como tornar o caminho até o hospital acessível?",
     "answers": [
       {
         "id": "tactile",
-        "text": "Instalar piso tátil ao longo do caminho até o hospital e nos principais pontos de circulação.",
+        "text": "Instalar piso tátil em todo o caminho até o hospital.",
+        "cost": 50,
         "effectiveness": "COMPLETE",
-        "explanation": "O piso tátil oferece uma referência contínua até a entrada, favorecendo a orientação e o deslocamento com autonomia.",
+        "explanation": "O piso tátil ajuda a pessoa a encontrar o hospital com mais autonomia.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "handrails",
-        "text": "Instalar corrimãos apenas em algumas partes do caminho.",
+        "text": "Instalar corrimãos em algumas partes do caminho.",
+        "cost": 35,
         "effectiveness": "TEMPORARY",
-        "explanation": "Os corrimãos ajudam em alguns trechos, mas não formam uma referência contínua até o hospital.",
+        "explanation": "Os corrimãos ajudam em alguns trechos, mas não indicam todo o caminho.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "hospital_sign",
-        "text": "Colocar apenas uma placa indicando onde fica o hospital.",
+        "text": "Colocar uma placa mostrando onde fica o hospital.",
+        "cost": 85,
         "effectiveness": "NONE",
-        "explanation": "A placa pode orientar parte das pessoas, mas não substitui uma rota com referências táteis.",
+        "explanation": "A placa não ajuda quem não consegue vê-la. O caminho ainda precisa de piso tátil.",
         "consequence": "A causa do problema continua."
       }
     ]
@@ -391,33 +409,35 @@ export const situations:SituationContent[]=[
       -1.8
     ],
     "markerIcon": "♿",
-    "comment": "Esta escada é uma barreira para quem usa cadeira de rodas. Vamos observar a entrada.",
+    "comment": "Só há escadas. Como entrar usando cadeira de rodas?",
     "characterPose": "character_thinking",
     "unlockAfter": 0,
     "questionId": "plaza_access",
-    "description": "Uma pessoa que utiliza cadeira de rodas precisa entrar em um prédio público da cidade, mas a entrada possui apenas escadas. Por causa disso, ela depende da ajuda de outras pessoas para conseguir acessar o local.",
-    "question": "Qual mudança deixaria o prédio realmente mais acessível?",
-    "costBand": "standard",
+    "description": "A entrada do prédio só tem escadas. Quem usa cadeira de rodas depende de ajuda para entrar.",
+    "question": "Como tornar a entrada do prédio acessível?",
     "answers": [
       {
         "id": "ramp",
-        "text": "Construir uma rampa de acesso adequada e adaptar a entrada para permitir a passagem de cadeiras de rodas.",
+        "text": "Construir uma rampa fixa e adaptar a entrada do prédio.",
+        "cost": 80,
         "effectiveness": "COMPLETE",
-        "explanation": "A rampa integrada à entrada oferece passagem contínua e permite entrar com mais autonomia.",
+        "explanation": "A rampa permite entrar com cadeira de rodas sem depender de ajuda.",
         "consequence": "Uma melhoria completa neste lugar."
       },
       {
         "id": "support",
-        "text": "Disponibilizar uma rampa móvel somente quando uma pessoa cadeirante precisar entrar.",
+        "text": "Trazer uma rampa móvel quando alguém pedir para entrar.",
+        "cost": 40,
         "effectiveness": "TEMPORARY",
-        "explanation": "A rampa móvel ajuda quando está disponível, mas o acesso ainda depende de solicitar a estrutura.",
+        "explanation": "A rampa móvel ajuda, mas a pessoa ainda precisa pedir que a tragam.",
         "consequence": "A situação melhorou parcialmente."
       },
       {
         "id": "campaign",
-        "text": "Colocar uma placa na entrada informando que o prédio busca ser inclusivo.",
+        "text": "Colocar uma placa dizendo que todos são bem-vindos.",
+        "cost": 65,
         "effectiveness": "NONE",
-        "explanation": "A placa expressa uma intenção, mas a escada continua impedindo a passagem de cadeiras de rodas.",
+        "explanation": "A placa dá boas-vindas, mas as escadas ainda impedem a entrada.",
         "consequence": "A causa do problema continua."
       }
     ]

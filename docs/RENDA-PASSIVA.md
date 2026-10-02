@@ -1,6 +1,7 @@
 # Economia de moedas
 
-Valores em `src/content/balance.ts` (início e soluções), `src/game/dailyMissions.ts`
+Valores em `src/content/balance.ts` (início e recompensa), `src/content/situations.ts`
+(custos das alternativas), `src/game/dailyMissions.ts`
 (missões do dia), `src/game/passiveIncome.ts` (renda passiva) e `retryRefund` em
 `src/game/ProblemManager.ts` (devolução das tentativas). Os limites abaixo são
 conferidos em `tests/economy-balance.test.ts`, `tests/game.test.ts`,
@@ -8,23 +9,18 @@ conferidos em `tests/economy-balance.test.ts`, `tests/game.test.ts`,
 
 ## Início e soluções
 
-Uma cidade nova começa com **100 moedas**. Toda escolha da primeira situação cabe
-nesse valor.
-
-| Faixa de custo | Solução completa | Temporária | Nenhuma melhoria (errar) |
-| --- | --- | --- | --- |
-| Padrão | 80 | 40 | 20 |
-| Comunitária | 70 | 45 | 20 |
+Uma cidade nova começa com **100 moedas**. Todas as alternativas custam de **35 a
+100 moedas** e cabem nesse orçamento inicial. Os valores variam por alternativa,
+sem uma ordem ligada ao resultado: a solução completa pode ser a mais barata,
+intermediária ou a mais cara. Os preços ficam fixos durante a partida.
 
 - A solução completa devolve **100 moedas** de recompensa (uma vez por situação).
-  Cada uma deixa de 20 a 30 moedas a mais para a próxima.
+  Ela custa no máximo o valor da recompensa, preservando recursos para a próxima.
 - Resolver as 10 situações por completo custa 750 e devolve 1.000: a primeira partida
   termina com cerca de 350 moedas, antes das missões e da renda passiva.
-- Errar custa pouco (20) e a temporária custa um pouco mais (40 ou 45), porque ela
-  ainda ajuda por um tempo. Nenhuma das duas resolve de vez nem dá recompensa.
-- Errar a primeira situação deixa 80 moedas: ainda dá para pagar a solução completa
-  de qualquer uma das duas primeiras situações. Errar mais vezes é coberto pela regra
-  abaixo.
+- Erros e soluções temporárias também têm preços variados. Nenhum dos dois resolve
+  de vez nem dá recompensa. Se faltar saldo após uma tentativa, a regra abaixo
+  permite tentar novamente.
 - Saves antigos mantêm o saldo e as decisões que já tinham, mesmo com os preços
   antigos; só cidades novas começam com 100.
 
@@ -37,7 +33,7 @@ completar o preço da solução. A pergunta mostra quanto voltou.
 - A cidade nunca cria moedas com isso: só devolve o que já foi gasto em tentativas, e
   cada moeda volta uma vez só. Abrir e fechar a situação não rende nada.
 - Quem não gastou na loja sempre consegue pagar a solução completa de qualquer
-  situação aberta, porque cada solução completa rende mais do que custa.
+  situação aberta, porque cada solução completa rende pelo menos o que custa.
 - Quem gastou tudo na loja depende das missões do dia e da renda passiva, como antes.
 
 ## Missões do dia

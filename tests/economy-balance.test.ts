@@ -15,16 +15,21 @@ describe('coin balance', () => {
     }
   });
 
-  it('makes a wrong answer the cheapest mistake and a complete solution self-funding', () => {
-    for (const costs of Object.values(balance.costs)) {
-      expect(costs.COMPLETE).toBeGreaterThan(costs.TEMPORARY);
-      expect(costs.TEMPORARY).toBeGreaterThan(costs.NONE);
-      // A wrong first answer still leaves enough for the complete solution.
-      expect(balance.initialCoins - costs.NONE).toBeGreaterThanOrEqual(costs.COMPLETE);
-      expect(balance.completionReward).toBeGreaterThan(costs.COMPLETE);
-      // ...but only by a little: solving is not a coin farm.
-      expect(balance.completionReward - costs.COMPLETE).toBeLessThanOrEqual(30);
+  it('varies prices independently of answer quality and keeps complete solutions self-funding', () => {
+    const completeRanks = new Set<number>();
+    for (const question of Object.values(questions)) {
+      const complete = question.alternatives.find(a => a.effectiveness === 'COMPLETE')!;
+      const costs = question.alternatives.map(a => a.cost);
+      expect(new Set(costs).size).toBe(3);
+      for (const cost of costs) {
+        expect(Number.isSafeInteger(cost)).toBe(true);
+        expect(cost).toBeGreaterThan(0);
+        expect(cost).toBeLessThanOrEqual(balance.initialCoins);
+      }
+      completeRanks.add(costs.filter(cost => cost < complete.cost).length);
+      expect(complete.cost).toBeLessThanOrEqual(balance.completionReward);
     }
+    expect([...completeRanks].sort()).toEqual([0, 1, 2]);
   });
 
   it('always lets a player retry a first situation after every wrong attempt', () => {
