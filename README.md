@@ -10,7 +10,8 @@
 
 [**▶ Jogar agora**](https://emanuelcandido.github.io/Jogo_INOVATECH/) · [Como funciona](#como-funciona) · [Para escolas e eventos](#para-escolas-e-eventos) · [Para quem desenvolve](#para-quem-desenvolve)
 
-<img src="docs/imagens/mapa-cidade.jpg" alt="Mapa 3D da Eco City com os dez problemas marcados" width="860">
+<a href="docs/video/eco-city-trailer.mp4"><img src="docs/imagens/trailer-preview.gif" alt="Prévia animada do trailer do Eco City!" width="760"></a>
+<br><sub><a href="docs/video/eco-city-trailer.mp4"><b>▶ Assistir ao trailer completo (80 s, com som)</b></a></sub>
 
 </div>
 
@@ -21,6 +22,10 @@
 **Eco City!** é um jogo educativo de decisões em que a criança chega a uma cidade cheia de problemas reais (lixo nas ruas, rio poluído, floresta derrubada, trânsito que polui) e, junto com o robô **Impactus**, entende cada situação, escolhe a solução e **vê a cidade mudar na hora**.
 
 Foi pensado para crianças do 4º ao 6º ano do ensino fundamental, mas qualquer pessoa joga: não há combate, tempo correndo nem fim de jogo por erro. Errar faz parte e sempre é possível tentar de novo.
+
+<div align="center">
+<img src="docs/imagens/mapa-cidade.jpg" alt="Mapa 3D da Eco City com os dez problemas marcados" width="860">
+</div>
 
 <div align="center">
 <img src="docs/imagens/cidade-transformada.jpg" alt="A cidade depois de resolvidos os problemas, com mais árvores e rios limpos" width="860">
@@ -37,13 +42,6 @@ Foi pensado para crianças do 4º ao 6º ano do ensino fundamental, mas qualquer
 | Um conteúdo isolado | Dez situações ligadas pela mesma cidade, em cinco temas |
 
 A criança aprende o raciocínio por trás da escolha: **observar, entender a causa e escolher a solução que resolve o problema de verdade**, e não só a que aparenta resolver. Multas e cartazes ajudam, mas não substituem lixeiras e coleta; a explicação do Impactus mostra por quê.
-
-## Assista ao trailer
-
-<div align="center">
-<a href="docs/video/eco-city-trailer.mp4"><img src="docs/imagens/trailer-preview.gif" alt="Prévia animada do trailer do Eco City!" width="640"></a>
-<br><sub>Prévia dos primeiros 40 segundos. <a href="docs/video/eco-city-trailer.mp4"><b>▶ Assistir ao trailer completo (80 s, com som)</b></a></sub>
-</div>
 
 ## Como funciona
 
