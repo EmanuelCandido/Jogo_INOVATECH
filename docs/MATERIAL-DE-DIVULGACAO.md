@@ -23,4 +23,4 @@ Vídeo de apresentação do Eco City!, do Colégio Propósito (Teresina, PI), pe
 
 ## Arquivos
 
-Os vídeos são grandes e não fazem parte do repositório; ficam na pasta de entregas do projeto (`video-stand/`) junto da fonte de montagem (página HTML, capturas, áudio e instruções para renderizar de novo). Para regenerar as capturas do jogo, rode o jogo com a qualidade *Ultra* e use as telas descritas acima.
+Uma versão compactada (1080p, 22 MB) está em [`docs/video/eco-city-trailer.mp4`](video/eco-city-trailer.mp4), reproduzível pelo GitHub. As versões em qualidade total e a longa de 10 minutos são grandes e não fazem parte do repositório; ficam na pasta de entregas do projeto (`video-stand/`) junto da fonte de montagem (página HTML, capturas, áudio e instruções para renderizar de novo). Para regenerar as capturas do jogo, rode o jogo com a qualidade *Ultra* e use as telas descritas acima.

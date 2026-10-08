@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌱 Eco City!
+# <img src="docs/imagens/favicon.svg" alt="" width="56" align="absmiddle"> Eco City!
 
 ### Um jogo 3D para aprender a cuidar da cidade e do meio ambiente
 
@@ -37,6 +37,13 @@ Foi pensado para crianças do 4º ao 6º ano do ensino fundamental, mas qualquer
 | Um conteúdo isolado | Dez situações ligadas pela mesma cidade, em cinco temas |
 
 A criança aprende o raciocínio por trás da escolha: **observar, entender a causa e escolher a solução que resolve o problema de verdade**, e não só a que aparenta resolver. Multas e cartazes ajudam, mas não substituem lixeiras e coleta; a explicação do Impactus mostra por quê.
+
+## Assista ao trailer
+
+<div align="center">
+<a href="docs/video/eco-city-trailer.mp4"><img src="docs/imagens/trailer-capa.jpg" alt="Trailer do Eco City! (clique para assistir)" width="760"></a>
+<br><sub>▶ Clique para assistir ao trailer de 80 segundos. Ele roda em loop em telões de estande.</sub>
+</div>
 
 ## Como funciona
 
