@@ -6,6 +6,8 @@
 
 **Sem instalação. Direto no navegador, no computador ou no celular.**
 
+<sub>Projeto do **Colégio Propósito** · Teresina, Piauí</sub>
+
 [**▶ Jogar agora**](https://emanuelcandido.github.io/Jogo_INOVATECH/) · [Como funciona](#como-funciona) · [Para escolas e eventos](#para-escolas-e-eventos) · [Para quem desenvolve](#para-quem-desenvolve)
 
 <img src="docs/imagens/mapa-cidade.jpg" alt="Mapa 3D da Eco City com os dez problemas marcados" width="860">
@@ -146,6 +148,10 @@ O site é publicado no GitHub Pages a partir da branch `codex/public-game`, gera
 | Som e animações | [SOM-E-ANIMACOES](docs/SOM-E-ANIMACOES.md) |
 | Loja e coleções | [LOJA-COLECOES](docs/LOJA-COLECOES.md) |
 | Plano de 60 fps | [PLANO-60-FPS](docs/PLANO-60-FPS-DESKTOP-E-MOBILE.md) |
+
+## Sobre o projeto
+
+O Eco City! é um projeto do **Colégio Propósito**, de Teresina, no Piauí, feito para ser jogado por crianças do 4º ao 6º ano do ensino fundamental, em sala de aula e em eventos da escola.
 
 ## Licença
 
