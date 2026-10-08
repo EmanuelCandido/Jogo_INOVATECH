@@ -6,7 +6,7 @@
 
 **Sem instalação. Direto no navegador, no computador ou no celular.**
 
-<sub>Projeto do **Colégio Propósito** · Teresina, Piauí</sub>
+<sub>Desenvolvido sob encomenda para uma turma do **Colégio Propósito** · Teresina, Piauí · Inovatech</sub>
 
 [**▶ Jogar agora**](https://emanuelcandido.github.io/Jogo_INOVATECH/) · [Como funciona](#como-funciona) · [Para escolas e eventos](#para-escolas-e-eventos) · [Para quem desenvolve](#para-quem-desenvolve)
 
@@ -41,8 +41,8 @@ A criança aprende o raciocínio por trás da escolha: **observar, entender a ca
 ## Assista ao trailer
 
 <div align="center">
-<a href="docs/video/eco-city-trailer.mp4"><img src="docs/imagens/trailer-capa.jpg" alt="Trailer do Eco City! (clique para assistir)" width="760"></a>
-<br><sub>▶ Clique para assistir ao trailer de 80 segundos. Ele roda em loop em telões de estande.</sub>
+<a href="docs/video/eco-city-trailer.mp4"><img src="docs/imagens/trailer-preview.gif" alt="Prévia animada do trailer do Eco City!" width="640"></a>
+<br><sub>Prévia dos primeiros 40 segundos. <a href="docs/video/eco-city-trailer.mp4"><b>▶ Assistir ao trailer completo (80 s, com som)</b></a></sub>
 </div>
 
 ## Como funciona
@@ -158,7 +158,7 @@ O site é publicado no GitHub Pages a partir da branch `codex/public-game`, gera
 
 ## Sobre o projeto
 
-O Eco City! é um projeto do **Colégio Propósito**, de Teresina, no Piauí, feito para ser jogado por crianças do 4º ao 6º ano do ensino fundamental, em sala de aula e em eventos da escola.
+O Eco City! foi desenvolvido por encomenda de uma turma do **Colégio Propósito**, de Teresina, no Piauí, que contratou o nosso serviço para transformar a ideia do jogo da turma em produto. Ele foi criado para o **evento Inovatech** e pensado para crianças do 4º ao 6º ano do ensino fundamental.
 
 ## Licença
 

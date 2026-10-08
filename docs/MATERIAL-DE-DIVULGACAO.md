@@ -1,6 +1,6 @@
 # Material de divulgação: vídeo do estande
 
-Vídeo de apresentação do Eco City!, do Colégio Propósito (Teresina, PI), pensado para uma TV em estande de evento, voltado a crianças do 4º ao 6º ano.
+Vídeo de apresentação do Eco City!, feito para uma turma do Colégio Propósito (Teresina, PI) no evento Inovatech, pensado para uma TV em estande de evento, voltado a crianças do 4º ao 6º ano.
 
 | | |
 | --- | --- |
